@@ -152,7 +152,7 @@ export class BapiClient {
   private async executeWithStatus<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<{data: SuccessResponseT; statusCode: number}> {
-    const response = await execute(this.env.host, bapiCall);
+    const response = await execute(this.env.host, bapiCall, true);
 
     return {
       data: response.data,

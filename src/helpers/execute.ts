@@ -12,7 +12,7 @@ const getParamsString = (params?: Partial<Record<string, any>>) => {
     {
       arrayFormat: 'bracket',
       sort: false,
-    } as any
+    } as any,
   );
 
   if (query) {
@@ -24,7 +24,7 @@ const getParamsString = (params?: Partial<Record<string, any>>) => {
 
 function prepareUrl(
   endpoint: string,
-  params: Partial<Record<string, string>> | undefined
+  params: Partial<Record<string, string>> | undefined,
 ) {
   return endpoint + getParamsString(params);
 }
@@ -38,7 +38,8 @@ export interface BapiResponse<T> {
 
 export async function execute<SuccessResponseT>(
   apiLocation: string,
-  bapiCall: BapiCall<SuccessResponseT>
+  bapiCall: BapiCall<SuccessResponseT>,
+  acceptAllResponseCodes = false,
 ): Promise<BapiResponse<SuccessResponseT>> {
   const url = apiLocation + prepareUrl(bapiCall.endpoint, bapiCall.params);
 
@@ -53,6 +54,7 @@ export async function execute<SuccessResponseT>(
       bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
         ? bapiCall.data
         : undefined,
+    validateStatus: acceptAllResponseCodes ? () => true : undefined,
   };
 
   const response: AxiosResponse<SuccessResponseT> = await axios(fetchOptions);
