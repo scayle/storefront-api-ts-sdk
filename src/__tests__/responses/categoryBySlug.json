@@ -1,0 +1,62 @@
+{
+  "id": 101144,
+  "path": "/frauen/bekleidung/jeans/slim-fit",
+  "name": "Slim Fit",
+  "slug": "slim-fit",
+  "description": "",
+  "parentId": 20258,
+  "rootlineIds": [20201, 20204, 20258, 101144],
+  "childrenIds": [140103, 140102, 140104],
+  "properties": [
+    {"name": "legacy_category_id", "value": 101144},
+    {"name": "category_context", "value": "slim fit_female"}
+  ],
+  "isHidden": false,
+  "children": [
+    {
+      "id": 140103,
+      "path": "/frauen/bekleidung/jeans/slim-fit/regular-waist",
+      "name": "Regular Waist",
+      "slug": "regular-waist",
+      "description": "",
+      "parentId": 101144,
+      "rootlineIds": [20201, 20204, 20258, 101144, 140103],
+      "childrenIds": [],
+      "properties": [
+        {"name": "legacy_category_id", "value": 140103},
+        {"name": "category_context", "value": "regular waist_female"}
+      ],
+      "isHidden": false
+    },
+    {
+      "id": 140102,
+      "path": "/frauen/bekleidung/jeans/slim-fit/low-waist",
+      "name": "Low Waist",
+      "slug": "low-waist",
+      "description": "",
+      "parentId": 101144,
+      "rootlineIds": [20201, 20204, 20258, 101144, 140102],
+      "childrenIds": [],
+      "properties": [
+        {"name": "legacy_category_id", "value": 140102},
+        {"name": "category_context", "value": "low waist_female"}
+      ],
+      "isHidden": false
+    },
+    {
+      "id": 140104,
+      "path": "/frauen/bekleidung/jeans/slim-fit/high-waist",
+      "name": "High Waist",
+      "slug": "high-waist",
+      "description": "",
+      "parentId": 101144,
+      "rootlineIds": [20201, 20204, 20258, 101144, 140104],
+      "childrenIds": [],
+      "properties": [
+        {"name": "legacy_category_id", "value": 140104},
+        {"name": "category_context", "value": "high waist_female"}
+      ],
+      "isHidden": false
+    }
+  ]
+}
