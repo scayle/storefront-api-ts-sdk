@@ -68,6 +68,16 @@ import {BapiCategory} from 'bapi/types/BapiCategory';
 import {BapiProduct} from 'bapi/types/BapiProduct';
 import {ProductSearchQuery} from 'bapi/types/ProductSearchQuery';
 import {ProductWith} from 'bapi/types/ProductWith';
+import {
+  MastersSearchEndpointParameters,
+  MastersSearchEndpointResponseData,
+  createMastersSearchEndpointRequest,
+} from 'endpoints/masters/query';
+import {
+  createMasterByIdEndpointRequest,
+  MasterByKeyEndpointResponseData,
+  MasterByKeyEndpointParameters,
+} from 'endpoints/masters/getByKey';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse =
@@ -368,6 +378,22 @@ export class BapiClient {
           itemKey,
         }),
       ),
+  };
+
+  public readonly masters = {
+    query: (
+      params: MastersSearchEndpointParameters,
+    ): Promise<MastersSearchEndpointResponseData> => {
+      return this.execute(createMastersSearchEndpointRequest(params));
+    },
+    getByKey: (
+      masterKey: string,
+      params: Omit<MasterByKeyEndpointParameters, 'masterKey'>,
+    ): Promise<MasterByKeyEndpointResponseData> => {
+      return this.execute(
+        createMasterByIdEndpointRequest({...params, masterKey}),
+      );
+    },
   };
 }
 
