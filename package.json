@@ -1,0 +1,26 @@
+{
+  "name": "bapi",
+  "version": "0.8.0",
+  "devDependencies": {
+    "@ef-carbon/tspm": "^2.2.5",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^23.3.3",
+    "@types/query-string": "^6.1.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.14.3",
+    "ts-jest": "^23.10.4",
+    "typescript": "^3.1.1"
+  },
+  "license": "UNLICENSED",
+  "main": "compiled/index.js",
+  "files": [
+    "compiled/**"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "query-string": "^6.2.0"
+  }
+}

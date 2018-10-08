@@ -1,0 +1,97 @@
+import {attributeIncludeParameters, prefixList} from 'bapi/helpers/attributes';
+import {BapiCall} from 'bapi/interfaces/BapiCall';
+import {BapiPrice, BapiProduct, Variant} from 'bapi/types/BapiProduct';
+import {
+  ProductWith,
+  productWithQueryParameterValues,
+} from 'bapi/types/ProductWith';
+
+type BasketItemPrice = BapiPrice;
+
+export interface BasketResponseData {
+  cost: BasketItemPrice;
+  currencyCode: 'EUR';
+  items: BasketItem[];
+
+  packages: BasketPackageInformation[];
+}
+
+export interface BasketItem {
+  key: string;
+  packageId: number;
+  price: {
+    total: BasketItemPrice;
+    unit: BasketItemPrice;
+  };
+  quantity: number;
+  status: string;
+  product: BapiProduct;
+  variant: Variant;
+}
+
+export interface BasketPackageInformation {
+  id: number;
+  carrierKey: string;
+  deliveryDate: {
+    // Date like '2018-02-05'
+    max: string;
+    // Date like '2018-02-02'
+    min: string;
+  };
+}
+
+export interface BasketWith {
+  items?: {
+    product?: ProductWith;
+    variant?: ProductWith['variants'];
+  };
+}
+
+export function basketWithQueryParameter(basketWith: BasketWith): string[] {
+  const withParams = [];
+
+  if (basketWith.items && basketWith.items.product) {
+    withParams.push(
+      ...productWithQueryParameterValues(basketWith.items.product).map(
+        value => `items.product.${value}`
+      )
+    );
+  }
+
+  if (basketWith.items && basketWith.items.variant) {
+    if (basketWith.items.variant === 'all') {
+      // nothing to do, included by default
+    } else {
+      withParams.push(
+        ...prefixList(`items.variant.`)(
+          attributeIncludeParameters(
+            'attributes',
+            basketWith.items.variant.attributes
+          )
+        )
+      );
+    }
+  }
+
+  return withParams;
+}
+
+export interface GetBasketParameters {
+  basketKey: string;
+
+  with?: BasketWith;
+}
+
+export function getBasketEndpointRequest(
+  params: GetBasketParameters
+): BapiCall<BasketResponseData> {
+  return {
+    method: 'GET',
+    endpoint: `baskets/${params.basketKey}`,
+    params: {
+      with: params.with
+        ? basketWithQueryParameter(params.with).join(',')
+        : undefined,
+    },
+  };
+}
