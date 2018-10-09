@@ -72,12 +72,12 @@ import {
   MastersSearchEndpointParameters,
   MastersSearchEndpointResponseData,
   createMastersSearchEndpointRequest,
-} from 'endpoints/masters/query';
+} from 'bapi/endpoints/masters/query';
 import {
   createMasterByIdEndpointRequest,
   MasterByKeyEndpointResponseData,
   MasterByKeyEndpointParameters,
-} from 'endpoints/masters/getByKey';
+} from 'bapi/endpoints/masters/getByKey';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse =
