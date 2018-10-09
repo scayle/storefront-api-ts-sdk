@@ -32,7 +32,9 @@ export class ModeledBapiClient {
 
     const bapiProduct = await client.products.getById(productId, {
       with: {
-        attributes: 'all',
+        attributes: {
+          withKey: Object.keys(this.productMapping.attributes),
+        },
       },
     });
 

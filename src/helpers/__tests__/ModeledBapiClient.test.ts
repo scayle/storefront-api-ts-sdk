@@ -11,7 +11,7 @@ nock('https://api-cloud.example.com/')
 it('Get basket', async () => {
   nock('https://api-cloud.example.com/')
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .get('/v1/products/1?with=attributes')
+    .get('/v1/products/1?with=attributes%3Akey%28name%7Ccolor%7CcolorDetail%29')
     .replyWithFile(200, __dirname + '/responses/product.json', {
       'Content-Type': 'application/json',
     });
