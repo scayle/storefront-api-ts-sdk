@@ -98,8 +98,27 @@ export interface Value {
 }
 
 export interface AdvancedAttributes {
-  [key: string]: any;
+  [key: string]: AdvancedAttribute | undefined;
 }
+
+export type AdvancedAttribute = {
+  key: string;
+  label: string;
+  type: string | null;
+  values: Array<{
+    fieldSet: FieldSet;
+    groupSet: GroupSet;
+  }>;
+};
+
+type FieldSet = Array<
+  Array<{[key: string]: string | number | null | undefined}>
+>;
+
+type GroupSet = Array<{
+  fieldSet: FieldSet;
+  groupSet: GroupSet;
+}>;
 
 export interface BapiPrice {
   withTax: CentAmount;

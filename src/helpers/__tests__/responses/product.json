@@ -309,8 +309,178 @@
     }
   ],
   "advancedAttributes": {
+    "minOldPrice": {
+      "key": "minOldPrice",
+      "label": "minStrikePrice",
+      "type": "",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": ""
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
+    "minPrice": {
+      "key": "minPrice",
+      "label": "minPrice",
+      "type": "",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": "2499"
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
+    "savingInPercent": {
+      "key": "savingInPercent",
+      "label": "savingInPercentProduct",
+      "type": "",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": ""
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
+    "name": {
+      "key": "name",
+      "label": "articleDescription",
+      "type": "",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": "Langarm-Nachthemden"
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
+    "colorName": {
+      "key": "colorName",
+      "label": "detailColor",
+      "type": "",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": "vanille + vanille-bedruckt"
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
+    "colorHexCode": {
+      "key": "colorHexCode",
+      "label": "colorHexCode",
+      "type": "",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": "#f3e5ab"
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
+    "fastener": {
+      "key": "fastener",
+      "label": "ekFastener",
+      "type": "PDP_Tabelle",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": "dummy_ekFastener"
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
+    "materialFunction": {
+      "key": "materialFunction",
+      "label": "ekMaterialFunction",
+      "type": "PDP_Tabelle",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": "dummy_MaterialFunction"
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
+    "stretch": {
+      "key": "stretch",
+      "label": "ekStretch",
+      "type": "PDP_Tabelle",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": "dummy_ ekStretch"
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
     "description": {
       "key": "description",
+      "label": "articleLongDescription",
+      "type": "",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": "<p><span style=\"color: rgb(102, 102, 102);\">Nachthemden mit Kontrastpaspel am Rundhals-Ausschnitt und der Knopfleiste. Doppelpack mit 1 floral bedrucktem Nachthemd und 1 einfarbigem Nachthemd mit plaziertem Druck.</span></p>"
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
+    },
+    "descriptionAY": {
+      "key": "descriptionAY",
       "label": "Produkt Beschreibung",
       "type": "",
       "values": [
@@ -330,10 +500,103 @@
       "key": "bulletPoints",
       "label": "Bulletpoints",
       "type": "",
-      "values": [{"fieldSet": [[{"value": ""}]], "groupSet": []}]
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "value": "Langlebige, besonders abriebfeste Gummiaußensohle"
+              }
+            ],
+            [
+              {
+                "value": "Stoßabsorbierende und dämpfende EVA-Zwischensohle"
+              }
+            ],
+            [
+              {
+                "value": "Herausnehmbare Einlegesohle, die durch orthopädische Einlagen ersetzt werden kann"
+              }
+            ]
+          ],
+          "groupSet": []
+        }
+      ]
     },
-    "productName": {
-      "key": "productName",
+    "materialCompositionTextile": {
+      "key": "materialCompositionTextile",
+      "label": "Materialzusammensetzung",
+      "type": "",
+      "values": [
+        {
+          "fieldSet": [
+            [
+              {
+                "materialGroupName": "Schuh-Obermaterial"
+              }
+            ]
+          ],
+          "groupSet": [
+            {
+              "fieldSet": [
+                [
+                  {
+                    "value": null
+                  },
+                  {
+                    "unit": "%"
+                  },
+                  {
+                    "material": "Leder"
+                  }
+                ]
+              ],
+              "groupSet": []
+            }
+          ]
+        },
+        {
+          "fieldSet": [
+            [
+              {
+                "materialGroupName": "Obermaterial"
+              }
+            ]
+          ],
+          "groupSet": [
+            {
+              "fieldSet": [
+                [
+                  {
+                    "value": 95
+                  },
+                  {
+                    "unit": "%"
+                  },
+                  {
+                    "material": "Baumwolle"
+                  }
+                ],
+                [
+                  {
+                    "value": 5
+                  },
+                  {
+                    "unit": "%"
+                  },
+                  {
+                    "material": "Elasthan"
+                  }
+                ]
+              ],
+              "groupSet": []
+            }
+          ]
+        }
+      ]
+    },
+    "productNameAY": {
+      "key": "productNameAY",
       "label": "Produkt Name",
       "type": "",
       "values": [
