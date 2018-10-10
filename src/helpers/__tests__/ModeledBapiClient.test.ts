@@ -26,6 +26,11 @@ it('Get basket', async () => {
       quantityPerPack: 'value.asNumber',
       isVisible: 'value.asBoolean',
     },
+    variants: {
+      attributes: {
+        shopSize: 'value.label',
+      },
+    },
   });
 
   const model = await client.getProductById(1);
@@ -53,6 +58,20 @@ Object {
     "name": "'Candy Kiss' Eau de Parfum",
     "quantityPerPack": 1,
   },
+  "variants": Array [
+    Object {
+      "attributes": Object {
+        "shopSize": "30 ml",
+      },
+      "id": 33156972,
+    },
+    Object {
+      "attributes": Object {
+        "shopSize": "50 ml",
+      },
+      "id": 33748217,
+    },
+  ],
 }
 `);
 });
