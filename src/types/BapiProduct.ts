@@ -92,9 +92,9 @@ export interface AttributeGroupMulti extends AttributeGroupBasic {
 export type AttributeGroup = AttributeGroupSingle | AttributeGroupMulti;
 
 export interface Value {
-  // TODO: Id is really optional, not set for `name` attribute in product
-  id: number;
   label: string;
+  id?: number;
+  value?: string;
 }
 
 export interface AdvancedAttributes {

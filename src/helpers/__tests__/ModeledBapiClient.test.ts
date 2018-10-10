@@ -1,5 +1,6 @@
 import {ModeledBapiClient} from '../ModeledBapiClient';
 import * as nock from 'nock';
+import {Value} from 'bapi/types/BapiProduct';
 
 nock.disableNetConnect();
 
@@ -11,22 +12,36 @@ nock('https://api-cloud.example.com/')
 it('Get basket', async () => {
   nock('https://api-cloud.example.com/')
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .get('/v1/products/1?with=attributes%3Akey%28name%7Ccolor%7CcolorDetail%29')
+    .get(
+      '/v1/products/1?with=attributes%3Akey%28name%7Ccolor%7CquantityPerPack%7CisVisible%29',
+    )
     .replyWithFile(200, __dirname + '/responses/product.json', {
       'Content-Type': 'application/json',
     });
 
   const client = new ModeledBapiClient({
     attributes: {
-      name: 'string',
-      color: 'single-value',
-      colorDetail: 'string',
+      name: 'value.label',
+      color: 'value',
+      quantityPerPack: 'value.asNumber',
+      isVisible: 'value.asBoolean',
     },
   });
 
   const model = await client.getProductById(1);
 
-  expect(model).toMatchInlineSnapshot(`
+  // type assignment test
+  type ExpectedType = {
+    attributes: {
+      color: Value;
+      isVisible: boolean;
+      name: string;
+      quantityPerPack: number;
+    };
+  };
+  const typed: ExpectedType = model;
+
+  expect(typed).toMatchInlineSnapshot(`
 Object {
   "attributes": Object {
     "color": Object {
@@ -34,8 +49,9 @@ Object {
       "label": "beige",
       "value": "beige",
     },
-    "colorDetail": "nude",
+    "isVisible": true,
     "name": "'Candy Kiss' Eau de Parfum",
+    "quantityPerPack": 1,
   },
 }
 `);

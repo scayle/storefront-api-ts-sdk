@@ -48,6 +48,13 @@
     }
   ],
   "attributes": {
+    "isVisible": {
+      "key": "isVisible",
+      "label": "articleVisibility",
+      "type": "",
+      "multiSelect": false,
+      "values": {"id": 29309, "label": "true", "value": "true"}
+    },
     "shopSizeRun": {
       "key": "shopSizeRun",
       "label": "Gr\u00f6\u00dfe",
