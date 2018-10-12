@@ -57,7 +57,7 @@ interface VariantMapping {
   attributes?: AttributeMapping;
 }
 
-interface ProductMapping {
+export interface ProductMapping {
   attributes?: AttributeMapping;
   advancedAttributes?: AdvancedAttributeMapping;
   variants?: VariantMapping;
@@ -119,64 +119,66 @@ export class ModeledBapiClient<T extends ProductMapping> {
     private readonly mappings: {product: T},
   ) {}
 
-  public async getProductById(productId: number): Promise<MappedProduct<T>> {
-    const client = new BapiClient(this.env);
+  public readonly products = {
+    getById: async (productId: number): Promise<MappedProduct<T>> => {
+      const client = new BapiClient(this.env);
 
-    const productMapping = this.mappings.product;
+      const productMapping = this.mappings.product;
 
-    const bapiProduct = await client.products.getById(productId, {
-      with: {
+      const bapiProduct = await client.products.getById(productId, {
+        with: {
+          advancedAttributes: productMapping.advancedAttributes
+            ? {
+                withKey: Object.keys(productMapping.advancedAttributes),
+              }
+            : undefined,
+          attributes: productMapping.attributes
+            ? {
+                withKey: Object.keys(productMapping.attributes),
+              }
+            : undefined,
+          variants: productMapping.variants
+            ? {
+                attributes: productMapping.variants.attributes
+                  ? {
+                      withKey: Object.keys(productMapping.variants.attributes),
+                    }
+                  : undefined,
+              }
+            : undefined,
+        },
+      });
+
+      const mapped: MappedProduct<T> = {
         advancedAttributes: productMapping.advancedAttributes
-          ? {
-              withKey: Object.keys(productMapping.advancedAttributes),
-            }
-          : undefined,
+          ? mapAdvancedAttributes(
+              productMapping.advancedAttributes,
+              bapiProduct.advancedAttributes!,
+            )
+          : {},
         attributes: productMapping.attributes
-          ? {
-              withKey: Object.keys(productMapping.attributes),
-            }
-          : undefined,
+          ? mapAttributes(productMapping.attributes, bapiProduct.attributes)
+          : {},
         variants: productMapping.variants
-          ? {
-              attributes: productMapping.variants.attributes
-                ? {
-                    withKey: Object.keys(productMapping.variants.attributes),
-                  }
-                : undefined,
-            }
-          : undefined,
-      },
-    });
+          ? (bapiProduct.variants.map(
+              (variant): MappedVariant<Exclude<T['variants'], undefined>> => {
+                return {
+                  id: variant.id,
+                  attributes: productMapping.variants!.attributes
+                    ? mapAttributes(
+                        productMapping.variants!.attributes!,
+                        variant.attributes || {},
+                      )
+                    : {},
+                };
+              },
+            ) as any) // TODO: Fix type signatures
+          : [],
+      };
 
-    const mapped: MappedProduct<T> = {
-      advancedAttributes: productMapping.advancedAttributes
-        ? mapAdvancedAttributes(
-            productMapping.advancedAttributes,
-            bapiProduct.advancedAttributes!,
-          )
-        : {},
-      attributes: productMapping.attributes
-        ? mapAttributes(productMapping.attributes, bapiProduct.attributes)
-        : {},
-      variants: productMapping.variants
-        ? (bapiProduct.variants.map(
-            (variant): MappedVariant<Exclude<T['variants'], undefined>> => {
-              return {
-                id: variant.id,
-                attributes: productMapping.variants!.attributes
-                  ? mapAttributes(
-                      productMapping.variants!.attributes!,
-                      variant.attributes || {},
-                    )
-                  : {},
-              };
-            },
-          ) as any) // TODO: Fix type signatures
-        : [],
-    };
-
-    return mapped;
-  }
+      return mapped;
+    },
+  };
 }
 
 function isSingleValue(

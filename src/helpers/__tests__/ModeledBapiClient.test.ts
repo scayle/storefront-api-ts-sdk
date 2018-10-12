@@ -1,9 +1,10 @@
-import {ModeledBapiClient, MaterialComposition} from '../ModeledBapiClient';
+import {MaterialComposition} from '../ModeledBapiClient';
 import {Value} from 'bapi/types/BapiProduct';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
 } from 'bapi/test-helpers/nock';
+import {BapiClient} from '../BapiClient';
 
 disableNetAndAllowBapiCors();
 
@@ -17,7 +18,7 @@ it('Get basket', async () => {
       'Content-Type': 'application/json',
     });
 
-  const client = new ModeledBapiClient(
+  const client = BapiClient.withModels(
     {
       host: 'https://api-cloud.example.com/v1/',
       shopId: 139,
@@ -45,7 +46,7 @@ it('Get basket', async () => {
     },
   );
 
-  const model = await client.getProductById(1);
+  const model = await client.products.getById(1);
 
   // type assignment test
   type ExpectedType = {

@@ -81,6 +81,7 @@ import {
   MasterByKeyEndpointResponseData,
   MasterByKeyEndpointParameters,
 } from 'bapi/endpoints/masters/getByKey';
+import {ModeledBapiClient, ProductMapping} from './ModeledBapiClient';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse =
@@ -154,6 +155,13 @@ function addToBasketFailureKindFromStatusCode(
  */
 export class BapiClient {
   public constructor(private readonly env: {host: string; shopId: number}) {}
+
+  public static withModels<T extends ProductMapping>(
+    env: {host: string; shopId: number},
+    mappings: {product: T},
+  ) {
+    return new ModeledBapiClient(env, mappings);
+  }
 
   private async execute<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
