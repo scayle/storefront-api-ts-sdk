@@ -1,12 +1,22 @@
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {BapiCategory} from 'bapi/types/BapiCategory';
+import {
+  categoryWithQueryParameters,
+  CategoryWith,
+} from 'bapi/types/CategoryWith';
 
-export function createCategoriesEndpointRequest(): BapiCall<BapiCategory[]> {
+export interface RootCategoriesEndpointParameters {
+  with?: CategoryWith;
+}
+
+export function createCategoriesEndpointRequest(
+  params: RootCategoriesEndpointParameters,
+): BapiCall<BapiCategory[]> {
   return {
     method: 'GET',
     endpoint: `categories`,
     params: {
-      depth: 1,
+      ...categoryWithQueryParameters(params.with),
     },
   };
 }

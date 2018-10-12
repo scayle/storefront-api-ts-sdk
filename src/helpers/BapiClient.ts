@@ -15,7 +15,10 @@ import {
   UpdateBasketItemQuantity,
   updateBasketItemQuantityRequest,
 } from 'bapi/endpoints/basket/updateItem';
-import {createCategoriesEndpointRequest} from 'bapi/endpoints/categories';
+import {
+  createCategoriesEndpointRequest,
+  RootCategoriesEndpointParameters,
+} from 'bapi/endpoints/categories';
 import {
   CategoriesByIdsEndpointParameters,
   createCategoriesByIdsEndpointRequest,
@@ -277,7 +280,7 @@ export class BapiClient {
   public readonly categories = {
     getById: (
       categoryId: number,
-      parameters: Omit<CategoryByIdEndpointParameters, 'categoryId'>,
+      parameters: Omit<CategoryByIdEndpointParameters, 'categoryId'> = {},
     ): Promise<BapiCategory> => {
       return this.execute(
         createCategoryByIdEndpointRequest({
@@ -288,7 +291,7 @@ export class BapiClient {
     },
     getByIds: (
       categoryIds: number[],
-      parameters: Omit<CategoriesByIdsEndpointParameters, 'categoryIds'>,
+      parameters: Omit<CategoriesByIdsEndpointParameters, 'categoryIds'> = {},
     ): Promise<BapiCategory[]> => {
       return this.execute(
         createCategoriesByIdsEndpointRequest({
@@ -299,7 +302,7 @@ export class BapiClient {
     },
     getByPath: (
       path: string[],
-      parameters: Omit<CategoryBySlugEndpointParameters, 'slugPath'>,
+      parameters: Omit<CategoryBySlugEndpointParameters, 'slugPath'> = {},
     ): Promise<BapiCategory> => {
       return this.execute(
         createCategoryBySlugEndpointRequest({
@@ -308,8 +311,10 @@ export class BapiClient {
         }),
       );
     },
-    getRoots: (): Promise<BapiCategory[]> => {
-      return this.execute(createCategoriesEndpointRequest());
+    getRoots: (
+      parameters: RootCategoriesEndpointParameters = {},
+    ): Promise<BapiCategory[]> => {
+      return this.execute(createCategoriesEndpointRequest(parameters));
     },
   };
 
@@ -321,12 +326,12 @@ export class BapiClient {
   public readonly products = {
     getById: (
       productId: number,
-      params: Omit<ProductByIdEndpointParameters, 'productId'>,
+      params: Omit<ProductByIdEndpointParameters, 'productId'> = {},
     ): Promise<BapiProduct> =>
       this.execute(createProductByIdEndpointRequest({...params, productId})),
     getByIds: (
       productIds: number[],
-      params: Omit<ProductsByIdsEndpointParameters, 'productIds'>,
+      params: Omit<ProductsByIdsEndpointParameters, 'productIds'> = {},
     ): Promise<ProductsByIdsEndpointResponseData> =>
       this.execute(createProductsByIdsEndpointRequest({...params, productIds})),
     query: (
@@ -387,13 +392,13 @@ export class BapiClient {
 
   public readonly masters = {
     query: (
-      params: MastersSearchEndpointParameters,
+      params: MastersSearchEndpointParameters = {},
     ): Promise<MastersSearchEndpointResponseData> => {
       return this.execute(createMastersSearchEndpointRequest(params));
     },
     getByKey: (
       masterKey: string,
-      params: Omit<MasterByKeyEndpointParameters, 'masterKey'>,
+      params: Omit<MasterByKeyEndpointParameters, 'masterKey'> = {},
     ): Promise<MasterByKeyEndpointResponseData> => {
       return this.execute(
         createMasterByIdEndpointRequest({...params, masterKey}),
