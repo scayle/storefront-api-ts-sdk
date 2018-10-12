@@ -1,16 +1,14 @@
 import {ModeledBapiClient, MaterialComposition} from '../ModeledBapiClient';
-import * as nock from 'nock';
 import {Value} from 'bapi/types/BapiProduct';
+import {
+  nockWithBapiScope,
+  disableNetAndAllowBapiCors,
+} from 'bapi/test-helpers/nock';
 
-nock.disableNetConnect();
-
-nock('https://api-cloud.example.com/')
-  .options(/.*/)
-  .reply(200, '', {'access-control-allow-origin': '*'})
-  .persist();
+disableNetAndAllowBapiCors();
 
 it('Get basket', async () => {
-  nock('https://api-cloud.example.com/')
+  nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(
       '/v1/products/1?with=attributes%3Akey%28name%7Ccolor%7CquantityPerPack%7CisVisible%29%2CadvancedAttributes%3Akey%28minPrice%7Cname%7CbulletPoints%7CmaterialCompositionTextile%29%2Cvariants%2Cvariants.attributes%3Akey%28shopSize%29',
@@ -19,25 +17,33 @@ it('Get basket', async () => {
       'Content-Type': 'application/json',
     });
 
-  const client = new ModeledBapiClient({
-    attributes: {
-      name: 'value.label',
-      color: 'value',
-      quantityPerPack: 'value.asNumber',
-      isVisible: 'value.asBoolean',
+  const client = new ModeledBapiClient(
+    {
+      host: 'https://api-cloud.example.com/v1/',
+      shopId: 139,
     },
-    advancedAttributes: {
-      minPrice: 'asNumber',
-      name: 'stringValue',
-      bulletPoints: 'stringListValue',
-      materialCompositionTextile: 'asMaterialComposition',
-    },
-    variants: {
-      attributes: {
-        shopSize: 'value.label',
+    {
+      product: {
+        attributes: {
+          name: 'value.label',
+          color: 'value',
+          quantityPerPack: 'value.asNumber',
+          isVisible: 'value.asBoolean',
+        },
+        advancedAttributes: {
+          minPrice: 'asNumber',
+          name: 'stringValue',
+          bulletPoints: 'stringListValue',
+          materialCompositionTextile: 'asMaterialComposition',
+        },
+        variants: {
+          attributes: {
+            shopSize: 'value.label',
+          },
+        },
       },
     },
-  });
+  );
 
   const model = await client.getProductById(1);
 

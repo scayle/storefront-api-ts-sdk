@@ -150,19 +150,24 @@ function addToBasketFailureKindFromStatusCode(
  * Constructor returns a preconfigured client which has the `host` and `appId` set for all requests
  */
 export class BapiClient {
-  public constructor(private readonly env: {host: string; appId: number}) {}
+  public constructor(private readonly env: {host: string; shopId: number}) {}
 
   private async execute<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<SuccessResponseT> {
-    const response = await execute(this.env.host, bapiCall);
+    const response = await execute(this.env.host, this.env.shopId, bapiCall);
     return response.data;
   }
 
   private async executeWithStatus<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<{data: SuccessResponseT; statusCode: number}> {
-    const response = await execute(this.env.host, bapiCall, true);
+    const response = await execute(
+      this.env.host,
+      this.env.shopId,
+      bapiCall,
+      true,
+    );
 
     return {
       data: response.data,
@@ -402,7 +407,7 @@ export class BapiClient {
  * `BapiClient` usage example
  */
 export async function example() {
-  const bapi = new BapiClient({host: 'https://api.example.com/', appId: 139});
+  const bapi = new BapiClient({host: 'https://api.example.com/', shopId: 139});
 
   {
     // Querying the first page of all products

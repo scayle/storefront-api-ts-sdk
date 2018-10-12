@@ -86,7 +86,7 @@ export interface AttributeGroupSingle extends AttributeGroupBasic {
 
 export interface AttributeGroupMulti extends AttributeGroupBasic {
   multiSelect: true;
-  values: Value[]; // most have 1 value, but for example `extras` has many
+  values: Value[]; // assumes to have at least 1 value, but for example `extras` has many
 }
 
 export type AttributeGroup = AttributeGroupSingle | AttributeGroupMulti;

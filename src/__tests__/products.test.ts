@@ -1,14 +1,14 @@
 import {createProductsSearchEndpointRequest} from 'bapi/endpoints/products';
 import {execute} from 'bapi/helpers/execute';
-import * as nock from 'nock';
+import {
+  nockWithBapiScope,
+  disableNetAndAllowBapiCors,
+} from 'bapi/test-helpers/nock';
 
-nock('https://api-cloud.example.com/')
-  .options(/.*/)
-  .reply(200, '', {'access-control-allow-origin': '*'})
-  .persist();
+disableNetAndAllowBapiCors();
 
 test('Fetch category products', async () => {
-  nock('https://api-cloud.example.com/')
+  nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(
       `/v1/products?filters%5Bcategory%5D=20201&sortScore=category_scores&sortChannel=etkp&perPage=2`,
@@ -20,6 +20,7 @@ test('Fetch category products', async () => {
 
   const result = await execute(
     'https://api-cloud.example.com/v1/',
+    139,
     createProductsSearchEndpointRequest({
       where: {
         categoryId: 20201,

@@ -89,7 +89,7 @@ type AttributesMapping<T extends AttributeMapping> = {
                                         : never)))))))))
 };
 
-type MappedProduct<T extends ProductMapping> = {
+export type MappedProduct<T extends ProductMapping> = {
   advancedAttributes: T['advancedAttributes'] extends Exclude<
     T['advancedAttributes'],
     undefined
@@ -114,33 +114,33 @@ type MappedVariant<T extends VariantMapping> = {
 type MappedVariants<T extends VariantMapping> = MappedVariant<T>[];
 
 export class ModeledBapiClient<T extends ProductMapping> {
-  constructor(private readonly productMapping: T) {}
+  constructor(
+    private readonly env: {host: string; shopId: number},
+    private readonly mappings: {product: T},
+  ) {}
 
   public async getProductById(productId: number): Promise<MappedProduct<T>> {
-    const client = new BapiClient({
-      host: 'https://api-cloud.example.com/v1/',
-      appId: 1,
-    });
+    const client = new BapiClient(this.env);
+
+    const productMapping = this.mappings.product;
 
     const bapiProduct = await client.products.getById(productId, {
       with: {
-        advancedAttributes: this.productMapping.advancedAttributes
+        advancedAttributes: productMapping.advancedAttributes
           ? {
-              withKey: Object.keys(this.productMapping.advancedAttributes),
+              withKey: Object.keys(productMapping.advancedAttributes),
             }
           : undefined,
-        attributes: this.productMapping.attributes
+        attributes: productMapping.attributes
           ? {
-              withKey: Object.keys(this.productMapping.attributes),
+              withKey: Object.keys(productMapping.attributes),
             }
           : undefined,
-        variants: this.productMapping.variants
+        variants: productMapping.variants
           ? {
-              attributes: this.productMapping.variants.attributes
+              attributes: productMapping.variants.attributes
                 ? {
-                    withKey: Object.keys(
-                      this.productMapping.variants.attributes,
-                    ),
+                    withKey: Object.keys(productMapping.variants.attributes),
                   }
                 : undefined,
             }
@@ -149,23 +149,23 @@ export class ModeledBapiClient<T extends ProductMapping> {
     });
 
     const mapped: MappedProduct<T> = {
-      advancedAttributes: this.productMapping.advancedAttributes
+      advancedAttributes: productMapping.advancedAttributes
         ? mapAdvancedAttributes(
-            this.productMapping.advancedAttributes,
+            productMapping.advancedAttributes,
             bapiProduct.advancedAttributes!,
           )
         : {},
-      attributes: this.productMapping.attributes
-        ? mapAttributes(this.productMapping.attributes, bapiProduct.attributes)
+      attributes: productMapping.attributes
+        ? mapAttributes(productMapping.attributes, bapiProduct.attributes)
         : {},
-      variants: this.productMapping.variants
+      variants: productMapping.variants
         ? (bapiProduct.variants.map(
             (variant): MappedVariant<Exclude<T['variants'], undefined>> => {
               return {
                 id: variant.id,
-                attributes: this.productMapping.variants!.attributes
+                attributes: productMapping.variants!.attributes
                   ? mapAttributes(
-                      this.productMapping.variants!.attributes!,
+                      productMapping.variants!.attributes!,
                       variant.attributes || {},
                     )
                   : {},

@@ -38,6 +38,7 @@ export interface BapiResponse<T> {
 
 export async function execute<SuccessResponseT>(
   apiLocation: string,
+  shopId: number,
   bapiCall: BapiCall<SuccessResponseT>,
   acceptAllResponseCodes = false,
 ): Promise<BapiResponse<SuccessResponseT>> {
@@ -47,6 +48,7 @@ export async function execute<SuccessResponseT>(
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      'X-Shop-Id': shopId,
     },
     url,
     method: bapiCall.method,
