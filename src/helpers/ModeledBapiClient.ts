@@ -9,7 +9,10 @@ import {
 } from 'bapi/types/BapiProduct';
 import {ProductWith} from 'bapi/../dist/types/ProductWith';
 import {ProductsSearchEndpointParameters} from 'bapi/endpoints/products';
-import {Pagination} from 'bapi/endpoints/productsByIds';
+import {
+  Pagination,
+  ProductsByIdsEndpointParameters,
+} from 'bapi/endpoints/productsByIds';
 
 type AttributeMapping = {
   [key: string]:
@@ -195,6 +198,17 @@ export class ModeledBapiClient<T extends ProductMapping> {
       });
 
       return this.mapProduct(bapiProduct);
+    },
+    getByIds: async (
+      productIds: number[],
+      params: Omit<ProductsByIdsEndpointParameters, 'with' | 'productIds'> = {},
+    ): Promise<MappedProduct<T>[]> => {
+      const products = await this.bapi.products.getByIds(productIds, {
+        ...params,
+        with: this.productWith,
+      });
+
+      return products.map(this.mapProduct);
     },
     query: async (
       params: Omit<ProductsSearchEndpointParameters, 'with'>,

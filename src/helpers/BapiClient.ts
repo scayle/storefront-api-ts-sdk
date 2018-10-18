@@ -337,11 +337,15 @@ export class BapiClient {
       params: Omit<ProductByIdEndpointParameters, 'productId'> = {},
     ): Promise<BapiProduct> =>
       this.execute(createProductByIdEndpointRequest({...params, productId})),
-    getByIds: (
+    getByIds: async (
       productIds: number[],
       params: Omit<ProductsByIdsEndpointParameters, 'productIds'> = {},
-    ): Promise<ProductsByIdsEndpointResponseData> =>
-      this.execute(createProductsByIdsEndpointRequest({...params, productIds})),
+    ): Promise<BapiProduct[]> => {
+      const response = await this.execute(
+        createProductsByIdsEndpointRequest({...params, productIds}),
+      );
+      return response.entities;
+    },
     query: (
       params: ProductsSearchEndpointParameters = {},
     ): Promise<ProductsByIdsEndpointResponseData> =>
