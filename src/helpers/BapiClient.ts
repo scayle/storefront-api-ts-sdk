@@ -68,7 +68,7 @@ import {execute} from 'bapi/helpers/execute';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
 import {BapiCategory} from 'bapi/types/BapiCategory';
-import {BapiProduct} from 'bapi/types/BapiProduct';
+import {BapiProduct, Variant} from 'bapi/types/BapiProduct';
 import {ProductSearchQuery} from 'bapi/types/ProductSearchQuery';
 import {ProductWith} from 'bapi/types/ProductWith';
 import {
@@ -84,25 +84,25 @@ import {
 import {ModeledBapiClient, ProductMapping} from './ModeledBapiClient';
 
 // TODO: Also account for unexpected cases, where no basket is returned
-type CreateBasketItemResponse =
+type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
   | {
       type: 'success'; // operationStatus: succeded / partially / not-at-all
-      basket: BasketResponseData;
+      basket: BasketResponseData<P, V>;
     }
   | {
       type: 'failure';
       kind: AddToBasketFailureKind;
-      basket: BasketResponseData;
+      basket: BasketResponseData<P, V>;
     };
 
-type BasketResponse =
+export type BasketResponse<P = BapiProduct, V = Variant> =
   | {
       type: 'success';
-      basket: BasketResponseData;
+      basket: BasketResponseData<P, V>;
     }
   | {
       type: 'failure';
-      basket: BasketResponseData;
+      basket: BasketResponseData<P, V>;
     };
 
 type AddWishlistItemResponse =

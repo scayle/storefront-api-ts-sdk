@@ -1,4 +1,4 @@
-import {BapiClient} from './BapiClient';
+import {BapiClient, BasketResponse} from './BapiClient';
 import {
   AttributeGroupMulti,
   AttributeGroupSingle,
@@ -187,9 +187,55 @@ export class ModeledBapiClient<T extends ProductMapping> {
 
   constructor(env: {host: string; shopId: number}, mappings: {product: T}) {
     this.bapi = new BapiClient(env);
+    this.categories = this.bapi.categories;
+    this.filters = this.bapi.filters;
     this.mapProduct = p => productWithMappingApplied(p, mappings.product);
     this.productWith = productWithFromMapping(mappings.product);
   }
+
+  public readonly basket = {
+    get: async (
+      basketKey: string,
+      // params: Omit<GetBasketParameters, 'basketKey'> = {},
+    ): Promise<BasketResponse<MappedProduct<T>>> => {
+      const {basket, type} = await this.bapi.basket.get(basketKey, {
+        with: {
+          items: {
+            product: this.productWith,
+            variant:
+              this.productWith.variants !== 'all'
+                ? this.productWith.variants
+                : undefined,
+          },
+        },
+      });
+
+      const itemsWithModel = basket.items.map(item => {
+        return {
+          ...item,
+          product: this.mapProduct(item.product),
+        };
+      });
+
+      if (type === 'success') {
+        return {
+          type,
+          basket: {
+            ...basket,
+            items: itemsWithModel,
+          },
+        };
+      } else {
+        return {
+          type,
+          basket: {
+            ...basket,
+            items: itemsWithModel,
+          },
+        };
+      }
+    },
+  };
 
   public readonly products = {
     getById: async (productId: number): Promise<MappedProduct<T>> => {
@@ -227,6 +273,9 @@ export class ModeledBapiClient<T extends ProductMapping> {
       };
     },
   };
+
+  public readonly categories: BapiClient['categories'];
+  public readonly filters: BapiClient['filters'];
 }
 
 function isSingleValue(
