@@ -5,7 +5,11 @@ import {
   Attributes,
   AdvancedAttributes,
   AdvancedAttribute,
+  BapiProduct,
 } from 'bapi/types/BapiProduct';
+import {ProductWith} from 'bapi/../dist/types/ProductWith';
+import {ProductsSearchEndpointParameters} from 'bapi/endpoints/products';
+import {Pagination} from 'bapi/endpoints/productsByIds';
 
 type AttributeMapping = {
   [key: string]:
@@ -113,70 +117,100 @@ type MappedVariant<T extends VariantMapping> = {
 
 type MappedVariants<T extends VariantMapping> = MappedVariant<T>[];
 
+function productWithFromMapping<T extends ProductMapping>(
+  productMapping: T,
+): ProductWith {
+  return {
+    advancedAttributes: productMapping.advancedAttributes
+      ? {
+          withKey: Object.keys(productMapping.advancedAttributes),
+        }
+      : undefined,
+    attributes: productMapping.attributes
+      ? {
+          withKey: Object.keys(productMapping.attributes),
+        }
+      : undefined,
+    variants: productMapping.variants
+      ? {
+          attributes: productMapping.variants.attributes
+            ? {
+                withKey: Object.keys(productMapping.variants.attributes),
+              }
+            : undefined,
+        }
+      : undefined,
+  };
+}
+
+function productWithMappingApplied<T extends ProductMapping>(
+  bapiProduct: BapiProduct,
+  productMapping: T,
+): MappedProduct<T> {
+  const mapped: MappedProduct<T> = {
+    advancedAttributes: productMapping.advancedAttributes
+      ? mapAdvancedAttributes(
+          productMapping.advancedAttributes,
+          bapiProduct.advancedAttributes!,
+        )
+      : {},
+    attributes: productMapping.attributes
+      ? mapAttributes(productMapping.attributes, bapiProduct.attributes)
+      : {},
+    variants: productMapping.variants
+      ? (bapiProduct.variants.map(
+          (variant): MappedVariant<Exclude<T['variants'], undefined>> => {
+            return {
+              id: variant.id,
+              attributes: productMapping.variants!.attributes
+                ? mapAttributes(
+                    productMapping.variants!.attributes!,
+                    variant.attributes || {},
+                  )
+                : {},
+            };
+          },
+        ) as any) // TODO: Fix type signatures
+      : [],
+  };
+
+  return mapped;
+}
+
 export class ModeledBapiClient<T extends ProductMapping> {
-  constructor(
-    private readonly env: {host: string; shopId: number},
-    private readonly mappings: {product: T},
-  ) {}
+  private readonly bapi: BapiClient;
+  private readonly mapProduct: (bapiProduct: BapiProduct) => MappedProduct<T>;
+  private readonly productWith: ProductWith;
+
+  constructor(env: {host: string; shopId: number}, mappings: {product: T}) {
+    this.bapi = new BapiClient(env);
+    this.mapProduct = p => productWithMappingApplied(p, mappings.product);
+    this.productWith = productWithFromMapping(mappings.product);
+  }
 
   public readonly products = {
     getById: async (productId: number): Promise<MappedProduct<T>> => {
-      const client = new BapiClient(this.env);
-
-      const productMapping = this.mappings.product;
-
-      const bapiProduct = await client.products.getById(productId, {
-        with: {
-          advancedAttributes: productMapping.advancedAttributes
-            ? {
-                withKey: Object.keys(productMapping.advancedAttributes),
-              }
-            : undefined,
-          attributes: productMapping.attributes
-            ? {
-                withKey: Object.keys(productMapping.attributes),
-              }
-            : undefined,
-          variants: productMapping.variants
-            ? {
-                attributes: productMapping.variants.attributes
-                  ? {
-                      withKey: Object.keys(productMapping.variants.attributes),
-                    }
-                  : undefined,
-              }
-            : undefined,
-        },
+      const bapiProduct = await this.bapi.products.getById(productId, {
+        with: this.productWith,
       });
 
-      const mapped: MappedProduct<T> = {
-        advancedAttributes: productMapping.advancedAttributes
-          ? mapAdvancedAttributes(
-              productMapping.advancedAttributes,
-              bapiProduct.advancedAttributes!,
-            )
-          : {},
-        attributes: productMapping.attributes
-          ? mapAttributes(productMapping.attributes, bapiProduct.attributes)
-          : {},
-        variants: productMapping.variants
-          ? (bapiProduct.variants.map(
-              (variant): MappedVariant<Exclude<T['variants'], undefined>> => {
-                return {
-                  id: variant.id,
-                  attributes: productMapping.variants!.attributes
-                    ? mapAttributes(
-                        productMapping.variants!.attributes!,
-                        variant.attributes || {},
-                      )
-                    : {},
-                };
-              },
-            ) as any) // TODO: Fix type signatures
-          : [],
-      };
+      return this.mapProduct(bapiProduct);
+    },
+    query: async (
+      params: Omit<ProductsSearchEndpointParameters, 'with'>,
+    ): Promise<{
+      products: MappedProduct<T>[];
+      pagination: Pagination;
+    }> => {
+      const {entities, pagination} = await this.bapi.products.query({
+        ...params,
+        with: this.productWith,
+      });
 
-      return mapped;
+      return {
+        products: entities.map(this.mapProduct),
+        pagination,
+      };
     },
   };
 }
