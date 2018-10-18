@@ -56,7 +56,9 @@ export async function execute<SuccessResponseT>(
       bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
         ? bapiCall.data
         : undefined,
-    validateStatus: acceptAllResponseCodes ? () => true : undefined,
+    validateStatus: acceptAllResponseCodes
+      ? () => true
+      : statusCode => statusCode >= 200 && statusCode <= 299,
   };
 
   const response: AxiosResponse<SuccessResponseT> = await axios(fetchOptions);
