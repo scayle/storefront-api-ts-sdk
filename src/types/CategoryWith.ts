@@ -4,6 +4,7 @@ export interface CategoryWith {
     // How many levels of children to load
     // For immediate children use 1
     depth: number;
+    includeHidden?: boolean;
   };
 }
 

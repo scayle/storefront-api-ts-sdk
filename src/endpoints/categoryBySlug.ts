@@ -8,7 +8,6 @@ import {
 export interface CategoryBySlugEndpointParameters {
   slugPath: string[];
   with?: CategoryWith;
-  showHidden?: boolean;
 }
 
 export type CategoryBySlugEndpointResponseData = BapiCategory;
@@ -21,7 +20,12 @@ export function createCategoryBySlugEndpointRequest(
     endpoint: `categories/${params.slugPath.join(`/`)}`,
     params: {
       ...categoryWithQueryParameters(params.with),
-      showHidden: params.showHidden === true ? 'true' : undefined,
+      showHidden:
+        params.with &&
+        params.with.children &&
+        params.with.children.includeHidden
+          ? 'true'
+          : undefined,
     },
   };
 }
