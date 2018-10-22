@@ -8,18 +8,20 @@ import {
 export interface CategoryByIdEndpointParameters {
   categoryId: number;
   with?: CategoryWith;
+  showHidden?: boolean;
 }
 
 export type CategoryByIdEndpointResponseData = BapiCategory;
 
 export function createCategoryByIdEndpointRequest(
-  params: CategoryByIdEndpointParameters
+  params: CategoryByIdEndpointParameters,
 ): BapiCall<CategoryByIdEndpointResponseData> {
   return {
     method: 'GET',
     endpoint: `categories/${params.categoryId}`,
     params: {
       ...categoryWithQueryParameters(params.with),
+      showHidden: params.showHidden === true ? 'true' : undefined,
     },
   };
 }

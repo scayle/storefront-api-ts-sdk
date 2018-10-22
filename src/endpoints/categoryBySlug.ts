@@ -8,18 +8,20 @@ import {
 export interface CategoryBySlugEndpointParameters {
   slugPath: string[];
   with?: CategoryWith;
+  showHidden?: boolean;
 }
 
 export type CategoryBySlugEndpointResponseData = BapiCategory;
 
 export function createCategoryBySlugEndpointRequest(
-  params: CategoryBySlugEndpointParameters
+  params: CategoryBySlugEndpointParameters,
 ): BapiCall<CategoryBySlugEndpointResponseData> {
   return {
     method: 'GET',
     endpoint: `categories/${params.slugPath.join(`/`)}`,
     params: {
       ...categoryWithQueryParameters(params.with),
+      showHidden: params.showHidden === true ? 'true' : undefined,
     },
   };
 }
