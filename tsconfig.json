@@ -28,6 +28,6 @@
     "outDir": "./compiled",
     "rootDir": "./src"
   },
-  "include": ["**/*.ts", "**/*.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
   "exclude": ["compiled/**"]
 }

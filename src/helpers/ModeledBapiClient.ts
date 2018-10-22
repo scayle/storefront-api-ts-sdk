@@ -7,12 +7,12 @@ import {
   AdvancedAttribute,
   BapiProduct,
 } from 'bapi/types/BapiProduct';
-import {ProductWith} from 'bapi/../dist/types/ProductWith';
 import {ProductsSearchEndpointParameters} from 'bapi/endpoints/products';
 import {
   Pagination,
   ProductsByIdsEndpointParameters,
 } from 'bapi/endpoints/productsByIds';
+import {ProductWith} from 'bapi/types/ProductWith';
 
 type AttributeMapping = {
   [key: string]:
