@@ -7,7 +7,7 @@ import {
 
 export const getFirstAttributeValue = (
   attributes: Attributes | undefined,
-  attributeName: string
+  attributeName: string,
 ) => {
   const attribute = attributes && attributes[attributeName];
   if (!attribute || !attribute.values) {
@@ -21,7 +21,7 @@ export const getFirstAttributeValue = (
 };
 
 export const findBrand = (
-  entity: BapiProduct
+  entity: BapiProduct,
 ): {id: number; name: string} | undefined => {
   const brand = getFirstAttributeValue(entity.attributes, 'brand');
   if (!brand) {
@@ -29,14 +29,14 @@ export const findBrand = (
   }
 
   return {
-    id: brand.id,
+    id: brand.id || -1, // TODO: Err?
     name: brand.label,
   };
 };
 
 export function attributeLabel(
   attributeName: string,
-  entity: BapiProduct
+  entity: BapiProduct,
 ): string | undefined {
   const value = getFirstAttributeValue(entity.attributes, attributeName);
 
@@ -45,7 +45,7 @@ export function attributeLabel(
 
 export function variantAttributeLabel(
   attributeName: string,
-  variant: Variant
+  variant: Variant,
 ): string | undefined {
   const value = getFirstAttributeValue(variant.attributes, attributeName);
 
@@ -54,7 +54,7 @@ export function variantAttributeLabel(
 
 export function variantAttributeId(
   attributeName: string,
-  variant: Variant
+  variant: Variant,
 ): number | undefined {
   const value = getFirstAttributeValue(variant.attributes, attributeName);
 
@@ -63,7 +63,7 @@ export function variantAttributeId(
 
 export function attributeNames(
   attributeNames: string[],
-  entity: BapiProduct
+  entity: BapiProduct,
 ): Array<{value: string; label: string}> {
   const result: Array<{value: string; label: string}> = [];
 
@@ -84,7 +84,7 @@ export function attributeNames(
 }
 
 export function labelFromAttributeGroup(
-  attributeGroup: AttributeGroup
+  attributeGroup: AttributeGroup,
 ): string {
   return Array.isArray(attributeGroup.values)
     ? Object.keys(attributeGroup.values).length > 0

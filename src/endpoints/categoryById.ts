@@ -13,13 +13,19 @@ export interface CategoryByIdEndpointParameters {
 export type CategoryByIdEndpointResponseData = BapiCategory;
 
 export function createCategoryByIdEndpointRequest(
-  params: CategoryByIdEndpointParameters
+  params: CategoryByIdEndpointParameters,
 ): BapiCall<CategoryByIdEndpointResponseData> {
   return {
     method: 'GET',
     endpoint: `categories/${params.categoryId}`,
     params: {
       ...categoryWithQueryParameters(params.with),
+      showHidden:
+        params.with &&
+        params.with.children &&
+        params.with.children.includeHidden
+          ? 'true'
+          : undefined,
     },
   };
 }

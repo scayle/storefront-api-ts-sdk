@@ -4,7 +4,7 @@ import {
   productWithQueryParameterValues,
 } from 'bapi/types/ProductWith';
 import {BapiMaster} from './query';
-import {prefixList} from 'helpers/attributes';
+import {prefixList} from 'bapi/helpers/attributes';
 
 export interface MasterByKeyEndpointParameters {
   masterKey: string;

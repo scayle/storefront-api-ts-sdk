@@ -86,20 +86,39 @@ export interface AttributeGroupSingle extends AttributeGroupBasic {
 
 export interface AttributeGroupMulti extends AttributeGroupBasic {
   multiSelect: true;
-  values: Value[]; // most have 1 value, but for example `extras` has many
+  values: Value[]; // assumes to have at least 1 value, but for example `extras` has many
 }
 
 export type AttributeGroup = AttributeGroupSingle | AttributeGroupMulti;
 
 export interface Value {
-  // TODO: Id is really optional, not set for `name` attribute in product
-  id: number;
   label: string;
+  id?: number;
+  value?: string;
 }
 
 export interface AdvancedAttributes {
-  [key: string]: any;
+  [key: string]: AdvancedAttribute | undefined;
 }
+
+export type AdvancedAttribute = {
+  key: string;
+  label: string;
+  type: string | null;
+  values: Array<{
+    fieldSet: FieldSet;
+    groupSet: GroupSet;
+  }>;
+};
+
+type FieldSet = Array<
+  Array<{[key: string]: string | number | null | undefined}>
+>;
+
+type GroupSet = Array<{
+  fieldSet: FieldSet;
+  groupSet: GroupSet;
+}>;
 
 export interface BapiPrice {
   withTax: CentAmount;

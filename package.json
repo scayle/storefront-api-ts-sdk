@@ -1,6 +1,6 @@
 {
   "name": "bapi",
-  "version": "0.12.0",
+  "version": "0.15.0",
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
     "@types/axios": "^0.14.0",

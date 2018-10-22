@@ -8,15 +8,15 @@ import {
 
 type BasketItemPrice = BapiPrice;
 
-export interface BasketResponseData {
+export interface BasketResponseData<P = BapiProduct, V = Variant> {
   cost: BasketItemPrice;
   currencyCode: 'EUR';
-  items: BasketItem[];
+  items: BasketItem<P, V>[];
 
   packages: BasketPackageInformation[];
 }
 
-export interface BasketItem {
+export interface BasketItem<P = BapiProduct, V = Variant> {
   key: string;
   packageId: number;
   price: {
@@ -25,8 +25,8 @@ export interface BasketItem {
   };
   quantity: number;
   status: string;
-  product: BapiProduct;
-  variant: Variant;
+  product: P;
+  variant: V;
 }
 
 export interface BasketPackageInformation {
@@ -43,7 +43,7 @@ export interface BasketPackageInformation {
 export interface BasketWith {
   items?: {
     product?: ProductWith;
-    variant?: ProductWith['variants'];
+    variant?: Exclude<ProductWith['variants'], 'all'>;
   };
 }
 
@@ -53,8 +53,8 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
   if (basketWith.items && basketWith.items.product) {
     withParams.push(
       ...productWithQueryParameterValues(basketWith.items.product).map(
-        value => `items.product.${value}`
-      )
+        value => `items.product.${value}`,
+      ),
     );
   }
 
@@ -66,9 +66,9 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
         ...prefixList(`items.variant.`)(
           attributeIncludeParameters(
             'attributes',
-            basketWith.items.variant.attributes
-          )
-        )
+            basketWith.items.variant.attributes,
+          ),
+        ),
       );
     }
   }
@@ -83,7 +83,7 @@ export interface GetBasketParameters {
 }
 
 export function getBasketEndpointRequest(
-  params: GetBasketParameters
+  params: GetBasketParameters,
 ): BapiCall<BasketResponseData> {
   return {
     method: 'GET',

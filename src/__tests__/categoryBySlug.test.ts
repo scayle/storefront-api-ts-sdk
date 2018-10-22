@@ -1,16 +1,14 @@
 import {createCategoryBySlugEndpointRequest} from 'bapi/endpoints/categoryBySlug';
 import {execute} from 'bapi/helpers/execute';
-import * as nock from 'nock';
+import {
+  nockWithBapiScope,
+  disableNetAndAllowBapiCors,
+} from 'bapi/test-helpers/nock';
 
-nock.disableNetConnect();
-
-nock('https://api-cloud.example.com/')
-  .options(/.*/)
-  .reply(200, '', {'access-control-allow-origin': '*'})
-  .persist();
+disableNetAndAllowBapiCors();
 
 test('Fetch category by id', async () => {
-  nock('https://api-cloud.example.com/')
+  nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(`/v1/categories/frauen/bekleidung/jeans/slim-fit`)
     .query({
@@ -23,6 +21,7 @@ test('Fetch category by id', async () => {
 
   const result = await execute(
     'https://api-cloud.example.com/v1/',
+    139,
     createCategoryBySlugEndpointRequest({
       slugPath: ['frauen', 'bekleidung', 'jeans', 'slim-fit'],
       with: {

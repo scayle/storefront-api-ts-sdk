@@ -1,15 +1,14 @@
 import {createFiltersEndpointRequest} from 'bapi/endpoints/filters';
 import {execute} from 'bapi/helpers/execute';
-import * as nock from 'nock';
-nock.disableNetConnect();
+import {
+  nockWithBapiScope,
+  disableNetAndAllowBapiCors,
+} from 'bapi/test-helpers/nock';
 
-nock('https://api-cloud.example.com/')
-  .options(/.*/)
-  .reply(200, '', {'access-control-allow-origin': '*'})
-  .persist();
+disableNetAndAllowBapiCors();
 
 test('Fetch filters for category; expect standard attributes', async () => {
-  nock('https://api-cloud.example.com/')
+  nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(`/v1/filters?with=values&filters%5Bcategory%5D=20201`)
     // .query({
@@ -22,6 +21,7 @@ test('Fetch filters for category; expect standard attributes', async () => {
 
   const result = await execute(
     'https://api-cloud.example.com/v1/',
+    139,
     createFiltersEndpointRequest({
       where: {
         categoryId: 20201,

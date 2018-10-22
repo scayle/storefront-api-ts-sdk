@@ -9,7 +9,7 @@ export interface CategoriesByIdsEndpointParameters {
 export type CategoriesByIdsEndpointResponseData = BapiCategory[];
 
 export function createCategoriesByIdsEndpointRequest(
-  parameters: CategoriesByIdsEndpointParameters
+  parameters: CategoriesByIdsEndpointParameters,
 ): BapiCall<CategoriesByIdsEndpointResponseData> {
   return {
     method: 'GET',
@@ -18,6 +18,7 @@ export function createCategoriesByIdsEndpointRequest(
       ids: parameters.categoryIds.join(`,`),
       with: parameters.depth && parameters.depth > 1 ? 'children' : undefined,
       depth: parameters.depth,
+      // TODO: `showHidden` not implemented correctly yet, see https://jira.collins.kg/browse/BAPI-413
     },
   };
 }

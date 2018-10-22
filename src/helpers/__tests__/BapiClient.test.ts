@@ -1,15 +1,13 @@
 import {BapiClient} from 'bapi/helpers/BapiClient';
-import * as nock from 'nock';
+import {
+  nockWithBapiScope,
+  disableNetAndAllowBapiCors,
+} from 'bapi/test-helpers/nock';
 
-nock.disableNetConnect();
-
-nock('https://api-cloud.example.com/')
-  .options(/.*/)
-  .reply(200, '', {'access-control-allow-origin': '*'})
-  .persist();
+disableNetAndAllowBapiCors();
 
 it('Get basket', async () => {
-  nock('https://api-cloud.example.com/')
+  nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/customer_2137901')
     .replyWithFile(200, __dirname + '/responses/getBasket.json', {
@@ -18,7 +16,7 @@ it('Get basket', async () => {
 
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
-    appId: 139,
+    shopId: 139,
   });
 
   const basketKey = 'customer_2137901';
@@ -35,12 +33,12 @@ it('Get basket', async () => {
 it('Basket: Add same variant twice', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
-    appId: 139,
+    shopId: 139,
   });
 
   const basketKey = 'customer_2137901';
 
-  nock('https://api-cloud.example.com/')
+  nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .post('/v1/baskets/customer_2137901/items', {
       variantId: 35149152,
@@ -55,7 +53,7 @@ it('Basket: Add same variant twice', async () => {
     35149152,
   );
 
-  nock('https://api-cloud.example.com/')
+  nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .post('/v1/baskets/customer_2137901/items', {
       variantId: 35149152,

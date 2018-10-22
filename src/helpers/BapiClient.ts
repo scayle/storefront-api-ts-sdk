@@ -15,7 +15,10 @@ import {
   UpdateBasketItemQuantity,
   updateBasketItemQuantityRequest,
 } from 'bapi/endpoints/basket/updateItem';
-import {createCategoriesEndpointRequest} from 'bapi/endpoints/categories';
+import {
+  createCategoriesEndpointRequest,
+  RootCategoriesEndpointParameters,
+} from 'bapi/endpoints/categories';
 import {
   CategoriesByIdsEndpointParameters,
   createCategoriesByIdsEndpointRequest,
@@ -65,40 +68,41 @@ import {execute} from 'bapi/helpers/execute';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
 import {BapiCategory} from 'bapi/types/BapiCategory';
-import {BapiProduct} from 'bapi/types/BapiProduct';
+import {BapiProduct, Variant} from 'bapi/types/BapiProduct';
 import {ProductSearchQuery} from 'bapi/types/ProductSearchQuery';
 import {ProductWith} from 'bapi/types/ProductWith';
 import {
   MastersSearchEndpointParameters,
   MastersSearchEndpointResponseData,
   createMastersSearchEndpointRequest,
-} from 'endpoints/masters/query';
+} from 'bapi/endpoints/masters/query';
 import {
   createMasterByIdEndpointRequest,
   MasterByKeyEndpointResponseData,
   MasterByKeyEndpointParameters,
-} from 'endpoints/masters/getByKey';
+} from 'bapi/endpoints/masters/getByKey';
+import {ModeledBapiClient, ProductMapping} from './ModeledBapiClient';
 
 // TODO: Also account for unexpected cases, where no basket is returned
-type CreateBasketItemResponse =
+type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
   | {
       type: 'success'; // operationStatus: succeded / partially / not-at-all
-      basket: BasketResponseData;
+      basket: BasketResponseData<P, V>;
     }
   | {
       type: 'failure';
       kind: AddToBasketFailureKind;
-      basket: BasketResponseData;
+      basket: BasketResponseData<P, V>;
     };
 
-type BasketResponse =
+export type BasketResponse<P = BapiProduct, V = Variant> =
   | {
       type: 'success';
-      basket: BasketResponseData;
+      basket: BasketResponseData<P, V>;
     }
   | {
       type: 'failure';
-      basket: BasketResponseData;
+      basket: BasketResponseData<P, V>;
     };
 
 type AddWishlistItemResponse =
@@ -150,19 +154,31 @@ function addToBasketFailureKindFromStatusCode(
  * Constructor returns a preconfigured client which has the `host` and `appId` set for all requests
  */
 export class BapiClient {
-  public constructor(private readonly env: {host: string; appId: number}) {}
+  public constructor(private readonly env: {host: string; shopId: number}) {}
+
+  public static withModels<T extends ProductMapping>(
+    env: {host: string; shopId: number},
+    mappings: {product: T},
+  ) {
+    return new ModeledBapiClient(env, mappings);
+  }
 
   private async execute<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<SuccessResponseT> {
-    const response = await execute(this.env.host, bapiCall);
+    const response = await execute(this.env.host, this.env.shopId, bapiCall);
     return response.data;
   }
 
   private async executeWithStatus<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<{data: SuccessResponseT; statusCode: number}> {
-    const response = await execute(this.env.host, bapiCall, true);
+    const response = await execute(
+      this.env.host,
+      this.env.shopId,
+      bapiCall,
+      true,
+    );
 
     return {
       data: response.data,
@@ -272,7 +288,7 @@ export class BapiClient {
   public readonly categories = {
     getById: (
       categoryId: number,
-      parameters: Omit<CategoryByIdEndpointParameters, 'categoryId'>,
+      parameters: Omit<CategoryByIdEndpointParameters, 'categoryId'> = {},
     ): Promise<BapiCategory> => {
       return this.execute(
         createCategoryByIdEndpointRequest({
@@ -283,7 +299,7 @@ export class BapiClient {
     },
     getByIds: (
       categoryIds: number[],
-      parameters: Omit<CategoriesByIdsEndpointParameters, 'categoryIds'>,
+      parameters: Omit<CategoriesByIdsEndpointParameters, 'categoryIds'> = {},
     ): Promise<BapiCategory[]> => {
       return this.execute(
         createCategoriesByIdsEndpointRequest({
@@ -294,7 +310,7 @@ export class BapiClient {
     },
     getByPath: (
       path: string[],
-      parameters: Omit<CategoryBySlugEndpointParameters, 'slugPath'>,
+      parameters: Omit<CategoryBySlugEndpointParameters, 'slugPath'> = {},
     ): Promise<BapiCategory> => {
       return this.execute(
         createCategoryBySlugEndpointRequest({
@@ -303,8 +319,10 @@ export class BapiClient {
         }),
       );
     },
-    getRoots: (): Promise<BapiCategory[]> => {
-      return this.execute(createCategoriesEndpointRequest());
+    getRoots: (
+      parameters: RootCategoriesEndpointParameters = {},
+    ): Promise<BapiCategory[]> => {
+      return this.execute(createCategoriesEndpointRequest(parameters));
     },
   };
 
@@ -316,14 +334,18 @@ export class BapiClient {
   public readonly products = {
     getById: (
       productId: number,
-      params: Omit<ProductByIdEndpointParameters, 'productId'>,
+      params: Omit<ProductByIdEndpointParameters, 'productId'> = {},
     ): Promise<BapiProduct> =>
       this.execute(createProductByIdEndpointRequest({...params, productId})),
-    getByIds: (
+    getByIds: async (
       productIds: number[],
-      params: Omit<ProductsByIdsEndpointParameters, 'productIds'>,
-    ): Promise<ProductsByIdsEndpointResponseData> =>
-      this.execute(createProductsByIdsEndpointRequest({...params, productIds})),
+      params: Omit<ProductsByIdsEndpointParameters, 'productIds'> = {},
+    ): Promise<BapiProduct[]> => {
+      const response = await this.execute(
+        createProductsByIdsEndpointRequest({...params, productIds}),
+      );
+      return response.entities;
+    },
     query: (
       params: ProductsSearchEndpointParameters = {},
     ): Promise<ProductsByIdsEndpointResponseData> =>
@@ -382,13 +404,13 @@ export class BapiClient {
 
   public readonly masters = {
     query: (
-      params: MastersSearchEndpointParameters,
+      params: MastersSearchEndpointParameters = {},
     ): Promise<MastersSearchEndpointResponseData> => {
       return this.execute(createMastersSearchEndpointRequest(params));
     },
     getByKey: (
       masterKey: string,
-      params: Omit<MasterByKeyEndpointParameters, 'masterKey'>,
+      params: Omit<MasterByKeyEndpointParameters, 'masterKey'> = {},
     ): Promise<MasterByKeyEndpointResponseData> => {
       return this.execute(
         createMasterByIdEndpointRequest({...params, masterKey}),
@@ -402,7 +424,7 @@ export class BapiClient {
  * `BapiClient` usage example
  */
 export async function example() {
-  const bapi = new BapiClient({host: 'https://api.example.com/', appId: 139});
+  const bapi = new BapiClient({host: 'https://api.example.com/', shopId: 139});
 
   {
     // Querying the first page of all products
