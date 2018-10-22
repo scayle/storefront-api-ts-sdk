@@ -10,7 +10,7 @@ export interface RootCategoriesEndpointParameters {
 }
 
 export function createCategoriesEndpointRequest(
-  params: RootCategoriesEndpointParameters,
+  params: RootCategoriesEndpointParameters = {},
 ): BapiCall<BapiCategory[]> {
   return {
     method: 'GET',
