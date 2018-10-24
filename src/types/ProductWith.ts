@@ -7,10 +7,12 @@ import {
 export type ProductImageWith =
   | 'all'
   | {
-      withKey?: string[];
+      attributes?: {
+        // AY specific, otherwise legacy is disabled by default
+        legacy: false;
 
-      // AY specific, otherwise legacy is disabled by default
-      legacy?: false;
+        withKey?: string[];
+      };
     };
 
 /**
@@ -32,7 +34,7 @@ export interface ProductWith {
 }
 
 export function productWithQueryParameterValues(
-  productWith: ProductWith
+  productWith: ProductWith,
 ): string[] {
   const parameterValues: string[] = [];
 
@@ -40,8 +42,8 @@ export function productWithQueryParameterValues(
     ...attributeIncludeParameters('attributes', productWith.attributes),
     ...attributeIncludeParameters(
       'advancedAttributes',
-      productWith.advancedAttributes
-    )
+      productWith.advancedAttributes,
+    ),
   );
 
   if (productWith.variants) {
@@ -52,15 +54,15 @@ export function productWithQueryParameterValues(
         ...prefixList('variants.')(
           attributeIncludeParameters(
             'attributes',
-            productWith.variants.attributes
-          )
+            productWith.variants.attributes,
+          ),
         ),
         ...prefixList('variants.')(
           attributeIncludeParameters(
             'advancedAttributes',
-            productWith.variants.advancedAttributes
-          )
-        )
+            productWith.variants.advancedAttributes,
+          ),
+        ),
       );
     }
   }
@@ -68,19 +70,23 @@ export function productWithQueryParameterValues(
   if (productWith.images) {
     if (productWith.images === 'all') {
       // nothing to do, included by default
-    } else {
-      const filters: string[] = [];
+    } else if (productWith.images.attributes) {
+      const imagesAttributesFilters: string[] = [];
 
-      if (productWith.images.legacy === false) {
-        filters.push('legacy(false)');
+      if (productWith.images.attributes.legacy === false) {
+        imagesAttributesFilters.push('legacy(false)');
       }
 
-      if (productWith.images.withKey) {
-        filters.push(`key(${productWith.images.withKey.join('|')})`);
+      if (productWith.images.attributes.withKey) {
+        imagesAttributesFilters.push(
+          `key(${productWith.images.attributes.withKey.join('|')})`,
+        );
       }
 
-      if (filters.length > 0) {
-        parameterValues.push(`images:${filters.join(':')}`);
+      if (imagesAttributesFilters.length > 0) {
+        parameterValues.push(
+          `images.attributes:${imagesAttributesFilters.join(':')}`,
+        );
       }
     }
   }
@@ -95,8 +101,8 @@ export function productWithQueryParameterValues(
     if (typeof productWith.siblings === 'object') {
       parameterValues.push(
         ...productWithQueryParameterValues(productWith.siblings).map(
-          queryParameter => `siblings.${queryParameter}`
-        )
+          queryParameter => `siblings.${queryParameter}`,
+        ),
       );
     }
   }

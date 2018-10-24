@@ -4,7 +4,7 @@ it('Converts attribute filters', () => {
   expect(
     productWithQueryParameterValues({
       attributes: 'all',
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"attributes"`);
 
   expect(
@@ -12,7 +12,7 @@ it('Converts attribute filters', () => {
       attributes: {
         withKey: ['singleKey'],
       },
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"attributes:key(singleKey)"`);
 
   expect(
@@ -20,7 +20,7 @@ it('Converts attribute filters', () => {
       attributes: {
         withKey: ['keyA', 'keyB'],
       },
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"attributes:key(keyA|keyB)"`);
 
   expect(
@@ -28,7 +28,7 @@ it('Converts attribute filters', () => {
       attributes: {
         ofType: ['type1', 'type2'],
       },
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"attributes:type(type1|type2)"`);
 });
 
@@ -37,41 +37,47 @@ it('Converts image filters', () => {
   expect(
     productWithQueryParameterValues({
       images: 'all',
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`""`);
 
   expect(
     productWithQueryParameterValues({
       images: {
-        legacy: false,
+        attributes: {
+          legacy: false,
+        },
       },
-    }).join(',')
-  ).toMatchInlineSnapshot(`"images:legacy(false)"`);
+    }).join(','),
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
       images: {
-        legacy: false,
-        withKey: ['singleKey'],
+        attributes: {
+          legacy: false,
+          withKey: ['singleKey'],
+        },
       },
-    }).join(',')
-  ).toMatchInlineSnapshot(`"images:legacy(false):key(singleKey)"`);
+    }).join(','),
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false):key(singleKey)"`);
 
   expect(
     productWithQueryParameterValues({
       images: {
-        legacy: false,
-        withKey: ['keyA', 'keyB'],
+        attributes: {
+          legacy: false,
+          withKey: ['keyA', 'keyB'],
+        },
       },
-    }).join(',')
-  ).toMatchInlineSnapshot(`"images:legacy(false):key(keyA|keyB)"`);
+    }).join(','),
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false):key(keyA|keyB)"`);
 });
 
 it('Converts category filters', () => {
   expect(
     productWithQueryParameterValues({
       categories: 'all',
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"categories"`);
 });
 
@@ -79,7 +85,7 @@ it('Converts sibling filters', () => {
   expect(
     productWithQueryParameterValues({
       siblings: 'all',
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"siblings"`);
 
   expect(
@@ -88,7 +94,7 @@ it('Converts sibling filters', () => {
         attributes: 'all',
         categories: 'all',
       },
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"siblings,siblings.attributes,siblings.categories"`);
 });
 
@@ -96,7 +102,7 @@ it('Converts variant filters', () => {
   expect(
     productWithQueryParameterValues({
       variants: 'all',
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"variants"`);
 
   expect(
@@ -104,7 +110,7 @@ it('Converts variant filters', () => {
       variants: {
         attributes: 'all',
       },
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"variants,variants.attributes"`);
 
   expect(
@@ -114,6 +120,6 @@ it('Converts variant filters', () => {
           withKey: ['keyA'],
         },
       },
-    }).join(',')
+    }).join(','),
   ).toMatchInlineSnapshot(`"variants,variants.attributes:key(keyA)"`);
 });
