@@ -10,40 +10,104 @@
     {
       "hash": "de505cc8c141d4212d30b35b02748431",
       "attributes": {
-        "type": "bust",
-        "focus": null,
-        "view": null,
-        "angle": null,
-        "preparation": null,
-        "next_detail_level": null,
-        "background": "white",
-        "gender": null
+        "imageBackground": {
+          "key": "imageBackground",
+          "label": "Bild Hintergrund",
+          "type": "",
+          "multiSelect": false,
+          "values": {
+            "id": 66504,
+            "label": "weiß",
+            "value": "white"
+          }
+        },
+        "imageType": {
+          "key": "imageType",
+          "label": "Bild Typ",
+          "type": "",
+          "multiSelect": false,
+          "values": {
+            "id": 66480,
+            "label": "Büste",
+            "value": "bust"
+          }
+        }
       }
     },
     {
       "hash": "2c1f2dcb163d56c94c7844f8b205665c",
       "attributes": {
-        "type": "bust",
-        "focus": null,
-        "view": null,
-        "angle": null,
-        "preparation": null,
-        "next_detail_level": null,
-        "background": "grey",
-        "gender": null
+        "imageBackground": {
+          "key": "imageBackground",
+          "label": "Bild Hintergrund",
+          "type": "",
+          "multiSelect": false,
+          "values": {
+            "id": 66506,
+            "label": "grau",
+            "value": "grey"
+          }
+        },
+        "imageType": {
+          "key": "imageType",
+          "label": "Bild Typ",
+          "type": "",
+          "multiSelect": false,
+          "values": {
+            "id": 66480,
+            "label": "Büste",
+            "value": "bust"
+          }
+        }
       }
     },
     {
       "hash": "3d1c651db0d0cdf9fe8cf30b1121b0a4",
       "attributes": {
-        "type": "bust",
-        "focus": "product",
-        "view": "front",
-        "angle": null,
-        "preparation": null,
-        "next_detail_level": null,
-        "background": "white",
-        "gender": null
+        "imageBackground": {
+          "key": "imageBackground",
+          "label": "Bild Hintergrund",
+          "type": "",
+          "multiSelect": false,
+          "values": {
+            "id": 66504,
+            "label": "weiß",
+            "value": "white"
+          }
+        },
+        "imageView": {
+          "key": "imageView",
+          "label": "Bild Ansicht",
+          "type": "",
+          "multiSelect": false,
+          "values": {
+            "id": 66486,
+            "label": "Frontalansicht",
+            "value": "front"
+          }
+        },
+        "imageType": {
+          "key": "imageType",
+          "label": "Bild Typ",
+          "type": "",
+          "multiSelect": false,
+          "values": {
+            "id": 66480,
+            "label": "Büste",
+            "value": "bust"
+          }
+        },
+        "imageFocus": {
+          "key": "imageFocus",
+          "label": "Bild Fokus",
+          "type": "",
+          "multiSelect": false,
+          "values": {
+            "id": 66484,
+            "label": "Produkt",
+            "value": "product"
+          }
+        }
       }
     }
   ],

@@ -119,6 +119,116 @@ Object {
     "name": "'Candy Kiss' Eau de Parfum",
     "quantityPerPack": 1,
   },
+  "categories": undefined,
+  "id": 3553214,
+  "images": Array [
+    Object {
+      "attributes": Object {
+        "imageBackground": Object {
+          "key": "imageBackground",
+          "label": "Bild Hintergrund",
+          "multiSelect": false,
+          "type": "",
+          "values": Object {
+            "id": 66504,
+            "label": "weiß",
+            "value": "white",
+          },
+        },
+        "imageType": Object {
+          "key": "imageType",
+          "label": "Bild Typ",
+          "multiSelect": false,
+          "type": "",
+          "values": Object {
+            "id": 66480,
+            "label": "Büste",
+            "value": "bust",
+          },
+        },
+      },
+      "hash": "de505cc8c141d4212d30b35b02748431",
+    },
+    Object {
+      "attributes": Object {
+        "imageBackground": Object {
+          "key": "imageBackground",
+          "label": "Bild Hintergrund",
+          "multiSelect": false,
+          "type": "",
+          "values": Object {
+            "id": 66506,
+            "label": "grau",
+            "value": "grey",
+          },
+        },
+        "imageType": Object {
+          "key": "imageType",
+          "label": "Bild Typ",
+          "multiSelect": false,
+          "type": "",
+          "values": Object {
+            "id": 66480,
+            "label": "Büste",
+            "value": "bust",
+          },
+        },
+      },
+      "hash": "2c1f2dcb163d56c94c7844f8b205665c",
+    },
+    Object {
+      "attributes": Object {
+        "imageBackground": Object {
+          "key": "imageBackground",
+          "label": "Bild Hintergrund",
+          "multiSelect": false,
+          "type": "",
+          "values": Object {
+            "id": 66504,
+            "label": "weiß",
+            "value": "white",
+          },
+        },
+        "imageFocus": Object {
+          "key": "imageFocus",
+          "label": "Bild Fokus",
+          "multiSelect": false,
+          "type": "",
+          "values": Object {
+            "id": 66484,
+            "label": "Produkt",
+            "value": "product",
+          },
+        },
+        "imageType": Object {
+          "key": "imageType",
+          "label": "Bild Typ",
+          "multiSelect": false,
+          "type": "",
+          "values": Object {
+            "id": 66480,
+            "label": "Büste",
+            "value": "bust",
+          },
+        },
+        "imageView": Object {
+          "key": "imageView",
+          "label": "Bild Ansicht",
+          "multiSelect": false,
+          "type": "",
+          "values": Object {
+            "id": 66486,
+            "label": "Frontalansicht",
+            "value": "front",
+          },
+        },
+      },
+      "hash": "3d1c651db0d0cdf9fe8cf30b1121b0a4",
+    },
+  ],
+  "isActive": true,
+  "isNew": false,
+  "isSoldOut": false,
   "variants": Array [
     Object {
       "attributes": Object {

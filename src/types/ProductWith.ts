@@ -8,9 +8,6 @@ export type ProductImageWith =
   | 'all'
   | {
       attributes?: {
-        // AY specific, otherwise legacy is disabled by default
-        legacy: false;
-
         withKey?: string[];
       };
     };
@@ -69,13 +66,13 @@ export function productWithQueryParameterValues(
 
   if (productWith.images) {
     if (productWith.images === 'all') {
-      // nothing to do, included by default
+      // images and their attributes are included by default,
+      // just request non-legacy attribute version
+      parameterValues.push(`images.attributes:legacy(false)`);
     } else if (productWith.images.attributes) {
       const imagesAttributesFilters: string[] = [];
 
-      if (productWith.images.attributes.legacy === false) {
-        imagesAttributesFilters.push('legacy(false)');
-      }
+      imagesAttributesFilters.push('legacy(false)');
 
       if (productWith.images.attributes.withKey) {
         imagesAttributesFilters.push(

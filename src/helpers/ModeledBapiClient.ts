@@ -109,6 +109,13 @@ export type MappedProduct<T extends ProductMapping> = {
   variants: T['variants'] extends Exclude<T['variants'], undefined>
     ? MappedVariants<T['variants']>
     : [];
+
+  id: BapiProduct['id'];
+  isActive: BapiProduct['isActive'];
+  isSoldOut: BapiProduct['isSoldOut'];
+  isNew: BapiProduct['isNew'];
+  categories: BapiProduct['categories'];
+  images: BapiProduct['images'];
 };
 
 type MappedVariant<T extends VariantMapping> = {
@@ -151,30 +158,33 @@ function productWithMappingApplied<T extends ProductMapping>(
   productMapping: T,
 ): MappedProduct<T> {
   const mapped: MappedProduct<T> = {
-    advancedAttributes: productMapping.advancedAttributes
-      ? mapAdvancedAttributes(
-          productMapping.advancedAttributes,
-          bapiProduct.advancedAttributes!,
-        )
-      : {},
-    attributes: productMapping.attributes
-      ? mapAttributes(productMapping.attributes, bapiProduct.attributes)
-      : {},
+    advancedAttributes: mapAdvancedAttributes(
+      productMapping.advancedAttributes,
+      bapiProduct.advancedAttributes,
+    ),
+    attributes: mapAttributes(
+      productMapping.attributes,
+      bapiProduct.attributes,
+    ),
     variants: productMapping.variants
       ? (bapiProduct.variants.map(
           (variant): MappedVariant<Exclude<T['variants'], undefined>> => {
             return {
               id: variant.id,
-              attributes: productMapping.variants!.attributes
-                ? mapAttributes(
-                    productMapping.variants!.attributes!,
-                    variant.attributes || {},
-                  )
-                : {},
+              attributes: mapAttributes(
+                productMapping.variants!.attributes,
+                variant.attributes,
+              ),
             };
           },
         ) as any) // TODO: Fix type signatures
       : [],
+    id: bapiProduct.id,
+    isActive: bapiProduct.isActive,
+    isSoldOut: bapiProduct.isSoldOut,
+    isNew: bapiProduct.isNew,
+    categories: bapiProduct.categories,
+    images: bapiProduct.images,
   };
 
   return mapped;
@@ -290,9 +300,16 @@ function isSingleValue(
 }
 
 function mapAttributes(
-  attributeMapping: AttributeMapping,
-  attributes: Attributes,
+  attributeMapping?: AttributeMapping,
+  attributes?: Attributes,
 ): any {
+  if (!attributeMapping || Object.keys(attributeMapping).length === 0) {
+    return {};
+  }
+  if (!attributes) {
+    throw new Error(`Have mapping for attributes, but received none`);
+  }
+
   // FIXME type
   return Object.keys(attributeMapping).reduce(
     (mappedAttributes, key) => {
@@ -383,9 +400,16 @@ function mapAttributes(
 }
 
 function mapAdvancedAttributes(
-  attributeMapping: AdvancedAttributeMapping,
-  attributes: AdvancedAttributes,
+  attributeMapping?: AdvancedAttributeMapping,
+  attributes?: AdvancedAttributes,
 ): any {
+  if (!attributeMapping || Object.keys(attributeMapping).length === 0) {
+    return {};
+  }
+  if (!attributes) {
+    throw new Error(`Have mapping for advanced attributes, but received none`);
+  }
+
   // FIXME types
   return Object.keys(attributeMapping).reduce(
     (mappedAttributes, key) => {

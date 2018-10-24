@@ -7,7 +7,7 @@ export interface BapiProduct {
   updatedAt: string; // Date string
   images: ProductImage[];
   variants: Variant[];
-  attributes: Attributes;
+  attributes?: Attributes;
   advancedAttributes?: AdvancedAttributes;
   categories?: BapiProductCategory[][];
   siblings?: BapiProduct[];
@@ -21,7 +21,8 @@ export interface BapiProductCategory {
 
 export interface ProductImage {
   hash: string;
-  attributes: ImageAttributes;
+
+  attributes?: Attributes;
 }
 
 export interface ImageAttributes {

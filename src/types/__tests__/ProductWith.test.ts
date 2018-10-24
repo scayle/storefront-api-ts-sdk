@@ -38,14 +38,12 @@ it('Converts image filters', () => {
     productWithQueryParameterValues({
       images: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`""`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
       images: {
-        attributes: {
-          legacy: false,
-        },
+        attributes: {},
       },
     }).join(','),
   ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
@@ -54,7 +52,6 @@ it('Converts image filters', () => {
     productWithQueryParameterValues({
       images: {
         attributes: {
-          legacy: false,
           withKey: ['singleKey'],
         },
       },
@@ -65,7 +62,6 @@ it('Converts image filters', () => {
     productWithQueryParameterValues({
       images: {
         attributes: {
-          legacy: false,
           withKey: ['keyA', 'keyB'],
         },
       },

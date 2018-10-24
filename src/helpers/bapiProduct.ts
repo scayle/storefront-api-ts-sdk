@@ -68,8 +68,9 @@ export function attributeNames(
   const result: Array<{value: string; label: string}> = [];
 
   for (const attributeName of attributeNames) {
-    const attribute = entity.attributes[attributeName];
+    const attribute = entity.attributes && entity.attributes[attributeName];
     const value = getFirstAttributeValue(entity.attributes, attributeName);
+
     if (!attribute || !value) {
       continue;
     }
