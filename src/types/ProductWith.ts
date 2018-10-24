@@ -64,27 +64,25 @@ export function productWithQueryParameterValues(
     }
   }
 
-  if (productWith.images) {
-    if (productWith.images === 'all') {
-      // images and their attributes are included by default,
-      // just request non-legacy attribute version
-      parameterValues.push(`images.attributes:legacy(false)`);
-    } else if (productWith.images.attributes) {
-      const imagesAttributesFilters: string[] = [];
+  if (!productWith.images || productWith.images === 'all') {
+    // images and their attributes are included by default,
+    // just request non-legacy attribute version
+    parameterValues.push(`images.attributes:legacy(false)`);
+  } else if (productWith.images.attributes) {
+    const imagesAttributesFilters: string[] = [];
 
-      imagesAttributesFilters.push('legacy(false)');
+    imagesAttributesFilters.push('legacy(false)');
 
-      if (productWith.images.attributes.withKey) {
-        imagesAttributesFilters.push(
-          `key(${productWith.images.attributes.withKey.join('|')})`,
-        );
-      }
+    if (productWith.images.attributes.withKey) {
+      imagesAttributesFilters.push(
+        `key(${productWith.images.attributes.withKey.join('|')})`,
+      );
+    }
 
-      if (imagesAttributesFilters.length > 0) {
-        parameterValues.push(
-          `images.attributes:${imagesAttributesFilters.join(':')}`,
-        );
-      }
+    if (imagesAttributesFilters.length > 0) {
+      parameterValues.push(
+        `images.attributes:${imagesAttributesFilters.join(':')}`,
+      );
     }
   }
 

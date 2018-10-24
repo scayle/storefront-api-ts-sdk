@@ -13,6 +13,7 @@ export const getFirstAttributeValue = (
   if (!attribute || !attribute.values) {
     return;
   }
+
   return Array.isArray(attribute.values)
     ? Object.keys(attribute.values).length > 0
       ? attribute.values[0]
