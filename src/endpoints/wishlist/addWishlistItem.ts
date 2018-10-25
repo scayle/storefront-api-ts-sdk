@@ -25,11 +25,11 @@ export interface AddWishlistItemParameters {
 }
 
 export function addWishlistItemEndpointRequest(
-  params: AddWishlistItemParameters
+  params: AddWishlistItemParameters,
 ): BapiCall<WishlistResponseData> {
   return {
     method: 'POST',
-    endpoint: `wishlists/${params.wishlistKey}`,
+    endpoint: `wishlists/${params.wishlistKey}/items`,
     params: {
       with: params.with
         ? basketWithQueryParameter(params.with).join(',')

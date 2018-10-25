@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.18.0
+
+Fix "Add Wishlist Item" requests
+
 ## 0.17.1
 
 Request non-legacy image attributes by default. No specific setting needed. Now matches the types of the response in all cases.
