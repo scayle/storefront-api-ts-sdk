@@ -69,6 +69,12 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
             basketWith.items.variant.attributes,
           ),
         ),
+        ...prefixList(`items.variant.`)(
+          attributeIncludeParameters(
+            'advancedAttributes',
+            basketWith.items.variant.advancedAttributes,
+          ),
+        ),
       );
     }
   }
