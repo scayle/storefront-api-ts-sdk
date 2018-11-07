@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.0
+
+Respect `advancedAttributes` query for variants in basket requests
+
 ## 0.18.0
 
 Fix "Add Wishlist Item" requests
