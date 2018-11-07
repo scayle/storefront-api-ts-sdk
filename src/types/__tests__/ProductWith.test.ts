@@ -5,7 +5,7 @@ it('Converts attribute filters', () => {
     productWithQueryParameterValues({
       attributes: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"attributes"`);
+  ).toMatchInlineSnapshot(`"attributes,images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -13,7 +13,9 @@ it('Converts attribute filters', () => {
         withKey: ['singleKey'],
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"attributes:key(singleKey)"`);
+  ).toMatchInlineSnapshot(
+    `"attributes:key(singleKey),images.attributes:legacy(false)"`,
+  );
 
   expect(
     productWithQueryParameterValues({
@@ -21,7 +23,9 @@ it('Converts attribute filters', () => {
         withKey: ['keyA', 'keyB'],
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"attributes:key(keyA|keyB)"`);
+  ).toMatchInlineSnapshot(
+    `"attributes:key(keyA|keyB),images.attributes:legacy(false)"`,
+  );
 
   expect(
     productWithQueryParameterValues({
@@ -29,7 +33,9 @@ it('Converts attribute filters', () => {
         ofType: ['type1', 'type2'],
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"attributes:type(type1|type2)"`);
+  ).toMatchInlineSnapshot(
+    `"attributes:type(type1|type2),images.attributes:legacy(false)"`,
+  );
 });
 
 it('Converts image filters', () => {
@@ -74,7 +80,7 @@ it('Converts category filters', () => {
     productWithQueryParameterValues({
       categories: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"categories"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories"`);
 });
 
 it('Converts sibling filters', () => {
@@ -82,7 +88,7 @@ it('Converts sibling filters', () => {
     productWithQueryParameterValues({
       siblings: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"siblings"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),siblings"`);
 
   expect(
     productWithQueryParameterValues({
@@ -91,7 +97,9 @@ it('Converts sibling filters', () => {
         categories: 'all',
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"siblings,siblings.attributes,siblings.categories"`);
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),siblings,siblings.attributes,siblings.images.attributes:legacy(false),siblings.categories"`,
+  );
 });
 
 it('Converts variant filters', () => {
@@ -99,7 +107,7 @@ it('Converts variant filters', () => {
     productWithQueryParameterValues({
       variants: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"variants"`);
+  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -107,7 +115,9 @@ it('Converts variant filters', () => {
         attributes: 'all',
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"variants,variants.attributes"`);
+  ).toMatchInlineSnapshot(
+    `"variants,variants.attributes,images.attributes:legacy(false)"`,
+  );
 
   expect(
     productWithQueryParameterValues({
@@ -117,5 +127,7 @@ it('Converts variant filters', () => {
         },
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"variants,variants.attributes:key(keyA)"`);
+  ).toMatchInlineSnapshot(
+    `"variants,variants.attributes:key(keyA),images.attributes:legacy(false)"`,
+  );
 });
