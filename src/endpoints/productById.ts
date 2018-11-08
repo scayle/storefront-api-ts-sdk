@@ -24,11 +24,17 @@ export function createProductByIdEndpointRequest(
     method: 'GET',
     endpoint: `products/${parameters.productId}`,
     params: {
-      with: parameters.with
-        ? productWithQueryParameterValues(parameters.with).join(`,`)
-        : undefined,
-      campaignKey: parameters.campaignKey,
-      pricePromotionKey: parameters.pricePromotionKey,
+      ...(parameters.with
+        ? {with: productWithQueryParameterValues(parameters.with).join(`,`)}
+        : undefined),
+      ...(parameters.campaignKey
+        ? {campaignKey: parameters.campaignKey}
+        : undefined),
+      ...(parameters.pricePromotionKey
+        ? {
+            pricePromotionKey: parameters.pricePromotionKey,
+          }
+        : undefined),
     },
   };
 }

@@ -64,3 +64,39 @@ test('Fetch unavailable product', async () => {
 
   fail('Expected exception');
 });
+
+test('Product by ID request', async () => {
+  expect(
+    createProductByIdEndpointRequest({
+      productId: 123,
+      with: {
+        attributes: 'all',
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products/123",
+  "method": "GET",
+  "params": Object {
+    "with": "attributes,images.attributes:legacy(false)",
+  },
+}
+`);
+});
+
+test('Product by ID request with price promotion key', async () => {
+  expect(
+    createProductByIdEndpointRequest({
+      productId: 123,
+      pricePromotionKey: 'abc123',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products/123",
+  "method": "GET",
+  "params": Object {
+    "pricePromotionKey": "abc123",
+  },
+}
+`);
+});
