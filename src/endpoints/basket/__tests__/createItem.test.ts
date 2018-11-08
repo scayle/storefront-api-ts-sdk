@@ -38,14 +38,65 @@ it('Builds correct query with custom data', () => {
       variantId: 1235,
       quantity: 1,
       customData: {
-        pricePomotionKey: 'abc123',
+        pricePromotionKey: 'abc123',
       },
     }),
   ).toMatchInlineSnapshot(`
 Object {
   "data": Object {
     "customData": Object {
-      "pricePomotionKey": "abc123",
+      "pricePromotionKey": "abc123",
+    },
+    "quantity": 1,
+    "variantId": 1235,
+  },
+  "endpoint": "baskets/basket1/items",
+  "method": "POST",
+  "params": Object {},
+}
+`);
+});
+
+it('Builds correct query with price promotion key', () => {
+  expect(
+    createBasketItemRequest({
+      basketKey: 'basket1',
+      variantId: 1235,
+      quantity: 1,
+      pricePromotionKey: 'key123',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "customData": Object {
+      "pricePromotionKey": "key123",
+    },
+    "quantity": 1,
+    "variantId": 1235,
+  },
+  "endpoint": "baskets/basket1/items",
+  "method": "POST",
+  "params": Object {},
+}
+`);
+});
+
+it('Builds correct query with price promotion key and custom data', () => {
+  expect(
+    createBasketItemRequest({
+      basketKey: 'basket1',
+      variantId: 1235,
+      quantity: 1,
+      pricePromotionKey: 'final key',
+      customData: {
+        pricePromotionKey: 'will be overwritten',
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "customData": Object {
+      "pricePromotionKey": "final key",
     },
     "quantity": 1,
     "variantId": 1235,

@@ -11,11 +11,16 @@ export interface CreateBasketItemParameters {
   quantity: number;
   with?: BasketWith;
   customData?: {[key: string]: any; [key: number]: any};
+  pricePromotionKey?: string;
 }
 
 export function createBasketItemRequest(
   params: CreateBasketItemParameters,
 ): BapiCall<BasketResponseData> {
+  const customData = params.pricePromotionKey
+    ? {...params.customData, pricePromotionKey: params.pricePromotionKey}
+    : params.customData;
+
   return {
     method: 'POST',
     endpoint: `baskets/${params.basketKey}/items`,
@@ -27,9 +32,7 @@ export function createBasketItemRequest(
     data: {
       variantId: params.variantId,
       quantity: params.quantity,
-      ...(params.customData !== undefined
-        ? {customData: params.customData}
-        : undefined),
+      ...(customData !== undefined ? {customData} : undefined),
     },
   };
 }
