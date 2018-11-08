@@ -30,3 +30,29 @@ Object {
 }
 `);
 });
+
+it('Builds correct query with custom data', () => {
+  expect(
+    createBasketItemRequest({
+      basketKey: 'basket1',
+      variantId: 1235,
+      quantity: 1,
+      customData: {
+        pricePomotionKey: 'abc123',
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "customData": Object {
+      "pricePomotionKey": "abc123",
+    },
+    "quantity": 1,
+    "variantId": 1235,
+  },
+  "endpoint": "baskets/basket1/items",
+  "method": "POST",
+  "params": Object {},
+}
+`);
+});

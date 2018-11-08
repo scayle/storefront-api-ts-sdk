@@ -18,6 +18,7 @@ export interface BasketResponseData<P = BapiProduct, V = Variant> {
 
 export interface BasketItem<P = BapiProduct, V = Variant> {
   key: string;
+  customData: unknown;
   packageId: number;
   price: {
     total: BasketItemPrice;

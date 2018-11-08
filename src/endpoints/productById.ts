@@ -9,6 +9,7 @@ export interface ProductByIdEndpointParameters {
   productId: number;
   with?: ProductWith;
   campaignKey?: 'px' | undefined;
+  pricePromotionKey?: string;
 }
 
 export type ProductByIdEndpointResponseData = BapiProduct;
@@ -17,7 +18,7 @@ export type ProductByIdEndpointResponseData = BapiProduct;
  * Required as single product call is the only one that can return `siblings`
  */
 export function createProductByIdEndpointRequest(
-  parameters: ProductByIdEndpointParameters
+  parameters: ProductByIdEndpointParameters,
 ): BapiCall<ProductByIdEndpointResponseData> {
   return {
     method: 'GET',
@@ -27,6 +28,7 @@ export function createProductByIdEndpointRequest(
         ? productWithQueryParameterValues(parameters.with).join(`,`)
         : undefined,
       campaignKey: parameters.campaignKey,
+      pricePromotionKey: parameters.pricePromotionKey,
     },
   };
 }

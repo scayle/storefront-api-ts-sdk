@@ -10,22 +10,26 @@ export interface CreateBasketItemParameters {
   variantId: number;
   quantity: number;
   with?: BasketWith;
+  customData?: {[key: string]: any; [key: number]: any};
 }
 
 export function createBasketItemRequest(
-  params: CreateBasketItemParameters
+  params: CreateBasketItemParameters,
 ): BapiCall<BasketResponseData> {
   return {
     method: 'POST',
     endpoint: `baskets/${params.basketKey}/items`,
     params: {
-      with: params.with
-        ? basketWithQueryParameter(params.with).join(',')
-        : undefined,
+      ...(params.with
+        ? {with: basketWithQueryParameter(params.with).join(',')}
+        : undefined),
     },
     data: {
       variantId: params.variantId,
       quantity: params.quantity,
+      ...(params.customData !== undefined
+        ? {customData: params.customData}
+        : undefined),
     },
   };
 }
