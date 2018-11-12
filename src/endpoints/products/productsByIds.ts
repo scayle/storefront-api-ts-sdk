@@ -27,16 +27,16 @@ export interface ProductsByIdsEndpointResponseData {
 }
 
 export function createProductsByIdsEndpointRequest(
-  parameters: ProductsByIdsEndpointParameters
+  parameters: ProductsByIdsEndpointParameters,
 ): BapiCall<ProductsByIdsEndpointResponseData> {
   return {
     method: 'GET',
     endpoint: `products`,
     params: {
       ids: parameters.productIds.join(`,`),
-      with: parameters.with
-        ? productWithQueryParameterValues(parameters.with).join(`,`)
-        : undefined,
+      ...(parameters.with
+        ? {with: productWithQueryParameterValues(parameters.with).join(`,`)}
+        : undefined),
       campaignKey: parameters.campaignKey,
     },
   };
