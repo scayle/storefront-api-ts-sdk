@@ -59,24 +59,20 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
   }
 
   if (basketWith.items && basketWith.items.variant) {
-    if (basketWith.items.variant === 'all') {
-      // nothing to do, included by default
-    } else {
-      withParams.push(
-        ...prefixList(`items.variant.`)(
-          attributeIncludeParameters(
-            'attributes',
-            basketWith.items.variant.attributes,
-          ),
+    withParams.push(
+      ...prefixList(`items.variant.`)(
+        attributeIncludeParameters(
+          'attributes',
+          basketWith.items.variant.attributes,
         ),
-        ...prefixList(`items.variant.`)(
-          attributeIncludeParameters(
-            'advancedAttributes',
-            basketWith.items.variant.advancedAttributes,
-          ),
+      ),
+      ...prefixList(`items.variant.`)(
+        attributeIncludeParameters(
+          'advancedAttributes',
+          basketWith.items.variant.advancedAttributes,
         ),
-      );
-    }
+      ),
+    );
   }
 
   return withParams;
