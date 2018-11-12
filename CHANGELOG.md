@@ -1,5 +1,15 @@
 # Changelog
 
+## UNRELEASED
+
+Make the shop ID mandatory, as it's now fully supported by BAPI.
+
+Both (parent) shop IDs and child shop IDs are supported. Just set the most specific one you want to use.
+
+The `execute` function now accepts an extra parameter specifying where to put the shop ID: In the URL's query or the requests headers.
+
+By default `execute` will use the query placement, while the `BapiClient` class will use the header for now to support existing BAPI setups. This will change in a future version.
+
 ## 0.19.0
 
 Respect `advancedAttributes` query for variants in basket requests

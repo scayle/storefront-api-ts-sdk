@@ -1,4 +1,4 @@
-import {Pagination} from 'bapi/endpoints/productsByIds';
+import {Pagination} from 'bapi/endpoints/products/productsByIds';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {BapiProduct, Attributes} from 'bapi/types/BapiProduct';
 import {

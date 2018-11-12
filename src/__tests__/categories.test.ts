@@ -3,14 +3,14 @@ import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
 } from 'bapi/test-helpers/nock';
-import {createCategoriesEndpointRequest} from 'bapi/endpoints/categories';
+import {createCategoriesEndpointRequest} from 'bapi/endpoints/categories/categories';
 
 disableNetAndAllowBapiCors();
 
 test('Fetch category by id', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .get(`/v1/categories?with=descendants&depth=2`)
+    .get(`/v1/categories?with=descendants&depth=2&shopId=139`)
     .replyWithFile(200, __dirname + '/responses/categories.json', {
       'Content-Type': 'application/json',
     });

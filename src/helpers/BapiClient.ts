@@ -18,38 +18,38 @@ import {
 import {
   createCategoriesEndpointRequest,
   RootCategoriesEndpointParameters,
-} from 'bapi/endpoints/categories';
+} from 'bapi/endpoints/categories/categories';
 import {
   CategoriesByIdsEndpointParameters,
   createCategoriesByIdsEndpointRequest,
-} from 'bapi/endpoints/categoriesByIds';
+} from 'bapi/endpoints/categories/categoriesByIds';
 import {
   CategoryByIdEndpointParameters,
   createCategoryByIdEndpointRequest,
-} from 'bapi/endpoints/categoryById';
+} from 'bapi/endpoints/categories/categoryById';
 import {
   CategoryBySlugEndpointParameters,
   createCategoryBySlugEndpointRequest,
-} from 'bapi/endpoints/categoryBySlug';
+} from 'bapi/endpoints/categories/categoryBySlug';
 import {
   createFiltersEndpointRequest,
   FiltersEndpointParameters,
-} from 'bapi/endpoints/filters';
+} from 'bapi/endpoints/filters/filters';
 import {
   createProductByIdEndpointRequest,
   ProductByIdEndpointParameters,
-} from 'bapi/endpoints/productById';
+} from 'bapi/endpoints/products/productById';
 import {
   APISortOption,
   APISortOrder,
   createProductsSearchEndpointRequest,
   ProductsSearchEndpointParameters,
-} from 'bapi/endpoints/products';
+} from 'bapi/endpoints/products/products';
 import {
   createProductsByIdsEndpointRequest,
   ProductsByIdsEndpointParameters,
   ProductsByIdsEndpointResponseData,
-} from 'bapi/endpoints/productsByIds';
+} from 'bapi/endpoints/products/productsByIds';
 import {
   addWishlistItemEndpointRequest,
   AddWishlistItemParameters,
@@ -154,7 +154,17 @@ function addToBasketFailureKindFromStatusCode(
  * Constructor returns a preconfigured client which has the `host` and `appId` set for all requests
  */
 export class BapiClient {
-  public constructor(private readonly env: {host: string; shopId: number}) {}
+  private readonly shopIdPlacement: 'header' | 'query';
+
+  public constructor(
+    private readonly env: {
+      host: string;
+      shopId: number;
+      shopIdPlacement?: 'header' | 'query';
+    },
+  ) {
+    this.shopIdPlacement = env.shopIdPlacement || 'header';
+  }
 
   public static withModels<T extends ProductMapping>(
     env: {host: string; shopId: number},
@@ -166,7 +176,13 @@ export class BapiClient {
   private async execute<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<SuccessResponseT> {
-    const response = await execute(this.env.host, this.env.shopId, bapiCall);
+    const response = await execute(
+      this.env.host,
+      this.env.shopId,
+      bapiCall,
+      undefined,
+      this.shopIdPlacement,
+    );
     return response.data;
   }
 
@@ -178,6 +194,7 @@ export class BapiClient {
       this.env.shopId,
       bapiCall,
       true,
+      this.shopIdPlacement,
     );
 
     return {

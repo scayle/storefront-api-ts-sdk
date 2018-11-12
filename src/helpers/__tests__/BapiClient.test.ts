@@ -4,10 +4,10 @@ import {
   disableNetAndAllowBapiCors,
 } from 'bapi/test-helpers/nock';
 
-disableNetAndAllowBapiCors();
+disableNetAndAllowBapiCors({shopIdHeader: true});
 
 it('Get basket', async () => {
-  nockWithBapiScope()
+  nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/customer_2137901')
     .replyWithFile(200, __dirname + '/responses/getBasket.json', {
@@ -38,7 +38,7 @@ it('Basket: Add same variant twice', async () => {
 
   const basketKey = 'customer_2137901';
 
-  nockWithBapiScope()
+  nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .post('/v1/baskets/customer_2137901/items', {
       variantId: 35149152,
@@ -53,7 +53,7 @@ it('Basket: Add same variant twice', async () => {
     35149152,
   );
 
-  nockWithBapiScope()
+  nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .post('/v1/baskets/customer_2137901/items', {
       variantId: 35149152,

@@ -1,4 +1,4 @@
-import {Pagination} from 'bapi/endpoints/productsByIds';
+import {Pagination} from 'bapi/endpoints/products/productsByIds';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {BapiProduct} from 'bapi/types/BapiProduct';
 import {
@@ -49,7 +49,7 @@ export interface ProductsSearchEndpointResponseData {
 }
 
 export function createProductsSearchEndpointRequest(
-  parameters: ProductsSearchEndpointParameters
+  parameters: ProductsSearchEndpointParameters,
 ): BapiCall<ProductsSearchEndpointResponseData> {
   return {
     method: 'GET',
