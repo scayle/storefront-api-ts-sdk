@@ -47,12 +47,13 @@ export function createMastersSearchEndpointRequest(
     method: 'GET',
     endpoint: 'masters',
     params: {
-      with:
-        parameters.with && parameters.with.products
-          ? prefixList(`products.`)(
+      ...(parameters.with && parameters.with.products
+        ? {
+            with: prefixList(`products.`)(
               productWithQueryParameterValues(parameters.with.products),
-            ).join(`,`)
-          : undefined,
+            ).join(`,`),
+          }
+        : undefined),
 
       ...queryParamsFromProductSearchQuery(parameters.where),
 
@@ -60,9 +61,17 @@ export function createMastersSearchEndpointRequest(
       //   sortDir: parameters.sort && parameters.sort.direction,
       //   sortScore: parameters.sort && parameters.sort.score,
       //   sortChannel: parameters.sort && parameters.sort.channel,
-      page: parameters.pagination && parameters.pagination.page,
-      perPage: parameters.pagination && parameters.pagination.perPage,
-      campaignKey: parameters.campaignKey,
+      ...(parameters.pagination && parameters.pagination.page
+        ? {page: parameters.pagination.page}
+        : undefined),
+      ...(parameters.pagination && parameters.pagination.perPage
+        ? {perPage: parameters.pagination.perPage}
+        : undefined),
+      ...(parameters.campaignKey
+        ? {
+            campaignKey: parameters.campaignKey,
+          }
+        : undefined),
     },
   };
 }
