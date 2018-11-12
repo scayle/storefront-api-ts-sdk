@@ -13,15 +13,15 @@ export interface DeleteWishlistParameters {
 }
 
 export function deleteWishlistEndpointRequest(
-  params: DeleteWishlistParameters
+  params: DeleteWishlistParameters,
 ): BapiCall<WishlistResponseData> {
   return {
     method: 'DELETE',
     endpoint: `wishlists/${params.wishlistKey}/items/${params.itemKey}`,
     params: {
-      with: params.with
-        ? basketWithQueryParameter(params.with).join(',')
-        : undefined,
+      ...(params.with
+        ? {with: basketWithQueryParameter(params.with).join(',')}
+        : undefined),
     },
   };
 }
