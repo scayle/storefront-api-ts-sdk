@@ -73,3 +73,45 @@ it('Basket: Add same variant twice', async () => {
   expect(secondTimeResponse.kind).toEqual(0);
   expect(secondTimeResponse.basket).toEqual(firstAddToBasketResponse.basket);
 });
+
+it('Basket: Add same variant twice', async () => {
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .delete('/v1/baskets/basket_1/items/item_1')
+    .replyWithFile(200, __dirname + '/responses/firstAddToBasket.json', {
+      'Content-Type': 'application/json',
+    });
+
+  const deleteItemResponse = await bapi.basket.deleteItem('basket_1', 'item_1');
+
+  expect(deleteItemResponse.items.length).toBe(1);
+});
+
+it('Basket: Add same variant twice', async () => {
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .patch('/v1/baskets/basket_1/items/item_1', {
+      quantity: 5,
+    })
+    .replyWithFile(200, __dirname + '/responses/firstAddToBasket.json', {
+      'Content-Type': 'application/json',
+    });
+
+  const deleteItemResponse = await bapi.basket.updateItem(
+    'basket_1',
+    'item_1',
+    5,
+  );
+
+  expect(deleteItemResponse.type).toBe('success');
+});
