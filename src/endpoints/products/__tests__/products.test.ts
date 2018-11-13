@@ -44,4 +44,20 @@ Object {
   },
 }
 `);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      pagination: {
+        page: 1,
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "page": 1,
+  },
+}
+`);
 });

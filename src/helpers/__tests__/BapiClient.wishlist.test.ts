@@ -51,6 +51,34 @@ it('Adds an item to the wishlist', async () => {
   expect(response.type).toBe('success');
 });
 
+it('Additem failure', async () => {
+  nockWithBapiScope()
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .post('/v1/wishlists/wishlist_1/items', {
+      productId: 1234,
+    })
+    .query({shopId: 139})
+    .reply(
+      500,
+      {},
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+    shopIdPlacement: 'query',
+  });
+
+  const response = await bapi.wishlist.addItem('wishlist_1', {
+    productId: 1234,
+  });
+
+  expect(response.type).toBe('failure');
+});
+
 it('Deletes an item from the wishlist', async () => {
   // For `DELETE` pre-flight request
   nock('https://api-cloud.example.com/')

@@ -30,6 +30,32 @@ it('Get basket', async () => {
   expect(basketResponse.basket).toHaveProperty(`cost`);
 });
 
+it('Get basket with error', async () => {
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .get('/v1/baskets/customer_2137901')
+    .reply(
+      500,
+      {},
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const basketKey = 'customer_2137901';
+
+  const basketResponse = await bapi.basket.get(basketKey);
+
+  if (basketResponse.type !== 'failure') {
+    fail('Expected failure response');
+  }
+});
+
 it('Basket: Add same variant twice', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
@@ -74,6 +100,168 @@ it('Basket: Add same variant twice', async () => {
   expect(secondTimeResponse.basket).toEqual(firstAddToBasketResponse.basket);
 });
 
+it('Basket: Add variant failure 1', async () => {
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const basketKey = 'customer_2137901';
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .post('/v1/baskets/customer_2137901/items', {
+      variantId: 35149152,
+      quantity: 1,
+    })
+    .reply(
+      206,
+      {},
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const response = await bapi.basket.addItem(basketKey, 35149152);
+
+  expect(response.type).toBe('failure');
+});
+
+it('Basket: Add variant failure 1', async () => {
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const basketKey = 'customer_2137901';
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .post('/v1/baskets/customer_2137901/items', {
+      variantId: 35149152,
+      quantity: 1,
+    })
+    .reply(
+      424,
+      {},
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const response = await bapi.basket.addItem(basketKey, 35149152);
+
+  expect(response.type).toBe('failure');
+});
+
+it('Basket: Add variant failure 1', async () => {
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const basketKey = 'customer_2137901';
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .post('/v1/baskets/customer_2137901/items', {
+      variantId: 35149152,
+      quantity: 1,
+    })
+    .reply(
+      409,
+      {},
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const response = await bapi.basket.addItem(basketKey, 35149152);
+
+  expect(response.type).toBe('failure');
+});
+
+it('Basket: Add variant failure 1', async () => {
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const basketKey = 'customer_2137901';
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .post('/v1/baskets/customer_2137901/items', {
+      variantId: 35149152,
+      quantity: 1,
+    })
+    .reply(
+      412,
+      {},
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const response = await bapi.basket.addItem(basketKey, 35149152);
+
+  expect(response.type).toBe('failure');
+});
+
+it('Basket: Add variant failure 1', async () => {
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const basketKey = 'customer_2137901';
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .post('/v1/baskets/customer_2137901/items', {
+      variantId: 35149152,
+      quantity: 1,
+    })
+    .reply(
+      413,
+      {},
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const response = await bapi.basket.addItem(basketKey, 35149152);
+
+  expect(response.type).toBe('failure');
+});
+
+it('Basket: Add variant failure 1', async () => {
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const basketKey = 'customer_2137901';
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .post('/v1/baskets/customer_2137901/items', {
+      variantId: 35149152,
+      quantity: 1,
+    })
+    .reply(
+      400,
+      {},
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const response = await bapi.basket.addItem(basketKey, 35149152);
+
+  expect(response.type).toBe('failure');
+});
+
 it('Basket: Add same variant twice', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
@@ -92,7 +280,7 @@ it('Basket: Add same variant twice', async () => {
   expect(deleteItemResponse.items.length).toBe(1);
 });
 
-it('Basket: Add same variant twice', async () => {
+it('Basket: Update item quantity', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -114,4 +302,32 @@ it('Basket: Add same variant twice', async () => {
   );
 
   expect(deleteItemResponse.type).toBe('success');
+});
+
+it('Basket: Update item failure', async () => {
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .patch('/v1/baskets/basket_1/items/item_1', {
+      quantity: 5,
+    })
+    .reply(
+      500,
+      {},
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const deleteItemResponse = await bapi.basket.updateItem(
+    'basket_1',
+    'item_1',
+    5,
+  );
+
+  expect(deleteItemResponse.type).toBe('failure');
 });

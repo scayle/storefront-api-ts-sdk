@@ -12,17 +12,22 @@ const TestCall: BapiCall<true> = {
   responseValidator: (o: any): o is true => o === true,
 };
 
-disableNetAndAllowBapiCors();
+disableNetAndAllowBapiCors({shopIdHeader: true});
 
-it('Get basket', async () => {
-  nockWithBapiScope()
+it('execute 1', async () => {
+  nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/api/true')
-    .query({shopId: 139})
     .reply(500, false);
 
   try {
-    await execute('https://api-cloud.example.com', 139, TestCall, true);
+    await execute(
+      'https://api-cloud.example.com',
+      139,
+      TestCall,
+      true,
+      'header',
+    );
   } catch (e) {
     expect(e.message).toContain('Invalid response data');
     return;

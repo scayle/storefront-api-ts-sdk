@@ -131,3 +131,37 @@ it('Converts variant filters', () => {
     `"variants,variants.attributes:key(keyA),images.attributes:legacy(false)"`,
   );
 });
+
+it('Images attributes', () => {
+  expect(
+    productWithQueryParameterValues({
+      images: {
+        attributes: {
+          withKey: ['a'],
+        },
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false):key(a)"`);
+
+  expect(
+    productWithQueryParameterValues({
+      categories: 'all',
+      siblings: 'all',
+      variants: {
+        attributes: 'all',
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"variants,variants.attributes,images.attributes:legacy(false),categories,siblings"`,
+  );
+
+  expect(
+    productWithQueryParameterValues({
+      siblings: {
+        advancedAttributes: 'all',
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),siblings,siblings.advancedAttributes,siblings.images.attributes:legacy(false)"`,
+  );
+});
