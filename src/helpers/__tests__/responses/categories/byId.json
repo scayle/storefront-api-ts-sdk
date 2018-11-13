@@ -1,0 +1,20 @@
+{
+  "id": 20201,
+  "path": "/frauen",
+  "name": "Frauen",
+  "slug": "frauen",
+  "description": "",
+  "parentId": 0,
+  "rootlineIds": [20201],
+  "childrenIds": [20204, 20207, 20203, 144187, 78100, 32543],
+  "properties": [
+    {"name": "legacy_category_id", "value": 20201},
+    {"name": "category_context", "value": "female"},
+    {"name": "reference_id", "value": "a72ebf5c0174a1681eb0d496158143dd"},
+    {
+      "name": "attributes",
+      "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"gender_female\":[\"Frauen\"]}"
+    }
+  ],
+  "isHidden": false
+}
