@@ -1,0 +1,876 @@
+{
+  "items": [
+    {
+      "id": "1280ab7676860acfa9b9bb14b5eb1804",
+      "variantId": 35254783,
+      "productId": 3918540,
+      "productData": {
+        "product": {
+          "id": 3918540,
+          "name": "Kleid",
+          "brand": {"id": 543, "name": "VERO MODA"},
+          "image": {
+            "hash": "7b931e94872b4a9b11573da57a1fbcdf",
+            "type": "model",
+            "trim": false,
+            "background": null,
+            "brightness": false,
+            "focus": "product",
+            "view": "front"
+          },
+          "imagesModelFirst": [
+            "34ba7e9e62ade655bb1945ee1317f96a",
+            "66fdb17d63fe514d7f944969986cddc7",
+            "99dd7d2fc96cd84c546cfbe7c3120b53",
+            "30ae7cbf4c3e5827ab7f896b99c522e9"
+          ],
+          "imagesBustFirst": [
+            "7b931e94872b4a9b11573da57a1fbcdf",
+            "34ba7e9e62ade655bb1945ee1317f96a",
+            "66fdb17d63fe514d7f944969986cddc7",
+            "99dd7d2fc96cd84c546cfbe7c3120b53"
+          ],
+          "imageModelFirst": {
+            "hash": "7b931e94872b4a9b11573da57a1fbcdf",
+            "type": "model",
+            "trim": false,
+            "background": null,
+            "brightness": false,
+            "focus": "product",
+            "view": "front"
+          },
+          "imageBustFirst": {
+            "hash": "30ae7cbf4c3e5827ab7f896b99c522e9",
+            "type": "bust",
+            "trim": true,
+            "background": "F4F4F5",
+            "brightness": false,
+            "focus": "product",
+            "view": "front"
+          },
+          "color": {"id": 38853, "name": "mischfarben", "product_id": 3918540},
+          "colors": [
+            {
+              "id": 38911,
+              "name": "wei\u00df",
+              "product_id": 3916654,
+              "default_image": {
+                "hash": "ca356c720726fd1efa3ebb18311d3ef8",
+                "type": "bust",
+                "trim": true,
+                "background": "F4F4F5",
+                "brightness": false,
+                "focus": "product",
+                "view": "front"
+              }
+            },
+            {
+              "id": 38853,
+              "name": "mischfarben",
+              "product_id": 3918540,
+              "default_image": {
+                "hash": "30ae7cbf4c3e5827ab7f896b99c522e9",
+                "type": "bust",
+                "trim": true,
+                "background": "F4F4F5",
+                "brightness": false,
+                "focus": "product",
+                "view": "front"
+              }
+            }
+          ],
+          "sale": false,
+          "premium": false,
+          "new": false,
+          "categories": ["frauen", "bekleidung", "kleider", "filter-schwarz"],
+          "categoryNames": [
+            "Frauen",
+            "Bekleidung",
+            "Kleider",
+            "Filter Schwarz"
+          ],
+          "categoryIds": [
+            [20201, 20204, 20236, 322888],
+            [20201, 20204, 20236, 20443],
+            [20201, 324164],
+            [20201, 20204]
+          ],
+          "active": true,
+          "soldOut": false,
+          "measurements": [
+            {"label": "Gesamtl\u00e4nge", "value": "93 cm"},
+            {"label": "\u00c4rmell\u00e4nge", "value": "40 cm"}
+          ],
+          "modelImage": null,
+          "mappedCategories": [
+            {"name": "Frauen", "normalized": "frauen", "id": 20201},
+            {"name": "Bekleidung", "normalized": "bekleidung", "id": 20204},
+            {"name": "Kleider", "normalized": "kleider", "id": 20236},
+            {
+              "name": "Filter Schwarz",
+              "normalized": "filter-schwarz",
+              "id": 322888
+            }
+          ],
+          "additionalInformation": {
+            "design": [
+              {
+                "id": 1052,
+                "frontendName": "Design",
+                "value": [
+                  "Abgesteppter Saum/Kante",
+                  "Mit Unterkleid",
+                  "Zum Knoten/Binden",
+                  "Elastikeins\u00e4tze"
+                ]
+              },
+              {
+                "id": 317,
+                "frontendName": "Muster",
+                "value": ["Gebl\u00fcmt/floral"]
+              }
+            ],
+            "extras": [
+              {
+                "id": 1053,
+                "frontendName": "Extras",
+                "value": [
+                  "Leicht transparent",
+                  "All-Over-Muster",
+                  "Ton-in-Ton-N\u00e4hte",
+                  "Leichter Stoff"
+                ]
+              },
+              {
+                "id": 359,
+                "frontendName": "Details",
+                "value": ["R\u00fcschen", "Volant", "Drapiert/gerafft"]
+              }
+            ],
+            "fitSize": [
+              {
+                "id": 320,
+                "frontendName": "\u00c4rmell\u00e4nge",
+                "value": ["Dreiviertelarm"]
+              },
+              {"id": 325, "frontendName": "L\u00e4nge", "value": ["Kurz/Mini"]},
+              {
+                "id": 1142,
+                "frontendName": "Passform",
+                "value": ["Lockere Passform"]
+              },
+              {"frontendName": "Gesamtl\u00e4nge", "value": ["93 cm"]},
+              {"frontendName": "\u00c4rmell\u00e4nge", "value": ["40 cm"]}
+            ],
+            "materialCare": [
+              {
+                "id": 247,
+                "frontendName": "Pflegehinweise",
+                "value": [
+                  "30 \u00b0C W\u00e4sche",
+                  "Nicht trocknergeeignet",
+                  "Nicht chemisch reinigen",
+                  "Nicht hei\u00df b\u00fcgeln",
+                  "Nicht bleichen"
+                ]
+              },
+              {
+                "id": 471,
+                "frontendName": "Elastizit\u00e4t",
+                "value": ["Nicht elastisch"]
+              },
+              {"frontendName": "Obermaterial", "value": ["100% Polyester"]},
+              {"frontendName": "Futter", "value": ["100% Polyester"]}
+            ],
+            "utility": [],
+            "careSymbols": [
+              {"id": 27971, "name": "30 \u00b0C W\u00e4sche"},
+              {"id": 27975, "name": "Nicht trocknergeeignet"},
+              {"id": 27977, "name": "Nicht chemisch reinigen"},
+              {"id": 27981, "name": "Nicht hei\u00df b\u00fcgeln"},
+              {"id": 27984, "name": "Nicht bleichen"}
+            ]
+          },
+          "beautyCategory": null,
+          "modelWearsSize": "S",
+          "showAttributeTabs": true,
+          "isAyBrand": false,
+          "sizeAdvice": null,
+          "modelInformation": [
+            {"label": "Gr\u00f6\u00dfe", "value": "174 cm", "isHeight": true},
+            {"label": "Brust", "value": "78 cm", "isHeight": false},
+            {"label": "Taille", "value": "62 cm", "isHeight": false},
+            {"label": "H\u00fcften", "value": "90 cm", "isHeight": false},
+            {"label": "Arme", "value": "59 cm", "isHeight": false},
+            {"label": "Beine", "value": "84 cm", "isHeight": false}
+          ],
+          "partOfLook": null,
+          "styleKey": "VER2082-5",
+          "bulletPoints": [
+            "Plisseefalten",
+            "Sehr leichter Stoff",
+            "Florales Muster all-over",
+            "Tunika Ausschnitt mit R\u00fcschen und B\u00e4ndchen"
+          ],
+          "hasAnimalParts": false,
+          "defaultVariantId": 35254783,
+          "quantityPerPack": "1er Pack",
+          "merchantProductId": "VER2082001000001",
+          "saleSavingPercentage": 0,
+          "bigSize": false,
+          "desc": null,
+          "prices": {
+            "default": {"old": 0, "min": 3490, "max": 3490},
+            "campaign": {"max": 0, "min": 0, "maxSavings": 0},
+            "campaignApp": {"max": 0, "min": 0, "maxSavings": 0},
+            "basePrice": null
+          }
+        },
+        "variant": {
+          "materials": [
+            {
+              "name": "Obermaterial",
+              "composition": [{"name": "Polyester", "percentage": 100}]
+            },
+            {
+              "name": "Futter",
+              "composition": [{"name": "Polyester", "percentage": 100}]
+            }
+          ],
+          "images": [
+            {
+              "hash": "7b931e94872b4a9b11573da57a1fbcdf",
+              "type": "model",
+              "trim": false,
+              "background": null,
+              "brightness": false,
+              "focus": "product",
+              "view": "front"
+            },
+            {
+              "hash": "34ba7e9e62ade655bb1945ee1317f96a",
+              "type": "model",
+              "trim": false,
+              "background": null,
+              "brightness": false,
+              "focus": "product",
+              "view": "back"
+            },
+            {
+              "hash": "66fdb17d63fe514d7f944969986cddc7",
+              "type": "model",
+              "trim": false,
+              "background": null,
+              "brightness": false,
+              "focus": "combination",
+              "view": null
+            },
+            {
+              "hash": "99dd7d2fc96cd84c546cfbe7c3120b53",
+              "type": "model",
+              "trim": false,
+              "background": null,
+              "brightness": false,
+              "focus": "detail",
+              "view": null
+            },
+            {
+              "hash": "30ae7cbf4c3e5827ab7f896b99c522e9",
+              "type": "bust",
+              "trim": true,
+              "background": "F4F4F5",
+              "brightness": false,
+              "focus": "product",
+              "view": "front"
+            }
+          ],
+          "active": true,
+          "gender": {"id": 25467, "name": "Female"},
+          "dimensionType": null,
+          "combinedDimensions": [
+            {
+              "variantId": 35254783,
+              "size": "XS",
+              "shopSize": "34",
+              "dimension": null,
+              "dimensionShopSize": null,
+              "sizeLabel": "XS",
+              "shopSizeLabel": "34",
+              "prices": {
+                "default": {"price": 3490, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 1,
+              "sizeId": 25530,
+              "dimensionId": null,
+              "biSizeId": 41265
+            },
+            {
+              "variantId": 35254784,
+              "size": "S",
+              "shopSize": "36",
+              "dimension": null,
+              "dimensionShopSize": null,
+              "sizeLabel": "S",
+              "shopSizeLabel": "36",
+              "prices": {
+                "default": {"price": 3490, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 0,
+              "sizeId": 25508,
+              "dimensionId": null,
+              "biSizeId": 41052
+            },
+            {
+              "variantId": 35254785,
+              "size": "M",
+              "shopSize": "38",
+              "dimension": null,
+              "dimensionShopSize": null,
+              "sizeLabel": "M",
+              "shopSizeLabel": "38",
+              "prices": {
+                "default": {"price": 3490, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 0,
+              "sizeId": 25507,
+              "dimensionId": null,
+              "biSizeId": 41070
+            },
+            {
+              "variantId": 35254786,
+              "size": "L",
+              "shopSize": "40",
+              "dimension": null,
+              "dimensionShopSize": null,
+              "sizeLabel": "L",
+              "shopSizeLabel": "40",
+              "prices": {
+                "default": {"price": 3490, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 5,
+              "sizeId": 25510,
+              "dimensionId": null,
+              "biSizeId": 41082
+            },
+            {
+              "variantId": 35254787,
+              "size": "XL",
+              "shopSize": "42",
+              "dimension": null,
+              "dimensionShopSize": null,
+              "sizeLabel": "XL",
+              "shopSizeLabel": "42",
+              "prices": {
+                "default": {"price": 3490, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 1,
+              "sizeId": 25509,
+              "dimensionId": null,
+              "biSizeId": 41094
+            }
+          ],
+          "dimensionName": null
+        },
+        "id": 3918540
+      },
+      "created": {
+        "date": "2018-11-12 14:30:01.000000",
+        "timezone_type": 1,
+        "timezone": "+01:00"
+      },
+      "updated": {
+        "date": "2018-11-12 14:30:01.000000",
+        "timezone_type": 1,
+        "timezone": "+01:00"
+      }
+    },
+    {
+      "id": "0d75e58b6d2c65d69ee8a9b536672eab",
+      "variantId": 35149150,
+      "productId": 3900691,
+      "productData": {
+        "product": {
+          "id": 3900691,
+          "name": "Pantoletten 'Mayari'",
+          "brand": {"id": 1311, "name": "BIRKENSTOCK"},
+          "image": {
+            "hash": "8f0415c27df5c0fd0a9b8fa416143890",
+            "type": "bust",
+            "trim": true,
+            "background": null,
+            "brightness": 0.96,
+            "focus": "product",
+            "view": "front"
+          },
+          "imagesModelFirst": [
+            "ea2aac139bee9e24bc3432c49085b0f4",
+            "5cb0a72d43ac6cc9e56202742e567774",
+            "adce9d9c0c42433997eb1d096f119ff6",
+            "5bddd0e8b80d876aa06c958149b22353",
+            "1820547b068e084ae134cada318bd3bb",
+            "69428ee39fed70269446d5f23981acf3"
+          ],
+          "imagesBustFirst": [
+            "ea2aac139bee9e24bc3432c49085b0f4",
+            "5cb0a72d43ac6cc9e56202742e567774",
+            "adce9d9c0c42433997eb1d096f119ff6",
+            "5bddd0e8b80d876aa06c958149b22353",
+            "1820547b068e084ae134cada318bd3bb",
+            "69428ee39fed70269446d5f23981acf3"
+          ],
+          "imageModelFirst": {
+            "hash": "8f0415c27df5c0fd0a9b8fa416143890",
+            "type": "bust",
+            "trim": true,
+            "background": null,
+            "brightness": 0.96,
+            "focus": "product",
+            "view": "front"
+          },
+          "imageBustFirst": {
+            "hash": "8f0415c27df5c0fd0a9b8fa416143890",
+            "type": "bust",
+            "trim": true,
+            "background": null,
+            "brightness": 0.96,
+            "focus": "product",
+            "view": "front"
+          },
+          "color": {"id": 38908, "name": "silber", "product_id": 3900691},
+          "colors": [],
+          "sale": false,
+          "premium": false,
+          "new": false,
+          "categories": [
+            "frauen",
+            "schuhe",
+            "pantoletten",
+            "klassische-pantoletten"
+          ],
+          "categoryNames": [
+            "Frauen",
+            "Schuhe",
+            "Pantoletten",
+            "Klassische Pantoletten"
+          ],
+          "categoryIds": [[20201, 20207, 20266, 236111], [20201, 20207]],
+          "active": true,
+          "soldOut": false,
+          "measurements": null,
+          "modelImage": null,
+          "mappedCategories": [
+            {"name": "Frauen", "normalized": "frauen", "id": 20201},
+            {"name": "Schuhe", "normalized": "schuhe", "id": 20207},
+            {"name": "Pantoletten", "normalized": "pantoletten", "id": 20266},
+            {
+              "name": "Klassische Pantoletten",
+              "normalized": "klassische-pantoletten",
+              "id": 236111
+            }
+          ],
+          "additionalInformation": {
+            "design": [
+              {
+                "id": 1146,
+                "frontendName": "Material",
+                "value": ["Lederimitat"]
+              },
+              {
+                "id": 336,
+                "frontendName": "Schuhspitze",
+                "value": ["Offene Kappe"]
+              },
+              {
+                "id": 1052,
+                "frontendName": "Design",
+                "value": [
+                  "Anatomisch geformtes Fu\u00dfbett",
+                  "Profilsohle",
+                  "Verstellbarer Riemen",
+                  "Schlupfeinstieg",
+                  "Korksohle"
+                ]
+              },
+              {"id": 318, "frontendName": "Material", "value": ["Lederimitat"]}
+            ],
+            "extras": [
+              {
+                "id": 1053,
+                "frontendName": "Extras",
+                "value": ["Gl\u00e4nzend", "Label-Pr\u00e4gung"]
+              }
+            ],
+            "fitSize": [
+              {
+                "id": 333,
+                "frontendName": "Absatzh\u00f6he",
+                "value": ["Flacher Absatz (0-3 cm)"]
+              }
+            ],
+            "materialCare": [
+              {"frontendName": "Obermaterial", "value": ["sonstiges Material"]},
+              {"frontendName": "Decksohle", "value": ["Leder"]},
+              {"frontendName": "Sohle", "value": ["EVA"]}
+            ],
+            "utility": [],
+            "careSymbols": []
+          },
+          "beautyCategory": null,
+          "modelWearsSize": null,
+          "showAttributeTabs": true,
+          "isAyBrand": false,
+          "sizeAdvice": null,
+          "modelInformation": null,
+          "partOfLook": null,
+          "styleKey": "46955-11",
+          "bulletPoints": [
+            "Verschluss: Schlie\u00dfe",
+            "Absatzform: flach",
+            "Absatzh\u00f6he: 1 cm"
+          ],
+          "hasAnimalParts": false,
+          "defaultVariantId": 35149150,
+          "quantityPerPack": "1er Pack",
+          "merchantProductId": "1008807420",
+          "saleSavingPercentage": 0,
+          "bigSize": false,
+          "desc": null,
+          "prices": {
+            "default": {"old": 0, "min": 6500, "max": 6500},
+            "campaign": {"max": 0, "min": 0, "maxSavings": 0},
+            "campaignApp": {"max": 0, "min": 0, "maxSavings": 0},
+            "basePrice": null
+          }
+        },
+        "variant": {
+          "materials": [
+            {
+              "name": "Obermaterial",
+              "composition": [{"name": "sonstiges Material", "percentage": 0}]
+            },
+            {
+              "name": "Decksohle",
+              "composition": [{"name": "Leder", "percentage": 0}]
+            },
+            {"name": "Sohle", "composition": [{"name": "EVA", "percentage": 0}]}
+          ],
+          "images": [
+            {
+              "hash": "8f0415c27df5c0fd0a9b8fa416143890",
+              "type": "bust",
+              "trim": true,
+              "background": null,
+              "brightness": 0.96,
+              "focus": "product",
+              "view": "front"
+            },
+            {
+              "hash": "ea2aac139bee9e24bc3432c49085b0f4",
+              "type": "bust",
+              "trim": true,
+              "background": null,
+              "brightness": 0.96,
+              "focus": "product",
+              "view": null
+            },
+            {
+              "hash": "5cb0a72d43ac6cc9e56202742e567774",
+              "type": "bust",
+              "trim": true,
+              "background": null,
+              "brightness": 0.96,
+              "focus": "product",
+              "view": null
+            },
+            {
+              "hash": "adce9d9c0c42433997eb1d096f119ff6",
+              "type": "bust",
+              "trim": true,
+              "background": null,
+              "brightness": 0.96,
+              "focus": "product",
+              "view": null
+            },
+            {
+              "hash": "5bddd0e8b80d876aa06c958149b22353",
+              "type": "bust",
+              "trim": true,
+              "background": null,
+              "brightness": 0.96,
+              "focus": "product",
+              "view": null
+            },
+            {
+              "hash": "1820547b068e084ae134cada318bd3bb",
+              "type": "bust",
+              "trim": true,
+              "background": null,
+              "brightness": 0.96,
+              "focus": "product",
+              "view": null
+            },
+            {
+              "hash": "69428ee39fed70269446d5f23981acf3",
+              "type": "bust",
+              "trim": true,
+              "background": null,
+              "brightness": 0.96,
+              "focus": "product",
+              "view": null
+            }
+          ],
+          "active": true,
+          "gender": {"id": 25467, "name": "Female"},
+          "dimensionType": "dimension3",
+          "combinedDimensions": [
+            {
+              "variantId": 35149149,
+              "size": "35",
+              "shopSize": null,
+              "dimension": "NORMAL",
+              "dimensionShopSize": null,
+              "sizeLabel": "35xNORMAL",
+              "shopSizeLabel": null,
+              "prices": {
+                "default": {"price": 6500, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 0,
+              "sizeId": 25484,
+              "dimensionId": 26979,
+              "biSizeId": 41910
+            },
+            {
+              "variantId": 35149153,
+              "size": "36",
+              "shopSize": null,
+              "dimension": "NORMAL",
+              "dimensionShopSize": null,
+              "sizeLabel": "36xNORMAL",
+              "shopSizeLabel": null,
+              "prices": {
+                "default": {"price": 6500, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 19,
+              "sizeId": 25474,
+              "dimensionId": 26979,
+              "biSizeId": 41052
+            },
+            {
+              "variantId": 35149156,
+              "size": "37",
+              "shopSize": null,
+              "dimension": "NORMAL",
+              "dimensionShopSize": null,
+              "sizeLabel": "37xNORMAL",
+              "shopSizeLabel": null,
+              "prices": {
+                "default": {"price": 6500, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 15,
+              "sizeId": 25483,
+              "dimensionId": 26979,
+              "biSizeId": 41889
+            },
+            {
+              "variantId": 35149154,
+              "size": "38",
+              "shopSize": null,
+              "dimension": "NORMAL",
+              "dimensionShopSize": null,
+              "sizeLabel": "38xNORMAL",
+              "shopSizeLabel": null,
+              "prices": {
+                "default": {"price": 6500, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 88,
+              "sizeId": 25471,
+              "dimensionId": 26979,
+              "biSizeId": 41070
+            },
+            {
+              "variantId": 35149152,
+              "size": "39",
+              "shopSize": null,
+              "dimension": "NORMAL",
+              "dimensionShopSize": null,
+              "sizeLabel": "39xNORMAL",
+              "shopSizeLabel": null,
+              "prices": {
+                "default": {"price": 6500, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 109,
+              "sizeId": 25481,
+              "dimensionId": 26979,
+              "biSizeId": 41880
+            },
+            {
+              "variantId": 35149155,
+              "size": "40",
+              "shopSize": null,
+              "dimension": "NORMAL",
+              "dimensionShopSize": null,
+              "sizeLabel": "40xNORMAL",
+              "shopSizeLabel": null,
+              "prices": {
+                "default": {"price": 6500, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 96,
+              "sizeId": 25470,
+              "dimensionId": 26979,
+              "biSizeId": 41082
+            },
+            {
+              "variantId": 35149151,
+              "size": "41",
+              "shopSize": null,
+              "dimension": "NORMAL",
+              "dimensionShopSize": null,
+              "sizeLabel": "41xNORMAL",
+              "shopSizeLabel": null,
+              "prices": {
+                "default": {"price": 6500, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 57,
+              "sizeId": 25480,
+              "dimensionId": 26979,
+              "biSizeId": 41658
+            },
+            {
+              "variantId": 35149150,
+              "size": "42",
+              "shopSize": null,
+              "dimension": "NORMAL",
+              "dimensionShopSize": null,
+              "sizeLabel": "42xNORMAL",
+              "shopSizeLabel": null,
+              "prices": {
+                "default": {"price": 6500, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 16,
+              "sizeId": 25469,
+              "dimensionId": 26979,
+              "biSizeId": 41094
+            },
+            {
+              "variantId": 35149148,
+              "size": "43",
+              "shopSize": null,
+              "dimension": "NORMAL",
+              "dimensionShopSize": null,
+              "sizeLabel": "43xNORMAL",
+              "shopSizeLabel": null,
+              "prices": {
+                "default": {"price": 6500, "oldPrice": null},
+                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
+                "campaignApp": {
+                  "priceSpecialSale": 0,
+                  "reductionSpecialSale": 0
+                },
+                "basePrice": null
+              },
+              "quantity": 0,
+              "sizeId": 25520,
+              "dimensionId": 26979,
+              "biSizeId": 41667
+            }
+          ],
+          "dimensionName": "Gr\u00f6\u00dfendimension"
+        },
+        "id": 3900691
+      },
+      "created": {
+        "date": "2018-10-09 12:17:38.000000",
+        "timezone_type": 1,
+        "timezone": "+02:00"
+      },
+      "updated": {
+        "date": "2018-10-09 12:17:38.000000",
+        "timezone_type": 1,
+        "timezone": "+02:00"
+      }
+    }
+  ],
+  "totalPrice": 915475,
+  "totalNet": 769306,
+  "totalVat": 146169,
+  "tax": 19,
+  "specialSaleSavings": 6025
+}
