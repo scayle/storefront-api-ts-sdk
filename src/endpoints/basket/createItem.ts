@@ -9,11 +9,12 @@ export interface CreateBasketItemParameters {
   basketKey: string;
   variantId: number;
   quantity: number;
+  childShopId?: number;
   with?: BasketWith;
 }
 
 export function createBasketItemRequest(
-  params: CreateBasketItemParameters
+  params: CreateBasketItemParameters,
 ): BapiCall<BasketResponseData> {
   return {
     method: 'POST',
@@ -26,6 +27,7 @@ export function createBasketItemRequest(
     data: {
       variantId: params.variantId,
       quantity: params.quantity,
+      ...(params.childShopId ? {shopId: params.childShopId} : undefined),
     },
   };
 }
