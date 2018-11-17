@@ -1,14 +1,14 @@
 # Changelog
 
-## UNRELEASED
+## 0.20.0
 
-Make the shop ID mandatory, as it's now fully supported by BAPI.
+The `key` property is now exposed on basket responses.
 
-Both (parent) shop IDs and child shop IDs are supported. Just set the most specific one you want to use.
+A `childShopId` parameter can now be passed to "add to basket" calls, which will be forward as `appId` in the payload of the checkout call.
 
-The `execute` function now accepts an extra parameter specifying where to put the shop ID: In the URL's query or the requests headers.
-
-By default `execute` will use the query placement, while the `BapiClient` class will use the header for now to support existing BAPI setups. This will change in a future version.
+The shop ID can now be set via the header or via an URL query parameter.  
+Since it the URL parameter doesn't infere with CORS it's now mandatory in the SDK (and also in upcoming versions of the BAPI itself).  
+The `execute` function by default will place the shop ID in the URL, while the `BapiClient` will place the shop ID in the header to support existing BAPI installations. This might change in the future.
 
 ## 0.19.0
 
