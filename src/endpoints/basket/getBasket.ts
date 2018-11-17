@@ -8,7 +8,12 @@ import {
 
 type BasketItemPrice = BapiPrice;
 
+export type BasketKey = string & {
+  readonly ____tagBasketKey: unique symbol;
+};
+
 export interface BasketResponseData<P = BapiProduct, V = Variant> {
+  key: BasketKey;
   cost: BasketItemPrice;
   currencyCode: 'EUR';
   items: BasketItem<P, V>[];
