@@ -18,38 +18,36 @@ import {
 import {
   createCategoriesEndpointRequest,
   RootCategoriesEndpointParameters,
-} from 'bapi/endpoints/categories';
+} from 'bapi/endpoints/categories/categories';
 import {
   CategoriesByIdsEndpointParameters,
   createCategoriesByIdsEndpointRequest,
-} from 'bapi/endpoints/categoriesByIds';
+} from 'bapi/endpoints/categories/categoriesByIds';
 import {
   CategoryByIdEndpointParameters,
   createCategoryByIdEndpointRequest,
-} from 'bapi/endpoints/categoryById';
+} from 'bapi/endpoints/categories/categoryById';
 import {
   CategoryBySlugEndpointParameters,
   createCategoryBySlugEndpointRequest,
-} from 'bapi/endpoints/categoryBySlug';
+} from 'bapi/endpoints/categories/categoryBySlug';
 import {
   createFiltersEndpointRequest,
   FiltersEndpointParameters,
-} from 'bapi/endpoints/filters';
+} from 'bapi/endpoints/filters/filters';
 import {
   createProductByIdEndpointRequest,
   ProductByIdEndpointParameters,
-} from 'bapi/endpoints/productById';
+} from 'bapi/endpoints/products/productById';
 import {
-  APISortOption,
-  APISortOrder,
   createProductsSearchEndpointRequest,
   ProductsSearchEndpointParameters,
-} from 'bapi/endpoints/products';
+} from 'bapi/endpoints/products/products';
 import {
   createProductsByIdsEndpointRequest,
   ProductsByIdsEndpointParameters,
   ProductsByIdsEndpointResponseData,
-} from 'bapi/endpoints/productsByIds';
+} from 'bapi/endpoints/products/productsByIds';
 import {
   addWishlistItemEndpointRequest,
   AddWishlistItemParameters,
@@ -66,11 +64,8 @@ import {
 } from 'bapi/endpoints/wishlist/getWishlist';
 import {execute} from 'bapi/helpers/execute';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
 import {BapiCategory} from 'bapi/types/BapiCategory';
 import {BapiProduct, Variant} from 'bapi/types/BapiProduct';
-import {ProductSearchQuery} from 'bapi/types/ProductSearchQuery';
-import {ProductWith} from 'bapi/types/ProductWith';
 import {
   MastersSearchEndpointParameters,
   MastersSearchEndpointResponseData,
@@ -154,7 +149,17 @@ function addToBasketFailureKindFromStatusCode(
  * Constructor returns a preconfigured client which has the `host` and `appId` set for all requests
  */
 export class BapiClient {
-  public constructor(private readonly env: {host: string; shopId: number}) {}
+  private readonly shopIdPlacement: 'header' | 'query';
+
+  public constructor(
+    private readonly env: {
+      host: string;
+      shopId: number;
+      shopIdPlacement?: 'header' | 'query';
+    },
+  ) {
+    this.shopIdPlacement = env.shopIdPlacement || 'header';
+  }
 
   public static withModels<T extends ProductMapping>(
     env: {host: string; shopId: number},
@@ -166,7 +171,13 @@ export class BapiClient {
   private async execute<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<SuccessResponseT> {
-    const response = await execute(this.env.host, this.env.shopId, bapiCall);
+    const response = await execute(
+      this.env.host,
+      this.env.shopId,
+      bapiCall,
+      undefined,
+      this.shopIdPlacement,
+    );
     return response.data;
   }
 
@@ -178,6 +189,7 @@ export class BapiClient {
       this.env.shopId,
       bapiCall,
       true,
+      this.shopIdPlacement,
     );
 
     return {
@@ -417,207 +429,4 @@ export class BapiClient {
       );
     },
   };
-}
-
-// tslint:disable:no-console
-/**
- * `BapiClient` usage example
- */
-export async function example() {
-  const bapi = new BapiClient({host: 'https://api.example.com/', shopId: 139});
-
-  {
-    // Querying the first page of all products
-    const {entities: products, pagination} = await bapi.products.query();
-    console.log(products, pagination);
-  }
-
-  {
-    // Querying the 101st to 200th products in a specific category, costing up to 50 EUR, having one of two colors
-    // Including their own and their variant's attributes in the response
-    const {entities: products, pagination} = await bapi.products.query({
-      where: {
-        categoryId: 20201,
-        maxPrice: 5000,
-        attributes: [
-          {
-            type: 'attributes',
-            key: 'color' as AttributeKey /* would typed from /filters response model */,
-            values: [55, 57],
-          },
-        ],
-      },
-      with: {
-        attributes: 'all',
-        variants: {
-          attributes: 'all',
-        },
-      },
-      pagination: {
-        perPage: 100,
-        page: 2,
-      },
-    });
-
-    console.log(products, pagination);
-  }
-
-  {
-    // Resuse product fields to be requested across APIs
-    const DEFAULT_PRODUCT_WITH: ProductWith = {
-      attributes: 'all',
-      categories: 'all',
-    };
-
-    const basketResponse = await bapi.basket.get(`aboutyou_customer_1235`, {
-      with: {
-        items: {
-          product: DEFAULT_PRODUCT_WITH,
-        },
-      },
-    });
-
-    const product = await bapi.products.getById(4711, {
-      with: DEFAULT_PRODUCT_WITH,
-    });
-
-    // The product on the basket item and the individually requested product has the same schema
-    console.log(basketResponse.type, basketResponse.basket.items[0], product);
-  }
-
-  {
-    // Adding a product variant to the basket
-    const basketResponse = await bapi.basket.addItem(
-      `aboutyou_customer_1235`,
-      9474212,
-      1,
-    );
-
-    if (basketResponse.type === 'success') {
-      console.log(`Current basket:`, basketResponse.basket);
-    } else {
-      console.log(
-        `Failure kind`,
-        basketResponse.kind,
-        `Current basket:`,
-        basketResponse.basket,
-      );
-    }
-  }
-
-  {
-    // Change basket item quantity
-    const updatedBasket = await bapi.basket.updateItem(
-      `aboutyou_customer_1235`,
-      'item_789',
-      5,
-    );
-
-    console.log(updatedBasket);
-  }
-
-  {
-    // Delete basket item
-    const updatedBasket = await bapi.basket.deleteItem(
-      `aboutyou_customer_1235`,
-      'item_789',
-    );
-
-    console.log(updatedBasket);
-  }
-
-  {
-    // Retrieve a category with it's immediate children and all parents
-    const category = await bapi.categories.getByPath(['frauen', 'bekleidung'], {
-      with: {
-        parents: 'all',
-        children: {
-          depth: 1,
-        },
-      },
-    });
-
-    // `parent` contains `BapiCategory`s up the chain, and `children` and array of `BapiCategory`s
-    console.log(category);
-  }
-
-  {
-    // Retrieve a category by ID
-    const category = await bapi.categories.getById(20201, {
-      with: {
-        parents: 'all',
-        children: {
-          depth: 1,
-        },
-      },
-    });
-
-    // `parent` contains `BapiCategory`s up the chain, and `children` and array of `BapiCategory`s
-    console.log(category);
-  }
-
-  {
-    // Fetch products a brand page and use the same query data to fetch the filters applicable to the result set
-
-    const searchQuery: ProductSearchQuery = {
-      categoryId: 20201,
-      attributes: [
-        {
-          type: 'attributes',
-          key: 'brand' as AttributeKey,
-          values: [901],
-        },
-      ],
-    };
-
-    const {entities: products, pagination} = await bapi.products.query({
-      where: searchQuery,
-      sort: {
-        by: APISortOption.Price,
-        direction: APISortOrder.Ascending,
-      },
-    });
-
-    const filters = await bapi.filters.get({
-      where: searchQuery,
-    });
-
-    console.log(products, pagination, filters);
-  }
-
-  {
-    // Fetch wishlist, including `color` attribute on item-level `variant`
-    const wishlist = bapi.wishlist.get(`aboutyou_customer_1235`, {
-      with: {
-        items: {
-          variant: {
-            attributes: {
-              withKey: ['color'],
-            },
-          },
-        },
-      },
-    });
-
-    console.log(wishlist);
-  }
-
-  {
-    // Add variant to wishlist
-    const updatedWishlist = bapi.wishlist.addItem(`aboutyou_customer_1235`, {
-      variantId: 789,
-    });
-
-    console.log(updatedWishlist);
-  }
-
-  {
-    // Remove item from wishlist
-    const updatedWishlist = bapi.wishlist.deleteItem(
-      `aboutyou_customer_1235`,
-      `item_789`,
-    );
-
-    console.log(updatedWishlist);
-  }
 }

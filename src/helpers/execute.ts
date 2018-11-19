@@ -38,16 +38,20 @@ export interface BapiResponse<T> {
 
 export async function execute<SuccessResponseT>(
   apiLocation: string,
-  shopId: number | null,
+  shopId: number,
   bapiCall: BapiCall<SuccessResponseT>,
   acceptAllResponseCodes = false,
+  shopIdPlacement: 'header' | 'query' = 'query',
 ): Promise<BapiResponse<SuccessResponseT>> {
-  const url = apiLocation + prepareUrl(bapiCall.endpoint, bapiCall.params);
+  const params =
+    shopIdPlacement === 'query'
+      ? {...bapiCall.params, shopId: shopId}
+      : bapiCall.params;
 
-  const shopIdHeader: ObjectMap<string> = {};
-  if (shopId !== null) {
-    shopIdHeader['X-Shop-Id'] = `${shopId}`;
-  }
+  const url = apiLocation + prepareUrl(bapiCall.endpoint, params);
+
+  const shopIdHeader =
+    shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : undefined;
 
   const fetchOptions: AxiosRequestConfig = {
     headers: {

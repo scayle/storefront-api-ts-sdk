@@ -8,7 +8,12 @@ import {
 
 type BasketItemPrice = BapiPrice;
 
+export type BasketKey = string & {
+  readonly ____tagBasketKey: unique symbol;
+};
+
 export interface BasketResponseData<P = BapiProduct, V = Variant> {
+  key: BasketKey;
   cost: BasketItemPrice;
   currencyCode: 'EUR';
   items: BasketItem<P, V>[];
@@ -60,24 +65,20 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
   }
 
   if (basketWith.items && basketWith.items.variant) {
-    if (basketWith.items.variant === 'all') {
-      // nothing to do, included by default
-    } else {
-      withParams.push(
-        ...prefixList(`items.variant.`)(
-          attributeIncludeParameters(
-            'attributes',
-            basketWith.items.variant.attributes,
-          ),
+    withParams.push(
+      ...prefixList(`items.variant.`)(
+        attributeIncludeParameters(
+          'attributes',
+          basketWith.items.variant.attributes,
         ),
-        ...prefixList(`items.variant.`)(
-          attributeIncludeParameters(
-            'advancedAttributes',
-            basketWith.items.variant.advancedAttributes,
-          ),
+      ),
+      ...prefixList(`items.variant.`)(
+        attributeIncludeParameters(
+          'advancedAttributes',
+          basketWith.items.variant.advancedAttributes,
         ),
-      );
-    }
+      ),
+    );
   }
 
   return withParams;

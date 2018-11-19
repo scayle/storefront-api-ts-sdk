@@ -26,15 +26,15 @@ export interface GetWishlistParameters {
 }
 
 export function getWishlistEndpointRequest(
-  params: GetWishlistParameters
+  params: GetWishlistParameters,
 ): BapiCall<WishlistResponseData> {
   return {
     method: 'GET',
     endpoint: `wishlists/${params.wishlistKey}`,
     params: {
-      with: params.with
-        ? basketWithQueryParameter(params.with).join(',')
-        : undefined,
+      ...(params.with
+        ? {with: basketWithQueryParameter(params.with).join(',')}
+        : undefined),
     },
   };
 }

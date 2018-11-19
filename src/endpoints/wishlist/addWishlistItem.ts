@@ -31,9 +31,11 @@ export function addWishlistItemEndpointRequest(
     method: 'POST',
     endpoint: `wishlists/${params.wishlistKey}/items`,
     params: {
-      with: params.with
-        ? basketWithQueryParameter(params.with).join(',')
-        : undefined,
+      ...(params.with
+        ? {
+            with: basketWithQueryParameter(params.with).join(','),
+          }
+        : undefined),
     },
     data: params.item,
   };

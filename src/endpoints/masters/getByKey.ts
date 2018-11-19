@@ -25,14 +25,17 @@ export function createMasterByIdEndpointRequest(
     method: 'GET',
     endpoint: `masters/${parameters.masterKey}`,
     params: {
-      with:
-        parameters.with && parameters.with.products
-          ? prefixList(`products.`)(
+      ...(parameters.with && parameters.with.products
+        ? {
+            with: prefixList(`products.`)(
               productWithQueryParameterValues(parameters.with.products),
-            ).join(`,`)
-          : undefined,
+            ).join(`,`),
+          }
+        : undefined),
 
-      campaignKey: parameters.campaignKey,
+      ...(parameters.campaignKey
+        ? {campaignKey: parameters.campaignKey}
+        : undefined),
     },
   };
 }

@@ -1,4 +1,4 @@
-import {createCategoryBySlugEndpointRequest} from 'bapi/endpoints/categoryBySlug';
+import {createCategoryBySlugEndpointRequest} from 'bapi/endpoints/categories/categoryBySlug';
 import {execute} from 'bapi/helpers/execute';
 import {
   nockWithBapiScope,
@@ -14,6 +14,7 @@ test('Fetch category by id', async () => {
     .query({
       with: 'descendants',
       depth: '2',
+      shopId: 139,
     })
     .replyWithFile(200, __dirname + '/responses/categoryBySlug.json', {
       'Content-Type': 'application/json',

@@ -1,0 +1,20 @@
+{
+  "id": "master_1",
+  "matchedProductIds": [1234],
+  "products": [
+    {
+      "id": 1234,
+      "isActive": true,
+      "isSoldOut": false,
+      "isNew": true,
+      "createdAt": "2018-11-09T10:27:06+01:00",
+      "updatedAt": "2018-11-13T14:20:14+01:00",
+      "masterKey": "master_1",
+      "images": [
+        {
+          "hash": "abc123"
+        }
+      ]
+    }
+  ]
+}

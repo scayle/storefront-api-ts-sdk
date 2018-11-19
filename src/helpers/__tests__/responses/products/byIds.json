@@ -1,0 +1,127 @@
+{
+  "pagination": {
+    "current": 2,
+    "total": 2,
+    "perPage": 100,
+    "page": 1,
+    "first": 1,
+    "prev": 1,
+    "next": 1,
+    "last": 1
+  },
+  "entities": [
+    {
+      "id": 4001039,
+      "isActive": true,
+      "isSoldOut": false,
+      "isNew": true,
+      "createdAt": "2018-11-13T13:39:16+01:00",
+      "updatedAt": "2018-11-13T13:39:17+01:00",
+      "masterKey": "NUE0574-5",
+      "images": [
+        {
+          "hash": "f90e16ab15c9776e32ae0db67d1e1d7c",
+          "attributes": {
+            "type": "bust",
+            "focus": "product",
+            "view": "front",
+            "angle": null,
+            "preparation": null,
+            "next_detail_level": 40,
+            "background": "transparent",
+            "gender": "female"
+          }
+        },
+        {
+          "hash": "031d293d56fe865cf520b6952fc85b07",
+          "attributes": {
+            "type": "model",
+            "focus": "product",
+            "view": "front",
+            "angle": null,
+            "preparation": null,
+            "next_detail_level": 30,
+            "background": "white",
+            "gender": "female"
+          }
+        },
+        {
+          "hash": "b2fe8c85a7c8882616f46c8225b8ddca",
+          "attributes": {
+            "type": "model",
+            "focus": "product",
+            "view": "back",
+            "angle": null,
+            "preparation": null,
+            "next_detail_level": 30,
+            "background": "white",
+            "gender": "female"
+          }
+        },
+        {
+          "hash": "a19675f64e1dced1e27099a26560aabb",
+          "attributes": {
+            "type": "model",
+            "focus": "combination",
+            "view": null,
+            "angle": null,
+            "preparation": null,
+            "next_detail_level": 10,
+            "background": "white",
+            "gender": "female"
+          }
+        },
+        {
+          "hash": "bc4a73245208f48666305c59ab9a430c",
+          "attributes": {
+            "type": "model",
+            "focus": "detail",
+            "view": null,
+            "angle": null,
+            "preparation": null,
+            "next_detail_level": 50,
+            "background": "white",
+            "gender": "female"
+          }
+        }
+      ]
+    },
+    {
+      "id": 4001029,
+      "isActive": true,
+      "isSoldOut": false,
+      "isNew": true,
+      "createdAt": "2018-11-12T17:22:32+01:00",
+      "updatedAt": "2018-11-12T17:23:00+01:00",
+      "masterKey": "Birthday_egift_card_de-135",
+      "images": [
+        {
+          "hash": "ad09c526b2e8e4bf50a54b74db5064b6",
+          "attributes": {
+            "type": "bust",
+            "focus": "product",
+            "view": "front",
+            "angle": null,
+            "preparation": null,
+            "next_detail_level": null,
+            "background": "grey",
+            "gender": null
+          }
+        },
+        {
+          "hash": "05785b9840e0c15cd5fd4f66894f301b",
+          "attributes": {
+            "type": "bust",
+            "focus": "product",
+            "view": null,
+            "angle": null,
+            "preparation": null,
+            "next_detail_level": null,
+            "background": "grey",
+            "gender": null
+          }
+        }
+      ]
+    }
+  ]
+}

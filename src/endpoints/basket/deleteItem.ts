@@ -13,15 +13,15 @@ export interface DeleteItemParameters {
 }
 
 export function deleteBasketItemRequest(
-  params: DeleteItemParameters
+  params: DeleteItemParameters,
 ): BapiCall<BasketResponseData> {
   return {
     method: 'DELETE',
     endpoint: `baskets/${params.basketKey}/items/${params.itemKey}`,
     params: {
-      with: params.with
-        ? basketWithQueryParameter(params.with).join(',')
-        : undefined,
+      ...(params.with
+        ? {with: basketWithQueryParameter(params.with).join(',')}
+        : undefined),
     },
   };
 }

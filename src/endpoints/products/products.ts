@@ -1,4 +1,4 @@
-import {Pagination} from 'bapi/endpoints/productsByIds';
+import {Pagination} from 'bapi/endpoints/products/productsByIds';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {BapiProduct} from 'bapi/types/BapiProduct';
 import {
@@ -49,25 +49,39 @@ export interface ProductsSearchEndpointResponseData {
 }
 
 export function createProductsSearchEndpointRequest(
-  parameters: ProductsSearchEndpointParameters
+  parameters: ProductsSearchEndpointParameters,
 ): BapiCall<ProductsSearchEndpointResponseData> {
   return {
     method: 'GET',
     endpoint: 'products',
     params: {
-      with: parameters.with
-        ? productWithQueryParameterValues(parameters.with).join(`,`)
-        : undefined,
+      ...(parameters.with
+        ? {with: productWithQueryParameterValues(parameters.with).join(`,`)}
+        : undefined),
 
       ...queryParamsFromProductSearchQuery(parameters.where),
 
-      sort: parameters.sort && parameters.sort.by,
-      sortDir: parameters.sort && parameters.sort.direction,
-      sortScore: parameters.sort && parameters.sort.score,
-      sortChannel: parameters.sort && parameters.sort.channel,
-      page: parameters.pagination && parameters.pagination.page,
-      perPage: parameters.pagination && parameters.pagination.perPage,
-      campaignKey: parameters.campaignKey,
+      ...(parameters.sort && parameters.sort.by
+        ? {sort: parameters.sort.by}
+        : undefined),
+      ...(parameters.sort && parameters.sort.direction
+        ? {sortDir: parameters.sort.direction}
+        : undefined),
+      ...(parameters.sort && parameters.sort.score
+        ? {sortScore: parameters.sort.score}
+        : undefined),
+      ...(parameters.sort && parameters.sort.channel
+        ? {sortChannel: parameters.sort.channel}
+        : undefined),
+      ...(parameters.pagination && parameters.pagination.page
+        ? {page: parameters.pagination.page}
+        : undefined),
+      ...(parameters.pagination && parameters.pagination.perPage
+        ? {perPage: parameters.pagination.perPage}
+        : undefined),
+      ...(parameters.campaignKey
+        ? {campaignKey: parameters.campaignKey}
+        : undefined),
     },
   };
 }

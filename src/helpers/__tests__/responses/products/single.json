@@ -1,0 +1,76 @@
+{
+  "id": 4001039,
+  "isActive": true,
+  "isSoldOut": false,
+  "isNew": true,
+  "createdAt": "2018-11-13T13:39:16+01:00",
+  "updatedAt": "2018-11-13T13:39:17+01:00",
+  "masterKey": "NUE0574-5",
+  "images": [
+    {
+      "hash": "f90e16ab15c9776e32ae0db67d1e1d7c",
+      "attributes": {
+        "type": "bust",
+        "focus": "product",
+        "view": "front",
+        "angle": null,
+        "preparation": null,
+        "next_detail_level": 40,
+        "background": "transparent",
+        "gender": "female"
+      }
+    },
+    {
+      "hash": "031d293d56fe865cf520b6952fc85b07",
+      "attributes": {
+        "type": "model",
+        "focus": "product",
+        "view": "front",
+        "angle": null,
+        "preparation": null,
+        "next_detail_level": 30,
+        "background": "white",
+        "gender": "female"
+      }
+    },
+    {
+      "hash": "b2fe8c85a7c8882616f46c8225b8ddca",
+      "attributes": {
+        "type": "model",
+        "focus": "product",
+        "view": "back",
+        "angle": null,
+        "preparation": null,
+        "next_detail_level": 30,
+        "background": "white",
+        "gender": "female"
+      }
+    },
+    {
+      "hash": "a19675f64e1dced1e27099a26560aabb",
+      "attributes": {
+        "type": "model",
+        "focus": "combination",
+        "view": null,
+        "angle": null,
+        "preparation": null,
+        "next_detail_level": 10,
+        "background": "white",
+        "gender": "female"
+      }
+    },
+    {
+      "hash": "bc4a73245208f48666305c59ab9a430c",
+      "attributes": {
+        "type": "model",
+        "focus": "detail",
+        "view": null,
+        "angle": null,
+        "preparation": null,
+        "next_detail_level": 50,
+        "background": "white",
+        "gender": "female"
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import {createCategoryByIdEndpointRequest} from 'bapi/endpoints/categoryById';
+import {createCategoryByIdEndpointRequest} from 'bapi/endpoints/categories/categoryById';
 import {execute} from 'bapi/helpers/execute';
 import {
   nockWithBapiScope,
@@ -10,7 +10,11 @@ disableNetAndAllowBapiCors();
 test('Fetch category by id', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .get(`/v1/categories/20202?depth=1`)
+    .get(`/v1/categories/20202`)
+    .query({
+      depth: 1,
+      shopId: 139,
+    })
     .replyWithFile(200, __dirname + '/responses/categoryById.json', {
       'Content-Type': 'application/json',
     });

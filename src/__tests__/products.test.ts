@@ -1,10 +1,10 @@
-import {createProductsSearchEndpointRequest} from 'bapi/endpoints/products';
+import {createProductsSearchEndpointRequest} from 'bapi/endpoints/products/products';
 import {execute} from 'bapi/helpers/execute';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
 } from 'bapi/test-helpers/nock';
-import {createProductByIdEndpointRequest} from 'bapi/endpoints/productById';
+import {createProductByIdEndpointRequest} from 'bapi/endpoints/products/productById';
 
 disableNetAndAllowBapiCors();
 
@@ -12,7 +12,7 @@ test('Fetch category products', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(
-      `/v1/products?filters%5Bcategory%5D=20201&sortScore=category_scores&sortChannel=etkp&perPage=2`,
+      `/v1/products?filters%5Bcategory%5D=20201&sortScore=category_scores&sortChannel=etkp&perPage=2&shopId=139`,
     )
     // .query({ ... })
     .replyWithFile(200, __dirname + '/responses/products.json', {
@@ -44,7 +44,7 @@ test('Fetch category products', async () => {
 test('Fetch unavailable product', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .get(`/v1/products/123`)
+    .get(`/v1/products/123?shopId=139`)
     .replyWithFile(404, __dirname + '/responses/product-not-found.json', {
       'Content-Type': 'application/json',
     });

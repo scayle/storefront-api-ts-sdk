@@ -1,25 +1,32 @@
 import * as nock from 'nock';
 
-export function disableNetAndAllowBapiCors() {
+type Config = {shopIdHeader?: true};
+
+export function disableNetAndAllowBapiCors(config?: Config) {
   nock.disableNetConnect();
 
-  nock('https://api-cloud.example.com/', {
-    reqheaders: {
-      'access-control-request-headers': 'X-Shop-Id',
-    },
-  })
-    .options(/.*/)
-    .reply(200, '', {
-      'access-control-allow-origin': '*',
-      'access-control-allow-headers': 'X-Shop-Id',
+  if (config && config.shopIdHeader) {
+    nock('https://api-cloud.example.com/', {
+      reqheaders: {
+        'access-control-request-headers': 'X-Shop-Id',
+      },
     })
-    .persist();
+      .options(/.*/)
+      .reply(200, '', {
+        'access-control-allow-origin': '*',
+        'access-control-allow-headers': 'X-Shop-Id',
+      })
+      .persist();
+  }
 }
 
-export function nockWithBapiScope() {
+export function nockWithBapiScope(config?: Config) {
   return nock('https://api-cloud.example.com/', {
-    reqheaders: {
-      'X-Shop-Id': '139',
-    },
+    reqheaders:
+      config && config.shopIdHeader
+        ? {
+            'X-Shop-Id': '139',
+          }
+        : undefined,
   });
 }

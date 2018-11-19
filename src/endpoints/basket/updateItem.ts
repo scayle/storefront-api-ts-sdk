@@ -14,15 +14,15 @@ export interface UpdateBasketItemQuantity {
 }
 
 export function updateBasketItemQuantityRequest(
-  params: UpdateBasketItemQuantity
+  params: UpdateBasketItemQuantity,
 ): BapiCall<BasketResponseData> {
   return {
     method: 'PATCH',
     endpoint: `baskets/${params.basketKey}/items/${params.itemKey}`,
     params: {
-      with: params.with
-        ? basketWithQueryParameter(params.with).join(',')
-        : undefined,
+      ...(params.with
+        ? {with: basketWithQueryParameter(params.with).join(',')}
+        : undefined),
     },
     data: {
       quantity: params.quantity,

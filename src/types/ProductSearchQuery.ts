@@ -14,7 +14,7 @@ export interface ProductSearchQuery {
 }
 
 export function queryParamsFromProductSearchQuery(
-  productSearchQuery: ProductSearchQuery | undefined
+  productSearchQuery: ProductSearchQuery | undefined,
 ): ObjectMap<string | number> | undefined {
   if (!productSearchQuery) {
     return undefined;
@@ -35,13 +35,14 @@ export function queryParamsFromProductSearchQuery(
               : 'false';
             break;
 
+          /* istanbul ignore next */
           default:
             console.error(`Unsupported filter type`, attribute);
         }
 
         return acc;
       },
-      {} as ObjectMap<string>
+      {} as ObjectMap<string>,
     ),
     'filters[term]': productSearchQuery.term,
     'filters[minPrice]': productSearchQuery.minPrice,
