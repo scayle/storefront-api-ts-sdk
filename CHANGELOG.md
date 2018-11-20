@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.21.0
+
+Expose optional `priceRange` property on product entities.
+
 ## 0.20.0
 
 The `key` property is now exposed on basket responses.

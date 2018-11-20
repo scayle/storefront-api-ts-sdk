@@ -6,6 +6,7 @@ import {
   AdvancedAttributes,
   AdvancedAttribute,
   BapiProduct,
+  Variant,
 } from 'bapi/types/BapiProduct';
 import {ProductsSearchEndpointParameters} from 'bapi/endpoints/products/products';
 import {
@@ -166,19 +167,7 @@ function productWithMappingApplied<T extends ProductMapping>(
       productMapping.attributes,
       bapiProduct.attributes,
     ),
-    variants: productMapping.variants
-      ? (bapiProduct.variants.map(
-          (variant): MappedVariant<Exclude<T['variants'], undefined>> => {
-            return {
-              id: variant.id,
-              attributes: mapAttributes(
-                productMapping.variants!.attributes,
-                variant.attributes,
-              ),
-            };
-          },
-        ) as any) // TODO: Fix type signatures
-      : [],
+    variants: mapVariants(productMapping.variants, bapiProduct.variants),
     id: bapiProduct.id,
     isActive: bapiProduct.isActive,
     isSoldOut: bapiProduct.isSoldOut,
@@ -297,6 +286,30 @@ function isSingleValue(
     !Array.isArray(o.values) &&
     typeof o.values === 'object'
   );
+}
+
+function mapVariants(
+  variantMapping?: VariantMapping,
+  variants?: Variant[],
+): any {
+  if (!variantMapping || Object.keys(variantMapping).length === 0) {
+    return [];
+  }
+  if (!variants) {
+    throw new Error(`Have mapping for variants, but received none`);
+  }
+
+  return variants.map(
+    (variant): MappedVariant<Exclude<VariantMapping, undefined>> => {
+      return {
+        id: variant.id,
+        attributes: mapAttributes(
+          variantMapping.attributes,
+          variant.attributes,
+        ),
+      };
+    },
+  ) as any;
 }
 
 function mapAttributes(
