@@ -6,11 +6,18 @@ export interface BapiProduct {
   createdAt: string; // Date string
   updatedAt: string; // Date string
   images: ProductImage[];
-  variants: Variant[];
+  masterKey?: string;
+  variants?: Variant[];
   attributes?: Attributes;
   advancedAttributes?: AdvancedAttributes;
   categories?: BapiProductCategory[][];
   siblings?: BapiProduct[];
+  priceRange?: PriceRange;
+}
+
+export interface PriceRange {
+  min: BapiPrice;
+  max: BapiPrice;
 }
 
 export interface BapiProductCategory {

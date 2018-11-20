@@ -72,3 +72,38 @@ it('Queries products', async () => {
 
   expect(response.entities.length).toBe(3);
 });
+
+it('Queries products with price range', async () => {
+  nockWithBapiScope()
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .get(
+      '/v1/products/3849870?with=images.attributes%3Alegacy%28false%29%2CpriceRange&shopId=139',
+    )
+    .replyWithFile(
+      200,
+      __dirname + '/responses/products/productWithPriceRange.json',
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+    shopIdPlacement: 'query',
+  });
+
+  const response = await bapi.products.getById(3849870, {
+    with: {priceRange: true},
+  });
+
+  expect(response.id).toBe(3849870);
+
+  if (!response.priceRange) {
+    fail('Expected price range on response');
+    return;
+  }
+
+  expect(response.priceRange.min.withTax).toBe(4990);
+  expect(response.priceRange.max.withTax).toBe(7999);
+});

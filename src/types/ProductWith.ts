@@ -28,6 +28,7 @@ export interface ProductWith {
   images?: ProductImageWith;
   siblings?: 'all' | ProductWith;
   categories?: 'all';
+  priceRange?: boolean;
 }
 
 export function productWithQueryParameterValues(
@@ -100,6 +101,10 @@ export function productWithQueryParameterValues(
         ),
       );
     }
+  }
+
+  if (productWith.priceRange === true) {
+    parameterValues.push('priceRange');
   }
 
   return parameterValues;

@@ -165,3 +165,27 @@ it('Images attributes', () => {
     `"images.attributes:legacy(false),siblings,siblings.advancedAttributes,siblings.images.attributes:legacy(false)"`,
   );
 });
+
+it('Includes price range field', () => {
+  expect(
+    productWithQueryParameterValues({
+      priceRange: true,
+    }).join(','),
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),priceRange"`);
+
+  expect(
+    productWithQueryParameterValues({
+      priceRange: false,
+    }).join(','),
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
+
+  expect(
+    productWithQueryParameterValues({
+      priceRange: undefined,
+    }).join(','),
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
+
+  expect(productWithQueryParameterValues({}).join(',')).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false)"`,
+  );
+});
