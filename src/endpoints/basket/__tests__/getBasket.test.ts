@@ -88,3 +88,20 @@ Object {
 }
 `);
 });
+
+it('Builds correct query with campaign key', () => {
+  expect(
+    getBasketEndpointRequest({
+      basketKey: 'basket1',
+      campaignKey: 'px',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "baskets/basket1",
+  "method": "GET",
+  "params": Object {
+    "campaignKey": "px",
+  },
+}
+`);
+});

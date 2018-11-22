@@ -10,6 +10,7 @@ export interface DeleteItemParameters {
   itemKey: string;
 
   with?: BasketWith;
+  campaignKey?: 'px' | undefined;
 }
 
 export function deleteBasketItemRequest(
@@ -22,6 +23,7 @@ export function deleteBasketItemRequest(
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}
         : undefined),
+      ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
     },
   };
 }

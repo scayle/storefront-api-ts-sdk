@@ -107,3 +107,26 @@ Object {
 }
 `);
 });
+
+it('Builds correct query with campaign key', () => {
+  expect(
+    createBasketItemRequest({
+      basketKey: 'basket1',
+      variantId: 1235,
+      quantity: 1,
+      campaignKey: 'px',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "quantity": 1,
+    "variantId": 1235,
+  },
+  "endpoint": "baskets/basket1/items",
+  "method": "POST",
+  "params": Object {
+    "campaignKey": "px",
+  },
+}
+`);
+});

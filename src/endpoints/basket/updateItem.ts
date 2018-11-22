@@ -11,6 +11,7 @@ export interface UpdateBasketItemQuantity {
   quantity: number;
 
   with?: BasketWith;
+  campaignKey?: 'px' | undefined;
 }
 
 export function updateBasketItemQuantityRequest(
@@ -23,6 +24,7 @@ export function updateBasketItemQuantityRequest(
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}
         : undefined),
+      ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
     },
     data: {
       quantity: params.quantity,

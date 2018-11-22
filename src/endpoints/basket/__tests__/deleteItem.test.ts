@@ -37,4 +37,20 @@ Object {
   },
 }
 `);
+
+  expect(
+    deleteBasketItemRequest({
+      basketKey: 'basket_1',
+      itemKey: 'item_5',
+      campaignKey: 'px',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "baskets/basket_1/items/item_5",
+  "method": "DELETE",
+  "params": Object {
+    "campaignKey": "px",
+  },
+}
+`);
 });

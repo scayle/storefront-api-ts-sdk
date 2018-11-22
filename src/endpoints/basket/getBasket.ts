@@ -88,6 +88,7 @@ export interface GetBasketParameters {
   basketKey: string;
 
   with?: BasketWith;
+  campaignKey?: 'px' | undefined;
 }
 
 export function getBasketEndpointRequest(
@@ -97,9 +98,10 @@ export function getBasketEndpointRequest(
     method: 'GET',
     endpoint: `baskets/${params.basketKey}`,
     params: {
-      with: params.with
-        ? basketWithQueryParameter(params.with).join(',')
-        : undefined,
+      ...(params.with
+        ? {with: basketWithQueryParameter(params.with).join(',')}
+        : undefined),
+      ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
     },
   };
 }

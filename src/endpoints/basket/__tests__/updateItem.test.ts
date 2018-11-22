@@ -45,4 +45,24 @@ Object {
   },
 }
 `);
+
+  expect(
+    updateBasketItemQuantityRequest({
+      basketKey: 'basket_1',
+      itemKey: 'item_5',
+      quantity: 10,
+      campaignKey: 'px',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "quantity": 10,
+  },
+  "endpoint": "baskets/basket_1/items/item_5",
+  "method": "PATCH",
+  "params": Object {
+    "campaignKey": "px",
+  },
+}
+`);
 });

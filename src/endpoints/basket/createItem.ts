@@ -13,6 +13,7 @@ export interface CreateBasketItemParameters {
   with?: BasketWith;
   customData?: {[key: string]: any; [key: number]: any};
   pricePromotionKey?: string;
+  campaignKey?: 'px' | undefined;
 }
 
 export function createBasketItemRequest(
@@ -29,6 +30,7 @@ export function createBasketItemRequest(
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}
         : undefined),
+      ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
     },
     data: {
       variantId: params.variantId,

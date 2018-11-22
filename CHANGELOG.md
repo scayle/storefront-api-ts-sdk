@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.22.0
+
+Support `campaignKey` for basket requests
+
 ## 0.21.0
 
 Expose optional `priceRange` property on product entities.
