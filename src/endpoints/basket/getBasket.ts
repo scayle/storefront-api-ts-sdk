@@ -1,9 +1,11 @@
-import {attributeIncludeParameters, prefixList} from 'bapi/helpers/attributes';
+import {prefixList} from 'bapi/helpers/attributes';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {BapiPrice, BapiProduct, Variant} from 'bapi/types/BapiProduct';
 import {
   ProductWith,
   productWithQueryParameterValues,
+  VariantWith,
+  variantWithQueryParameterValues,
 } from 'bapi/types/ProductWith';
 
 type BasketItemPrice = BapiPrice;
@@ -49,7 +51,7 @@ export interface BasketPackageInformation {
 export interface BasketWith {
   items?: {
     product?: ProductWith;
-    variant?: Exclude<ProductWith['variants'], 'all'>;
+    variant?: VariantWith;
   };
 }
 
@@ -67,16 +69,7 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
   if (basketWith.items && basketWith.items.variant) {
     withParams.push(
       ...prefixList(`items.variant.`)(
-        attributeIncludeParameters(
-          'attributes',
-          basketWith.items.variant.attributes,
-        ),
-      ),
-      ...prefixList(`items.variant.`)(
-        attributeIncludeParameters(
-          'advancedAttributes',
-          basketWith.items.variant.advancedAttributes,
-        ),
+        variantWithQueryParameterValues(basketWith.items.variant),
       ),
     );
   }

@@ -19,17 +19,17 @@ export interface ProductWith {
   // TODO: Should these be arrays or also allow simple values, just `key` or `type`
   attributes?: AttributeInclude;
   advancedAttributes?: AttributeInclude;
-  variants?:
-    | 'all'
-    | {
-        attributes?: AttributeInclude;
-        advancedAttributes?: AttributeInclude;
-        customData?: boolean;
-      };
+  variants?: 'all' | VariantWith;
   images?: ProductImageWith;
   siblings?: 'all' | ProductWith;
   categories?: 'all';
   priceRange?: boolean;
+}
+
+export interface VariantWith {
+  attributes?: AttributeInclude;
+  advancedAttributes?: AttributeInclude;
+  customData?: boolean;
 }
 
 export function productWithQueryParameterValues(
@@ -51,19 +51,7 @@ export function productWithQueryParameterValues(
     if (typeof productWith.variants === 'object') {
       parameterValues.push(
         ...prefixList('variants.')(
-          attributeIncludeParameters(
-            'attributes',
-            productWith.variants.attributes,
-          ),
-        ),
-        ...prefixList('variants.')(
-          attributeIncludeParameters(
-            'advancedAttributes',
-            productWith.variants.advancedAttributes,
-          ),
-        ),
-        ...prefixList('variants.')(
-          productWith.variants.customData ? ['customData'] : [],
+          variantWithQueryParameterValues(productWith.variants),
         ),
       );
     }
@@ -112,4 +100,17 @@ export function productWithQueryParameterValues(
   }
 
   return parameterValues;
+}
+
+export function variantWithQueryParameterValues(
+  variantWith: VariantWith,
+): string[] {
+  return [
+    ...attributeIncludeParameters('attributes', variantWith.attributes),
+    ...attributeIncludeParameters(
+      'advancedAttributes',
+      variantWith.advancedAttributes,
+    ),
+    ...(variantWith.customData ? ['customData'] : []),
+  ];
 }
