@@ -24,6 +24,7 @@ export interface ProductWith {
     | {
         attributes?: AttributeInclude;
         advancedAttributes?: AttributeInclude;
+        customData?: boolean;
       };
   images?: ProductImageWith;
   siblings?: 'all' | ProductWith;
@@ -60,6 +61,9 @@ export function productWithQueryParameterValues(
             'advancedAttributes',
             productWith.variants.advancedAttributes,
           ),
+        ),
+        ...prefixList('variants.')(
+          productWith.variants.customData ? ['customData'] : [],
         ),
       );
     }

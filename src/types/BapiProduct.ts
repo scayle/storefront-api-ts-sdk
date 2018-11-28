@@ -77,6 +77,7 @@ export interface Variant {
   price: BapiPrice;
   attributes?: Attributes;
   advancedAttributes?: AdvancedAttributes;
+  customData?: unknown;
 }
 
 export type Attributes = ObjectMap<AttributeGroupSingle | AttributeGroupMulti>;
