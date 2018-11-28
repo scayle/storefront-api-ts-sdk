@@ -60,4 +60,20 @@ Object {
   },
 }
 `);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      sort: {
+        sortingKey: 'custom_sort_order',
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "sortChannel": "custom_sort_order",
+  },
+}
+`);
 });

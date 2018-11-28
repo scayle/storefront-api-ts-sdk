@@ -26,6 +26,7 @@ export interface ProductSortConfig {
   direction?: APISortOrder;
   score?: 'category_scores' | 'brand_scores';
   channel?: 'etkp' | 'size';
+  sortingKey?: string;
 }
 
 export interface ProductsSearchEndpointParameters {
@@ -73,12 +74,17 @@ export function createProductsSearchEndpointRequest(
       ...(parameters.sort && parameters.sort.channel
         ? {sortChannel: parameters.sort.channel}
         : undefined),
+      ...(parameters.sort && parameters.sort.sortingKey
+        ? {sortChannel: parameters.sort.sortingKey}
+        : undefined),
+
       ...(parameters.pagination && parameters.pagination.page
         ? {page: parameters.pagination.page}
         : undefined),
       ...(parameters.pagination && parameters.pagination.perPage
         ? {perPage: parameters.pagination.perPage}
         : undefined),
+
       ...(parameters.campaignKey
         ? {campaignKey: parameters.campaignKey}
         : undefined),
