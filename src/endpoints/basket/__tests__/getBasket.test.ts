@@ -87,6 +87,25 @@ Object {
   },
 }
 `);
+
+  expect(
+    getBasketEndpointRequest({
+      basketKey: 'basket1',
+      with: {
+        items: {
+          variant: {customData: true},
+        },
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "baskets/basket1",
+  "method": "GET",
+  "params": Object {
+    "with": "items.variant.customData",
+  },
+}
+`);
 });
 
 it('Builds correct query with campaign key', () => {
