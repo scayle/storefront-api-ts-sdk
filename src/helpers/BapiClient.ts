@@ -110,7 +110,7 @@ type AddWishlistItemResponse =
       wishlist: WishlistResponseData;
     };
 
-enum AddToBasketFailureKind {
+export enum AddToBasketFailureKind {
   VariantAlreadyPresent,
   ItemUnvailable,
   MaximumItemCountReached,
