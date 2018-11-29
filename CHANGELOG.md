@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.23.0
+
+Enable `sortingKey` for product search queries
+
+Expose `customData` property on variants
+
+export `AddToBasketFailureKind` enum
+
 ## 0.22.0
 
 Support `campaignKey` for basket requests
