@@ -12,13 +12,13 @@ export interface FiltersEndpointParameters {
   with?: string[];
 }
 
-export interface AttributeFilterValue {
+export interface AttributesFilterValue {
   name: string;
   id: number;
   productCount: number;
 }
 
-export interface IdFilterValue {
+export interface IdentifierFilterValue {
   id: number;
   productCount: number;
 }
@@ -34,7 +34,7 @@ export type BooleanFilterValue = [
   }
 ];
 
-export type MinMaxFilterValue =
+export type RangeFilterValue =
   | [
       {
         min: number;
@@ -63,31 +63,32 @@ export interface BooleanFilterItemWithValues {
   values: BooleanFilterValue;
   type: FilterTypes.BOOLEAN;
 }
+
 export interface AttributesFilterItemWithValues {
   slug: string;
   name: string;
-  values: AttributeFilterValue[];
-
+  values: AttributesFilterValue[];
   type: FilterTypes.ATTRIBUTES;
 }
 
 export interface RangeFilterItemWithValues {
   slug: string;
   name: string;
-  values: MinMaxFilterValue;
+  values: RangeFilterValue;
   type: FilterTypes.RANGE;
 }
+
 export interface IdenfitierFilterItemWithValues {
   slug: string;
   name: string;
-  values: IdFilterValue[];
+  values: IdentifierFilterValue[];
   type: FilterTypes.IDENTIFIER;
 }
 
 export type FiltersEndpointResponseData = FilterItemWithValues[];
 
 export function createFiltersEndpointRequest(
-  parameters: FiltersEndpointParameters
+  parameters: FiltersEndpointParameters,
 ): BapiCall<FiltersEndpointResponseData> {
   return {
     method: 'GET',
