@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.25.0
+
+Expose `appliedPricePromotionKey` on variant
+
 ## 0.24.0
 
 Expose `categoryProperties` on product and allow it to be included in requests.

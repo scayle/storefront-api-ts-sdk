@@ -76,6 +76,7 @@ export interface Variant {
   updatedAt: RFC33339Date;
   stock: Stock;
   price: BapiPrice;
+  appliedPricePromotionKey?: string;
   attributes?: Attributes;
   advancedAttributes?: AdvancedAttributes;
   customData?: unknown;
