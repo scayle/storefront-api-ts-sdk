@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.24.0
+
+Expose `categoryProperties` on product and allow it to be included in requests.
+
 ## 0.23.0
 
 Enable `sortingKey` for product search queries
