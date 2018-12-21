@@ -23,6 +23,24 @@ Object {
 
   expect(
     createProductsSearchEndpointRequest({
+      with: {
+        categories: {
+          properties: 'all',
+        },
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "with": "images.attributes:legacy(false),categories,categories.properties",
+  },
+}
+`);
+
+  expect(
+    createProductsSearchEndpointRequest({
       sort: {
         by: APISortOption.DateAdded,
         channel: 'size',

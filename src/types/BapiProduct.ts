@@ -24,6 +24,7 @@ export interface BapiProductCategory {
   categoryId: number;
   categoryName: string;
   categoryUrl: string;
+  categoryProperties?: ObjectMap<{name: string; value: string}>;
 }
 
 export interface ProductImage {

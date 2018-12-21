@@ -22,8 +22,12 @@ export interface ProductWith {
   variants?: 'all' | VariantWith;
   images?: ProductImageWith;
   siblings?: 'all' | ProductWith;
-  categories?: 'all';
+  categories?: 'all' | ProductCategoryWith;
   priceRange?: boolean;
+}
+
+export interface ProductCategoryWith {
+  properties?: 'all';
 }
 
 export interface VariantWith {
@@ -81,6 +85,12 @@ export function productWithQueryParameterValues(
 
   if (productWith.categories) {
     parameterValues.push('categories');
+
+    if (typeof productWith.categories === 'object') {
+      if (productWith.categories.properties) {
+        parameterValues.push('categories.properties');
+      }
+    }
   }
 
   if (productWith.siblings) {

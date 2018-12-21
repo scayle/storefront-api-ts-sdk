@@ -100,3 +100,41 @@ Object {
 }
 `);
 });
+
+test('Product by ID with categories', async () => {
+  expect(
+    createProductByIdEndpointRequest({
+      productId: 123,
+      with: {
+        categories: {
+          properties: 'all',
+        },
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products/123",
+  "method": "GET",
+  "params": Object {
+    "with": "images.attributes:legacy(false),categories,categories.properties",
+  },
+}
+`);
+
+  expect(
+    createProductByIdEndpointRequest({
+      productId: 123,
+      with: {
+        categories: 'all',
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products/123",
+  "method": "GET",
+  "params": Object {
+    "with": "images.attributes:legacy(false),categories",
+  },
+}
+`);
+});
