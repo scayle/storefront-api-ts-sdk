@@ -37,7 +37,6 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
-    "showHidden": undefined,
   },
 }
 `);
@@ -48,7 +47,6 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
-    "showHidden": undefined,
   },
 }
 `);
@@ -59,7 +57,6 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
-    "showHidden": undefined,
   },
 }
 `);
@@ -71,7 +68,6 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
-    "showHidden": undefined,
   },
 }
 `);
@@ -83,7 +79,6 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
-    "showHidden": undefined,
     "with": "parents",
   },
 }
@@ -98,7 +93,6 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 2,
-    "showHidden": undefined,
     "with": "descendants",
   },
 }

@@ -10,7 +10,7 @@ export interface CategoryWith {
 
 export function categoryWithQueryParameters(
   categoryWith?: CategoryWith,
-): {with?: string; depth?: number} {
+): {with?: string; depth?: number; showHidden?: 'true'} {
   if (!categoryWith || (!categoryWith.parents && !categoryWith.children)) {
     return {
       depth: 1,
@@ -31,5 +31,8 @@ export function categoryWithQueryParameters(
   return {
     with: withParams.join(','),
     depth: categoryWith.children ? categoryWith.children.depth + 1 : 1,
+    ...(categoryWith.children && categoryWith.children.includeHidden
+      ? {showHidden: 'true'}
+      : undefined),
   };
 }

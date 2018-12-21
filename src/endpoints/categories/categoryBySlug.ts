@@ -20,12 +20,6 @@ export function createCategoryBySlugEndpointRequest(
     endpoint: `categories/${params.slugPath.join(`/`)}`,
     params: {
       ...categoryWithQueryParameters(params.with),
-      showHidden:
-        params.with &&
-        params.with.children &&
-        params.with.children.includeHidden
-          ? 'true'
-          : undefined,
     },
   };
 }

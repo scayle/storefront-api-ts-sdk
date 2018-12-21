@@ -20,12 +20,6 @@ export function createCategoryByIdEndpointRequest(
     endpoint: `categories/${params.categoryId}`,
     params: {
       ...categoryWithQueryParameters(params.with),
-      showHidden:
-        params.with &&
-        params.with.children &&
-        params.with.children.includeHidden
-          ? 'true'
-          : undefined,
     },
   };
 }
