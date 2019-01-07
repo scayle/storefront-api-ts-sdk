@@ -34,6 +34,11 @@ export interface VariantWith {
   attributes?: AttributeInclude;
   advancedAttributes?: AttributeInclude;
   customData?: boolean;
+  stock?:
+    | 'all'
+    | {
+        customData?: boolean;
+      };
 }
 
 export function productWithQueryParameterValues(
@@ -52,7 +57,7 @@ export function productWithQueryParameterValues(
   if (productWith.variants) {
     parameterValues.push('variants'); // always add, if any variants data requested
 
-    if (typeof productWith.variants === 'object') {
+    if (productWith.variants && typeof productWith.variants === 'object') {
       parameterValues.push(
         ...prefixList('variants.')(
           variantWithQueryParameterValues(productWith.variants),
@@ -86,7 +91,7 @@ export function productWithQueryParameterValues(
   if (productWith.categories) {
     parameterValues.push('categories');
 
-    if (typeof productWith.categories === 'object') {
+    if (productWith.categories && typeof productWith.categories === 'object') {
       if (productWith.categories.properties) {
         parameterValues.push('categories.properties');
       }
@@ -96,7 +101,7 @@ export function productWithQueryParameterValues(
   if (productWith.siblings) {
     parameterValues.push('siblings'); // always add, if any sibling data requested
 
-    if (typeof productWith.siblings === 'object') {
+    if (productWith.siblings && typeof productWith.siblings === 'object') {
       parameterValues.push(
         ...productWithQueryParameterValues(productWith.siblings).map(
           queryParameter => `siblings.${queryParameter}`,
@@ -122,5 +127,11 @@ export function variantWithQueryParameterValues(
       variantWith.advancedAttributes,
     ),
     ...(variantWith.customData ? ['customData'] : []),
+    ...(variantWith.stock ? ['stock'] : []),
+    ...(variantWith.stock &&
+    typeof variantWith.stock === 'object' &&
+    variantWith.stock.customData
+      ? ['stock.customData']
+      : []),
   ];
 }
