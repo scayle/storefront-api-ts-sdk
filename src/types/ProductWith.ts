@@ -33,7 +33,6 @@ export interface ProductCategoryWith {
 export interface VariantWith {
   attributes?: AttributeInclude;
   advancedAttributes?: AttributeInclude;
-  customData?: boolean;
   stock?:
     | 'all'
     | {
@@ -126,7 +125,6 @@ export function variantWithQueryParameterValues(
       'advancedAttributes',
       variantWith.advancedAttributes,
     ),
-    ...(variantWith.customData ? ['customData'] : []),
     ...(variantWith.stock ? ['stock'] : []),
     ...(variantWith.stock &&
     typeof variantWith.stock === 'object' &&
