@@ -93,7 +93,7 @@ Object {
       basketKey: 'basket1',
       with: {
         items: {
-          variant: {customData: true},
+          variant: {stock: {customData: true}},
         },
       },
     }),
@@ -102,7 +102,7 @@ Object {
   "endpoint": "baskets/basket1",
   "method": "GET",
   "params": Object {
-    "with": "items.variant.customData",
+    "with": "items.variant.stock,items.variant.stock.customData",
   },
 }
 `);

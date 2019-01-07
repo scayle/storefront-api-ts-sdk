@@ -188,16 +188,6 @@ it('Includes price range field', () => {
   expect(productWithQueryParameterValues({}).join(',')).toMatchInlineSnapshot(
     `"images.attributes:legacy(false)"`,
   );
-
-  expect(
-    productWithQueryParameterValues({variants: {customData: false}}).join(','),
-  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`);
-
-  expect(
-    productWithQueryParameterValues({variants: {customData: true}}).join(','),
-  ).toMatchInlineSnapshot(
-    `"variants,variants.customData,images.attributes:legacy(false)"`,
-  );
 });
 
 it('Can request stock and custom on variants', () => {
