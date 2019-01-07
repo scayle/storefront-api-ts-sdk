@@ -23,16 +23,24 @@ export interface IdentifierFilterValue {
   productCount: number;
 }
 
-export type BooleanFilterValue = [
-  {
-    name: true;
-    productCount: number;
-  },
-  {
-    name: false;
-    productCount: number;
-  }
-];
+export type BooleanFilterValue =
+  | []
+  | [
+      {
+        name: true | false;
+        productCount: number;
+      }
+    ]
+  | [
+      {
+        name: true;
+        productCount: number;
+      },
+      {
+        name: false;
+        productCount: number;
+      }
+    ];
 
 export type RangeFilterValue =
   | [
