@@ -8,7 +8,29 @@ Object {
   "method": "GET",
   "params": Object {
     "term": "term 1",
-    "with": "brands,categories,productNames,products",
+    "with": "",
+  },
+}
+`);
+});
+
+it('Builds correct query', () => {
+  expect(
+    createSearchSuggestionsEndpointRequest({
+      term: 'term 1',
+      with: {
+        brands: 'all',
+        categories: 'all',
+        productNames: 'all',
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "search/suggestions",
+  "method": "GET",
+  "params": Object {
+    "term": "term 1",
+    "with": "brand,categories,productNames",
   },
 }
 `);
@@ -33,7 +55,7 @@ Object {
   "params": Object {
     "campaignKey": "px",
     "term": "term 1",
-    "with": "brands,categories,productNames,products,products.attributes:key(name),products.variants,products.images.attributes:legacy(false)",
+    "with": "products,products.attributes:key(name),products.variants,products.images.attributes:legacy(false)",
   },
 }
 `);

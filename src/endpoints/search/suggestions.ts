@@ -12,7 +12,10 @@ export interface SearchSuggestionsEndpointParameters {
   campaignKey?: 'px' | undefined;
 
   with?: {
-    products?: ProductWith;
+    brands?: 'all';
+    categories?: 'all';
+    productNames?: 'all';
+    products?: 'all' | ProductWith;
   };
 }
 
@@ -40,7 +43,10 @@ function suggetionsWithQueryParameter(
 ): string[] {
   const withParams = [];
 
-  if (suggestionsWith.products) {
+  if (
+    suggestionsWith.products &&
+    typeof suggestionsWith.products === 'object'
+  ) {
     withParams.push(
       ...productWithQueryParameterValues(suggestionsWith.products).map(
         value => `products.${value}`,
@@ -54,6 +60,22 @@ function suggetionsWithQueryParameter(
 export function createSearchSuggestionsEndpointRequest(
   parameters: SearchSuggestionsEndpointParameters,
 ): BapiCall<SearchSuggestionsEndpointResponseData> {
+  const topLevelIncludes: string[] = [];
+  if (parameters.with) {
+    if (parameters.with.brands) {
+      topLevelIncludes.push('brand');
+    }
+    if (parameters.with.categories) {
+      topLevelIncludes.push('categories');
+    }
+    if (parameters.with.productNames) {
+      topLevelIncludes.push('productNames');
+    }
+    if (parameters.with.products) {
+      topLevelIncludes.push('products');
+    }
+  }
+
   return {
     method: 'GET',
     endpoint: `search/suggestions`,
@@ -65,10 +87,7 @@ export function createSearchSuggestionsEndpointRequest(
         : undefined),
 
       with: [
-        'brands', // TODO: make these optional
-        'categories',
-        'productNames',
-        'products',
+        topLevelIncludes,
         ...(parameters.with
           ? suggetionsWithQueryParameter(parameters.with)
           : []),
