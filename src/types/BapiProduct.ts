@@ -46,9 +46,9 @@ export interface ImageAttributes {
 }
 
 export interface Stock {
-  merchantId: number;
+  supplierId?: number;
   quantity: number;
-  carriers: any[];
+  isSellableWithoutStock?: boolean;
   customData?: unknown;
 }
 
