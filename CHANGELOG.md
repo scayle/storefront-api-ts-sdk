@@ -1,8 +1,12 @@
 # Changelog
 
+## 0.28.0
+
+Add search suggestions endpoint.
+
 ## 0.27.0
 
-Add ability to set HTTP basic auth credentials
+Add ability to set HTTP basic auth credentials.
 
 ## 0.26.0
 

@@ -77,6 +77,11 @@ import {
   MasterByKeyEndpointParameters,
 } from 'bapi/endpoints/masters/getByKey';
 import {ModeledBapiClient, ProductMapping} from './ModeledBapiClient';
+import {
+  SearchSuggestionsEndpointParameters,
+  SearchSuggestionsEndpointResponseData,
+  createSearchSuggestionsEndpointRequest,
+} from 'bapi/endpoints/search/suggestions';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -433,6 +438,17 @@ export class BapiClient {
     ): Promise<MasterByKeyEndpointResponseData> => {
       return this.execute(
         createMasterByIdEndpointRequest({...params, masterKey}),
+      );
+    },
+  };
+
+  public readonly search = {
+    suggestions: (
+      term: string,
+      params: Omit<SearchSuggestionsEndpointParameters, 'term'> = {},
+    ): Promise<SearchSuggestionsEndpointResponseData> => {
+      return this.execute(
+        createSearchSuggestionsEndpointRequest({...params, term}),
       );
     },
   };
