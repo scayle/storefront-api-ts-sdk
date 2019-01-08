@@ -156,6 +156,10 @@ export class BapiClient {
       host: string;
       shopId: number;
       shopIdPlacement?: 'header' | 'query';
+      auth?: {
+        username: string;
+        password: string;
+      };
     },
   ) {
     this.shopIdPlacement = env.shopIdPlacement || 'header';
@@ -177,7 +181,9 @@ export class BapiClient {
       bapiCall,
       undefined,
       this.shopIdPlacement,
+      this.env.auth,
     );
+
     return response.data;
   }
 
@@ -190,6 +196,7 @@ export class BapiClient {
       bapiCall,
       true,
       this.shopIdPlacement,
+      this.env.auth,
     );
 
     return {

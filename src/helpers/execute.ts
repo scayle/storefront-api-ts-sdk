@@ -42,6 +42,10 @@ export async function execute<SuccessResponseT>(
   bapiCall: BapiCall<SuccessResponseT>,
   acceptAllResponseCodes = false,
   shopIdPlacement: 'header' | 'query' = 'query',
+  auth?: {
+    username: string;
+    password: string;
+  },
 ): Promise<BapiResponse<SuccessResponseT>> {
   const params =
     shopIdPlacement === 'query'
@@ -54,6 +58,7 @@ export async function execute<SuccessResponseT>(
     shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : undefined;
 
   const fetchOptions: AxiosRequestConfig = {
+    auth,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
