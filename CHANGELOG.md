@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.26.0
+
+Expose `customData` property on stocks. Remove it from variants.
+
+Refine type for `BooleanFilterValue`, which can contain 0, 1, or 2 values.
+
 ## 0.25.0
 
 Expose `appliedPricePromotionKey` on variant
