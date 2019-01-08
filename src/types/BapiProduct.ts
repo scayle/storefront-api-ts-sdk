@@ -49,6 +49,7 @@ export interface Stock {
   merchantId: number;
   quantity: number;
   carriers: any[];
+  customData?: unknown;
 }
 
 /**
@@ -79,7 +80,6 @@ export interface Variant {
   appliedPricePromotionKey?: string;
   attributes?: Attributes;
   advancedAttributes?: AdvancedAttributes;
-  customData?: unknown;
 }
 
 export type Attributes = ObjectMap<AttributeGroupSingle | AttributeGroupMulti>;
