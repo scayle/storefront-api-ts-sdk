@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.27.0
+
+Add ability to set HTTP basic auth credentials
+
 ## 0.26.0
 
 Expose `customData` property on stocks. Remove it from variants.
