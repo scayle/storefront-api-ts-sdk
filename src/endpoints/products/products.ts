@@ -75,7 +75,7 @@ export function createProductsSearchEndpointRequest(
         ? {sortChannel: parameters.sort.channel}
         : undefined),
       ...(parameters.sort && parameters.sort.sortingKey
-        ? {sortChannel: parameters.sort.sortingKey}
+        ? {sortingKey: parameters.sort.sortingKey}
         : undefined),
 
       ...(parameters.pagination && parameters.pagination.page

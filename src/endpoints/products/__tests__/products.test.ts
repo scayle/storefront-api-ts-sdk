@@ -90,7 +90,7 @@ Object {
   "endpoint": "products",
   "method": "GET",
   "params": Object {
-    "sortChannel": "custom_sort_order",
+    "sortingKey": "custom_sort_order",
   },
 }
 `);

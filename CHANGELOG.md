@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.29.0
+
+Set `sortingKey` parameter correctly (as `sortingKey`) for product queries
+
+Expose `currencyCode` on price
+
 ## 0.28.0
 
 Add search suggestions endpoint.

@@ -156,6 +156,8 @@ export interface BapiPrice {
    * E.g. sale first (`[0]`), campaign second (`[1]`)
    */
   appliedReductions: AppliedReduction[];
+
+  currencyCode: string;
 }
 
 export interface AppliedReduction {
