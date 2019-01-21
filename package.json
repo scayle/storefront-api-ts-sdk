@@ -1,5 +1,5 @@
 {
-  "name": "bapi",
+  "name": "@aboutyou/backbone",
   "version": "0.29.0",
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
