@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.30.0
+
+Fix `brands` include for search suggestions
+
 ## 0.29.0
 
 Set `sortingKey` parameter correctly (as `sortingKey`) for product queries

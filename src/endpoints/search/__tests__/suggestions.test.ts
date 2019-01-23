@@ -30,7 +30,7 @@ Object {
   "method": "GET",
   "params": Object {
     "term": "term 1",
-    "with": "brand,categories,productNames",
+    "with": "brands,categories,productNames",
   },
 }
 `);

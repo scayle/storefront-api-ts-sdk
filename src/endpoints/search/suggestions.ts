@@ -63,7 +63,7 @@ export function createSearchSuggestionsEndpointRequest(
   const topLevelIncludes: string[] = [];
   if (parameters.with) {
     if (parameters.with.brands) {
-      topLevelIncludes.push('brand');
+      topLevelIncludes.push('brands');
     }
     if (parameters.with.categories) {
       topLevelIncludes.push('categories');
