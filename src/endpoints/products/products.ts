@@ -25,7 +25,7 @@ export interface ProductSortConfig {
   by?: APISortOption;
   direction?: APISortOrder;
   score?: 'category_scores' | 'brand_scores';
-  channel?: 'etkp' | 'size';
+  channel?: 'etkp' | 'size' | 'mobile_web_default_ab1' | 'mobile_web_size_ab1';
   sortingKey?: string;
 }
 
