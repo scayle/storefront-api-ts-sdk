@@ -5,6 +5,12 @@ import {
 } from 'bapi/endpoints/basket/getBasket';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 
+export interface BaskteItemDisplayDataItem {
+  value: string;
+  label: string;
+  key: string;
+}
+
 export interface CreateBasketItemParameters {
   basketKey: string;
   variantId: number;
@@ -12,6 +18,7 @@ export interface CreateBasketItemParameters {
   childShopId?: number;
   with?: BasketWith;
   customData?: {[key: string]: any; [key: number]: any};
+  displayData?: ObjectMap<BaskteItemDisplayDataItem>;
   pricePromotionKey?: string;
   campaignKey?: 'px' | undefined;
 }
@@ -37,6 +44,7 @@ export function createBasketItemRequest(
       quantity: params.quantity,
       ...(customData !== undefined ? {customData} : undefined),
       ...(params.childShopId ? {shopId: params.childShopId} : undefined),
+      ...(params.displayData ? {displayData: params.displayData} : undefined),
     },
   };
 }

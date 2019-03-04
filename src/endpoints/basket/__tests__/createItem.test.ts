@@ -130,3 +130,37 @@ Object {
 }
 `);
 });
+
+it('Builds correct query with display data', () => {
+  expect(
+    createBasketItemRequest({
+      basketKey: 'basket1',
+      variantId: 1235,
+      quantity: 1,
+      displayData: {
+        identifier: {
+          value: 'a-random-value',
+          label: 'Product ID',
+          key: 'product-id',
+        },
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "displayData": Object {
+      "identifier": Object {
+        "key": "product-id",
+        "label": "Product ID",
+        "value": "a-random-value",
+      },
+    },
+    "quantity": 1,
+    "variantId": 1235,
+  },
+  "endpoint": "baskets/basket1/items",
+  "method": "POST",
+  "params": Object {},
+}
+`);
+});
