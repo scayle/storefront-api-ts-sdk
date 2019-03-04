@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.31.0
+
+Expose `displayData` property in "create basket item" requests
+
 ## 0.30.0
 
 Fix `brands` include for search suggestions
