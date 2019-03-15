@@ -3,6 +3,7 @@ import {
   ProductSearchQuery,
   queryParamsFromProductSearchQuery,
 } from 'bapi/types/ProductSearchQuery';
+import {CentAmount} from 'bapi/types/BapiProduct';
 
 export interface FiltersEndpointParameters {
   where: ProductSearchQuery;
@@ -45,8 +46,8 @@ export type BooleanFilterValue =
 export type RangeFilterValue =
   | [
       {
-        min: number;
-        max: number;
+        min: CentAmount;
+        max: CentAmount;
         productCount: number;
       }
     ]
