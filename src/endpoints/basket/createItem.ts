@@ -18,7 +18,17 @@ export interface CreateBasketItemParameters {
   childShopId?: number;
   with?: BasketWith;
   customData?: {[key: string]: any; [key: number]: any};
-  displayData?: ObjectMap<BaskteItemDisplayDataItem>;
+  displayData?: Partial<
+    Record<
+      | 'meta'
+      | 'name'
+      | 'identifier'
+      | 'attribute-1'
+      | 'attribute-2'
+      | 'attribute-3',
+      BaskteItemDisplayDataItem
+    >
+  >;
   pricePromotionKey?: string;
   campaignKey?: 'px' | undefined;
 }
