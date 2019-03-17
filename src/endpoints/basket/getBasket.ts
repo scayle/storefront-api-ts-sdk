@@ -35,7 +35,26 @@ export interface BasketItem<P = BapiProduct, V = Variant> {
   status: string;
   product: P;
   variant: V;
+  displayData: BasketItemDisplayData;
 }
+
+export interface BaskteItemDisplayDataItem {
+  value: string;
+  label: string;
+  key: string;
+}
+
+export type BasketItemDisplayDataKey =
+  | 'meta'
+  | 'name'
+  | 'identifier'
+  | 'attribute-1'
+  | 'attribute-2'
+  | 'attribute-3';
+
+export type BasketItemDisplayData = Partial<
+  Record<BasketItemDisplayDataKey, BaskteItemDisplayDataItem>
+>;
 
 export interface BasketPackageInformation {
   id: number;

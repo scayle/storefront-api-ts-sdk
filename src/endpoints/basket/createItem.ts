@@ -2,14 +2,9 @@ import {
   BasketResponseData,
   BasketWith,
   basketWithQueryParameter,
+  BasketItemDisplayData,
 } from 'bapi/endpoints/basket/getBasket';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
-
-export interface BaskteItemDisplayDataItem {
-  value: string;
-  label: string;
-  key: string;
-}
 
 export interface CreateBasketItemParameters {
   basketKey: string;
@@ -18,17 +13,7 @@ export interface CreateBasketItemParameters {
   childShopId?: number;
   with?: BasketWith;
   customData?: {[key: string]: any; [key: number]: any};
-  displayData?: Partial<
-    Record<
-      | 'meta'
-      | 'name'
-      | 'identifier'
-      | 'attribute-1'
-      | 'attribute-2'
-      | 'attribute-3',
-      BaskteItemDisplayDataItem
-    >
-  >;
+  displayData?: BasketItemDisplayData;
   pricePromotionKey?: string;
   campaignKey?: 'px' | undefined;
 }
