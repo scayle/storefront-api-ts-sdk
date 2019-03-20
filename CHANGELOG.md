@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0
+
+Allow specifying `with` parameter for `/filters` requests
+
+## 1.0.0
+
+Expose `displayData` on `Basket` response
+
+Improve `displayData` type, only allowing expected keys
+
+Use `CentAmount` type for range filters, as their is only 1 for prices ( …
+
 ## 0.31.0
 
 Expose `displayData` property in "create basket item" requests
