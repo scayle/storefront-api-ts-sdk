@@ -42,3 +42,58 @@ test('Fetch filters for category; expect standard attributes', async () => {
     );
   }
 });
+
+test('Filters request', async () => {
+  expect(
+    createFiltersEndpointRequest({
+      where: {
+        categoryId: 20201,
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "filters",
+  "method": "GET",
+  "params": Object {
+    "filters[category]": 20201,
+    "with": "values",
+  },
+}
+`);
+
+  expect(
+    createFiltersEndpointRequest({
+      where: {
+        categoryId: 20201,
+      },
+      with: [],
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "filters",
+  "method": "GET",
+  "params": Object {
+    "filters[category]": 20201,
+    "with": "",
+  },
+}
+`);
+
+  expect(
+    createFiltersEndpointRequest({
+      where: {
+        categoryId: 20201,
+      },
+      with: ['values', 'category_ids'],
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "filters",
+  "method": "GET",
+  "params": Object {
+    "filters[category]": 20201,
+    "with": "values,category_ids",
+  },
+}
+`);
+});

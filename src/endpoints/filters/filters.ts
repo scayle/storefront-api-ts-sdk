@@ -10,7 +10,12 @@ export interface FiltersEndpointParameters {
 
   campaignKey?: string;
 
-  with?: string[];
+  /**
+   * `with` includes
+   *
+   * Defaults to `values`
+   */
+  with?: ('values' | 'category_ids')[];
 }
 
 export interface AttributesFilterValue {
@@ -103,7 +108,7 @@ export function createFiltersEndpointRequest(
     method: 'GET',
     endpoint: 'filters',
     params: {
-      with: 'values',
+      with: parameters.with ? parameters.with.join(',') : 'values',
       ...queryParamsFromProductSearchQuery(parameters.where),
     },
   };
