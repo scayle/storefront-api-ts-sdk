@@ -108,4 +108,34 @@ Object {
   },
 }
 `);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      includeSoldOutProducts: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "includeSoldOutProducts": true,
+  },
+}
+`);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      includeSoldOutProducts: true,
+      includeSellableForFree: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "includeSellableForFree": true,
+    "includeSoldOutProducts": true,
+  },
+}
+`);
 });

@@ -44,6 +44,8 @@ export interface ProductsSearchEndpointParameters {
   };
 
   includeSellableForFree?: boolean;
+
+  includeSoldOutProducts?: boolean;
 }
 
 export interface ProductsSearchEndpointResponseData {
@@ -93,6 +95,10 @@ export function createProductsSearchEndpointRequest(
 
       ...(parameters.includeSellableForFree
         ? {includeSellableForFree: parameters.includeSellableForFree}
+        : undefined),
+
+      ...(parameters.includeSoldOutProducts
+        ? {includeSoldOutProducts: parameters.includeSoldOutProducts}
         : undefined),
     },
   };
