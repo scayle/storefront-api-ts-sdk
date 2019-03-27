@@ -9,6 +9,7 @@ export interface ProductsByIdsEndpointParameters {
   productIds: number[];
   with?: ProductWith;
   campaignKey?: 'px' | undefined;
+  includeSellableForFree?: boolean;
 }
 export interface Pagination {
   current: number;
@@ -37,7 +38,13 @@ export function createProductsByIdsEndpointRequest(
       ...(parameters.with
         ? {with: productWithQueryParameterValues(parameters.with).join(`,`)}
         : undefined),
-      campaignKey: parameters.campaignKey,
+      ...(parameters.campaignKey
+        ? {campaignKey: parameters.campaignKey}
+        : undefined),
+
+      ...(parameters.includeSellableForFree
+        ? {includeSellableForFree: parameters.includeSellableForFree}
+        : undefined),
     },
   };
 }

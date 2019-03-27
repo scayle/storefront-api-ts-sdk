@@ -42,6 +42,8 @@ export interface ProductsSearchEndpointParameters {
     page?: number;
     perPage?: number;
   };
+
+  includeSellableForFree?: boolean;
 }
 
 export interface ProductsSearchEndpointResponseData {
@@ -87,6 +89,10 @@ export function createProductsSearchEndpointRequest(
 
       ...(parameters.campaignKey
         ? {campaignKey: parameters.campaignKey}
+        : undefined),
+
+      ...(parameters.includeSellableForFree
+        ? {includeSellableForFree: parameters.includeSellableForFree}
         : undefined),
     },
   };

@@ -94,4 +94,18 @@ Object {
   },
 }
 `);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      includeSellableForFree: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "includeSellableForFree": true,
+  },
+}
+`);
 });

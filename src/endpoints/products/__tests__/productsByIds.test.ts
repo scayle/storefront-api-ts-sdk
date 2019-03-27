@@ -10,7 +10,6 @@ Object {
   "endpoint": "products",
   "method": "GET",
   "params": Object {
-    "campaignKey": undefined,
     "ids": "1,2",
   },
 }
@@ -27,15 +26,31 @@ Object {
           },
         },
       },
+      includeSellableForFree: false, // don't send, it's the default
     }),
   ).toMatchInlineSnapshot(`
 Object {
   "endpoint": "products",
   "method": "GET",
   "params": Object {
-    "campaignKey": undefined,
     "ids": "1,2",
     "with": "attributes,variants,variants.attributes:key(name),images.attributes:legacy(false)",
+  },
+}
+`);
+
+  expect(
+    createProductsByIdsEndpointRequest({
+      productIds: [10],
+      includeSellableForFree: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "ids": "10",
+    "includeSellableForFree": true,
   },
 }
 `);

@@ -10,6 +10,7 @@ export interface ProductByIdEndpointParameters {
   with?: ProductWith;
   campaignKey?: 'px' | undefined;
   pricePromotionKey?: string;
+  includeSellableForFree?: boolean;
 }
 
 export type ProductByIdEndpointResponseData = BapiProduct;
@@ -34,6 +35,9 @@ export function createProductByIdEndpointRequest(
         ? {
             pricePromotionKey: parameters.pricePromotionKey,
           }
+        : undefined),
+      ...(parameters.includeSellableForFree
+        ? {includeSellableForFree: parameters.includeSellableForFree}
         : undefined),
     },
   };

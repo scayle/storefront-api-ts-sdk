@@ -138,3 +138,38 @@ Object {
 }
 `);
 });
+
+test('sellable for free parameter', () => {
+  expect(
+    createProductByIdEndpointRequest({
+      productId: 123,
+      includeSellableForFree: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products/123",
+  "method": "GET",
+  "params": Object {
+    "includeSellableForFree": true,
+  },
+}
+`);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      where: {
+        categoryId: 20201,
+      },
+      includeSellableForFree: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "filters[category]": 20201,
+    "includeSellableForFree": true,
+  },
+}
+`);
+});
