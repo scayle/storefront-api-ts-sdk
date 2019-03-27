@@ -1,5 +1,7 @@
 # Publishing
 
+Update `version` in `package.json`, then run:
+
 ```
 ./buildPackage.sh
 

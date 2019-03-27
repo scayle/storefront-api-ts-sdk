@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+Allow specifying `includeSellableForFree` parameter on `/product` endpoints
+Allow specifying `parameters.includeSoldOutProducts` parameter on `/products` search endpoint
+
 ## 1.1.0
 
 Allow specifying `with` parameter for `/filters` requests
