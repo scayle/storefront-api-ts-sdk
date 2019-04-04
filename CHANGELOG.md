@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1
+
+Allow passing custom headers to `execute`.
+
+## 1.2.0
+
+Add search mappings endpoint.
+
 ## 1.1.1
 
 Allow specifying `includeSellableForFree` parameter on `/product` endpoints
