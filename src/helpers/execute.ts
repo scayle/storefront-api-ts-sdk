@@ -46,6 +46,7 @@ export async function execute<SuccessResponseT>(
     username: string;
     password: string;
   },
+  additionalHeaders?: ObjectMap<string>,
 ): Promise<BapiResponse<SuccessResponseT>> {
   const params =
     shopIdPlacement === 'query'
@@ -63,6 +64,7 @@ export async function execute<SuccessResponseT>(
       Accept: 'application/json',
       'Content-Type': 'application/json',
       ...shopIdHeader,
+      ...additionalHeaders,
     },
     url,
     method: bapiCall.method,
