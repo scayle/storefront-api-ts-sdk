@@ -82,6 +82,10 @@ import {
   SearchSuggestionsEndpointResponseData,
   createSearchSuggestionsEndpointRequest,
 } from 'bapi/endpoints/search/suggestions';
+import {
+  createrSearchMappingsEndpointRequest,
+  SearchMappingsEndpointResponseData,
+} from 'bapi/endpoints/search/mappings';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -450,6 +454,9 @@ export class BapiClient {
       return this.execute(
         createSearchSuggestionsEndpointRequest({...params, term}),
       );
+    },
+    mappings: (term: string): Promise<SearchMappingsEndpointResponseData> => {
+      return this.execute(createrSearchMappingsEndpointRequest({term}));
     },
   };
 }
