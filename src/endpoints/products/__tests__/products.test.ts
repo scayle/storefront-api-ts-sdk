@@ -111,21 +111,21 @@ Object {
 
   expect(
     createProductsSearchEndpointRequest({
-      includeSoldOutProducts: true,
+      includeSoldOut: true,
     }),
   ).toMatchInlineSnapshot(`
 Object {
   "endpoint": "products",
   "method": "GET",
   "params": Object {
-    "includeSoldOutProducts": true,
+    "includeSoldOut": true,
   },
 }
 `);
 
   expect(
     createProductsSearchEndpointRequest({
-      includeSoldOutProducts: true,
+      includeSoldOut: true,
       includeSellableForFree: true,
     }),
   ).toMatchInlineSnapshot(`
@@ -134,7 +134,7 @@ Object {
   "method": "GET",
   "params": Object {
     "includeSellableForFree": true,
-    "includeSoldOutProducts": true,
+    "includeSoldOut": true,
   },
 }
 `);

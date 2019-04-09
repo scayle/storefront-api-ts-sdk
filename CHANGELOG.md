@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+
+Rename `includeSoldOutProducts` parameter to `includeSoldOut`.
+
 ## 1.2.1
 
 Allow passing custom headers to `execute`.
