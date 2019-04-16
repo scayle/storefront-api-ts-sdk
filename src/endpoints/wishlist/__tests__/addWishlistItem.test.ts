@@ -81,4 +81,25 @@ Object {
   },
 }
 `);
+
+  expect(
+    addWishlistItemEndpointRequest({
+      wishlistKey: 'wishlist_1',
+      item: {
+        productId: 1,
+      },
+      campaignKey: 'px',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "productId": 1,
+  },
+  "endpoint": "wishlists/wishlist_1/items",
+  "method": "POST",
+  "params": Object {
+    "campaignKey": "px",
+  },
+}
+`);
 });

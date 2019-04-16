@@ -22,6 +22,7 @@ export interface AddWishlistItemParameters {
   item: WishlistItemCreationID;
 
   with?: WishlistWith;
+  campaignKey?: 'px' | undefined;
 }
 
 export function addWishlistItemEndpointRequest(
@@ -36,6 +37,7 @@ export function addWishlistItemEndpointRequest(
             with: basketWithQueryParameter(params.with).join(','),
           }
         : undefined),
+      ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
     },
     data: params.item,
   };

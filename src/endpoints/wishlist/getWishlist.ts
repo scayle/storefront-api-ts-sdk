@@ -23,6 +23,7 @@ export interface GetWishlistParameters {
   wishlistKey: string;
 
   with?: WishlistWith;
+  campaignKey?: 'px' | undefined;
 }
 
 export function getWishlistEndpointRequest(
@@ -35,6 +36,7 @@ export function getWishlistEndpointRequest(
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}
         : undefined),
+      ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
     },
   };
 }

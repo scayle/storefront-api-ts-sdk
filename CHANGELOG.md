@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0
+
+Expose `campaignKey` in wishlist API calls.
+
 ## 1.3.0
 
 Rename `includeSoldOutProducts` parameter to `includeSoldOut`.

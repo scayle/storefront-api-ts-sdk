@@ -33,4 +33,19 @@ Object {
   },
 }
 `);
+
+  expect(
+    getWishlistEndpointRequest({
+      wishlistKey: 'wishlist_1',
+      campaignKey: 'px',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "wishlists/wishlist_1",
+  "method": "GET",
+  "params": Object {
+    "campaignKey": "px",
+  },
+}
+`);
 });
