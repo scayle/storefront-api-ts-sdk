@@ -63,6 +63,9 @@ export async function execute<SuccessResponseT>(
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      ...(typeof window === 'undefined'
+        ? {'accept-encoding': 'gzip, deflate'}
+        : undefined),
       ...shopIdHeader,
       ...additionalHeaders,
     },
