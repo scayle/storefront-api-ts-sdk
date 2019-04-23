@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0
+
+Set `accept-encoding: gzip, deflate` in NodeJS context
+
 ## 1.4.0
 
 Expose `campaignKey` in wishlist API calls.
