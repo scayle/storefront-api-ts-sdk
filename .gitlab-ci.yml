@@ -1,0 +1,17 @@
+image: node:10-alpine
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - test
+
+check_build:
+  stage: test
+  script:
+    - apk update && apk upgrade && apk add --no-cache bash git openssh
+    - yarn install
+    - yarn test
+  tags:
+    - docker
