@@ -38,8 +38,6 @@ test('Integration: Requests GZip by default', async () => {
     'query',
   );
 
-  console.error(result.headers);
-
   // NOTE: Can't assert on `content-encoding` header as that gets removed during processing
   // https://github.com/axios/axios/blob/21ae22dbd3ae3d3a55d9efd4eead3dd7fb6d8e6e/lib/adapters/http.js#L194
   // expect(result.headers['content-encoding']).toBe('gzip');
