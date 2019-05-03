@@ -1,6 +1,6 @@
 # Changelog
 
-## UNRELEASED
+## 2.0.0
 
 `createProductsByIdsEndpointRequest` throws when an empty array is provided for the `productIds` parameter.
 
