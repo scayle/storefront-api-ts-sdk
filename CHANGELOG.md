@@ -10,6 +10,8 @@
 
 Add `includeHidden` parameter to product's `categories` include to request hidden categories on the product.
 
+Support `childShopId` in `addWishlistItemEndpointRequest`.
+
 ## 1.5.0
 
 Set `accept-encoding: gzip, deflate` in NodeJS context

@@ -23,6 +23,8 @@ export interface AddWishlistItemParameters {
 
   with?: WishlistWith;
   campaignKey?: 'px' | undefined;
+
+  childShopId?: number;
 }
 
 export function addWishlistItemEndpointRequest(
@@ -39,6 +41,9 @@ export function addWishlistItemEndpointRequest(
         : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
     },
-    data: params.item,
+    data: {
+      ...params.item,
+      ...(params.childShopId ? {shopId: params.childShopId} : undefined),
+    },
   };
 }
