@@ -6,6 +6,8 @@
 
 `BapiClient.products.getByIds` returns an empty array when an empty array is provided for the `productIds` parameter, not making any network request.
 
+`pricePromotionKey` can now be set for product listing request and products by IDs queries.
+
 ## 1.5.0
 
 Set `accept-encoding: gzip, deflate` in NodeJS context

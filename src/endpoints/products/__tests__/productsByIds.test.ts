@@ -60,4 +60,20 @@ Object {
       productIds: [],
     }),
   ).toThrow(`"productIds" parameter must not be an empty array.`);
+
+  expect(
+    createProductsByIdsEndpointRequest({
+      productIds: [1],
+      pricePromotionKey: 'abc123',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "ids": "1",
+    "pricePromotionKey": "abc123",
+  },
+}
+`);
 });
