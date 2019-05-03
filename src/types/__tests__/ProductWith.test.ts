@@ -234,4 +234,25 @@ it('Can request stock and custom on variants', () => {
   ).toMatchInlineSnapshot(
     `"variants,variants.stock,images.attributes:legacy(false)"`,
   );
+
+  expect(
+    productWithQueryParameterValues({
+      categories: {
+        includeHidden: true,
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories:hidden(true)"`,
+  );
+
+  expect(
+    productWithQueryParameterValues({
+      categories: {
+        includeHidden: true,
+        properties: 'all',
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories:hidden(true),categories.properties"`,
+  );
 });

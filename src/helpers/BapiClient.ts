@@ -369,6 +369,10 @@ export class BapiClient {
       productIds: number[],
       params: Omit<ProductsByIdsEndpointParameters, 'productIds'> = {},
     ): Promise<BapiProduct[]> => {
+      if (productIds.length === 0) {
+        return [];
+      }
+
       const response = await this.execute(
         createProductsByIdsEndpointRequest({...params, productIds}),
       );

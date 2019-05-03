@@ -46,6 +46,8 @@ export interface ProductsSearchEndpointParameters {
   includeSellableForFree?: boolean;
 
   includeSoldOut?: boolean;
+
+  pricePromotionKey?: string;
 }
 
 export interface ProductsSearchEndpointResponseData {
@@ -65,6 +67,12 @@ export function createProductsSearchEndpointRequest(
         : undefined),
 
       ...queryParamsFromProductSearchQuery(parameters.where),
+
+      ...(parameters.pricePromotionKey
+        ? {
+            pricePromotionKey: parameters.pricePromotionKey,
+          }
+        : undefined),
 
       ...(parameters.sort && parameters.sort.by
         ? {sort: parameters.sort.by}

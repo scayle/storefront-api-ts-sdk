@@ -3,6 +3,7 @@ import {
   APISortOption,
   APISortOrder,
 } from '../products';
+import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
 
 it('Builds correct query', () => {
   expect(
@@ -135,6 +136,30 @@ Object {
   "params": Object {
     "includeSellableForFree": true,
     "includeSoldOut": true,
+  },
+}
+`);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      pricePromotionKey: 'abc123',
+      where: {
+        attributes: [
+          {
+            type: 'attributes',
+            key: 'brand' as AttributeKey,
+            values: [271, 567],
+          },
+        ],
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "filters[brand]": "271,567",
+    "pricePromotionKey": "abc123",
   },
 }
 `);

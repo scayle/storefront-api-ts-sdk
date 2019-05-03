@@ -10,6 +10,7 @@ export interface ProductsByIdsEndpointParameters {
   with?: ProductWith;
   campaignKey?: 'px' | undefined;
   includeSellableForFree?: boolean;
+  pricePromotionKey?: string;
 }
 export interface Pagination {
   current: number;
@@ -30,6 +31,10 @@ export interface ProductsByIdsEndpointResponseData {
 export function createProductsByIdsEndpointRequest(
   parameters: ProductsByIdsEndpointParameters,
 ): BapiCall<ProductsByIdsEndpointResponseData> {
+  if (parameters.productIds.length === 0) {
+    throw new Error(`"productIds" parameter must not be an empty array.`);
+  }
+
   return {
     method: 'GET',
     endpoint: `products`,
@@ -41,7 +46,11 @@ export function createProductsByIdsEndpointRequest(
       ...(parameters.campaignKey
         ? {campaignKey: parameters.campaignKey}
         : undefined),
-
+      ...(parameters.pricePromotionKey
+        ? {
+            pricePromotionKey: parameters.pricePromotionKey,
+          }
+        : undefined),
       ...(parameters.includeSellableForFree
         ? {includeSellableForFree: parameters.includeSellableForFree}
         : undefined),
