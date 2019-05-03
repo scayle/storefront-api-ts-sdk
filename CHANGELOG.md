@@ -1,5 +1,11 @@
 # Changelog
 
+## UNRELEASED
+
+`createProductsByIdsEndpointRequest` throws when an empty array is provided for the `productIds` parameter.
+
+`BapiClient.products.getByIds` returns an empty array when an empty array is provided for the `productIds` parameter, not making any network request.
+
 ## 1.5.0
 
 Set `accept-encoding: gzip, deflate` in NodeJS context

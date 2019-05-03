@@ -30,6 +30,10 @@ export interface ProductsByIdsEndpointResponseData {
 export function createProductsByIdsEndpointRequest(
   parameters: ProductsByIdsEndpointParameters,
 ): BapiCall<ProductsByIdsEndpointResponseData> {
+  if (parameters.productIds.length === 0) {
+    throw new Error(`"productIds" parameter must not be an empty array.`);
+  }
+
   return {
     method: 'GET',
     endpoint: `products`,

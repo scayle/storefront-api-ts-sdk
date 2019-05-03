@@ -54,4 +54,10 @@ Object {
   },
 }
 `);
+
+  expect(() =>
+    createProductsByIdsEndpointRequest({
+      productIds: [],
+    }),
+  ).toThrow(`"productIds" parameter must not be an empty array.`);
 });
