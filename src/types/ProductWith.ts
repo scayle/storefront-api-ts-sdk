@@ -28,6 +28,7 @@ export interface ProductWith {
 
 export interface ProductCategoryWith {
   properties?: 'all';
+  includeHidden?: boolean;
 }
 
 export interface VariantWith {
@@ -88,7 +89,14 @@ export function productWithQueryParameterValues(
   }
 
   if (productWith.categories) {
-    parameterValues.push('categories');
+    if (
+      typeof productWith.categories === 'object' &&
+      productWith.categories.includeHidden
+    ) {
+      parameterValues.push('categories:hidden(true)');
+    } else {
+      parameterValues.push('categories');
+    }
 
     if (productWith.categories && typeof productWith.categories === 'object') {
       if (productWith.categories.properties) {

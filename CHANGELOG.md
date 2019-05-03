@@ -8,6 +8,8 @@
 
 `pricePromotionKey` can now be set for product listing request and products by IDs queries.
 
+Add `includeHidden` parameter to product's `categories` include to request hidden categories on the product.
+
 ## 1.5.0
 
 Set `accept-encoding: gzip, deflate` in NodeJS context
