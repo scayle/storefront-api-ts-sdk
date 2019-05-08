@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0
+
+Expose `deliveryForecast` on variant stock.
+
+Expose `availableQuantity` and `deliveryForecast` on basket item.
+
+Attribute group `type` property now correctly typed as nullable to match API schema.
+
+Reference price `size` property now correctly typed as nullable to match API schema.
+
 ## 2.0.0
 
 `createProductsByIdsEndpointRequest` throws when an empty array is provided for the `productIds` parameter.

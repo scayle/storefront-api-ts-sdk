@@ -32,7 +32,23 @@ export interface BasketItem<P = BapiProduct, V = Variant> {
     unit: BasketItemPrice;
   };
   quantity: number;
-  status: string;
+  availableQuantity?: number;
+  deliveryForecast?: {
+    deliverable?: {
+      quantity: number;
+      key: string;
+    };
+    subsequentDelivery?: {
+      quantity: number;
+      key: string;
+    };
+  };
+  status:
+    | 'available'
+    | 'unavailable'
+    | 'deliverable'
+    | 'undeliverable'
+    | 'cancelled';
   product: P;
   variant: V;
   displayData: BasketItemDisplayData;

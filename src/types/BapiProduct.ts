@@ -50,6 +50,10 @@ export interface Stock {
   quantity: number;
   isSellableWithoutStock?: boolean;
   customData?: unknown;
+  deliveryForecast?: {
+    deliverable?: string;
+    subsequentDelivery?: string;
+  };
 }
 
 /**
@@ -87,7 +91,7 @@ export type Attributes = ObjectMap<AttributeGroupSingle | AttributeGroupMulti>;
 interface AttributeGroupBasic {
   key: string;
   label: string;
-  type: string;
+  type: string | null;
 }
 
 export interface AttributeGroupSingle extends AttributeGroupBasic {
@@ -146,7 +150,7 @@ export interface BapiPrice {
 
   reference?: {
     withTax: CentAmount;
-    size: string;
+    size: number;
     unit: string;
   } | null;
 
