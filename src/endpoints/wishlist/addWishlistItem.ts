@@ -25,6 +25,8 @@ export interface AddWishlistItemParameters {
   campaignKey?: 'px' | undefined;
 
   childShopId?: number;
+
+  pricePromotionKey?: string;
 }
 
 export function addWishlistItemEndpointRequest(
@@ -43,6 +45,7 @@ export function addWishlistItemEndpointRequest(
     },
     data: {
       ...params.item,
+      customData: (params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
       ...(params.childShopId ? {shopId: params.childShopId} : undefined),
     },
   };
