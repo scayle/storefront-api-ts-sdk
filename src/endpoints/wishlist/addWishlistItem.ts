@@ -45,7 +45,9 @@ export function addWishlistItemEndpointRequest(
     },
     data: {
       ...params.item,
-      customData: (params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
+      ...(params.pricePromotionKey
+        ? {customData: {pricePromotionKey: params.pricePromotionKey}}
+        : undefined),
       ...(params.childShopId ? {shopId: params.childShopId} : undefined),
     },
   };
