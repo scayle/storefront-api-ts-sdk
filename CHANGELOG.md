@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.2
+
+Add ability to provide `pricePromotionKey` when adding items to wishlist.
+
 ## 2.1.0
 
 Expose `deliveryForecast` on variant stock.
