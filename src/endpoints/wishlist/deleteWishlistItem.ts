@@ -11,6 +11,8 @@ export interface DeleteWishlistParameters {
 
   with?: WishlistWith;
   campaignKey?: 'px' | undefined;
+
+  pricePromotionKey?: string;
 }
 
 export function deleteWishlistEndpointRequest(
@@ -24,6 +26,7 @@ export function deleteWishlistEndpointRequest(
         ? {with: basketWithQueryParameter(params.with).join(',')}
         : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
+      ...(params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
     },
   };
 }

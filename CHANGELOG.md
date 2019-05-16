@@ -1,5 +1,9 @@
 # Changelog
 
+## Next
+
+Add `pricePromotionKey` to every wishlist request.
+
 ## 2.1.2
 
 Add ability to provide `pricePromotionKey` when adding items to wishlist.
