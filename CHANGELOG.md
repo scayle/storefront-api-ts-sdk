@@ -1,6 +1,6 @@
 # Changelog
 
-## Next
+## 2.2.0
 
 Add `pricePromotionKey` to every wishlist request.
 
