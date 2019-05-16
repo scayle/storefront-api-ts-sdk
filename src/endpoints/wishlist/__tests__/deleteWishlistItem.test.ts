@@ -51,4 +51,22 @@ Object {
   },
 }
 `);
+
+  expect(
+    deleteWishlistEndpointRequest({
+      wishlistKey: 'wishlist_1',
+      itemKey: 'item_1',
+      campaignKey: 'px',
+      pricePromotionKey: 'test'
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "wishlists/wishlist_1/items/item_1",
+  "method": "DELETE",
+  "params": Object {
+    "campaignKey": "px",
+    "pricePromotionKey": "test",
+  },
+}
+`);
 });

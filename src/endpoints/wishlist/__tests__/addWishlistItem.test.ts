@@ -134,14 +134,13 @@ Object {
   ).toMatchInlineSnapshot(`
 Object {
   "data": Object {
-    "customData": Object {
-      "pricePromotionKey": "test",
-    },
     "masterKey": "master_1",
   },
   "endpoint": "wishlists/wishlist_1/items",
   "method": "POST",
-  "params": Object {},
+  "params": Object {
+    "pricePromotionKey": "test",
+  },
 }
 `);
 });
