@@ -42,12 +42,10 @@ export function addWishlistItemEndpointRequest(
           }
         : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
+      ...(params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
     },
     data: {
       ...params.item,
-      ...(params.pricePromotionKey
-        ? {customData: {pricePromotionKey: params.pricePromotionKey}}
-        : undefined),
       ...(params.childShopId ? {shopId: params.childShopId} : undefined),
     },
   };
