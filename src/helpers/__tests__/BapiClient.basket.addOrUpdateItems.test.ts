@@ -143,6 +143,48 @@ it('BapiClient.addOrUpdateItems: Creates new item for new variant', async () => 
   expect(nock.isDone()).toBeTruthy();
 });
 
+it('BapiClient.addOrUpdateItems: Handles failures (responding with the last basket)', async () => {
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .get('/v1/baskets/aboutyou_customer_4351754')
+    .replyWithFile(
+      200,
+      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .post('/v1/baskets/aboutyou_customer_4351754/items', {
+      variantId: 1234,
+      quantity: 1,
+    })
+    .reply(500, {});
+
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const basketKey = 'aboutyou_customer_4351754';
+
+  const basketResponse = await bapi.basket.addOrUpdateItems(basketKey, [
+    {
+      variantId: 1234,
+    },
+  ]);
+
+  if (basketResponse.type !== 'failure') {
+    fail('Expected failure response');
+  }
+
+  expect(basketResponse.basket.items.length).toBe(1);
+
+  expect(nock.isDone()).toBeTruthy();
+});
+
 it('BapiClient.addOrUpdateItems: Replaces existing item with combined quantity (by default)', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
