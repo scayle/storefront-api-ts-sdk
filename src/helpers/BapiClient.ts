@@ -389,7 +389,7 @@ export class BapiClient {
                     await this.basket.addItem(
                       basketKey,
                       variantId,
-                      existingBasketItem.quantity,
+                      quantity,
                       params,
                     ),
                   );
