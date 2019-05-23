@@ -1,4 +1,4 @@
-import {BapiClient} from 'bapi/helpers/BapiClient';
+import {BapiClient, ExistingItemHandling} from 'bapi/helpers/BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
@@ -7,7 +7,7 @@ import nock = require('nock');
 
 disableNetAndAllowBapiCors({shopIdHeader: true});
 
-it('BapiClient.addOrUpdateItems: Does nothing for quantity 0', async () => {
+it('BapiClient.addOrUpdateItems: Does nothing for new variant with quantity 0', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
@@ -38,6 +38,59 @@ it('BapiClient.addOrUpdateItems: Does nothing for quantity 0', async () => {
   }
 
   expect(basketResponse.basket).toHaveProperty(`cost`);
+
+  expect(nock.isDone()).toBeTruthy();
+});
+
+it('BapiClient.addOrUpdateItems: Deletes existing variant variant with quantity 0 when using "replace existing" strategy', async () => {
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .get('/v1/baskets/aboutyou_customer_4351754')
+    .replyWithFile(
+      200,
+      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  nockWithBapiScope({shopIdHeader: true})
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .delete(
+      '/v1/baskets/aboutyou_customer_4351754/items/2f321b8a934c34c5620833cfb1451a6e',
+    )
+    .replyWithFile(
+      200,
+      __dirname + '/responses/basket-addOrUpdateItems/empty-basket.json',
+      {
+        'Content-Type': 'application/json',
+      },
+    );
+
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const basketKey = 'aboutyou_customer_4351754';
+
+  const basketResponse = await bapi.basket.addOrUpdateItems(
+    basketKey,
+    [
+      {
+        variantId: 8683280,
+        quantity: 0,
+      },
+    ],
+    {},
+    {existingItemHandling: ExistingItemHandling.ReplaceExisting},
+  );
+
+  if (basketResponse.type !== 'success') {
+    fail('Expected success response');
+  }
+
+  expect(basketResponse.basket.items.length).toBe(0);
 
   expect(nock.isDone()).toBeTruthy();
 });
