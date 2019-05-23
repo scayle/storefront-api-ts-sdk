@@ -178,9 +178,11 @@ it('BapiClient.addOrUpdateItems: Handles failures (responding with the last bask
 
   if (basketResponse.type !== 'failure') {
     fail('Expected failure response');
+    return;
   }
 
   expect(basketResponse.basket.items.length).toBe(1);
+  expect(basketResponse.failedVariants).toEqual([1234]);
 
   expect(nock.isDone()).toBeTruthy();
 });
