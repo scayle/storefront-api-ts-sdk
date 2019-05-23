@@ -1,0 +1,174 @@
+{
+  "key": "aboutyou_customer_4351754",
+  "items": [
+    {
+      "key": "2f321b8a934c34c5620833cfb1451a6e",
+      "packageId": 2,
+      "quantity": 1,
+      "status": "available",
+      "customData": {},
+      "price": {
+        "total": {
+          "withTax": 8799,
+          "withoutTax": 7394,
+          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
+          "appliedReductions": [
+            {
+              "category": "sale",
+              "type": "relative",
+              "amount": {"relative": 0.48, "absoluteWithTax": 8200}
+            }
+          ]
+        },
+        "unit": {
+          "withTax": 8799,
+          "withoutTax": 7394,
+          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
+          "appliedReductions": [
+            {
+              "category": "sale",
+              "type": "relative",
+              "amount": {"relative": 0.48, "absoluteWithTax": 8200}
+            }
+          ]
+        }
+      },
+      "variant": {
+        "id": 8683280,
+        "referenceKey": "463381220",
+        "createdAt": "2016-06-01T09:42:38+02:00",
+        "updatedAt": "2018-10-08T14:44:50+02:00",
+        "stock": {"supplierId": 1, "quantity": 975},
+        "price": {
+          "withTax": 8799,
+          "withoutTax": 7394,
+          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
+          "appliedReductions": [
+            {
+              "category": "sale",
+              "type": "relative",
+              "amount": {"relative": 0.48, "absoluteWithTax": 8200}
+            }
+          ]
+        }
+      },
+      "product": {
+        "id": 2012949,
+        "isActive": true,
+        "isSoldOut": false,
+        "isNew": false,
+        "createdAt": "2016-06-01T09:42:38+02:00",
+        "updatedAt": "2018-08-17T11:58:03+02:00",
+        "masterKey": "463328574-1",
+        "images": [
+          {
+            "hash": "534b977931feeb533b265acb8e8d440d",
+            "attributes": {
+              "type": "bust",
+              "focus": "product",
+              "view": "front",
+              "angle": null,
+              "preparation": null,
+              "next_detail_level": null,
+              "background": "white",
+              "gender": null
+            }
+          }
+        ],
+
+        "categories": []
+      }
+    },
+    {
+      "key": "new-one",
+      "packageId": 2,
+      "quantity": 1,
+      "status": "available",
+      "customData": {},
+      "price": {
+        "total": {
+          "withTax": 8799,
+          "withoutTax": 7394,
+          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
+          "appliedReductions": [
+            {
+              "category": "sale",
+              "type": "relative",
+              "amount": {"relative": 0.48, "absoluteWithTax": 8200}
+            }
+          ]
+        },
+        "unit": {
+          "withTax": 8799,
+          "withoutTax": 7394,
+          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
+          "appliedReductions": [
+            {
+              "category": "sale",
+              "type": "relative",
+              "amount": {"relative": 0.48, "absoluteWithTax": 8200}
+            }
+          ]
+        }
+      },
+      "variant": {
+        "id": 1234,
+        "referenceKey": "463381220",
+        "createdAt": "2016-06-01T09:42:38+02:00",
+        "updatedAt": "2018-10-08T14:44:50+02:00",
+        "stock": {"supplierId": 1, "quantity": 975},
+        "price": {
+          "withTax": 8799,
+          "withoutTax": 7394,
+          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
+          "appliedReductions": [
+            {
+              "category": "sale",
+              "type": "relative",
+              "amount": {"relative": 0.48, "absoluteWithTax": 8200}
+            }
+          ]
+        }
+      },
+      "product": {
+        "id": 2012949,
+        "isActive": true,
+        "isSoldOut": false,
+        "isNew": false,
+        "createdAt": "2016-06-01T09:42:38+02:00",
+        "updatedAt": "2018-08-17T11:58:03+02:00",
+        "masterKey": "463328574-1",
+        "images": [
+          {
+            "hash": "534b977931feeb533b265acb8e8d440d",
+            "attributes": {
+              "type": "bust",
+              "focus": "product",
+              "view": "front",
+              "angle": null,
+              "preparation": null,
+              "next_detail_level": null,
+              "background": "white",
+              "gender": null
+            }
+          }
+        ],
+
+        "categories": []
+      }
+    }
+  ],
+  "packages": [
+    {
+      "carrierKey": "DHL_STD_NATIONAL",
+      "deliveryDate": {"max": "2018-10-11", "min": "2018-10-10"},
+      "id": 2
+    }
+  ],
+  "cost": {
+    "withTax": 30699,
+    "withoutTax": 25797,
+    "tax": {"vat": {"amount": 4902, "rate": 0.19}},
+    "appliedReductions": []
+  }
+}

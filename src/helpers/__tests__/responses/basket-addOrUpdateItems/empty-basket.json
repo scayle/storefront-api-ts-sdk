@@ -1,0 +1,11 @@
+{
+  "key": "aboutyou_customer_4351754",
+  "items": [],
+  "packages": [],
+  "cost": {
+    "withTax": 0,
+    "withoutTax": 0,
+    "tax": {"vat": {"amount": 0, "rate": 0.19}},
+    "appliedReductions": []
+  }
+}
