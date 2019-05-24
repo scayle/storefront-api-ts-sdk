@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0
+
+Add `addOrUpdateItems` method to `BapiClient` that handles adding or updating of many items, including merging quantities of new items with existing ones.
+
 ## 2.2.0
 
 Add `pricePromotionKey` to every wishlist request.

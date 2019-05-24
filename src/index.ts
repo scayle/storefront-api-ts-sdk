@@ -1,4 +1,4 @@
-export {BapiClient} from './helpers/BapiClient';
+export {BapiClient, ExistingItemHandling} from './helpers/BapiClient';
 
 export {BasketResponseData} from 'bapi/endpoints/basket/getBasket';
 export {ProductImage} from 'bapi/types/BapiProduct';
