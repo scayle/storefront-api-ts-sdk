@@ -322,10 +322,7 @@ export class BapiClient {
           const existingBasketItem = latestBasket.items.find(
             item => item.variant.id == itemToAdd.variantId,
           );
-          const quantity =
-            itemToAdd.quantity === undefined ? 1 : itemToAdd.quantity;
-          const params = itemToAdd.params || {};
-          const variantId = itemToAdd.variantId;
+          const {variantId, quantity = 1, params = {}} = itemToAdd;
 
           if (existingBasketItem) {
             if (quantity === 0) {
