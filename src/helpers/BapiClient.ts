@@ -412,8 +412,8 @@ export class BapiClient {
               }
             }
           } else {
+            // item does not yet exist in basket
             if (quantity > 0) {
-              // item does not yet exist in basket, add it
               latestBasket = unwrapBasketResponse(
                 await this.basket.addItem(
                   basketKey,
