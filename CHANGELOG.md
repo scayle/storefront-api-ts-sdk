@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.4.0
+
+Support overwriting the Checkout shop ID on basket `GET`s with `checkoutShopId` parameter.
+
 ## 2.3.0
 
 Add `addOrUpdateItems` method to `BapiClient` that handles adding or updating of many items, including merging quantities of new items with existing ones.
