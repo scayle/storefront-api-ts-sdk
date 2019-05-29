@@ -136,7 +136,7 @@ export function getBasketEndpointRequest(
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
 
       ...(params.checkoutShopId
-        ? {childShopId: params.checkoutShopId}
+        ? {checkoutShopId: params.checkoutShopId}
         : undefined),
     },
   };

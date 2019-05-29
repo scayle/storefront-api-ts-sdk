@@ -136,7 +136,7 @@ Object {
   "endpoint": "baskets/basket1",
   "method": "GET",
   "params": Object {
-    "childShopId": 589,
+    "checkoutShopId": 589,
   },
 }
 `);
