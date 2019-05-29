@@ -124,3 +124,20 @@ Object {
 }
 `);
 });
+
+it('Builds correct query with checkoutShopId', () => {
+  expect(
+    getBasketEndpointRequest({
+      basketKey: 'basket1',
+      checkoutShopId: 589,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "baskets/basket1",
+  "method": "GET",
+  "params": Object {
+    "childShopId": 589,
+  },
+}
+`);
+});
