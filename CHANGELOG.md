@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.5.0
+
+Expose `id` for attributes.
+
 ### 2.4.0
 
 Support overwriting the Checkout shop ID on basket `GET`s with `checkoutShopId` parameter.
