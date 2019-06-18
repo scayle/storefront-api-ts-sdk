@@ -26,7 +26,9 @@ export function queryParamsFromProductSearchQuery(
       (acc, attribute) => {
         switch (attribute.type) {
           case 'attributes':
-            acc[`filters[${attribute.key}]`] = attribute.values.join(`,`);
+            acc[
+              `filters[${attribute.key || attribute.id}]`
+            ] = attribute.values.join(`,`);
             break;
 
           case 'boolean':

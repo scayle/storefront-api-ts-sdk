@@ -163,4 +163,26 @@ Object {
   },
 }
 `);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      where: {
+        attributes: [
+          {
+            type: 'attributes',
+            id: 1,
+            values: [1, 2],
+          },
+        ],
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "filters[1]": "1,2",
+  },
+}
+`);
 });
