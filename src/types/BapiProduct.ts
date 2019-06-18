@@ -89,6 +89,7 @@ export interface Variant {
 export type Attributes = ObjectMap<AttributeGroupSingle | AttributeGroupMulti>;
 
 interface AttributeGroupBasic {
+  id: number | null;
   key: string;
   label: string;
   type: string | null;
@@ -117,6 +118,7 @@ export interface AdvancedAttributes {
 }
 
 export type AdvancedAttribute = {
+  id: number | null;
   key: string;
   label: string;
   type: string | null;
