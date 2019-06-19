@@ -72,6 +72,7 @@ export type FilterItemWithValues =
   | IdenfitierFilterItemWithValues;
 
 export interface BooleanFilterItemWithValues {
+  id: null;
   slug: string;
   name: string;
   values: BooleanFilterValue;
@@ -79,6 +80,7 @@ export interface BooleanFilterItemWithValues {
 }
 
 export interface AttributesFilterItemWithValues {
+  id: number | null;
   slug: string;
   name: string;
   values: AttributesFilterValue[];
@@ -86,6 +88,7 @@ export interface AttributesFilterItemWithValues {
 }
 
 export interface RangeFilterItemWithValues {
+  id: null;
   slug: string;
   name: string;
   values: RangeFilterValue;
