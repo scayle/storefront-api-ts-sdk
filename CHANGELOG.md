@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.5.1
+
+Expose `id` on appropriate `FilterItemWithValues`
+
 ### 2.5.0
 
 Expose `id` for attributes.
