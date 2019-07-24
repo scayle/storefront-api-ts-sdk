@@ -16,6 +16,11 @@ export interface FiltersEndpointParameters {
    * Defaults to `values`
    */
   with?: ('values' | 'category_ids')[];
+
+  /**
+   * Specifies which optional filters to include
+   */
+  including?: string[];
 }
 
 export interface AttributesFilterValue {
@@ -112,6 +117,9 @@ export function createFiltersEndpointRequest(
     endpoint: 'filters',
     params: {
       with: parameters.with ? parameters.with.join(',') : 'values',
+      ...(parameters.including
+        ? {including: parameters.including.join(',')}
+        : undefined),
       ...queryParamsFromProductSearchQuery(parameters.where),
     },
   };

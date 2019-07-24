@@ -96,4 +96,42 @@ Object {
   },
 }
 `);
+
+  expect(
+    createFiltersEndpointRequest({
+      where: {
+        categoryId: 20201,
+      },
+      including: ['styleGroup'],
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "filters",
+  "method": "GET",
+  "params": Object {
+    "filters[category]": 20201,
+    "including": "styleGroup",
+    "with": "values",
+  },
+}
+`);
+
+  expect(
+    createFiltersEndpointRequest({
+      where: {
+        categoryId: 20201,
+      },
+      including: ['styleGroup', 'isNew'],
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "filters",
+  "method": "GET",
+  "params": Object {
+    "filters[category]": 20201,
+    "including": "styleGroup,isNew",
+    "with": "values",
+  },
+}
+`);
 });

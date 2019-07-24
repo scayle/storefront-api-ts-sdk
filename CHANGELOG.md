@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.5.2
+
+Expose `including` on `/filters` endpoint
+
 ### 2.5.1
 
 Expose `id` on appropriate `FilterItemWithValues`
