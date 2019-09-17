@@ -1,0 +1,11 @@
+.vscode/
+yarn.lock
+.editorconfig
+.prettierignore
+.prettierrc
+buildPackage.sh
+tsconfig.json
+jest.config.js
+PUBLISHING.md
+tsconfig.json
+.gitlab-ci.yml
