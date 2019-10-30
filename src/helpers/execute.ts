@@ -1,4 +1,4 @@
-import axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
+import axios, {AxiosRequestConfig, AxiosResponse, AxiosAdapter} from 'axios';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import * as queryString from 'query-string';
 
@@ -47,6 +47,7 @@ export async function execute<SuccessResponseT>(
     password: string;
   },
   additionalHeaders?: ObjectMap<string>,
+  axiosAdapter?: AxiosAdapter,
 ): Promise<BapiResponse<SuccessResponseT>> {
   const params =
     shopIdPlacement === 'query'
@@ -78,6 +79,7 @@ export async function execute<SuccessResponseT>(
     validateStatus: acceptAllResponseCodes
       ? () => true
       : statusCode => statusCode >= 200 && statusCode <= 299,
+    adapter: axiosAdapter,
   };
 
   const response: AxiosResponse<SuccessResponseT> = await axios(fetchOptions);
