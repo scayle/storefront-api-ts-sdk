@@ -86,49 +86,50 @@ import {
   createrSearchMappingsEndpointRequest,
   SearchMappingsEndpointResponseData,
 } from 'bapi/endpoints/search/mappings';
+import {AxiosAdapter} from 'axios';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
   | {
-      type: 'success'; // operationStatus: succeded / partially / not-at-all
-      basket: BasketResponseData<P, V>;
-    }
+    type: 'success'; // operationStatus: succeeded / partially / not-at-all
+    basket: BasketResponseData<P, V>;
+  }
   | {
-      type: 'failure';
-      kind: AddToBasketFailureKind;
-      basket: BasketResponseData<P, V>;
-    };
+    type: 'failure';
+    kind: AddToBasketFailureKind;
+    basket: BasketResponseData<P, V>;
+  };
 
 export type BasketResponse<P = BapiProduct, V = Variant> =
   | {
-      type: 'success';
-      basket: BasketResponseData<P, V>;
-    }
+    type: 'success';
+    basket: BasketResponseData<P, V>;
+  }
   | {
-      type: 'failure';
-      basket: BasketResponseData<P, V>;
-    };
+    type: 'failure';
+    basket: BasketResponseData<P, V>;
+  };
 
 export type AddManyItemsBasketResponse<P = BapiProduct, V = Variant> =
   | {
-      readonly type: 'success';
-      readonly basket: BasketResponseData<P, V>;
-    }
+    readonly type: 'success';
+    readonly basket: BasketResponseData<P, V>;
+  }
   | {
-      readonly type: 'failure';
-      readonly basket: BasketResponseData<P, V>;
-      readonly failedVariants: number[];
-    };
+    readonly type: 'failure';
+    readonly basket: BasketResponseData<P, V>;
+    readonly failedVariants: number[];
+  };
 
 type AddWishlistItemResponse =
   | {
-      type: 'success';
-      wishlist: WishlistResponseData;
-    }
+    type: 'success';
+    wishlist: WishlistResponseData;
+  }
   | {
-      type: 'failure';
-      wishlist: WishlistResponseData;
-    };
+    type: 'failure';
+    wishlist: WishlistResponseData;
+  };
 
 export enum AddToBasketFailureKind {
   VariantAlreadyPresent,
@@ -180,6 +181,7 @@ export class BapiClient {
         username: string;
         password: string;
       };
+      axiosAdapter?: AxiosAdapter,
     },
   ) {
     this.shopIdPlacement = env.shopIdPlacement || 'header';
@@ -202,6 +204,8 @@ export class BapiClient {
       undefined,
       this.shopIdPlacement,
       this.env.auth,
+      undefined,
+      this.env.axiosAdapter
     );
 
     return response.data;
@@ -217,6 +221,8 @@ export class BapiClient {
       true,
       this.shopIdPlacement,
       this.env.auth,
+      undefined,
+      this.env.axiosAdapter
     );
 
     return {
