@@ -57,7 +57,7 @@ Object {
       wishlistKey: 'wishlist_1',
       itemKey: 'item_1',
       campaignKey: 'px',
-      pricePromotionKey: 'test'
+      pricePromotionKey: 'test',
     }),
   ).toMatchInlineSnapshot(`
 Object {

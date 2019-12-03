@@ -21,7 +21,7 @@ export type AttributeInclude = 'all' | AttributeFilter;
 
 export function attributeIncludeParameters(
   type: 'attributes' | 'advancedAttributes',
-  attributeInclude: AttributeInclude | undefined
+  attributeInclude: AttributeInclude | undefined,
 ): string[] {
   if (!attributeInclude) {
     return [];
@@ -34,13 +34,13 @@ export function attributeIncludeParameters(
   } else {
     if (attributeInclude.withKey) {
       parameterValues.push(
-        `${type}:key(${attributeInclude.withKey.join('|')})`
+        `${type}:key(${attributeInclude.withKey.join('|')})`,
       );
     }
 
     if (attributeInclude.ofType) {
       parameterValues.push(
-        `${type}:type(${attributeInclude.ofType.join('|')})`
+        `${type}:type(${attributeInclude.ofType.join('|')})`,
       );
     }
   }

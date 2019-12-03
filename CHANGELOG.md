@@ -1,5 +1,11 @@
 # Changelog
 
+### 2.7.0
+
+The `tax` field on the basket total costs is not exposed anymore, as it will shortly be removed from the API responses.
+
+The Axios adapter is now configurable.
+
 ### 2.5.2
 
 Expose `including` on `/filters` endpoint

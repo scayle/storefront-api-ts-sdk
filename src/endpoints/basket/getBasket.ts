@@ -10,13 +10,15 @@ import {
 
 type BasketItemPrice = BapiPrice;
 
+type BasketTotalPrice = Omit<BapiPrice, 'tax' | 'reference'>;
+
 export type BasketKey = string & {
   readonly ____tagBasketKey: unique symbol;
 };
 
 export interface BasketResponseData<P = BapiProduct, V = Variant> {
   key: BasketKey;
-  cost: BasketItemPrice;
+  cost: BasketTotalPrice;
   currencyCode: 'EUR';
   items: BasketItem<P, V>[];
 

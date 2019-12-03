@@ -42,7 +42,9 @@ export function addWishlistItemEndpointRequest(
           }
         : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
-      ...(params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
+      ...(params.pricePromotionKey
+        ? {pricePromotionKey: params.pricePromotionKey}
+        : undefined),
     },
     data: {
       ...params.item,
