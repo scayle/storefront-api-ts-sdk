@@ -21,7 +21,8 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "format": "yarn prettier --write src/**/*.ts",
+    "check-format": "yarn prettier -l \"src/**/*.ts\"",
+    "format": "yarn prettier --write \"src/**/*.ts\"",
     "test": "jest",
     "ts-check": "tsc --noEmit -w"
   },

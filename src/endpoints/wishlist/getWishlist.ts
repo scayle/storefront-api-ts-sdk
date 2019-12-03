@@ -39,7 +39,9 @@ export function getWishlistEndpointRequest(
         ? {with: basketWithQueryParameter(params.with).join(',')}
         : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
-      ...(params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
+      ...(params.pricePromotionKey
+        ? {pricePromotionKey: params.pricePromotionKey}
+        : undefined),
     },
   };
 }

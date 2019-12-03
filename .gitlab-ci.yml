@@ -12,7 +12,7 @@ check_build:
   script:
     - apk update && apk upgrade && apk add --no-cache bash git openssh
     - yarn install
-    - yarn prettier -c "src/**/*.ts"
+    - yarn check-format
     - yarn test
   tags:
     - docker

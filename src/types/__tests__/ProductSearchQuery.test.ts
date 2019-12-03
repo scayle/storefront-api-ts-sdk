@@ -5,7 +5,7 @@ it('Converts search query', () => {
   expect(queryParamsFromProductSearchQuery(undefined)).toEqual(undefined);
 
   expect(queryParamsFromProductSearchQuery({})).toMatchInlineSnapshot(
-    `Object {}`
+    `Object {}`,
   );
 
   // Leave some but not all values blank
@@ -49,7 +49,7 @@ Object {
       maxPrice: 1999,
       minPrice: 1,
       term: 'search term',
-    })
+    }),
   ).toMatchInlineSnapshot(`
 Object {
   "filters[category]": 1235,
