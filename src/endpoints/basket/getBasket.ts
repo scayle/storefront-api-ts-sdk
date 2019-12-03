@@ -1,6 +1,6 @@
-import {prefixList} from 'bapi/helpers/attributes';
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {BapiPrice, BapiProduct, Variant} from 'bapi/types/BapiProduct';
+import { prefixList } from 'bapi/helpers/attributes';
+import { BapiCall } from 'bapi/interfaces/BapiCall';
+import { BapiPrice, BapiProduct, Variant } from 'bapi/types/BapiProduct';
 import {
   ProductWith,
   productWithQueryParameterValues,
@@ -10,13 +10,15 @@ import {
 
 type BasketItemPrice = BapiPrice;
 
+type BasketTotalPrice = Omit<BapiPrice, 'tax' | 'reference'>;
+
 export type BasketKey = string & {
   readonly ____tagBasketKey: unique symbol;
 };
 
 export interface BasketResponseData<P = BapiProduct, V = Variant> {
   key: BasketKey;
-  cost: BasketItemPrice;
+  cost: BasketTotalPrice;
   currencyCode: 'EUR';
   items: BasketItem<P, V>[];
 
@@ -44,11 +46,11 @@ export interface BasketItem<P = BapiProduct, V = Variant> {
     };
   };
   status:
-    | 'available'
-    | 'unavailable'
-    | 'deliverable'
-    | 'undeliverable'
-    | 'cancelled';
+  | 'available'
+  | 'unavailable'
+  | 'deliverable'
+  | 'undeliverable'
+  | 'cancelled';
   product: P;
   variant: V;
   displayData: BasketItemDisplayData;
@@ -131,12 +133,12 @@ export function getBasketEndpointRequest(
     endpoint: `baskets/${params.basketKey}`,
     params: {
       ...(params.with
-        ? {with: basketWithQueryParameter(params.with).join(',')}
+        ? { with: basketWithQueryParameter(params.with).join(',') }
         : undefined),
-      ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
+      ...(params.campaignKey ? { campaignKey: params.campaignKey } : undefined),
 
       ...(params.checkoutShopId
-        ? {checkoutShopId: params.checkoutShopId}
+        ? { checkoutShopId: params.checkoutShopId }
         : undefined),
     },
   };

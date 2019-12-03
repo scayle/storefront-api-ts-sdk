@@ -1,6 +1,6 @@
 {
   "name": "@aboutyou/backbone",
-  "version": "2.5.3",
+  "version": "2.6.0",
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
     "@types/axios": "^0.14.0",
@@ -21,6 +21,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
+    "format": "yarn prettier --write src/**/*.ts",
     "test": "jest",
     "ts-check": "tsc --noEmit -w"
   },
