@@ -1,6 +1,6 @@
 # Changelog
 
-### 2.6.0
+### 2.7.0
 
 The `tax` field on the basket total costs is not exposed anymore, as it will shortly be removed from the API responses.
 
