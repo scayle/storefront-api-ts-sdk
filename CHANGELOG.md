@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.8.0
+
+Add `includeHidden` parameter to categories by IDs request (corresponds to BAPI's `showHidden` URL query parameter).
+
 ### 2.7.0
 
 The `tax` field on the basket total costs is not exposed anymore, as it will shortly be removed from the API responses.
