@@ -4,6 +4,7 @@ import {BapiCategory} from 'bapi/types/BapiCategory';
 export interface CategoriesByIdsEndpointParameters {
   categoryIds: number[];
   depth?: number;
+  includeHidden?: true;
 }
 
 export type CategoriesByIdsEndpointResponseData = BapiCategory[];
@@ -31,6 +32,7 @@ export function createCategoriesByIdsEndpointRequest(
       ...(parameters.depth !== undefined
         ? {depth: parameters.depth}
         : undefined),
+      ...(parameters.includeHidden ? {showHidden: 'true'} : undefined),
       // TODO: `showHidden` not implemented correctly yet, see https://jira.collins.kg/browse/BAPI-413
     },
   };

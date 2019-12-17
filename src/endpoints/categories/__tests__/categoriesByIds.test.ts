@@ -47,4 +47,20 @@ Object {
   },
 }
 `);
+
+  expect(
+    createCategoriesByIdsEndpointRequest({
+      categoryIds: [3, 4],
+      includeHidden: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "categories",
+  "method": "GET",
+  "params": Object {
+    "ids": "3,4",
+    "showHidden": "true",
+  },
+}
+`);
 });

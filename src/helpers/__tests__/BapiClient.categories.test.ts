@@ -46,6 +46,28 @@ it('Gets cateogires by IDs', async () => {
   expect(response.length).toBe(2);
 });
 
+it('Gets cateogires by IDs (including hidden)', async () => {
+  nockWithBapiScope()
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .get('/v1/categories')
+    .query({shopId: 139, ids: '20201,20204', showHidden: 'true'})
+    .replyWithFile(200, __dirname + '/responses/categories/byIds.json', {
+      'Content-Type': 'application/json',
+    });
+
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+    shopIdPlacement: 'query',
+  });
+
+  const response = await bapi.categories.getByIds([20201, 20204], {
+    includeHidden: true,
+  });
+
+  expect(response.length).toBe(2);
+});
+
 it('Gets category by path', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
