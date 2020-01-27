@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.8.1
+
+Fix `ObjectMap` type usage, such that it's included in the final output package.
+
 ### 2.8.0
 
 Add `includeHidden` parameter to categories by IDs request (corresponds to BAPI's `showHidden` URL query parameter).

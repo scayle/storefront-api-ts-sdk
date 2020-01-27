@@ -1,3 +1,5 @@
+import {ObjectMap} from './ObjectMap';
+
 export interface BapiProduct {
   id: number;
   isActive: boolean;

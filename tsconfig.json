@@ -2,10 +2,16 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "lib": ["dom", "esnext", "esnext.asynciterable"],
+    "lib": [
+      "dom",
+      "esnext",
+      "esnext.asynciterable"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
-    "types": ["jest"],
+    "types": [
+      "jest"
+    ],
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "preserveConstEnums": true,
@@ -19,7 +25,9 @@
     "declaration": true,
     "baseUrl": "./src",
     "paths": {
-      "bapi/*": ["./*"]
+      "bapi/*": [
+        "./*"
+      ]
     },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -28,6 +36,11 @@
     "outDir": "./compiled",
     "rootDir": "./src"
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts"],
-  "exclude": ["compiled/**"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "compiled/**"
+  ]
 }

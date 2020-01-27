@@ -1,6 +1,7 @@
 import axios, {AxiosRequestConfig, AxiosResponse, AxiosAdapter} from 'axios';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import * as queryString from 'query-string';
+import {ObjectMap} from 'bapi/types/ObjectMap';
 
 const getParamsString = (params?: Partial<Record<string, any>>) => {
   if (!params) {
