@@ -1,875 +1,4636 @@
 {
+  "key": "bjveqdp50g6okg4170fcm7gts4",
   "items": [
     {
-      "id": "1280ab7676860acfa9b9bb14b5eb1804",
-      "variantId": 35254783,
-      "productId": 3918540,
-      "productData": {
-        "product": {
-          "id": 3918540,
-          "name": "Kleid",
-          "brand": {"id": 543, "name": "VERO MODA"},
-          "image": {
-            "hash": "7b931e94872b4a9b11573da57a1fbcdf",
-            "type": "model",
-            "trim": false,
-            "background": null,
-            "brightness": false,
-            "focus": "product",
-            "view": "front"
+      "key": "cd0efb9b04f4373a38c5cc5c1fec8d48",
+      "packageId": 1,
+      "quantity": 1,
+      "status": "available",
+      "customData": {
+        "productId": 3936869
+      },
+      "originalItemData": {
+        "brand": {
+          "id": 60555,
+          "name": "ABOUT YOU"
+        },
+        "colors": [
+          {
+            "id": 38905,
+            "name": "schwarz"
           },
-          "imagesModelFirst": [
-            "34ba7e9e62ade655bb1945ee1317f96a",
-            "66fdb17d63fe514d7f944969986cddc7",
-            "99dd7d2fc96cd84c546cfbe7c3120b53",
-            "30ae7cbf4c3e5827ab7f896b99c522e9"
-          ],
-          "imagesBustFirst": [
-            "7b931e94872b4a9b11573da57a1fbcdf",
-            "34ba7e9e62ade655bb1945ee1317f96a",
-            "66fdb17d63fe514d7f944969986cddc7",
-            "99dd7d2fc96cd84c546cfbe7c3120b53"
-          ],
-          "imageModelFirst": {
-            "hash": "7b931e94872b4a9b11573da57a1fbcdf",
-            "type": "model",
-            "trim": false,
-            "background": null,
-            "brightness": false,
-            "focus": "product",
-            "view": "front"
-          },
-          "imageBustFirst": {
-            "hash": "30ae7cbf4c3e5827ab7f896b99c522e9",
-            "type": "bust",
-            "trim": true,
-            "background": "F4F4F5",
-            "brightness": false,
-            "focus": "product",
-            "view": "front"
-          },
-          "color": {"id": 38853, "name": "mischfarben", "product_id": 3918540},
-          "colors": [
-            {
-              "id": 38911,
-              "name": "wei\u00df",
-              "product_id": 3916654,
-              "default_image": {
-                "hash": "ca356c720726fd1efa3ebb18311d3ef8",
-                "type": "bust",
-                "trim": true,
-                "background": "F4F4F5",
-                "brightness": false,
-                "focus": "product",
-                "view": "front"
-              }
-            },
-            {
-              "id": 38853,
-              "name": "mischfarben",
-              "product_id": 3918540,
-              "default_image": {
-                "hash": "30ae7cbf4c3e5827ab7f896b99c522e9",
-                "type": "bust",
-                "trim": true,
-                "background": "F4F4F5",
-                "brightness": false,
-                "focus": "product",
-                "view": "front"
-              }
+          {
+            "id": 38855,
+            "name": "apricot"
+          }
+        ],
+        "imageHash": "e47dd3de2ef94f04e4ebbfca9e444eab",
+        "name": "Pullover 'Jasmina'",
+        "productId": 3936869,
+        "quantity": 1,
+        "availableQuantity": 117,
+        "variantId": 35363704,
+        "appliedPricePromotionKey": null
+      },
+      "productId": "3936869",
+      "masterKey": "AYO1073-5",
+      "variantId": null,
+      "product": {
+        "id": 3936869,
+        "isActive": true,
+        "isSoldOut": false,
+        "isNew": false,
+        "createdAt": "2018-07-19T15:58:13+02:00",
+        "updatedAt": "2019-05-27T11:45:35+02:00",
+        "masterKey": "AYO1073-5",
+        "referenceKey": "AYO1073001",
+        "attributes": {
+          "shopSizeRun": {
+            "id": 12,
+            "key": "shopSizeRun",
+            "label": "Gr\u00f6\u00dfe",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 43962,
+              "label": "def_female_int",
+              "value": "def_female_int"
             }
-          ],
-          "sale": false,
-          "premium": false,
-          "new": false,
-          "categories": ["frauen", "bekleidung", "kleider", "filter-schwarz"],
-          "categoryNames": [
-            "Frauen",
-            "Bekleidung",
-            "Kleider",
-            "Filter Schwarz"
-          ],
-          "categoryIds": [
-            [20201, 20204, 20236, 322888],
-            [20201, 20204, 20236, 20443],
-            [20201, 324164],
-            [20201, 20204]
-          ],
-          "active": true,
-          "soldOut": false,
-          "measurements": [
-            {"label": "Gesamtl\u00e4nge", "value": "93 cm"},
-            {"label": "\u00c4rmell\u00e4nge", "value": "40 cm"}
-          ],
-          "modelImage": null,
-          "mappedCategories": [
-            {"name": "Frauen", "normalized": "frauen", "id": 20201},
-            {"name": "Bekleidung", "normalized": "bekleidung", "id": 20204},
-            {"name": "Kleider", "normalized": "kleider", "id": 20236},
-            {
-              "name": "Filter Schwarz",
-              "normalized": "filter-schwarz",
-              "id": 322888
-            }
-          ],
-          "additionalInformation": {
-            "design": [
+          },
+          "careSymbol": {
+            "id": 247,
+            "key": "careSymbol",
+            "label": "Pflegehinweise",
+            "type": "material_care",
+            "multiSelect": true,
+            "values": [
               {
-                "id": 1052,
-                "frontendName": "Design",
-                "value": [
-                  "Abgesteppter Saum/Kante",
-                  "Mit Unterkleid",
-                  "Zum Knoten/Binden",
-                  "Elastikeins\u00e4tze"
-                ]
+                "id": 28006,
+                "label": "30 \u00b0C pflegeleichte W\u00e4sche",
+                "value": "machine_wash_30_permanent_press"
               },
               {
-                "id": 317,
-                "frontendName": "Muster",
-                "value": ["Gebl\u00fcmt/floral"]
+                "id": 27984,
+                "label": "Nicht bleichen",
+                "value": "do_not_bleach"
+              },
+              {
+                "id": 27975,
+                "label": "Nicht trocknergeeignet",
+                "value": "do_not_tumble_dry"
+              },
+              {
+                "id": 27981,
+                "label": "Nicht hei\u00df b\u00fcgeln",
+                "value": "iron_low"
+              },
+              {
+                "id": 35154,
+                "label": "Schonend reinigen, kein Perchlorethylen",
+                "value": "gentle_dry_clean_any_solvent_except_trichloroethylene"
               }
-            ],
-            "extras": [
-              {
-                "id": 1053,
-                "frontendName": "Extras",
-                "value": [
-                  "Leicht transparent",
-                  "All-Over-Muster",
-                  "Ton-in-Ton-N\u00e4hte",
-                  "Leichter Stoff"
-                ]
-              },
-              {
-                "id": 359,
-                "frontendName": "Details",
-                "value": ["R\u00fcschen", "Volant", "Drapiert/gerafft"]
-              }
-            ],
-            "fitSize": [
-              {
-                "id": 320,
-                "frontendName": "\u00c4rmell\u00e4nge",
-                "value": ["Dreiviertelarm"]
-              },
-              {"id": 325, "frontendName": "L\u00e4nge", "value": ["Kurz/Mini"]},
-              {
-                "id": 1142,
-                "frontendName": "Passform",
-                "value": ["Lockere Passform"]
-              },
-              {"frontendName": "Gesamtl\u00e4nge", "value": ["93 cm"]},
-              {"frontendName": "\u00c4rmell\u00e4nge", "value": ["40 cm"]}
-            ],
-            "materialCare": [
-              {
-                "id": 247,
-                "frontendName": "Pflegehinweise",
-                "value": [
-                  "30 \u00b0C W\u00e4sche",
-                  "Nicht trocknergeeignet",
-                  "Nicht chemisch reinigen",
-                  "Nicht hei\u00df b\u00fcgeln",
-                  "Nicht bleichen"
-                ]
-              },
-              {
-                "id": 471,
-                "frontendName": "Elastizit\u00e4t",
-                "value": ["Nicht elastisch"]
-              },
-              {"frontendName": "Obermaterial", "value": ["100% Polyester"]},
-              {"frontendName": "Futter", "value": ["100% Polyester"]}
-            ],
-            "utility": [],
-            "careSymbols": [
-              {"id": 27971, "name": "30 \u00b0C W\u00e4sche"},
-              {"id": 27975, "name": "Nicht trocknergeeignet"},
-              {"id": 27977, "name": "Nicht chemisch reinigen"},
-              {"id": 27981, "name": "Nicht hei\u00df b\u00fcgeln"},
-              {"id": 27984, "name": "Nicht bleichen"}
             ]
           },
-          "beautyCategory": null,
-          "modelWearsSize": "S",
-          "showAttributeTabs": true,
-          "isAyBrand": false,
-          "sizeAdvice": null,
-          "modelInformation": [
-            {"label": "Gr\u00f6\u00dfe", "value": "174 cm", "isHeight": true},
-            {"label": "Brust", "value": "78 cm", "isHeight": false},
-            {"label": "Taille", "value": "62 cm", "isHeight": false},
-            {"label": "H\u00fcften", "value": "90 cm", "isHeight": false},
-            {"label": "Arme", "value": "59 cm", "isHeight": false},
-            {"label": "Beine", "value": "84 cm", "isHeight": false}
-          ],
-          "partOfLook": null,
-          "styleKey": "VER2082-5",
-          "bulletPoints": [
-            "Plisseefalten",
-            "Sehr leichter Stoff",
-            "Florales Muster all-over",
-            "Tunika Ausschnitt mit R\u00fcschen und B\u00e4ndchen"
-          ],
-          "hasAnimalParts": false,
-          "defaultVariantId": 35254783,
-          "quantityPerPack": "1er Pack",
-          "merchantProductId": "VER2082001000001",
-          "saleSavingPercentage": 0,
-          "bigSize": false,
-          "desc": null,
-          "prices": {
-            "default": {"old": 0, "min": 3490, "max": 3490},
-            "campaign": {"max": 0, "min": 0, "maxSavings": 0},
-            "campaignApp": {"max": 0, "min": 0, "maxSavings": 0},
-            "basePrice": null
+          "quantityPerPack": {
+            "id": 263,
+            "key": "quantityPerPack",
+            "label": "Pack",
+            "type": "extras",
+            "multiSelect": false,
+            "values": {
+              "id": 28224,
+              "label": "1er Pack",
+              "value": "1"
+            }
+          },
+          "packsColorway": {
+            "id": 314,
+            "key": "packsColorway",
+            "label": "Farben pro Pack",
+            "type": "design",
+            "multiSelect": false,
+            "values": {
+              "id": 34999,
+              "label": "Eine Farbe pro Pack",
+              "value": "one_color"
+            }
+          },
+          "plusSize": {
+            "id": 315,
+            "key": "plusSize",
+            "label": "Plus Size",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 35002,
+              "label": "nein",
+              "value": "0"
+            }
+          },
+          "maternity": {
+            "id": 316,
+            "key": "maternity",
+            "label": "Umstandsmode",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 35004,
+              "label": "nein",
+              "value": "0"
+            }
+          },
+          "knitMaterialType": {
+            "id": 1147,
+            "key": "knitMaterialType",
+            "label": "Materialart",
+            "type": "material_care",
+            "multiSelect": false,
+            "values": {
+              "id": 35019,
+              "label": "Feinstrick",
+              "value": "fine_knit"
+            }
+          },
+          "materialStyle": {
+            "id": 318,
+            "key": "materialStyle",
+            "label": "Material",
+            "type": "design",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 35026,
+                "label": "Weiteres Material",
+                "value": "others"
+              }
+            ]
+          },
+          "sleeveLength": {
+            "id": 320,
+            "key": "sleeveLength",
+            "label": "\u00c4rmell\u00e4nge",
+            "type": "fit_size",
+            "multiSelect": false,
+            "values": {
+              "id": 35033,
+              "label": "Langarm",
+              "value": "1"
+            }
+          },
+          "upperLength": {
+            "id": 322,
+            "key": "upperLength",
+            "label": "L\u00e4nge",
+            "type": "fit_size",
+            "multiSelect": false,
+            "values": {
+              "id": 35041,
+              "label": "Normale L\u00e4nge",
+              "value": "regular"
+            }
+          },
+          "necklineStyle": {
+            "id": 323,
+            "key": "necklineStyle",
+            "label": "Ausschnitt",
+            "type": "design",
+            "multiSelect": false,
+            "values": {
+              "id": 35043,
+              "label": "Rundhals-Ausschnitt",
+              "value": "o_neck"
+            }
+          },
+          "extras": {
+            "id": 1053,
+            "key": "extras",
+            "label": "Extras",
+            "type": "extras",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 35261,
+                "label": "Netz-\/Mesheins\u00e4tze",
+                "value": "mesh"
+              },
+              {
+                "id": 56993,
+                "label": "Leicht transparent",
+                "value": "leicht_transparent"
+              }
+            ]
+          },
+          "details": {
+            "id": 359,
+            "key": "details",
+            "label": "Details",
+            "type": "extras",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 35265,
+                "label": "Spitze",
+                "value": "lace"
+              }
+            ]
+          },
+          "fashionStyle": {
+            "id": 450,
+            "key": "fashionStyle",
+            "label": "Stilrichtung",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 35326,
+                "label": "Casual",
+                "value": "casual"
+              },
+              {
+                "id": 35328,
+                "label": "Urban",
+                "value": "urban"
+              }
+            ]
+          },
+          "colorDetail": {
+            "id": 210,
+            "key": "colorDetail",
+            "label": "Detailfarbe",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 38905,
+                "label": "schwarz",
+                "value": "schwarz"
+              },
+              {
+                "id": 38855,
+                "label": "apricot",
+                "value": "apricot"
+              }
+            ]
+          },
+          "color": {
+            "id": 1,
+            "key": "color",
+            "label": "Suchfarbe",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 38932,
+                "label": "schwarz",
+                "value": "schwarz"
+              }
+            ]
+          },
+          "fitting": {
+            "id": 1142,
+            "key": "fitting",
+            "label": "Passform",
+            "type": "fit_size",
+            "multiSelect": false,
+            "values": {
+              "id": 56644,
+              "label": "Normale Passform",
+              "value": "normale_passform"
+            }
+          },
+          "design": {
+            "id": 1052,
+            "key": "design",
+            "label": "Design",
+            "type": "design",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 56823,
+                "label": "Rippb\u00fcndchen",
+                "value": "rippbuendchen"
+              },
+              {
+                "id": 56825,
+                "label": "Rippstrick",
+                "value": "rippstrick"
+              }
+            ]
+          },
+          "basic": {
+            "id": 1148,
+            "key": "basic",
+            "label": "Basic",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 57113,
+              "label": "nein",
+              "value": "nein"
+            }
+          },
+          "elasticity": {
+            "id": 471,
+            "key": "elasticity",
+            "label": "Elastizit\u00e4t",
+            "type": "material_care",
+            "multiSelect": false,
+            "values": {
+              "id": 57115,
+              "label": "Leicht elastisch",
+              "value": "leicht_elastisch"
+            }
+          },
+          "brand": {
+            "id": 550,
+            "key": "brand",
+            "label": "Marke",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 60555,
+              "label": "ABOUT YOU",
+              "value": "about_you"
+            }
+          },
+          "genderage": {
+            "id": 3,
+            "key": "genderage",
+            "label": "Zielgruppe",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 25467,
+              "label": "Female",
+              "value": "female"
+            }
+          },
+          "fashionFactor": {
+            "id": 449,
+            "key": "fashionFactor",
+            "label": "Fashion Faktor",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 35332,
+              "label": "Mainstream",
+              "value": "mainstream"
+            }
+          },
+          "channel": {
+            "id": 211,
+            "key": "channel",
+            "label": "Verkaufskanal",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 27782,
+              "label": "Mary-Paul",
+              "value": "marypaul"
+            }
+          },
+          "vendorSizeRun": {
+            "id": 172,
+            "key": "vendorSizeRun",
+            "label": "Gr\u00f6\u00dfenlauf",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 27154,
+              "label": "Damen - Konf. D",
+              "value": "clothing_womens_de"
+            }
+          },
+          "pattern": {
+            "id": 317,
+            "key": "pattern",
+            "label": "Muster",
+            "type": "design",
+            "multiSelect": false,
+            "values": {
+              "id": 35005,
+              "label": "Unifarben",
+              "value": "plain"
+            }
+          },
+          "displayColors": {
+            "id": 20002,
+            "key": "displayColors",
+            "label": "Display Colors",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 38905,
+                "label": "schwarz",
+                "value": "schwarz"
+              }
+            ]
+          },
+          "styleGroup": {
+            "id": 20001,
+            "key": "styleGroup",
+            "label": "Style group",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "label": "",
+              "value": ""
+            }
+          },
+          "brandLogo": {
+            "id": 20000,
+            "key": "brandLogo",
+            "label": "Brand logo",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 60555,
+              "label": "ABOUT YOU",
+              "value": "da9ad096f214486f299ae42076eebd94"
+            }
+          },
+          "sustainable": {
+            "id": 20003,
+            "key": "sustainable",
+            "label": "Sustainable",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "label": "is_sustainable",
+              "value": "false"
+            }
+          },
+          "premium": {
+            "id": 20004,
+            "key": "premium",
+            "label": "Premium",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "label": "Premium",
+              "value": "false"
+            }
+          },
+          "name": {
+            "id": 20005,
+            "key": "name",
+            "label": "Name",
+            "type": null,
+            "multiSelect": false,
+            "values": {
+              "label": "Pullover 'Jasmina'"
+            }
+          },
+          "description": {
+            "id": 20006,
+            "key": "description",
+            "label": "Description",
+            "type": null,
+            "multiSelect": false,
+            "values": {
+              "label": "-"
+            }
           }
         },
-        "variant": {
-          "materials": [
-            {
-              "name": "Obermaterial",
-              "composition": [{"name": "Polyester", "percentage": 100}]
-            },
-            {
-              "name": "Futter",
-              "composition": [{"name": "Polyester", "percentage": 100}]
-            }
-          ],
-          "images": [
-            {
-              "hash": "7b931e94872b4a9b11573da57a1fbcdf",
-              "type": "model",
-              "trim": false,
-              "background": null,
-              "brightness": false,
-              "focus": "product",
-              "view": "front"
-            },
-            {
-              "hash": "34ba7e9e62ade655bb1945ee1317f96a",
-              "type": "model",
-              "trim": false,
-              "background": null,
-              "brightness": false,
-              "focus": "product",
-              "view": "back"
-            },
-            {
-              "hash": "66fdb17d63fe514d7f944969986cddc7",
-              "type": "model",
-              "trim": false,
-              "background": null,
-              "brightness": false,
-              "focus": "combination",
-              "view": null
-            },
-            {
-              "hash": "99dd7d2fc96cd84c546cfbe7c3120b53",
-              "type": "model",
-              "trim": false,
-              "background": null,
-              "brightness": false,
-              "focus": "detail",
-              "view": null
-            },
-            {
-              "hash": "30ae7cbf4c3e5827ab7f896b99c522e9",
-              "type": "bust",
-              "trim": true,
-              "background": "F4F4F5",
-              "brightness": false,
-              "focus": "product",
-              "view": "front"
-            }
-          ],
-          "active": true,
-          "gender": {"id": 25467, "name": "Female"},
-          "dimensionType": null,
-          "combinedDimensions": [
-            {
-              "variantId": 35254783,
-              "size": "XS",
-              "shopSize": "34",
-              "dimension": null,
-              "dimensionShopSize": null,
-              "sizeLabel": "XS",
-              "shopSizeLabel": "34",
-              "prices": {
-                "default": {"price": 3490, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
+        "images": [
+          {
+            "hash": "e47dd3de2ef94f04e4ebbfca9e444eab",
+            "attributes": {
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66480,
+                  "label": "B\u00fcste",
+                  "value": "bust"
+                }
               },
-              "quantity": 1,
-              "sizeId": 25530,
-              "dimensionId": null,
-              "biSizeId": 41265
-            },
-            {
-              "variantId": 35254784,
-              "size": "S",
-              "shopSize": "36",
-              "dimension": null,
-              "dimensionShopSize": null,
-              "sizeLabel": "S",
-              "shopSizeLabel": "36",
-              "prices": {
-                "default": {"price": 3490, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66484,
+                  "label": "Produkt",
+                  "value": "product"
+                }
               },
+              "imageView": {
+                "id": 1254,
+                "key": "imageView",
+                "label": "Bild Ansicht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66486,
+                  "label": "Frontalansicht",
+                  "value": "front"
+                }
+              },
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66496,
+                  "label": "40",
+                  "value": "40"
+                }
+              },
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66504,
+                  "label": "wei\u00df",
+                  "value": "white"
+                }
+              },
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
+              }
+            }
+          },
+          {
+            "hash": "f1d64f0d927218b486cea2f8e50d2843",
+            "attributes": {
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66481,
+                  "label": "Model",
+                  "value": "model"
+                }
+              },
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66484,
+                  "label": "Produkt",
+                  "value": "product"
+                }
+              },
+              "imageView": {
+                "id": 1254,
+                "key": "imageView",
+                "label": "Bild Ansicht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66486,
+                  "label": "Frontalansicht",
+                  "value": "front"
+                }
+              },
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66498,
+                  "label": "30",
+                  "value": "30"
+                }
+              },
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66506,
+                  "label": "grau",
+                  "value": "grey"
+                }
+              },
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
+              }
+            }
+          },
+          {
+            "hash": "1d0d5bd19a8518be4cfd13bdb0737b02",
+            "attributes": {
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66481,
+                  "label": "Model",
+                  "value": "model"
+                }
+              },
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66484,
+                  "label": "Produkt",
+                  "value": "product"
+                }
+              },
+              "imageView": {
+                "id": 1254,
+                "key": "imageView",
+                "label": "Bild Ansicht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66487,
+                  "label": "R\u00fcckansicht",
+                  "value": "back"
+                }
+              },
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66498,
+                  "label": "30",
+                  "value": "30"
+                }
+              },
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66506,
+                  "label": "grau",
+                  "value": "grey"
+                }
+              },
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
+              }
+            }
+          },
+          {
+            "hash": "123a7e8c522371a6d0b56d7fd1c005b0",
+            "attributes": {
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66481,
+                  "label": "Model",
+                  "value": "model"
+                }
+              },
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66485,
+                  "label": "Outfit",
+                  "value": "combination"
+                }
+              },
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66499,
+                  "label": "10",
+                  "value": "10"
+                }
+              },
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66506,
+                  "label": "grau",
+                  "value": "grey"
+                }
+              },
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
+              }
+            }
+          },
+          {
+            "hash": "2c35831a67449ec31e93ad92c32319c6",
+            "attributes": {
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66481,
+                  "label": "Model",
+                  "value": "model"
+                }
+              },
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66483,
+                  "label": "Detail",
+                  "value": "detail"
+                }
+              },
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66500,
+                  "label": "50",
+                  "value": "50"
+                }
+              },
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66506,
+                  "label": "grau",
+                  "value": "grey"
+                }
+              },
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
+              }
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": 35363704,
+            "referenceKey": "AYO1073001000001",
+            "createdAt": "2018-07-19T15:58:13+02:00",
+            "updatedAt": "2019-12-14T00:53:32+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 2990,
+              "withoutTax": 2513,
+              "appliedReductions": [],
+              "tax": {
+                "vat": {
+                  "amount": 477,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 117,
+              "isSellableWithoutStock": false
+            },
+            "productId": 3936869
+          },
+          {
+            "id": 35363705,
+            "referenceKey": "AYO1073001000002",
+            "createdAt": "2018-07-19T15:58:13+02:00",
+            "updatedAt": "2019-12-14T00:53:32+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 2990,
+              "withoutTax": 2513,
+              "appliedReductions": [],
+              "tax": {
+                "vat": {
+                  "amount": 477,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 138,
+              "isSellableWithoutStock": false
+            },
+            "productId": 3936869
+          },
+          {
+            "id": 35363706,
+            "referenceKey": "AYO1073001000003",
+            "createdAt": "2018-07-19T15:58:13+02:00",
+            "updatedAt": "2019-12-14T00:53:32+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 2990,
+              "withoutTax": 2513,
+              "appliedReductions": [],
+              "tax": {
+                "vat": {
+                  "amount": 477,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 164,
+              "isSellableWithoutStock": false
+            },
+            "productId": 3936869
+          },
+          {
+            "id": 35363707,
+            "referenceKey": "AYO1073001000004",
+            "createdAt": "2018-07-19T15:58:13+02:00",
+            "updatedAt": "2019-12-14T00:53:32+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 2990,
+              "withoutTax": 2513,
+              "appliedReductions": [],
+              "tax": {
+                "vat": {
+                  "amount": 477,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 135,
+              "isSellableWithoutStock": false
+            },
+            "productId": 3936869
+          },
+          {
+            "id": 35363708,
+            "referenceKey": "AYO1073001000005",
+            "createdAt": "2018-07-19T15:58:13+02:00",
+            "updatedAt": "2019-12-14T00:53:32+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 2990,
+              "withoutTax": 2513,
+              "appliedReductions": [],
+              "tax": {
+                "vat": {
+                  "amount": 477,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 122,
+              "isSellableWithoutStock": false
+            },
+            "productId": 3936869
+          },
+          {
+            "id": 37433074,
+            "referenceKey": "AYO1073001000006",
+            "createdAt": "2019-05-27T11:44:35+02:00",
+            "updatedAt": "2019-12-14T00:53:32+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 2990,
+              "withoutTax": 2513,
+              "appliedReductions": [],
+              "tax": {
+                "vat": {
+                  "amount": 477,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
               "quantity": 0,
-              "sizeId": 25508,
-              "dimensionId": null,
-              "biSizeId": 41052
-            },
-            {
-              "variantId": 35254785,
-              "size": "M",
-              "shopSize": "38",
-              "dimension": null,
-              "dimensionShopSize": null,
-              "sizeLabel": "M",
-              "shopSizeLabel": "38",
-              "prices": {
-                "default": {"price": 3490, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
-              },
-              "quantity": 0,
-              "sizeId": 25507,
-              "dimensionId": null,
-              "biSizeId": 41070
-            },
-            {
-              "variantId": 35254786,
-              "size": "L",
-              "shopSize": "40",
-              "dimension": null,
-              "dimensionShopSize": null,
-              "sizeLabel": "L",
-              "shopSizeLabel": "40",
-              "prices": {
-                "default": {"price": 3490, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
-              },
-              "quantity": 5,
-              "sizeId": 25510,
-              "dimensionId": null,
-              "biSizeId": 41082
-            },
-            {
-              "variantId": 35254787,
-              "size": "XL",
-              "shopSize": "42",
-              "dimension": null,
-              "dimensionShopSize": null,
-              "sizeLabel": "XL",
-              "shopSizeLabel": "42",
-              "prices": {
-                "default": {"price": 3490, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
-              },
-              "quantity": 1,
-              "sizeId": 25509,
-              "dimensionId": null,
-              "biSizeId": 41094
+              "isSellableWithoutStock": false
             }
-          ],
-          "dimensionName": null
+          }
+        ],
+        "priceRange": {
+          "min": {
+            "currencyCode": "EUR",
+            "withTax": 2990,
+            "withoutTax": 2513,
+            "appliedReductions": [],
+            "tax": {
+              "vat": {
+                "amount": 477,
+                "rate": 0.19
+              }
+            }
+          },
+          "max": {
+            "currencyCode": "EUR",
+            "withTax": 2990,
+            "withoutTax": 2513,
+            "appliedReductions": [],
+            "tax": {
+              "vat": {
+                "amount": 477,
+                "rate": 0.19
+              }
+            }
+          }
         },
-        "id": 3918540
-      },
-      "created": {
-        "date": "2018-11-12 14:30:01.000000",
-        "timezone_type": 1,
-        "timezone": "+01:00"
-      },
-      "updated": {
-        "date": "2018-11-12 14:30:01.000000",
-        "timezone_type": 1,
-        "timezone": "+01:00"
+        "categories": [
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 22847,
+              "categoryName": "Pullover",
+              "categoryUrl": "\/frauen\/bekleidung\/pullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 22847,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "pullover_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "e796fee0b18584a9e102a19e7372f966",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 22847,
+              "categoryName": "Pullover",
+              "categoryUrl": "\/frauen\/bekleidung\/pullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 22847,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "pullover_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "e796fee0b18584a9e102a19e7372f966",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 69615,
+              "categoryName": "Basic Pullover",
+              "categoryUrl": "\/frauen\/bekleidung\/pullover\/basic-pullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 69615
+                },
+                {
+                  "name": "category_context",
+                  "value": "basic pullover_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "fa97f91a40701591070c8c39962888b2"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\"}"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 22853,
+              "categoryName": "Strick",
+              "categoryUrl": "\/frauen\/bekleidung\/strick",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 22853
+                },
+                {
+                  "name": "category_context",
+                  "value": "strick_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "d73abd5c076bf559e0b4d706ab88cf19"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 22853,
+              "categoryName": "Strick",
+              "categoryUrl": "\/frauen\/bekleidung\/strick",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 22853
+                },
+                {
+                  "name": "category_context",
+                  "value": "strick_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "d73abd5c076bf559e0b4d706ab88cf19"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 130282,
+              "categoryName": "Feinstrickpullover",
+              "categoryUrl": "\/frauen\/bekleidung\/strick\/feinstrickpullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 130282
+                },
+                {
+                  "name": "category_context",
+                  "value": "feinstrickpullover_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "64449bea31c19b740b4076f54a96d4e1"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 324578,
+              "categoryName": "EXKLUSIV",
+              "categoryUrl": "\/frauen\/bekleidung\/exklusiv",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 324578,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "exklusiv_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "99a58103-fb20-449e-8fab-3fb115c3",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"gender_female\":\"[\\\"Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"exclusive\":\"[\\\"EXKLUSIV\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "exclusive",
+                  "value": "[\"EXKLUSIV\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 324578,
+              "categoryName": "EXKLUSIV",
+              "categoryUrl": "\/frauen\/bekleidung\/exklusiv",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 324578,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "exklusiv_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "99a58103-fb20-449e-8fab-3fb115c3",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"gender_female\":\"[\\\"Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"exclusive\":\"[\\\"EXKLUSIV\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "exclusive",
+                  "value": "[\"EXKLUSIV\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 324591,
+              "categoryName": "Strick",
+              "categoryUrl": "\/frauen\/bekleidung\/exklusiv\/strick",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 324591,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "strick_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "080a2d89-1893-4486-a84c-7c9f449d",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"exclusive\":\"[\\\"EXKLUSIV\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "exclusive",
+                  "value": "[\"EXKLUSIV\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            }
+          ]
+        ]
       }
     },
     {
-      "id": "0d75e58b6d2c65d69ee8a9b536672eab",
-      "variantId": 35149150,
-      "productId": 3900691,
-      "productData": {
-        "product": {
-          "id": 3900691,
-          "name": "Pantoletten 'Mayari'",
-          "brand": {"id": 1311, "name": "BIRKENSTOCK"},
-          "image": {
-            "hash": "8f0415c27df5c0fd0a9b8fa416143890",
-            "type": "bust",
-            "trim": true,
-            "background": null,
-            "brightness": 0.96,
-            "focus": "product",
-            "view": "front"
-          },
-          "imagesModelFirst": [
-            "ea2aac139bee9e24bc3432c49085b0f4",
-            "5cb0a72d43ac6cc9e56202742e567774",
-            "adce9d9c0c42433997eb1d096f119ff6",
-            "5bddd0e8b80d876aa06c958149b22353",
-            "1820547b068e084ae134cada318bd3bb",
-            "69428ee39fed70269446d5f23981acf3"
-          ],
-          "imagesBustFirst": [
-            "ea2aac139bee9e24bc3432c49085b0f4",
-            "5cb0a72d43ac6cc9e56202742e567774",
-            "adce9d9c0c42433997eb1d096f119ff6",
-            "5bddd0e8b80d876aa06c958149b22353",
-            "1820547b068e084ae134cada318bd3bb",
-            "69428ee39fed70269446d5f23981acf3"
-          ],
-          "imageModelFirst": {
-            "hash": "8f0415c27df5c0fd0a9b8fa416143890",
-            "type": "bust",
-            "trim": true,
-            "background": null,
-            "brightness": 0.96,
-            "focus": "product",
-            "view": "front"
-          },
-          "imageBustFirst": {
-            "hash": "8f0415c27df5c0fd0a9b8fa416143890",
-            "type": "bust",
-            "trim": true,
-            "background": null,
-            "brightness": 0.96,
-            "focus": "product",
-            "view": "front"
-          },
-          "color": {"id": 38908, "name": "silber", "product_id": 3900691},
-          "colors": [],
-          "sale": false,
-          "premium": false,
-          "new": false,
-          "categories": [
-            "frauen",
-            "schuhe",
-            "pantoletten",
-            "klassische-pantoletten"
-          ],
-          "categoryNames": [
-            "Frauen",
-            "Schuhe",
-            "Pantoletten",
-            "Klassische Pantoletten"
-          ],
-          "categoryIds": [[20201, 20207, 20266, 236111], [20201, 20207]],
-          "active": true,
-          "soldOut": false,
-          "measurements": null,
-          "modelImage": null,
-          "mappedCategories": [
-            {"name": "Frauen", "normalized": "frauen", "id": 20201},
-            {"name": "Schuhe", "normalized": "schuhe", "id": 20207},
-            {"name": "Pantoletten", "normalized": "pantoletten", "id": 20266},
-            {
-              "name": "Klassische Pantoletten",
-              "normalized": "klassische-pantoletten",
-              "id": 236111
+      "key": "d2eaa18cd56ac779947f17c16b5aa7e5",
+      "packageId": 1,
+      "quantity": 1,
+      "status": "available",
+      "customData": {
+        "productId": 3892136
+      },
+      "originalItemData": {
+        "brand": {
+          "id": 641,
+          "name": "ONLY"
+        },
+        "colors": [
+          {
+            "id": 38907,
+            "name": "schwarzmeliert"
+          }
+        ],
+        "imageHash": "bbaa54a2aa0ee6ae5a3518e122d9417b",
+        "name": "Shirt 'ELCOS'",
+        "productId": 3892136,
+        "quantity": 1,
+        "availableQuantity": 102,
+        "variantId": 35096120,
+        "appliedPricePromotionKey": null
+      },
+      "productId": "3892136",
+      "masterKey": "ONL1835-5",
+      "variantId": null,
+      "product": {
+        "id": 3892136,
+        "isActive": true,
+        "isSoldOut": false,
+        "isNew": false,
+        "createdAt": "2018-05-11T09:06:08+02:00",
+        "updatedAt": "2019-10-07T11:35:04+02:00",
+        "masterKey": "ONL1835-5",
+        "referenceKey": "ONL1835012",
+        "attributes": {
+          "shopSizeRun": {
+            "id": 12,
+            "key": "shopSizeRun",
+            "label": "Gr\u00f6\u00dfe",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 43962,
+              "label": "def_female_int",
+              "value": "def_female_int"
             }
-          ],
-          "additionalInformation": {
-            "design": [
-              {
-                "id": 1146,
-                "frontendName": "Material",
-                "value": ["Lederimitat"]
-              },
-              {
-                "id": 336,
-                "frontendName": "Schuhspitze",
-                "value": ["Offene Kappe"]
-              },
-              {
-                "id": 1052,
-                "frontendName": "Design",
-                "value": [
-                  "Anatomisch geformtes Fu\u00dfbett",
-                  "Profilsohle",
-                  "Verstellbarer Riemen",
-                  "Schlupfeinstieg",
-                  "Korksohle"
-                ]
-              },
-              {"id": 318, "frontendName": "Material", "value": ["Lederimitat"]}
-            ],
-            "extras": [
-              {
-                "id": 1053,
-                "frontendName": "Extras",
-                "value": ["Gl\u00e4nzend", "Label-Pr\u00e4gung"]
-              }
-            ],
-            "fitSize": [
-              {
-                "id": 333,
-                "frontendName": "Absatzh\u00f6he",
-                "value": ["Flacher Absatz (0-3 cm)"]
-              }
-            ],
-            "materialCare": [
-              {"frontendName": "Obermaterial", "value": ["sonstiges Material"]},
-              {"frontendName": "Decksohle", "value": ["Leder"]},
-              {"frontendName": "Sohle", "value": ["EVA"]}
-            ],
-            "utility": [],
-            "careSymbols": []
           },
-          "beautyCategory": null,
-          "modelWearsSize": null,
-          "showAttributeTabs": true,
-          "isAyBrand": false,
-          "sizeAdvice": null,
-          "modelInformation": null,
-          "partOfLook": null,
-          "styleKey": "46955-11",
-          "bulletPoints": [
-            "Verschluss: Schlie\u00dfe",
-            "Absatzform: flach",
-            "Absatzh\u00f6he: 1 cm"
-          ],
-          "hasAnimalParts": false,
-          "defaultVariantId": 35149150,
-          "quantityPerPack": "1er Pack",
-          "merchantProductId": "1008807420",
-          "saleSavingPercentage": 0,
-          "bigSize": false,
-          "desc": null,
-          "prices": {
-            "default": {"old": 0, "min": 6500, "max": 6500},
-            "campaign": {"max": 0, "min": 0, "maxSavings": 0},
-            "campaignApp": {"max": 0, "min": 0, "maxSavings": 0},
-            "basePrice": null
+          "careSymbol": {
+            "id": 247,
+            "key": "careSymbol",
+            "label": "Pflegehinweise",
+            "type": "material_care",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 27971,
+                "label": "30 \u00b0C W\u00e4sche",
+                "value": "machine_wash_30"
+              },
+              {
+                "id": 27984,
+                "label": "Nicht bleichen",
+                "value": "do_not_bleach"
+              },
+              {
+                "id": 27975,
+                "label": "Nicht trocknergeeignet",
+                "value": "do_not_tumble_dry"
+              },
+              {
+                "id": 27981,
+                "label": "Nicht hei\u00df b\u00fcgeln",
+                "value": "iron_low"
+              },
+              {
+                "id": 27978,
+                "label": "Trockenreinigung, kein Perchlorethylen",
+                "value": "dry_clean_any_solvent_except_trichloroethylene"
+              }
+            ]
+          },
+          "fashionStyle": {
+            "id": 450,
+            "key": "fashionStyle",
+            "label": "Stilrichtung",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 35326,
+                "label": "Casual",
+                "value": "casual"
+              },
+              {
+                "id": 35328,
+                "label": "Urban",
+                "value": "urban"
+              }
+            ]
+          },
+          "colorDetail": {
+            "id": 210,
+            "key": "colorDetail",
+            "label": "Detailfarbe",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 38907,
+                "label": "schwarzmeliert",
+                "value": "schwarzmeliert"
+              }
+            ]
+          },
+          "color": {
+            "id": 1,
+            "key": "color",
+            "label": "Suchfarbe",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 38932,
+                "label": "schwarz",
+                "value": "schwarz"
+              }
+            ]
+          },
+          "design": {
+            "id": 1052,
+            "key": "design",
+            "label": "Design",
+            "type": "design",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 56741,
+                "label": "Abgesteppter Saum\/Kante",
+                "value": "abgesteppter_saumkante"
+              },
+              {
+                "id": 56835,
+                "label": "Runder Saum",
+                "value": "runder_saum"
+              },
+              {
+                "id": 56869,
+                "label": "Verl\u00e4ngerte R\u00fcckenpartie",
+                "value": "verlngerte_rueckenpartie"
+              }
+            ]
+          },
+          "extras": {
+            "id": 1053,
+            "key": "extras",
+            "label": "Extras",
+            "type": "extras",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 56993,
+                "label": "Leicht transparent",
+                "value": "leicht_transparent"
+              },
+              {
+                "id": 57028,
+                "label": "Ton-in-Ton-N\u00e4hte",
+                "value": "tonintonnhte"
+              },
+              {
+                "id": 57075,
+                "label": "Weicher Griff",
+                "value": "weicher_griff"
+              }
+            ]
+          },
+          "season": {
+            "id": 289,
+            "key": "season",
+            "label": "Saison",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 66049,
+                "label": "HW 18",
+                "value": "hw_18"
+              }
+            ]
+          },
+          "fashionFactor": {
+            "id": 449,
+            "key": "fashionFactor",
+            "label": "Fashion Faktor",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 35332,
+              "label": "Mainstream",
+              "value": "mainstream"
+            }
+          },
+          "channel": {
+            "id": 211,
+            "key": "channel",
+            "label": "Verkaufskanal",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 27782,
+              "label": "Mary-Paul",
+              "value": "marypaul"
+            }
+          },
+          "vendorSizeRun": {
+            "id": 172,
+            "key": "vendorSizeRun",
+            "label": "Gr\u00f6\u00dfenlauf",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 27152,
+              "label": "Unisex - Intern.",
+              "value": "clothing_unisex_int"
+            }
+          },
+          "pattern": {
+            "id": 317,
+            "key": "pattern",
+            "label": "Muster",
+            "type": "design",
+            "multiSelect": false,
+            "values": {
+              "id": 35005,
+              "label": "Unifarben",
+              "value": "plain"
+            }
+          },
+          "externalPlatform": {
+            "id": 1175,
+            "key": "externalPlatform",
+            "label": "Marktpl\u00e4tze",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 58292,
+                "label": "tbone_export",
+                "value": "tbone_export"
+              },
+              {
+                "id": 70992,
+                "label": "otdo",
+                "value": "otdo"
+              },
+              {
+                "id": 70990,
+                "label": "amde",
+                "value": "amde"
+              }
+            ]
+          },
+          "quantityPerPack": {
+            "id": 263,
+            "key": "quantityPerPack",
+            "label": "Pack",
+            "type": "extras",
+            "multiSelect": false,
+            "values": {
+              "id": 28224,
+              "label": "1er Pack",
+              "value": "1"
+            }
+          },
+          "packsColorway": {
+            "id": 314,
+            "key": "packsColorway",
+            "label": "Farben pro Pack",
+            "type": "design",
+            "multiSelect": false,
+            "values": {
+              "id": 34999,
+              "label": "Eine Farbe pro Pack",
+              "value": "one_color"
+            }
+          },
+          "plusSize": {
+            "id": 315,
+            "key": "plusSize",
+            "label": "Plus Size",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 35002,
+              "label": "nein",
+              "value": "0"
+            }
+          },
+          "maternity": {
+            "id": 316,
+            "key": "maternity",
+            "label": "Umstandsmode",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 35004,
+              "label": "nein",
+              "value": "0"
+            }
+          },
+          "materialStyle": {
+            "id": 318,
+            "key": "materialStyle",
+            "label": "Material",
+            "type": "design",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 35015,
+                "label": "Jersey",
+                "value": "jersey_knit"
+              }
+            ]
+          },
+          "knitMaterialType": {
+            "id": 1147,
+            "key": "knitMaterialType",
+            "label": "Materialart",
+            "type": "material_care",
+            "multiSelect": false,
+            "values": {
+              "id": 35019,
+              "label": "Feinstrick",
+              "value": "fine_knit"
+            }
+          },
+          "sleeveLength": {
+            "id": 320,
+            "key": "sleeveLength",
+            "label": "\u00c4rmell\u00e4nge",
+            "type": "fit_size",
+            "multiSelect": false,
+            "values": {
+              "id": 35032,
+              "label": "Dreiviertelarm",
+              "value": "3\/4"
+            }
+          },
+          "upperLength": {
+            "id": 322,
+            "key": "upperLength",
+            "label": "L\u00e4nge",
+            "type": "fit_size",
+            "multiSelect": false,
+            "values": {
+              "id": 35042,
+              "label": "Langer Schnitt",
+              "value": "long"
+            }
+          },
+          "necklineStyle": {
+            "id": 323,
+            "key": "necklineStyle",
+            "label": "Ausschnitt",
+            "type": "design",
+            "multiSelect": false,
+            "values": {
+              "id": 35043,
+              "label": "Rundhals-Ausschnitt",
+              "value": "o_neck"
+            }
+          },
+          "details": {
+            "id": 359,
+            "key": "details",
+            "label": "Details",
+            "type": "extras",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 35268,
+                "label": "Weiteres Detail",
+                "value": "others"
+              }
+            ]
+          },
+          "elasticity": {
+            "id": 471,
+            "key": "elasticity",
+            "label": "Elastizit\u00e4t",
+            "type": "material_care",
+            "multiSelect": false,
+            "values": {
+              "id": 35455,
+              "label": "Elastisch\/stretch",
+              "value": "1"
+            }
+          },
+          "fitting": {
+            "id": 1142,
+            "key": "fitting",
+            "label": "Passform",
+            "type": "fit_size",
+            "multiSelect": false,
+            "values": {
+              "id": 56643,
+              "label": "Lockere Passform",
+              "value": "lockere_passform"
+            }
+          },
+          "basic": {
+            "id": 1148,
+            "key": "basic",
+            "label": "Basic",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 57113,
+              "label": "nein",
+              "value": "nein"
+            }
+          },
+          "brand": {
+            "id": 550,
+            "key": "brand",
+            "label": "Marke",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 641,
+              "label": "ONLY",
+              "value": "only"
+            }
+          },
+          "genderage": {
+            "id": 3,
+            "key": "genderage",
+            "label": "Zielgruppe",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 25467,
+              "label": "Female",
+              "value": "female"
+            }
+          },
+          "styleCluster": {
+            "id": 1198,
+            "key": "styleCluster",
+            "label": "",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 61594,
+              "label": "5",
+              "value": "5"
+            }
+          },
+          "displayColors": {
+            "id": 20002,
+            "key": "displayColors",
+            "label": "Display Colors",
+            "type": "",
+            "multiSelect": true,
+            "values": [
+              {
+                "id": 38907,
+                "label": "schwarzmeliert",
+                "value": "schwarzmeliert"
+              }
+            ]
+          },
+          "styleGroup": {
+            "id": 20001,
+            "key": "styleGroup",
+            "label": "Style group",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 1,
+              "label": "trend",
+              "value": "trend"
+            }
+          },
+          "brandLogo": {
+            "id": 20000,
+            "key": "brandLogo",
+            "label": "Brand logo",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "id": 641,
+              "label": "ONLY",
+              "value": "c23a0ffa0f7c0a7319ac30fe86fb068e"
+            }
+          },
+          "sustainable": {
+            "id": 20003,
+            "key": "sustainable",
+            "label": "Sustainable",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "label": "is_sustainable",
+              "value": "false"
+            }
+          },
+          "premium": {
+            "id": 20004,
+            "key": "premium",
+            "label": "Premium",
+            "type": "",
+            "multiSelect": false,
+            "values": {
+              "label": "Premium",
+              "value": "false"
+            }
+          },
+          "name": {
+            "id": 20005,
+            "key": "name",
+            "label": "Name",
+            "type": null,
+            "multiSelect": false,
+            "values": {
+              "label": "Shirt 'ELCOS'"
+            }
+          },
+          "description": {
+            "id": 20006,
+            "key": "description",
+            "label": "Description",
+            "type": null,
+            "multiSelect": false,
+            "values": {
+              "label": "Schlichtes Shirt im melierten Farbdesign von Only. Das Oberteil kommt im leichten Vokuhila-Schnitt und mit 3\/4-\u00c4rmeln. Gestylt zu einer schlichten Hose und Blazer kreierst du einen coolen casual Look. "
+            }
           }
         },
-        "variant": {
-          "materials": [
-            {
-              "name": "Obermaterial",
-              "composition": [{"name": "sonstiges Material", "percentage": 0}]
-            },
-            {
-              "name": "Decksohle",
-              "composition": [{"name": "Leder", "percentage": 0}]
-            },
-            {"name": "Sohle", "composition": [{"name": "EVA", "percentage": 0}]}
-          ],
-          "images": [
-            {
-              "hash": "8f0415c27df5c0fd0a9b8fa416143890",
-              "type": "bust",
-              "trim": true,
-              "background": null,
-              "brightness": 0.96,
-              "focus": "product",
-              "view": "front"
-            },
-            {
-              "hash": "ea2aac139bee9e24bc3432c49085b0f4",
-              "type": "bust",
-              "trim": true,
-              "background": null,
-              "brightness": 0.96,
-              "focus": "product",
-              "view": null
-            },
-            {
-              "hash": "5cb0a72d43ac6cc9e56202742e567774",
-              "type": "bust",
-              "trim": true,
-              "background": null,
-              "brightness": 0.96,
-              "focus": "product",
-              "view": null
-            },
-            {
-              "hash": "adce9d9c0c42433997eb1d096f119ff6",
-              "type": "bust",
-              "trim": true,
-              "background": null,
-              "brightness": 0.96,
-              "focus": "product",
-              "view": null
-            },
-            {
-              "hash": "5bddd0e8b80d876aa06c958149b22353",
-              "type": "bust",
-              "trim": true,
-              "background": null,
-              "brightness": 0.96,
-              "focus": "product",
-              "view": null
-            },
-            {
-              "hash": "1820547b068e084ae134cada318bd3bb",
-              "type": "bust",
-              "trim": true,
-              "background": null,
-              "brightness": 0.96,
-              "focus": "product",
-              "view": null
-            },
-            {
-              "hash": "69428ee39fed70269446d5f23981acf3",
-              "type": "bust",
-              "trim": true,
-              "background": null,
-              "brightness": 0.96,
-              "focus": "product",
-              "view": null
+        "images": [
+          {
+            "hash": "bbaa54a2aa0ee6ae5a3518e122d9417b",
+            "attributes": {
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
+              },
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66507,
+                  "label": "transparent",
+                  "value": "transparent"
+                }
+              },
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66496,
+                  "label": "40",
+                  "value": "40"
+                }
+              },
+              "imageView": {
+                "id": 1254,
+                "key": "imageView",
+                "label": "Bild Ansicht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66486,
+                  "label": "Frontalansicht",
+                  "value": "front"
+                }
+              },
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66480,
+                  "label": "B\u00fcste",
+                  "value": "bust"
+                }
+              },
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66484,
+                  "label": "Produkt",
+                  "value": "product"
+                }
+              }
             }
-          ],
-          "active": true,
-          "gender": {"id": 25467, "name": "Female"},
-          "dimensionType": "dimension3",
-          "combinedDimensions": [
-            {
-              "variantId": 35149149,
-              "size": "35",
-              "shopSize": null,
-              "dimension": "NORMAL",
-              "dimensionShopSize": null,
-              "sizeLabel": "35xNORMAL",
-              "shopSizeLabel": null,
-              "prices": {
-                "default": {"price": 6500, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
+          },
+          {
+            "hash": "a6f4c331f75e279ed6a5862176257161",
+            "attributes": {
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
               },
-              "quantity": 0,
-              "sizeId": 25484,
-              "dimensionId": 26979,
-              "biSizeId": 41910
-            },
-            {
-              "variantId": 35149153,
-              "size": "36",
-              "shopSize": null,
-              "dimension": "NORMAL",
-              "dimensionShopSize": null,
-              "sizeLabel": "36xNORMAL",
-              "shopSizeLabel": null,
-              "prices": {
-                "default": {"price": 6500, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66506,
+                  "label": "grau",
+                  "value": "grey"
+                }
               },
-              "quantity": 19,
-              "sizeId": 25474,
-              "dimensionId": 26979,
-              "biSizeId": 41052
-            },
-            {
-              "variantId": 35149156,
-              "size": "37",
-              "shopSize": null,
-              "dimension": "NORMAL",
-              "dimensionShopSize": null,
-              "sizeLabel": "37xNORMAL",
-              "shopSizeLabel": null,
-              "prices": {
-                "default": {"price": 6500, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66498,
+                  "label": "30",
+                  "value": "30"
+                }
               },
-              "quantity": 15,
-              "sizeId": 25483,
-              "dimensionId": 26979,
-              "biSizeId": 41889
-            },
-            {
-              "variantId": 35149154,
-              "size": "38",
-              "shopSize": null,
-              "dimension": "NORMAL",
-              "dimensionShopSize": null,
-              "sizeLabel": "38xNORMAL",
-              "shopSizeLabel": null,
-              "prices": {
-                "default": {"price": 6500, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
+              "imageView": {
+                "id": 1254,
+                "key": "imageView",
+                "label": "Bild Ansicht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66486,
+                  "label": "Frontalansicht",
+                  "value": "front"
+                }
               },
-              "quantity": 88,
-              "sizeId": 25471,
-              "dimensionId": 26979,
-              "biSizeId": 41070
-            },
-            {
-              "variantId": 35149152,
-              "size": "39",
-              "shopSize": null,
-              "dimension": "NORMAL",
-              "dimensionShopSize": null,
-              "sizeLabel": "39xNORMAL",
-              "shopSizeLabel": null,
-              "prices": {
-                "default": {"price": 6500, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66481,
+                  "label": "Model",
+                  "value": "model"
+                }
               },
-              "quantity": 109,
-              "sizeId": 25481,
-              "dimensionId": 26979,
-              "biSizeId": 41880
-            },
-            {
-              "variantId": 35149155,
-              "size": "40",
-              "shopSize": null,
-              "dimension": "NORMAL",
-              "dimensionShopSize": null,
-              "sizeLabel": "40xNORMAL",
-              "shopSizeLabel": null,
-              "prices": {
-                "default": {"price": 6500, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
-              },
-              "quantity": 96,
-              "sizeId": 25470,
-              "dimensionId": 26979,
-              "biSizeId": 41082
-            },
-            {
-              "variantId": 35149151,
-              "size": "41",
-              "shopSize": null,
-              "dimension": "NORMAL",
-              "dimensionShopSize": null,
-              "sizeLabel": "41xNORMAL",
-              "shopSizeLabel": null,
-              "prices": {
-                "default": {"price": 6500, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
-              },
-              "quantity": 57,
-              "sizeId": 25480,
-              "dimensionId": 26979,
-              "biSizeId": 41658
-            },
-            {
-              "variantId": 35149150,
-              "size": "42",
-              "shopSize": null,
-              "dimension": "NORMAL",
-              "dimensionShopSize": null,
-              "sizeLabel": "42xNORMAL",
-              "shopSizeLabel": null,
-              "prices": {
-                "default": {"price": 6500, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
-              },
-              "quantity": 16,
-              "sizeId": 25469,
-              "dimensionId": 26979,
-              "biSizeId": 41094
-            },
-            {
-              "variantId": 35149148,
-              "size": "43",
-              "shopSize": null,
-              "dimension": "NORMAL",
-              "dimensionShopSize": null,
-              "sizeLabel": "43xNORMAL",
-              "shopSizeLabel": null,
-              "prices": {
-                "default": {"price": 6500, "oldPrice": null},
-                "campaign": {"priceSpecialSale": 0, "reductionSpecialSale": 0},
-                "campaignApp": {
-                  "priceSpecialSale": 0,
-                  "reductionSpecialSale": 0
-                },
-                "basePrice": null
-              },
-              "quantity": 0,
-              "sizeId": 25520,
-              "dimensionId": 26979,
-              "biSizeId": 41667
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66484,
+                  "label": "Produkt",
+                  "value": "product"
+                }
+              }
             }
-          ],
-          "dimensionName": "Gr\u00f6\u00dfendimension"
+          },
+          {
+            "hash": "59c9f22e3db47dfb0ab8265a595ab955",
+            "attributes": {
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
+              },
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66506,
+                  "label": "grau",
+                  "value": "grey"
+                }
+              },
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66498,
+                  "label": "30",
+                  "value": "30"
+                }
+              },
+              "imageView": {
+                "id": 1254,
+                "key": "imageView",
+                "label": "Bild Ansicht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66487,
+                  "label": "R\u00fcckansicht",
+                  "value": "back"
+                }
+              },
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66481,
+                  "label": "Model",
+                  "value": "model"
+                }
+              },
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66484,
+                  "label": "Produkt",
+                  "value": "product"
+                }
+              }
+            }
+          },
+          {
+            "hash": "ae178037777dfbe29faed88489c1107e",
+            "attributes": {
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
+              },
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66506,
+                  "label": "grau",
+                  "value": "grey"
+                }
+              },
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66499,
+                  "label": "10",
+                  "value": "10"
+                }
+              },
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66485,
+                  "label": "Outfit",
+                  "value": "combination"
+                }
+              },
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66481,
+                  "label": "Model",
+                  "value": "model"
+                }
+              }
+            }
+          },
+          {
+            "hash": "474a51efb393f1811fba5d9cf56318b7",
+            "attributes": {
+              "imageGender": {
+                "id": 1259,
+                "key": "imageGender",
+                "label": "Bild Geschlecht",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66508,
+                  "label": "female",
+                  "value": "female"
+                }
+              },
+              "imageBackground": {
+                "id": 1258,
+                "key": "imageBackground",
+                "label": "Bild Hintergrund",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66506,
+                  "label": "grau",
+                  "value": "grey"
+                }
+              },
+              "imageNextDetailLevel": {
+                "id": 1257,
+                "key": "imageNextDetailLevel",
+                "label": "Bild Detaillevel",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66500,
+                  "label": "50",
+                  "value": "50"
+                }
+              },
+              "imageFocus": {
+                "id": 1253,
+                "key": "imageFocus",
+                "label": "Bild Fokus",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66483,
+                  "label": "Detail",
+                  "value": "detail"
+                }
+              },
+              "imageType": {
+                "id": 1252,
+                "key": "imageType",
+                "label": "Bild Typ",
+                "type": "",
+                "multiSelect": false,
+                "values": {
+                  "id": 66481,
+                  "label": "Model",
+                  "value": "model"
+                }
+              }
+            }
+          }
+        ],
+        "variants": [
+          {
+            "id": 35096120,
+            "referenceKey": "ONL1835012000001",
+            "createdAt": "2018-05-11T09:06:09+02:00",
+            "updatedAt": "2019-10-29T14:51:48+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 1790,
+              "withoutTax": 1504,
+              "appliedReductions": [
+                {
+                  "category": "sale",
+                  "type": "relative",
+                  "amount": {
+                    "relative": 0.1,
+                    "absoluteWithTax": 200
+                  }
+                }
+              ],
+              "tax": {
+                "vat": {
+                  "amount": 286,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 102,
+              "isSellableWithoutStock": false
+            }
+          },
+          {
+            "id": 35096121,
+            "referenceKey": "ONL1835012000002",
+            "createdAt": "2018-05-11T09:06:09+02:00",
+            "updatedAt": "2019-10-29T16:05:35+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 1790,
+              "withoutTax": 1504,
+              "appliedReductions": [
+                {
+                  "category": "sale",
+                  "type": "relative",
+                  "amount": {
+                    "relative": 0.1,
+                    "absoluteWithTax": 200
+                  }
+                }
+              ],
+              "tax": {
+                "vat": {
+                  "amount": 286,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 101,
+              "isSellableWithoutStock": false
+            }
+          },
+          {
+            "id": 35096122,
+            "referenceKey": "ONL1835012000003",
+            "createdAt": "2018-05-11T09:06:09+02:00",
+            "updatedAt": "2019-10-29T14:44:12+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 1790,
+              "withoutTax": 1504,
+              "appliedReductions": [
+                {
+                  "category": "sale",
+                  "type": "relative",
+                  "amount": {
+                    "relative": 0.1,
+                    "absoluteWithTax": 200
+                  }
+                }
+              ],
+              "tax": {
+                "vat": {
+                  "amount": 286,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 89,
+              "isSellableWithoutStock": false
+            }
+          },
+          {
+            "id": 35096123,
+            "referenceKey": "ONL1835012000004",
+            "createdAt": "2018-05-11T09:06:09+02:00",
+            "updatedAt": "2019-10-29T14:51:43+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 1790,
+              "withoutTax": 1504,
+              "appliedReductions": [
+                {
+                  "category": "sale",
+                  "type": "relative",
+                  "amount": {
+                    "relative": 0.1,
+                    "absoluteWithTax": 200
+                  }
+                }
+              ],
+              "tax": {
+                "vat": {
+                  "amount": 286,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 121,
+              "isSellableWithoutStock": false
+            }
+          },
+          {
+            "id": 35096124,
+            "referenceKey": "ONL1835012000005",
+            "createdAt": "2018-05-11T09:06:09+02:00",
+            "updatedAt": "2019-10-29T16:05:21+01:00",
+            "price": {
+              "currencyCode": "EUR",
+              "withTax": 1790,
+              "withoutTax": 1504,
+              "appliedReductions": [
+                {
+                  "category": "sale",
+                  "type": "relative",
+                  "amount": {
+                    "relative": 0.1,
+                    "absoluteWithTax": 200
+                  }
+                }
+              ],
+              "tax": {
+                "vat": {
+                  "amount": 286,
+                  "rate": 0.19
+                }
+              }
+            },
+            "stock": {
+              "supplierId": 130,
+              "quantity": 98,
+              "isSellableWithoutStock": false
+            }
+          }
+        ],
+        "priceRange": {
+          "min": {
+            "currencyCode": "EUR",
+            "withTax": 1790,
+            "withoutTax": 1504,
+            "appliedReductions": [
+              {
+                "category": "sale",
+                "type": "relative",
+                "amount": {
+                  "relative": 0.1,
+                  "absoluteWithTax": 200
+                }
+              }
+            ],
+            "tax": {
+              "vat": {
+                "amount": 286,
+                "rate": 0.19
+              }
+            }
+          },
+          "max": {
+            "currencyCode": "EUR",
+            "withTax": 1790,
+            "withoutTax": 1504,
+            "appliedReductions": [
+              {
+                "category": "sale",
+                "type": "relative",
+                "amount": {
+                  "relative": 0.1,
+                  "absoluteWithTax": 200
+                }
+              }
+            ],
+            "tax": {
+              "vat": {
+                "amount": 286,
+                "rate": 0.19
+              }
+            }
+          }
         },
-        "id": 3900691
-      },
-      "created": {
-        "date": "2018-10-09 12:17:38.000000",
-        "timezone_type": 1,
-        "timezone": "+02:00"
-      },
-      "updated": {
-        "date": "2018-10-09 12:17:38.000000",
-        "timezone_type": 1,
-        "timezone": "+02:00"
+        "categories": [
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 22847,
+              "categoryName": "Pullover",
+              "categoryUrl": "\/frauen\/bekleidung\/pullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 22847,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "pullover_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "e796fee0b18584a9e102a19e7372f966",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 22847,
+              "categoryName": "Pullover",
+              "categoryUrl": "\/frauen\/bekleidung\/pullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 22847,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "pullover_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "e796fee0b18584a9e102a19e7372f966",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 235273,
+              "categoryName": "Longpullover",
+              "categoryUrl": "\/frauen\/bekleidung\/pullover\/longpullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 235273
+                },
+                {
+                  "name": "category_context",
+                  "value": "longpullover_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "39618dc744a38bbf95dc772f0c907301"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 22853,
+              "categoryName": "Strick",
+              "categoryUrl": "\/frauen\/bekleidung\/strick",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 22853
+                },
+                {
+                  "name": "category_context",
+                  "value": "strick_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "d73abd5c076bf559e0b4d706ab88cf19"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 20204,
+              "categoryName": "Bekleidung",
+              "categoryUrl": "\/frauen\/bekleidung",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20204,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "bekleidung_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "ed9d595fa9d87d6455277c2dabe716ef",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 22853,
+              "categoryName": "Strick",
+              "categoryUrl": "\/frauen\/bekleidung\/strick",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 22853
+                },
+                {
+                  "name": "category_context",
+                  "value": "strick_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "d73abd5c076bf559e0b4d706ab88cf19"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 130282,
+              "categoryName": "Feinstrickpullover",
+              "categoryUrl": "\/frauen\/bekleidung\/strick\/feinstrickpullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 130282
+                },
+                {
+                  "name": "category_context",
+                  "value": "feinstrickpullover_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "64449bea31c19b740b4076f54a96d4e1"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "clothing",
+                  "value": "[\"Bekleidung\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"clothing\":\"[\\\"Bekleidung\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 32543,
+              "categoryName": "SALE",
+              "categoryUrl": "\/frauen\/sale",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32543,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "sale_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a9e433715a72070af5f599f4470f0a93",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"gender_female\":\"[\\\"Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"sale\":\"[\\\"Sale\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 32543,
+              "categoryName": "SALE",
+              "categoryUrl": "\/frauen\/sale",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32543,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "sale_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a9e433715a72070af5f599f4470f0a93",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"gender_female\":\"[\\\"Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"sale\":\"[\\\"Sale\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 32615,
+              "categoryName": "Pullover",
+              "categoryUrl": "\/frauen\/sale\/pullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32615
+                },
+                {
+                  "name": "category_context",
+                  "value": "pullover_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "8d0904a79dcfefbaddf9e6b5dce45ed7"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"sale\":\"[\\\"Sale\\\"]\"}"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 1
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 32543,
+              "categoryName": "SALE",
+              "categoryUrl": "\/frauen\/sale",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32543,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "sale_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a9e433715a72070af5f599f4470f0a93",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"gender_female\":\"[\\\"Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"sale\":\"[\\\"Sale\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 32615,
+              "categoryName": "Pullover",
+              "categoryUrl": "\/frauen\/sale\/pullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32615
+                },
+                {
+                  "name": "category_context",
+                  "value": "pullover_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "8d0904a79dcfefbaddf9e6b5dce45ed7"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"sale\":\"[\\\"Sale\\\"]\"}"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 1
+                }
+              ]
+            },
+            {
+              "categoryId": 235362,
+              "categoryName": "Longpullover",
+              "categoryUrl": "\/frauen\/sale\/pullover\/longpullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 235362
+                },
+                {
+                  "name": "category_context",
+                  "value": "longpullover_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "232497459847ae0ee69742884b61385d"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"sale\":\"[\\\"Sale\\\"]\"}"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 32543,
+              "categoryName": "SALE",
+              "categoryUrl": "\/frauen\/sale",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32543,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "sale_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a9e433715a72070af5f599f4470f0a93",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"gender_female\":\"[\\\"Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"sale\":\"[\\\"Sale\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 32620,
+              "categoryName": "Strick",
+              "categoryUrl": "\/frauen\/sale\/strick",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32620
+                },
+                {
+                  "name": "category_context",
+                  "value": "strick_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a4e8090e1418b20a6d5d9c5395b23321"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"sale\":\"[\\\"Sale\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 32543,
+              "categoryName": "SALE",
+              "categoryUrl": "\/frauen\/sale",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32543,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "sale_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a9e433715a72070af5f599f4470f0a93",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"gender_female\":\"[\\\"Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"sale\":\"[\\\"Sale\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 32620,
+              "categoryName": "Strick",
+              "categoryUrl": "\/frauen\/sale\/strick",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32620
+                },
+                {
+                  "name": "category_context",
+                  "value": "strick_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a4e8090e1418b20a6d5d9c5395b23321"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"sale\":\"[\\\"Sale\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 140257,
+              "categoryName": "Feinstrickpullover",
+              "categoryUrl": "\/frauen\/sale\/strick\/feinstrickpullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 140257
+                },
+                {
+                  "name": "category_context",
+                  "value": "feinstrickpullover_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "5ba4a849be244100ff95dc46b7c2a8bb"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"sale\":\"[\\\"Sale\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 1
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "categoryId": 20201,
+              "categoryName": "Frauen",
+              "categoryUrl": "\/frauen",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 20201,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a72ebf5c0174a1681eb0d496158143dd",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\"}"
+                }
+              ]
+            },
+            {
+              "categoryId": 32543,
+              "categoryName": "SALE",
+              "categoryUrl": "\/frauen\/sale",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32543,
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "category_context",
+                  "value": "sale_female",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a9e433715a72070af5f599f4470f0a93",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"gender_female\":\"[\\\"Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"sale\":\"[\\\"Sale\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 0
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 32620,
+              "categoryName": "Strick",
+              "categoryUrl": "\/frauen\/sale\/strick",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 32620
+                },
+                {
+                  "name": "category_context",
+                  "value": "strick_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "a4e8090e1418b20a6d5d9c5395b23321"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"sale\":\"[\\\"Sale\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\"}"
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                }
+              ]
+            },
+            {
+              "categoryId": 140257,
+              "categoryName": "Feinstrickpullover",
+              "categoryUrl": "\/frauen\/sale\/strick\/feinstrickpullover",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 140257
+                },
+                {
+                  "name": "category_context",
+                  "value": "feinstrickpullover_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "5ba4a849be244100ff95dc46b7c2a8bb"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\",\"sale\":\"[\\\"Sale\\\"]\"}"
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 1
+                }
+              ]
+            },
+            {
+              "categoryId": 140262,
+              "categoryName": "Rundhals",
+              "categoryUrl": "\/frauen\/sale\/strick\/feinstrickpullover\/rundhals",
+              "categoryHidden": false,
+              "categoryProperties": [
+                {
+                  "name": "legacy_category_id",
+                  "value": 140262
+                },
+                {
+                  "name": "category_context",
+                  "value": "rundhals_female"
+                },
+                {
+                  "name": "reference_id",
+                  "value": "33245d6279a0a8ab808d081ff6ffc4bb"
+                },
+                {
+                  "name": "attributes",
+                  "value": "{\"sale\":\"[\\\"Sale\\\"]\",\"age_group_adult\":\"[\\\"M\\\\u00e4nner,Frauen\\\"]\",\"gender_female\":\"[\\\"Frauen\\\"]\",\"masterfeed_excluded\":\"[\\\"Anl\\\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\\\"]\"}"
+                },
+                {
+                  "name": "sale",
+                  "value": "[\"Sale\"]",
+                  "is_inheritable": 1
+                },
+                {
+                  "name": "age_group_adult",
+                  "value": "[\"M\\u00e4nner,Frauen\"]"
+                },
+                {
+                  "name": "gender_female",
+                  "value": "[\"Frauen\"]"
+                },
+                {
+                  "name": "masterfeed_excluded",
+                  "value": "[\"Anl\\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]",
+                  "is_inheritable": 1
+                }
+              ]
+            }
+          ]
+        ]
       }
     }
-  ],
-  "totalPrice": 915475,
-  "totalNet": 769306,
-  "totalVat": 146169,
-  "specialSaleSavings": 6025
+  ]
 }
