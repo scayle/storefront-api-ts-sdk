@@ -11,7 +11,6 @@
         "total": {
           "withTax": 8799,
           "withoutTax": 7394,
-          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
           "appliedReductions": [
             {
               "category": "sale",
@@ -23,7 +22,6 @@
         "unit": {
           "withTax": 8799,
           "withoutTax": 7394,
-          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
           "appliedReductions": [
             {
               "category": "sale",
@@ -42,7 +40,6 @@
         "price": {
           "withTax": 8799,
           "withoutTax": 7394,
-          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
           "appliedReductions": [
             {
               "category": "sale",
@@ -89,7 +86,6 @@
         "total": {
           "withTax": 8799,
           "withoutTax": 7394,
-          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
           "appliedReductions": [
             {
               "category": "sale",
@@ -101,7 +97,6 @@
         "unit": {
           "withTax": 8799,
           "withoutTax": 7394,
-          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
           "appliedReductions": [
             {
               "category": "sale",
@@ -120,7 +115,6 @@
         "price": {
           "withTax": 8799,
           "withoutTax": 7394,
-          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
           "appliedReductions": [
             {
               "category": "sale",
@@ -168,7 +162,6 @@
   "cost": {
     "withTax": 30699,
     "withoutTax": 25797,
-    "tax": {"vat": {"amount": 4902, "rate": 0.19}},
     "appliedReductions": []
   }
 }

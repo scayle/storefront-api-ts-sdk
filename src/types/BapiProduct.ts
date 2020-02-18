@@ -65,15 +65,6 @@ export type RFC33339Date = string & {
   readonly ____tagRFC33339Date: unique symbol;
 };
 
-export interface Vat {
-  amount: CentAmount;
-  rate: number;
-}
-
-export interface Tax {
-  vat: Vat;
-}
-
 export interface Variant {
   id: number;
   referenceKey?: string;
@@ -140,15 +131,6 @@ type GroupSet = Array<{
 export interface BapiPrice {
   withTax: CentAmount;
   withoutTax: CentAmount;
-
-  tax: {
-    vat: {
-      amount: CentAmount;
-      // 0-1
-      rate: number;
-    };
-    // possibly other taxes as well; neither are used by the frontend at the moment
-  };
 
   reference?: {
     withTax: CentAmount;

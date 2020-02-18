@@ -228,7 +228,6 @@
       "price": {
         "withTax": 6599,
         "withoutTax": 5545,
-        "tax": {"vat": {"amount": 1054, "rate": 0.19}},
         "appliedReductions": [],
         "reference": {"withTax": 21996, "size": "100", "unit": "ml"}
       },
@@ -304,7 +303,6 @@
       "price": {
         "withTax": 8599,
         "withoutTax": 7226,
-        "tax": {"vat": {"amount": 1373, "rate": 0.19}},
         "appliedReductions": [],
         "reference": {"withTax": 17198, "size": "100", "unit": "ml"}
       },
