@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.0
+
+Breaking changes:
+
+- Remove `tax` object from `BapiPrice` since BAPI won't supply that anymore soon.
+- Remove the `Tax` and `Vat` interfaces from the types accordingly.
+
 ### 2.8.0
 
 Add `includeHidden` parameter to categories by IDs request (corresponds to BAPI's `showHidden` URL query parameter).
