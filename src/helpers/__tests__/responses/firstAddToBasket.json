@@ -40,6 +40,7 @@
         "price": {
           "withTax": 8799,
           "withoutTax": 7394,
+          "tax": {"vat": {"amount": 1405, "rate": 0.19}},
           "appliedReductions": [
             {
               "category": "sale",

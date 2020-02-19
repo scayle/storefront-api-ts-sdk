@@ -77,6 +77,12 @@
     "min": {
       "withTax": 4990,
       "withoutTax": 4193,
+      "tax": {
+        "vat": {
+          "amount": 797,
+          "rate": 0.19
+        }
+      },
       "appliedReductions": [
         {
           "category": "sale",
@@ -91,6 +97,12 @@
     "max": {
       "withTax": 7999,
       "withoutTax": 6722,
+      "tax": {
+        "vat": {
+          "amount": 1277,
+          "rate": 0.19
+        }
+      },
       "appliedReductions": []
     }
   }

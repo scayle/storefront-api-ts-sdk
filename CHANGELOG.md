@@ -4,8 +4,7 @@
 
 Breaking changes:
 
-- Remove `tax` object from `BapiPrice` since BAPI won't supply that anymore soon.
-- Remove the `Tax` and `Vat` interfaces from the types accordingly.
+- Remove `tax` from `BapiPrice` for the `BasketItemPrice` since BAPI won't supply that anymore soon.
 
 ### 2.8.0
 
