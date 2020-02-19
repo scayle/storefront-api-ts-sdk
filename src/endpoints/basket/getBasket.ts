@@ -8,7 +8,7 @@ import {
   variantWithQueryParameterValues,
 } from 'bapi/types/ProductWith';
 
-type BasketItemPrice = BapiPrice;
+type BasketItemPrice = Omit<BapiPrice, 'tax'>;
 
 type BasketTotalPrice = Omit<BapiPrice, 'tax' | 'reference'>;
 
