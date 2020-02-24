@@ -43,13 +43,13 @@ type AdvancedAttributeMapping = {
 type AdvancedAttributesMapping<T extends AdvancedAttributeMapping> = {
   [P in keyof T]: T[P] extends 'numberValue'
     ? number
-    : (T[P] extends 'stringValue'
-        ? string
-        : (T[P] extends 'stringListValue'
-            ? string[]
-            : (T[P] extends 'asMaterialComposition'
-                ? MaterialComposition[]
-                : (T[P] extends 'asNumber' ? number : never))))
+    : T[P] extends 'stringValue'
+      ? string
+      : T[P] extends 'stringListValue'
+        ? string[]
+        : T[P] extends 'asMaterialComposition'
+          ? MaterialComposition[]
+          : T[P] extends 'asNumber' ? number : never
 };
 
 export type MaterialComposition = {
@@ -74,27 +74,25 @@ export interface ProductMapping {
 type AttributesMapping<T extends AttributeMapping> = {
   [P in keyof T]: T[P] extends 'value.label'
     ? string
-    : (T[P] extends 'value.asBoolean'
-        ? boolean
-        : (T[P] extends 'value'
-            ? {id: number; label: string; value: string}
-            : (T[P] extends 'value.label?'
-                ? string | undefined
-                : (T[P] extends 'value.asNumber'
-                    ? number
-                    : (T[P] extends 'value.asNumber?'
-                        ? number | undefined
-                        : (T[P] extends 'value?'
-                            ?
-                                | {id: number; label: string; value: string}
-                                | undefined
-                            : (T[P] extends 'value.asBoolean?'
-                                ? boolean | undefined
-                                : (T[P] extends 'value.asString'
-                                    ? string
-                                    : (T[P] extends 'value.asString?'
-                                        ? string | undefined
-                                        : never)))))))))
+    : T[P] extends 'value.asBoolean'
+      ? boolean
+      : T[P] extends 'value'
+        ? {id: number; label: string; value: string}
+        : T[P] extends 'value.label?'
+          ? string | undefined
+          : T[P] extends 'value.asNumber'
+            ? number
+            : T[P] extends 'value.asNumber?'
+              ? number | undefined
+              : T[P] extends 'value?'
+                ? {id: number; label: string; value: string} | undefined
+                : T[P] extends 'value.asBoolean?'
+                  ? boolean | undefined
+                  : T[P] extends 'value.asString'
+                    ? string
+                    : T[P] extends 'value.asString?'
+                      ? string | undefined
+                      : never
 };
 
 export type MappedProduct<T extends ProductMapping> = {
