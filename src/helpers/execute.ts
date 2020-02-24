@@ -46,7 +46,7 @@ export async function execute<SuccessResponseT>(
     username: string;
     password: string;
   },
-  additionalHeaders?: ObjectMap<string>,
+  additionalHeaders?: Record<string, string | undefined>,
   axiosAdapter?: AxiosAdapter,
 ): Promise<BapiResponse<SuccessResponseT>> {
   const params =
