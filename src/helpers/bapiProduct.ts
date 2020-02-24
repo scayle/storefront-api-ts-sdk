@@ -3,24 +3,51 @@ import {
   Attributes,
   BapiProduct,
   Variant,
+  Value,
 } from 'bapi/types/BapiProduct';
 
 export const getFirstAttributeValue = (
   attributes: Attributes | undefined,
   attributeName: string,
-) => {
+): Value | undefined => {
   const attribute = attributes && attributes[attributeName];
   if (!attribute || !attribute.values) {
     return;
   }
 
-  return Array.isArray(attribute.values)
-    ? Object.keys(attribute.values).length > 0
-      ? attribute.values[0]
-      : undefined
-    : attribute.values;
+  if (attribute.multiSelect) {
+    return attribute.values[0];
+  }
+
+  return attribute.values;
 };
 
+/**
+ * This function always return a list.
+ *
+ * In case this attribute doesn't have any values or doesn't exist at all, it will return an empty list.
+ * Otherwise this returns a list with the values.
+ *
+ * @param attributes
+ * @param attributeName
+ */
+export const getAttributeValues = (
+  attributes: Attributes | undefined,
+  attributeName: string,
+): Value[] => {
+  const attribute = attributes && attributes[attributeName];
+  if (!attribute || !attribute.values) {
+    return [];
+  }
+
+  if (attribute.multiSelect) {
+    return attribute.values;
+  }
+
+  return [attribute.values];
+};
+
+/// TODO: Deprecate IMO
 export const findBrand = (
   entity: BapiProduct,
 ): {id: number; name: string} | undefined => {
@@ -35,6 +62,7 @@ export const findBrand = (
   };
 };
 
+/// TODO: Deprecate or rename?
 export function attributeLabel(
   attributeName: string,
   entity: BapiProduct,
@@ -44,6 +72,7 @@ export function attributeLabel(
   return value && value.label;
 }
 
+/// TODO: Deprecate
 export function variantAttributeLabel(
   attributeName: string,
   variant: Variant,
@@ -53,6 +82,7 @@ export function variantAttributeLabel(
   return value && value.label;
 }
 
+/// TODO: Deprecate
 export function variantAttributeId(
   attributeName: string,
   variant: Variant,
@@ -62,6 +92,7 @@ export function variantAttributeId(
   return value && value.id;
 }
 
+/// TODO: Deprecate
 export function attributeNames(
   attributeNames: string[],
   entity: BapiProduct,
@@ -85,6 +116,7 @@ export function attributeNames(
   return result;
 }
 
+/// TODO: Deprecate
 export function labelFromAttributeGroup(
   attributeGroup: AttributeGroup,
 ): string {
