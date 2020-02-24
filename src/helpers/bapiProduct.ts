@@ -6,6 +6,14 @@ import {
   Value,
 } from 'bapi/types/BapiProduct';
 
+/**
+ * Returns the first value of an attribute.
+ *
+ * This returns undefined, if the attribute doesn't exist or if it doesn't have any values.
+ *
+ * @param attributes
+ * @param attributeName
+ */
 export const getFirstAttributeValue = (
   attributes: Attributes | undefined,
   attributeName: string,
