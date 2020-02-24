@@ -1,6 +1,6 @@
 {
   "name": "@aboutyou/backbone",
-  "version": "3.0.0",
+  "version": "4.0.0-beta.1",
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
     "@types/axios": "^0.14.0",
