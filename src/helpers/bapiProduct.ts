@@ -31,7 +31,7 @@ export const getFirstAttributeValue = (
 };
 
 /**
- * This function always return a list.
+ * This function always returns a list.
  *
  * In case this attribute doesn't have any values or doesn't exist at all, it will return an empty list.
  * Otherwise this returns a list with the values.
