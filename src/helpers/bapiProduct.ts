@@ -48,18 +48,3 @@ export const getAttributeValues = (
 
   return [attribute.values];
 };
-
-/// TODO: Deprecate IMO
-export const findBrand = (
-  entity: BapiProduct,
-): {id: number; name: string} | undefined => {
-  const brand = getFirstAttributeValue(entity.attributes, 'brand');
-  if (!brand) {
-    return;
-  }
-
-  return {
-    id: brand.id || -1, // TODO: Err?
-    name: brand.label,
-  };
-};
