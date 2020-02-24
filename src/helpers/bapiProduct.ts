@@ -1,4 +1,4 @@
-import {Attributes, BapiProduct, Value} from 'bapi/types/BapiProduct';
+import {Attributes, Value} from 'bapi/types/BapiProduct';
 
 /**
  * Returns the first value of an attribute.
@@ -47,4 +47,55 @@ export const getAttributeValues = (
   }
 
   return [attribute.values];
+};
+
+/**
+ * Returns the label of the first value of the attribute.
+ *
+ * This returns undefined, if the attribute doesn't exist or if it doesn't have any values.
+ * 
+ * @param attributes
+ * @param attributeName
+ */
+export const getFirstAttributeValueLabel = (
+  attributes: Attributes | undefined,
+  attributeName: string,
+): string | undefined => {
+  const value = getFirstAttributeValue(attributes, attributeName);
+
+  return value?.label;
+};
+
+/**
+ * Returns the actual value of the first value of the attribute.
+ *
+ * This returns undefined, if the attribute doesn't exist or if it doesn't have any values.
+ *
+ * @param attributes
+ * @param attributeName
+ */
+export const getFirstAttributeValueValue = (
+  attributes: Attributes | undefined,
+  attributeName: string,
+): string | undefined => {
+  const value = getFirstAttributeValue(attributes, attributeName);
+
+  return value?.value;
+};
+
+/**
+ * Returns the id of the first value of the attribute.
+ *
+ * This returns undefined, if the attribute doesn't exist or if it doesn't have any values.
+ * 
+ * @param attributes
+ * @param attributeName
+ */
+export const getFirstAttributeValueId = (
+  attributes: Attributes | undefined,
+  attributeName: string,
+): number | undefined => {
+  const value = getFirstAttributeValue(attributes, attributeName);
+
+  return value?.id;
 };
