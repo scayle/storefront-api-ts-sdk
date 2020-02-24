@@ -24,7 +24,7 @@ export const getFirstAttributeValue = (
   }
 
   if (attribute.multiSelect) {
-    return attribute.values[0];
+    return attribute.values.length > 0 ? attribute.values[0] : undefined;
   }
 
   return attribute.values;
