@@ -24,7 +24,10 @@ export interface BapiProductCategory {
   categoryId: number;
   categoryName: string;
   categoryUrl: string;
-  categoryProperties?: ObjectMap<{name: string; value: string}>;
+  categoryProperties?: Record<
+    string,
+    {name: string; value: string} | undefined
+  >;
 }
 
 export interface ProductImage {
@@ -86,7 +89,7 @@ export interface Variant {
   advancedAttributes?: AdvancedAttributes;
 }
 
-export type Attributes = ObjectMap<AttributeGroupSingle | AttributeGroupMulti>;
+export type Attributes = Record<string, AttributeGroup | undefined>;
 
 interface AttributeGroupBasic {
   id: number | null;
@@ -113,9 +116,7 @@ export interface Value {
   value?: string;
 }
 
-export interface AdvancedAttributes {
-  [key: string]: AdvancedAttribute | undefined;
-}
+export type AdvancedAttributes = Record<string, AdvancedAttribute | undefined>;
 
 export type AdvancedAttribute = {
   id: number | null;
@@ -129,7 +130,7 @@ export type AdvancedAttribute = {
 };
 
 type FieldSet = Array<
-  Array<{[key: string]: string | number | null | undefined}>
+  Array<Record<string, string | number | null | undefined>>
 >;
 
 type GroupSet = Array<{
