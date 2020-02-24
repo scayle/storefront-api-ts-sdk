@@ -61,9 +61,7 @@ export const getFirstAttributeValueLabel = (
   attributes: Attributes | undefined,
   attributeName: string,
 ): string | undefined => {
-  const value = getFirstAttributeValue(attributes, attributeName);
-
-  return value?.label;
+  return getFirstAttributeValue(attributes, attributeName)?.value;
 };
 
 /**
@@ -78,9 +76,7 @@ export const getFirstAttributeValueValue = (
   attributes: Attributes | undefined,
   attributeName: string,
 ): string | undefined => {
-  const value = getFirstAttributeValue(attributes, attributeName);
-
-  return value?.value;
+  return getFirstAttributeValue(attributes, attributeName)?.value;
 };
 
 /**
@@ -95,7 +91,5 @@ export const getFirstAttributeValueId = (
   attributes: Attributes | undefined,
   attributeName: string,
 ): number | undefined => {
-  const value = getFirstAttributeValue(attributes, attributeName);
-
-  return value?.id;
+  return getFirstAttributeValue(attributes, attributeName)?.id;
 };
