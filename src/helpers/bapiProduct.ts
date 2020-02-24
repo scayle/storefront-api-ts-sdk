@@ -1,10 +1,4 @@
-import {
-  AttributeGroup,
-  Attributes,
-  BapiProduct,
-  Variant,
-  Value,
-} from 'bapi/types/BapiProduct';
+import {Attributes, BapiProduct, Value} from 'bapi/types/BapiProduct';
 
 /**
  * Returns the first value of an attribute.
@@ -69,68 +63,3 @@ export const findBrand = (
     name: brand.label,
   };
 };
-
-/// TODO: Deprecate or rename?
-export function attributeLabel(
-  attributeName: string,
-  entity: BapiProduct,
-): string | undefined {
-  const value = getFirstAttributeValue(entity.attributes, attributeName);
-
-  return value && value.label;
-}
-
-/// TODO: Deprecate
-export function variantAttributeLabel(
-  attributeName: string,
-  variant: Variant,
-): string | undefined {
-  const value = getFirstAttributeValue(variant.attributes, attributeName);
-
-  return value && value.label;
-}
-
-/// TODO: Deprecate
-export function variantAttributeId(
-  attributeName: string,
-  variant: Variant,
-): number | undefined {
-  const value = getFirstAttributeValue(variant.attributes, attributeName);
-
-  return value && value.id;
-}
-
-/// TODO: Deprecate
-export function attributeNames(
-  attributeNames: string[],
-  entity: BapiProduct,
-): Array<{value: string; label: string}> {
-  const result: Array<{value: string; label: string}> = [];
-
-  for (const attributeName of attributeNames) {
-    const attribute = entity.attributes && entity.attributes[attributeName];
-    const value = getFirstAttributeValue(entity.attributes, attributeName);
-
-    if (!attribute || !value) {
-      continue;
-    }
-
-    result.push({
-      label: attribute.label,
-      value: value.label,
-    });
-  }
-
-  return result;
-}
-
-/// TODO: Deprecate
-export function labelFromAttributeGroup(
-  attributeGroup: AttributeGroup,
-): string {
-  return Array.isArray(attributeGroup.values)
-    ? Object.keys(attributeGroup.values).length > 0
-      ? attributeGroup.values[0].label
-      : ''
-    : attributeGroup.values.label;
-}
