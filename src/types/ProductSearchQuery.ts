@@ -22,30 +22,25 @@ export function queryParamsFromProductSearchQuery(
 
   const filters = {
     'filters[category]': productSearchQuery.categoryId,
-    ...(productSearchQuery.attributes || []).reduce(
-      (acc, attribute) => {
-        switch (attribute.type) {
-          case 'attributes':
-            acc[
-              `filters[${attribute.key || attribute.id}]`
-            ] = attribute.values.join(`,`);
-            break;
+    ...(productSearchQuery.attributes || []).reduce((acc, attribute) => {
+      switch (attribute.type) {
+        case 'attributes':
+          acc[
+            `filters[${attribute.key || attribute.id}]`
+          ] = attribute.values.join(`,`);
+          break;
 
-          case 'boolean':
-            acc[`filters[${attribute.key}]`] = attribute.value
-              ? 'true'
-              : 'false';
-            break;
+        case 'boolean':
+          acc[`filters[${attribute.key}]`] = attribute.value ? 'true' : 'false';
+          break;
 
-          /* istanbul ignore next */
-          default:
-            console.error(`Unsupported filter type`, attribute);
-        }
+        /* istanbul ignore next */
+        default:
+          console.error(`Unsupported filter type`, attribute);
+      }
 
-        return acc;
-      },
-      {} as ObjectMap<string>,
-    ),
+      return acc;
+    }, {} as ObjectMap<string>),
     'filters[term]': productSearchQuery.term,
     'filters[minPrice]': productSearchQuery.minPrice,
     'filters[maxPrice]': productSearchQuery.maxPrice,

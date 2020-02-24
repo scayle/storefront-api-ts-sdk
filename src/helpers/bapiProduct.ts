@@ -53,7 +53,7 @@ export const getAttributeValues = (
  * Returns the label of the first value of the attribute.
  *
  * This returns undefined, if the attribute doesn't exist or if it doesn't have any values.
- * 
+ *
  * @param attributes
  * @param attributeName
  */
@@ -87,7 +87,7 @@ export const getFirstAttributeValueValue = (
  * Returns the id of the first value of the attribute.
  *
  * This returns undefined, if the attribute doesn't exist or if it doesn't have any values.
- * 
+ *
  * @param attributes
  * @param attributeName
  */
