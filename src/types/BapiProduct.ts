@@ -1,4 +1,5 @@
 import {ObjectMap} from './ObjectMap';
+import {BapiCategoryProperty} from 'bapi/types/BapiCategory';
 
 export interface BapiProduct {
   id: number;
@@ -26,7 +27,7 @@ export interface BapiProductCategory {
   categoryId: number;
   categoryName: string;
   categoryUrl: string;
-  categoryProperties?: ObjectMap<{name: string; value: string}>;
+  categoryProperties?: BapiCategoryProperty[];
 }
 
 export interface ProductImage {

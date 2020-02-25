@@ -1,3 +1,9 @@
+export interface BapiCategoryProperty {
+  name: string,
+  value: string,
+  is_inheritable?: 1 | 0,
+}
+
 export interface BapiCategory {
   id: number;
   path: string;
@@ -8,7 +14,7 @@ export interface BapiCategory {
   parentId: number;
   rootlineIds: number[];
   childrenIds: number[];
-  properties: any[];
+  properties: BapiCategoryProperty[];
   isHidden: boolean;
 
   children?: BapiCategory[];
