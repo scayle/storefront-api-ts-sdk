@@ -41,7 +41,7 @@ export function queryParamsFromProductSearchQuery(
       }
 
       return acc;
-    }, {} as Record<string, string | undefined>),
+    }, {} as ObjectMap<string>),
     'filters[term]': productSearchQuery.term,
     'filters[minPrice]': productSearchQuery.minPrice,
     'filters[maxPrice]': productSearchQuery.maxPrice,
