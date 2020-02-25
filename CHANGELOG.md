@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.0.1
+
+Fix `ObjectMap` type usage, such that it's included in the final output package.
+
 ## 3.0.0
 
 Breaking changes:
