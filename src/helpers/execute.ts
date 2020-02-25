@@ -32,7 +32,7 @@ function prepareUrl(
 
 export interface BapiResponse<T> {
   statusCode: number;
-  headers: {[]: string | undefined};
+  headers: {[key: string]: string | undefined};
   url: string;
   data: T;
 }
