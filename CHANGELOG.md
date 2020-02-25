@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+### 4.0.0
 
 - Removal of the following product helpers: `findBrand`, `attributeLabel`, `variantAttributeLabel`, `variantAttributeId`, `attributeNames` and `labelFromAttributeGroup`
 - Addition of the following helpers: `getAttributeValues`
