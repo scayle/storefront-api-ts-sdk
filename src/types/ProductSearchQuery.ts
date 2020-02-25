@@ -2,6 +2,7 @@ import {
   AttributeWithBooleanValueFilter,
   AttributeWithValuesFilter,
 } from 'bapi/types/AttributeOrAttributeValueFilter';
+import {ObjectMap} from './ObjectMap';
 
 export interface ProductSearchQuery {
   categoryId?: number;

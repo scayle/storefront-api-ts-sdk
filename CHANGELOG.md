@@ -9,6 +9,10 @@ These helpers have been removed because they were not very useful by themselves.
 
 For more information, see: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining
 
+### 3.0.1
+
+Fix `ObjectMap` type usage, such that it's included in the final output package.
+
 ## 3.0.0
 
 Breaking changes:
