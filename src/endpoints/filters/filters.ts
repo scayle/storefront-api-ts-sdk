@@ -40,7 +40,7 @@ export type BooleanFilterValue =
       {
         name: true | false;
         productCount: number;
-      }
+      },
     ]
   | [
       {
@@ -50,7 +50,7 @@ export type BooleanFilterValue =
       {
         name: false;
         productCount: number;
-      }
+      },
     ];
 
 export type RangeFilterValue =
@@ -59,7 +59,7 @@ export type RangeFilterValue =
         min: CentAmount;
         max: CentAmount;
         productCount: number;
-      }
+      },
     ]
   | [];
 

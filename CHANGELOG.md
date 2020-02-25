@@ -1,5 +1,14 @@
 # Changelog
 
+### 4.0.0
+
+- Removal of the following product helpers: `findBrand`, `attributeLabel`, `variantAttributeLabel`, `variantAttributeId`, `attributeNames` and `labelFromAttributeGroup`
+- Addition of the following helpers: `getAttributeValues`
+
+These helpers have been removed because they were not very useful by themselves. With the new optional chaining operator, most of these operations can be performed inline in the code.
+
+For more information, see: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining
+
 ### 3.0.1
 
 Fix `ObjectMap` type usage, such that it's included in the final output package.
