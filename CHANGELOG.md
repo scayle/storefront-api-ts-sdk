@@ -3,7 +3,7 @@
 ## Unreleased
 
 - Removal of the following product helpers: `findBrand`, `attributeLabel`, `variantAttributeLabel`, `variantAttributeId`, `attributeNames` and `labelFromAttributeGroup`
-- Addition of the following helpers: `getAttributeValues`, `getFirstAttributeValueLabel`, `getFirstAttributeValueValue` and `getFirstAttributeValueId`
+- Addition of the following helpers: `getAttributeValues`
 
 These helpers have been removed because they were not very useful by themselves. With the new optional chaining operator, most of these operations can be performed inline in the code.
 
