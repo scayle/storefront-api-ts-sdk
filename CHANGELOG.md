@@ -1,5 +1,9 @@
 # Changelog
 
+### 4.0.1
+
+- Fix types for the `BapiProductCategory` and `BapiCategory`
+
 ### 4.0.0
 
 - Removal of the following product helpers: `findBrand`, `attributeLabel`, `variantAttributeLabel`, `variantAttributeId`, `attributeNames` and `labelFromAttributeGroup`
