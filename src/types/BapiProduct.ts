@@ -95,12 +95,12 @@ interface AttributeGroupBasic {
   type: string | null;
 }
 
-export interface AttributeGroupSingle {
+export interface AttributeGroupSingle extends AttributeGroupBasic {
   multiSelect: false;
   values: Value;
 }
 
-export interface AttributeGroupMulti {
+export interface AttributeGroupMulti extends AttributeGroupBasic {
   multiSelect: true;
   values: Value[]; // assumes to have at least 1 value, but for example `extras` has many
 }
