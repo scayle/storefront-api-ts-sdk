@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0
+
+Breaking changes:
+
+- Remove `tax` from `BapiPrice` for the `BasketItemPrice` since BAPI won't supply that anymore soon.
+
 ### 2.8.1
 
 Fix `ObjectMap` type usage, such that it's included in the final output package.
