@@ -16,7 +16,7 @@ export interface ProductSearchQuery {
 
 export function queryParamsFromProductSearchQuery(
   productSearchQuery: ProductSearchQuery | undefined,
-): Record<string, string | number | undefined> | undefined {
+): ObjectMap<string | number> | undefined {
   if (!productSearchQuery) {
     return undefined;
   }
@@ -47,7 +47,7 @@ export function queryParamsFromProductSearchQuery(
     'filters[maxPrice]': productSearchQuery.maxPrice,
   };
 
-  const definedFilters: Record<string, string | number | undefined> = {};
+  const definedFilters: ObjectMap<string | number> = {};
 
   for (const [key, value] of Object.entries(filters)) {
     if (value !== undefined && value !== null) {

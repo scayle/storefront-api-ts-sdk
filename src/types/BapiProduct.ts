@@ -26,10 +26,7 @@ export interface BapiProductCategory {
   categoryId: number;
   categoryName: string;
   categoryUrl: string;
-  categoryProperties?: Record<
-    string,
-    {name: string; value: string} | undefined
-  >;
+  categoryProperties?: ObjectMap<{name: string; value: string}>;
 }
 
 export interface ProductImage {
@@ -91,8 +88,6 @@ export interface Variant {
   advancedAttributes?: AdvancedAttributes;
 }
 
-export type Attributes = Record<string, AttributeGroup | undefined>;
-
 interface AttributeGroupBasic {
   id: number | null;
   key: string;
@@ -100,17 +95,19 @@ interface AttributeGroupBasic {
   type: string | null;
 }
 
-export interface AttributeGroupSingle extends AttributeGroupBasic {
+export interface AttributeGroupSingle {
   multiSelect: false;
   values: Value;
 }
 
-export interface AttributeGroupMulti extends AttributeGroupBasic {
+export interface AttributeGroupMulti {
   multiSelect: true;
   values: Value[]; // assumes to have at least 1 value, but for example `extras` has many
 }
 
 export type AttributeGroup = AttributeGroupSingle | AttributeGroupMulti;
+
+export type Attributes = ObjectMap<AttributeGroup>;
 
 export interface Value {
   label: string;
@@ -118,7 +115,7 @@ export interface Value {
   value?: string;
 }
 
-export type AdvancedAttributes = Record<string, AdvancedAttribute | undefined>;
+export type AdvancedAttributes = ObjectMap<AdvancedAttribute | undefined>;
 
 export type AdvancedAttribute = {
   id: number | null;
@@ -132,7 +129,7 @@ export type AdvancedAttribute = {
 };
 
 type FieldSet = Array<
-  Array<Record<string, string | number | null | undefined>>
+  Array<{[key in string]: string | number | null | undefined}>
 >;
 
 type GroupSet = Array<{

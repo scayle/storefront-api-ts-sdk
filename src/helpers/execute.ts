@@ -32,7 +32,7 @@ function prepareUrl(
 
 export interface BapiResponse<T> {
   statusCode: number;
-  headers: {[key: string]: string | undefined};
+  headers: {[]: string | undefined};
   url: string;
   data: T;
 }
@@ -47,7 +47,7 @@ export async function execute<SuccessResponseT>(
     username: string;
     password: string;
   },
-  additionalHeaders?: Record<string, string | undefined>,
+  additionalHeaders?: ObjectMap<string>,
   axiosAdapter?: AxiosAdapter,
 ): Promise<BapiResponse<SuccessResponseT>> {
   const params =
