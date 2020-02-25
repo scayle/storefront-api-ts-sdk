@@ -115,7 +115,7 @@ export interface Value {
   value?: string;
 }
 
-export type AdvancedAttributes = ObjectMap<AdvancedAttribute | undefined>;
+export type AdvancedAttributes = ObjectMap<AdvancedAttribute>;
 
 export type AdvancedAttribute = {
   id: number | null;
