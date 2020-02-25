@@ -1,7 +1,7 @@
 export interface BapiCategoryProperty {
-  name: string,
-  value: string,
-  is_inheritable?: 1 | 0,
+  name: string;
+  value: string;
+  is_inheritable?: 1 | 0;
 }
 
 export interface BapiCategory {
