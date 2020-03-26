@@ -87,6 +87,10 @@ import {
   SearchMappingsEndpointResponseData,
 } from 'bapi/endpoints/search/mappings';
 import {AxiosAdapter} from 'axios';
+import {
+  VariantsByIdsEndpointParameters,
+  createVariantsByIdsEndpointRequest,
+} from 'bapi/endpoints/variants/variantsByIds';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -640,6 +644,23 @@ export class BapiClient {
     },
     mappings: (term: string): Promise<SearchMappingsEndpointResponseData> => {
       return this.execute(createrSearchMappingsEndpointRequest({term}));
+    },
+  };
+
+  public readonly variants = {
+    getByIds: async (
+      variantIds: number[],
+      params: Omit<VariantsByIdsEndpointParameters, 'variantIds'> = {},
+    ): Promise<(Variant & {productId: number})[]> => {
+      if (variantIds.length === 0) {
+        return [];
+      }
+
+      const response = await this.execute(
+        createVariantsByIdsEndpointRequest({...params, variantIds}),
+      );
+
+      return response.entities;
     },
   };
 }
