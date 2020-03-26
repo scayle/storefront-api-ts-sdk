@@ -90,6 +90,7 @@ import {AxiosAdapter} from 'axios';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
+  VariantDetail,
 } from 'bapi/endpoints/variants/variantsByIds';
 
 // TODO: Also account for unexpected cases, where no basket is returned
@@ -651,7 +652,7 @@ export class BapiClient {
     getByIds: async (
       variantIds: number[],
       params: Omit<VariantsByIdsEndpointParameters, 'variantIds'> = {},
-    ): Promise<(Variant & {productId: number})[]> => {
+    ): Promise<VariantDetail[]> => {
       if (variantIds.length === 0) {
         return [];
       }

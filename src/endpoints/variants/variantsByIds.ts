@@ -14,9 +14,12 @@ export interface VariantsByIdsEndpointParameters {
 }
 
 export interface VariantsByIdsEndpointResponseData {
-  entities: (Variant & {productId: number})[];
+  entities: VariantDetail[];
   pagination: Pagination;
 }
+
+// Variant as returned by the `/variants` endpoint
+export type VariantDetail = Variant & {productId: number};
 
 export function createVariantsByIdsEndpointRequest(
   parameters: VariantsByIdsEndpointParameters,

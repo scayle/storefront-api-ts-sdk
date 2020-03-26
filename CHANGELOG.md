@@ -1,5 +1,9 @@
 # Changelog
 
+### 4.1.0
+
+- Add `variants.getByIds` to `BapiClient`
+
 ### 4.0.1
 
 - Fix types for the `BapiProductCategory` and `BapiCategory`
