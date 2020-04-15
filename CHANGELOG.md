@@ -1,5 +1,9 @@
 # Changelog
 
+### 5.0.0
+
+- Remove support for `/masters` endpoint
+
 ### 4.1.1
 
 - Add `minProductId` to `ProductsSearchEndpointParameters`

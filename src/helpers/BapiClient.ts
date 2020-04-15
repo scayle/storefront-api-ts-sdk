@@ -66,16 +66,6 @@ import {execute} from 'bapi/helpers/execute';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {BapiCategory} from 'bapi/types/BapiCategory';
 import {BapiProduct, Variant} from 'bapi/types/BapiProduct';
-import {
-  MastersSearchEndpointParameters,
-  MastersSearchEndpointResponseData,
-  createMastersSearchEndpointRequest,
-} from 'bapi/endpoints/masters/query';
-import {
-  createMasterByIdEndpointRequest,
-  MasterByKeyEndpointResponseData,
-  MasterByKeyEndpointParameters,
-} from 'bapi/endpoints/masters/getByKey';
 import {ModeledBapiClient, ProductMapping} from './ModeledBapiClient';
 import {
   SearchSuggestionsEndpointParameters,
@@ -616,22 +606,6 @@ export class BapiClient {
           itemKey,
         }),
       ),
-  };
-
-  public readonly masters = {
-    query: (
-      params: MastersSearchEndpointParameters = {},
-    ): Promise<MastersSearchEndpointResponseData> => {
-      return this.execute(createMastersSearchEndpointRequest(params));
-    },
-    getByKey: (
-      masterKey: string,
-      params: Omit<MasterByKeyEndpointParameters, 'masterKey'> = {},
-    ): Promise<MasterByKeyEndpointResponseData> => {
-      return this.execute(
-        createMasterByIdEndpointRequest({...params, masterKey}),
-      );
-    },
   };
 
   public readonly search = {
