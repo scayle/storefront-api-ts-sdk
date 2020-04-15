@@ -48,6 +48,8 @@ export interface ProductsSearchEndpointParameters {
   includeSoldOut?: boolean;
 
   pricePromotionKey?: string;
+
+  minProductId?: number;
 }
 
 export interface ProductsSearchEndpointResponseData {
@@ -107,6 +109,10 @@ export function createProductsSearchEndpointRequest(
 
       ...(parameters.includeSoldOut
         ? {includeSoldOut: parameters.includeSoldOut}
+        : undefined),
+
+      ...(parameters.minProductId
+        ? {minProductId: parameters.minProductId}
         : undefined),
     },
   };

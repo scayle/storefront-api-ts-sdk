@@ -1,5 +1,9 @@
 # Changelog
 
+### 4.1.1
+
+- Add `minProductId` to `ProductsSearchEndpointParameters`
+
 ### 4.1.0
 
 - Add `variants.getByIds` to `BapiClient`
