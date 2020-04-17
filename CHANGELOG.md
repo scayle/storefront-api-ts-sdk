@@ -1,5 +1,9 @@
 # Changelog
 
+### 5.1.0
+
+- Adds support for the `/filters/:groupName/values` endpoint
+
 ### 5.0.0
 
 - Remove support for `/masters` endpoint
