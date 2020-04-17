@@ -31,7 +31,7 @@ Object {
 `);
 });
 
-it('adds any product filter query param', () => {
+it('adds any product filter query param to the request', () => {
   expect(
     createFilterValuesEndpointRequest({
       groupName: 'brands',
