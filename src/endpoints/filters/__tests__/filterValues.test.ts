@@ -14,7 +14,7 @@ Object {
 `);
 });
 
-it('adds the campaignKey to the params', () => {
+it('adds the campaignKey to the request params', () => {
   expect(
     createFilterValuesEndpointRequest({
       groupName: 'brands',
