@@ -1,6 +1,6 @@
 import {createFilterValuesEndpointRequest} from '../filterValues';
 
-it('build correct endpoint request', () => {
+it('builds correct endpoint request', () => {
   expect(
     createFilterValuesEndpointRequest({
       groupName: 'brands',
