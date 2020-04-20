@@ -179,7 +179,7 @@ export class BapiClient {
       axiosAdapter?: AxiosAdapter;
     },
   ) {
-    this.shopIdPlacement = env.shopIdPlacement || 'header';
+    this.shopIdPlacement = env.shopIdPlacement || 'query';
   }
 
   public static withModels<T extends ProductMapping>(
