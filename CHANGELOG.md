@@ -4,7 +4,7 @@
 
 - Align the parameters across `BapiClient.categories.*` methods
   - The `depth` parameter is now send to BAPI in all cases, even though it's not needed for every case (e.g. requesting categories by IDs wouldn't include children, unless those where specified using the `with` parameter). This is done to have a consistent behavior across the SDK methods, and not be reliant on per endpoint behavior in BAPI.
-  - The legacy of not returning the whole category tree by default when requesting the root categories (`BapiClient.categories.getRoots`) is kept. Pass an explicit `children` parameter (e.g. `1000`) to request the whole tree.
+  - The legacy behavior of not returning the whole category tree by default when requesting the root categories (`BapiClient.categories.getRoots`) is kept. Pass an explicit `children` parameter (e.g. `1000`) to request the whole tree.
 
 ### 5.0.0
 
