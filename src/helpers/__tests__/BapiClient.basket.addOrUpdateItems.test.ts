@@ -22,6 +22,7 @@ it('BapiClient.addOrUpdateItems: Does nothing for new variant with quantity 0', 
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -70,6 +71,7 @@ it('BapiClient.addOrUpdateItems: Deletes existing variant variant with quantity 
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -124,6 +126,7 @@ it('BapiClient.addOrUpdateItems: Creates new item for new variant', async () => 
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -166,6 +169,7 @@ it('BapiClient.addOrUpdateItems: Handles failures (responding with the last bask
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -230,6 +234,7 @@ it('BapiClient.addOrUpdateItems: Replaces existing item with combined quantity (
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -293,6 +298,7 @@ it('BapiClient.addOrUpdateItems: Replaces existing item (with origin quantity, u
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';

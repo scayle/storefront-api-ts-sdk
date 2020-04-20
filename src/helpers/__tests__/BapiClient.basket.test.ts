@@ -17,6 +17,7 @@ it('Get basket', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -45,6 +46,7 @@ it('Get basket with error', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -60,6 +62,7 @@ it('Basket: Add same variant twice', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -104,6 +107,7 @@ it('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -131,6 +135,7 @@ it('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -158,6 +163,7 @@ it('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -185,6 +191,7 @@ it('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -212,6 +219,7 @@ it('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -239,6 +247,7 @@ it('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -266,6 +275,7 @@ it('Basket: Add same variant twice', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   nockWithBapiScope({shopIdHeader: true})
@@ -284,6 +294,7 @@ it('Basket: Update item quantity', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   nockWithBapiScope({shopIdHeader: true})
@@ -308,6 +319,7 @@ it('Basket: Update item failure', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
+    shopIdPlacement: 'header',
   });
 
   nockWithBapiScope({shopIdHeader: true})

@@ -18,7 +18,6 @@ it('Gets variants by ID', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.variants.getByIds([33815815, 33815816]);

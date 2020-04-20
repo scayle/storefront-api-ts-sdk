@@ -22,7 +22,6 @@ it('Gets product by ID', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.products.getById(4001039);
@@ -41,7 +40,6 @@ it('Gets products by IDs', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.products.getByIds([4001039, 4001029]);
@@ -62,7 +60,6 @@ it('Queries products', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.products.query({
@@ -90,7 +87,6 @@ it('Queries products with price range', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.products.getById(3849870, {

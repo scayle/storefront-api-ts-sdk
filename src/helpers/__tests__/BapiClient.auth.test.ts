@@ -28,7 +28,6 @@ it('Get basket', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 123,
-    shopIdPlacement: 'query',
     auth: {
       username: 'user1',
       password: 'secret',

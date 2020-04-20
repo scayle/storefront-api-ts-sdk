@@ -18,7 +18,6 @@ it('Gets category by ID', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.categories.getById(20201);
@@ -38,7 +37,6 @@ it('Gets categories by IDs', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.categories.getByIds([20201, 20204]);
@@ -58,7 +56,6 @@ it('Gets categories by ID (including hidden)', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.categories.getById(20201, {
@@ -80,7 +77,6 @@ it('Gets category by path', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.categories.getByPath(['frauen', 'bekleidung']);
@@ -100,7 +96,6 @@ it('Gets root categories wishlist', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.categories.getRoots();

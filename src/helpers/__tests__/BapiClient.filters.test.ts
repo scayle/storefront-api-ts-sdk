@@ -17,7 +17,6 @@ it('Gets filters (with values by default)', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const filtersResponse = await bapi.filters.get({where: {categoryId: 20202}});

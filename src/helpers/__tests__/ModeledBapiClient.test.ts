@@ -6,13 +6,13 @@ import {
 } from 'bapi/test-helpers/nock';
 import {BapiClient} from '../BapiClient';
 
-disableNetAndAllowBapiCors({shopIdHeader: true});
+disableNetAndAllowBapiCors();
 
 it('Get basket', async () => {
-  nockWithBapiScope({shopIdHeader: true})
+  nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(
-      '/v1/products/1?with=attributes%3Akey%28name%7Ccolor%7CquantityPerPack%7CisVisible%29%2CadvancedAttributes%3Akey%28minPrice%7Cname%7CbulletPoints%7CmaterialCompositionTextile%29%2Cvariants%2Cvariants.attributes%3Akey%28shopSize%29%2Cimages.attributes%3Alegacy%28false%29',
+      '/v1/products/1?with=attributes%3Akey%28name%7Ccolor%7CquantityPerPack%7CisVisible%29%2CadvancedAttributes%3Akey%28minPrice%7Cname%7CbulletPoints%7CmaterialCompositionTextile%29%2Cvariants%2Cvariants.attributes%3Akey%28shopSize%29%2Cimages.attributes%3Alegacy%28false%29&shopId=139',
     )
     .replyWithFile(200, __dirname + '/responses/product.json', {
       'Content-Type': 'application/json',
