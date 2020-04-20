@@ -17,7 +17,6 @@ it('Get basket', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 123,
-    shopIdPlacement: 'query',
   });
 
   const basketKey = 'customer_2137901';
