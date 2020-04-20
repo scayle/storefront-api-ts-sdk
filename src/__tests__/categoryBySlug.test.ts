@@ -26,7 +26,7 @@ test('Fetch category by id', async () => {
     createCategoryBySlugEndpointRequest({
       slugPath: ['frauen', 'bekleidung', 'jeans', 'slim-fit'],
       with: {
-        children: {depth: 1},
+        children: 1,
       },
     }),
   );

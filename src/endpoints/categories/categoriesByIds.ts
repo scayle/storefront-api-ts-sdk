@@ -1,10 +1,32 @@
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {BapiCategory} from 'bapi/types/BapiCategory';
+import {
+  CategoryEndpointsParameters,
+  parametersForCategoryEndpoint,
+} from './categoryEndpointsParameter';
 
-export interface CategoriesByIdsEndpointParameters {
+export interface CategoriesByIdsEndpointParameters
+  extends CategoryEndpointsParameters {
   categoryIds: number[];
-  depth?: number;
-  includeHidden?: true;
+
+  with?: {
+    // Whether or not to include the parents (up to the root node)
+    parents?: 'all';
+
+    // Relative level of children can't be set on this endpoint
+    // see https://jira.collins.kg/browse/BAPI-2101
+    children?: undefined;
+
+    // The maximum absolute depths of the leaf categories to include
+    //
+    // If this category has a depth of `n`, and `absoluteDepth <= n` would not include any children
+    // Use `absoluteDepth = n + 1` to include 1 level of children etc.
+    absoluteDepth?: number;
+  };
+
+  // `includeHidden` is currently not working on this endpoint
+  // see https://jira.collins.kg/browse/BAPI-413
+  includeHidden?: undefined;
 }
 
 export type CategoriesByIdsEndpointResponseData = BapiCategory[];
@@ -12,12 +34,9 @@ export type CategoriesByIdsEndpointResponseData = BapiCategory[];
 /**
  * Retrieve categories by their IDs
  *
- * Includes the legacy `depth` parameter (1 for the categories itself, 2 for level of children, etc.)
- * and no further parameters, as the backend implementation is not yet fully aligned with the single
- * category by ID endpoint options
- *
- * If no `depth` parameter is provided, the response will include *all* children in the tree
- */
+ * The `with.children` parameter on this endpoint is not supported,
+ * use the alternate `with.absoluteDepth` instead.
+ **/
 export function createCategoriesByIdsEndpointRequest(
   parameters: CategoriesByIdsEndpointParameters,
 ): BapiCall<CategoriesByIdsEndpointResponseData> {
@@ -26,14 +45,19 @@ export function createCategoriesByIdsEndpointRequest(
     endpoint: `categories`,
     params: {
       ids: parameters.categoryIds.join(`,`),
-      ...(parameters.depth && parameters.depth > 1
-        ? {with: 'children'}
-        : undefined),
-      ...(parameters.depth !== undefined
-        ? {depth: parameters.depth}
-        : undefined),
-      ...(parameters.includeHidden ? {showHidden: 'true'} : undefined),
-      // TODO: `showHidden` not implemented correctly yet, see https://jira.collins.kg/browse/BAPI-413
+      ...parametersForCategoryEndpoint({
+        ...parameters,
+        with: {
+          ...parameters.with,
+
+          // Set children here to `absoluteDepth - 1` as we map from absolute depth to `levels of children` depth
+          // (meaning `+1` will be added again further down the call chain)
+          children:
+            parameters.with?.absoluteDepth !== undefined
+              ? Math.max(parameters.with.absoluteDepth - 1, 0)
+              : undefined,
+        },
+      }),
     },
   };
 }

@@ -20,9 +20,7 @@ test('Fetch category by id', async () => {
     139,
     createCategoriesEndpointRequest({
       with: {
-        children: {
-          depth: 1,
-        },
+        children: 1,
       },
     }),
   );
@@ -71,22 +69,10 @@ Object {
   },
 }
 `);
-
-  expect(createCategoriesEndpointRequest({with: {parents: 'all'}}))
-    .toMatchInlineSnapshot(`
-Object {
-  "endpoint": "categories",
-  "method": "GET",
-  "params": Object {
-    "depth": 1,
-    "with": "parents",
-  },
-}
-`);
 });
 
 test('Fetch categories (with explicit depth)', async () => {
-  expect(createCategoriesEndpointRequest({with: {children: {depth: 1}}}))
+  expect(createCategoriesEndpointRequest({with: {children: 1}}))
     .toMatchInlineSnapshot(`
 Object {
   "endpoint": "categories",
@@ -100,7 +86,8 @@ Object {
 
   expect(
     createCategoriesEndpointRequest({
-      with: {children: {depth: 1, includeHidden: true}},
+      with: {children: 1},
+      includeHidden: true,
     }),
   ).toMatchInlineSnapshot(`
 Object {
