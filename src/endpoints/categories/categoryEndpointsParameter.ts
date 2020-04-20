@@ -48,9 +48,6 @@ function categoryWithQueryParameters(
 
   return {
     ...(withParams.length > 0 ? {with: withParams.join(',')} : undefined),
-    // ...(categoryWith.children !== undefined
-    //   ? {depth: categoryWith.children + 1}
-    //   : undefined),
     depth: (categoryWith.children ?? 0) + 1,
   };
 }
