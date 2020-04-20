@@ -7,6 +7,8 @@
   - The legacy behavior of not returning the whole category tree by default when requesting the root categories (`BapiClient.categories.getRoots`) is kept. Pass an explicit `children` parameter (e.g. `1000`) to request the whole tree.
   - `BapiClient.categories.getByIds` and `createCategoriesByIdsEndpointRequest` used to take a `depth` parameter which mapped directly to the BAPI HTTP API `depth` parameter. This has now been removed in favor of `with.children`, which specifies the additional levels of children that should be loaded. Set `with.children` to `"previous depth" - 1` when upgrading to this version.
 
+- Adds support for the `/filters/:groupName/values` endpoint
+
 ### 5.0.0
 
 - Remove support for `/masters` endpoint
