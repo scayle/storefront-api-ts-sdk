@@ -62,7 +62,7 @@ it('Gets cateogires by IDs (including hidden)', async () => {
   });
 
   const response = await bapi.categories.getByIds([20201, 20204], {
-    includeHidden: true,
+    with: {children: 1},
   });
 
   expect(response.length).toBe(2);

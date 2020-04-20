@@ -1,10 +1,27 @@
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {BapiCategory} from 'bapi/types/BapiCategory';
+import {
+  CategoryEndpointsParameters,
+  parametersForCategoryEndpoint,
+} from './categoryEndpointsParameter';
 
-export interface CategoriesByIdsEndpointParameters {
+export interface CategoriesByIdsEndpointParameters
+  extends CategoryEndpointsParameters {
   categoryIds: number[];
-  depth?: number;
-  includeHidden?: true;
+
+  with?: {
+    // Whether or not to include the parents (up to the root node)
+    parents?: 'all';
+
+    // How many levels of children to load
+    //
+    // 0 means no children, 1 means 1 level of children, etc.
+    children?: number;
+  };
+
+  // `includeHidden` is currently not working on this endpoint
+  // see https://jira.collins.kg/browse/BAPI-413
+  includeHidden?: undefined;
 }
 
 export type CategoriesByIdsEndpointResponseData = BapiCategory[];
@@ -26,14 +43,7 @@ export function createCategoriesByIdsEndpointRequest(
     endpoint: `categories`,
     params: {
       ids: parameters.categoryIds.join(`,`),
-      ...(parameters.depth && parameters.depth > 1
-        ? {with: 'children'}
-        : undefined),
-      ...(parameters.depth !== undefined
-        ? {depth: parameters.depth}
-        : undefined),
-      ...(parameters.includeHidden ? {showHidden: 'true'} : undefined),
-      // TODO: `showHidden` not implemented correctly yet, see https://jira.collins.kg/browse/BAPI-413
+      ...parametersForCategoryEndpoint(parameters),
     },
   };
 }

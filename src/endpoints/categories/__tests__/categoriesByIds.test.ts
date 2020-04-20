@@ -18,7 +18,7 @@ Object {
   expect(
     createCategoriesByIdsEndpointRequest({
       categoryIds: [1, 2],
-      depth: 1,
+      with: {children: 0},
     }),
   ).toMatchInlineSnapshot(`
 Object {
@@ -34,7 +34,7 @@ Object {
   expect(
     createCategoriesByIdsEndpointRequest({
       categoryIds: [1, 2],
-      depth: 2,
+      with: {children: 1},
     }),
   ).toMatchInlineSnapshot(`
 Object {
@@ -43,23 +43,7 @@ Object {
   "params": Object {
     "depth": 2,
     "ids": "1,2",
-    "with": "children",
-  },
-}
-`);
-
-  expect(
-    createCategoriesByIdsEndpointRequest({
-      categoryIds: [3, 4],
-      includeHidden: true,
-    }),
-  ).toMatchInlineSnapshot(`
-Object {
-  "endpoint": "categories",
-  "method": "GET",
-  "params": Object {
-    "ids": "3,4",
-    "showHidden": "true",
+    "with": "descendants",
   },
 }
 `);
