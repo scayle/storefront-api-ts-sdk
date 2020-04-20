@@ -82,6 +82,10 @@ import {
   createVariantsByIdsEndpointRequest,
   VariantDetail,
 } from 'bapi/endpoints/variants/variantsByIds';
+import {
+  FilterValuesEndpointParameters,
+  createFilterValuesEndpointRequest,
+} from 'bapi/endpoints/filters/filterValues';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -531,6 +535,17 @@ export class BapiClient {
   public readonly filters = {
     get: (params: FiltersEndpointParameters) =>
       this.execute(createFiltersEndpointRequest(params)),
+
+    getValues: (
+      groupName: string,
+      params: Omit<FilterValuesEndpointParameters, 'groupName'>,
+    ) =>
+      this.execute(
+        createFilterValuesEndpointRequest({
+          groupName: groupName,
+          ...params,
+        }),
+      ),
   };
 
   public readonly products = {

@@ -5,9 +5,7 @@ it('Builds correct query', () => {
     createCategoryBySlugEndpointRequest({
       slugPath: ['frauen', 'bekleidung'],
       with: {
-        children: {
-          depth: 2,
-        },
+        children: 2,
       },
     }),
   ).toMatchInlineSnapshot(`
@@ -25,11 +23,9 @@ Object {
     createCategoryBySlugEndpointRequest({
       slugPath: ['frauen', 'bekleidung'],
       with: {
-        children: {
-          depth: 2,
-          includeHidden: true,
-        },
+        children: 2,
       },
+      includeHidden: true,
     }),
   ).toMatchInlineSnapshot(`
 Object {

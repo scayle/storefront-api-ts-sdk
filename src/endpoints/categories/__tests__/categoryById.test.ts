@@ -5,11 +5,9 @@ it('Builds correct query', () => {
     createCategoryByIdEndpointRequest({
       categoryId: 1234,
       with: {
-        children: {
-          depth: 2,
-          includeHidden: true,
-        },
+        children: 2,
       },
+      includeHidden: true,
     }),
   ).toMatchInlineSnapshot(`
 Object {
