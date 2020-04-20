@@ -1,5 +1,10 @@
 # Changelog
 
+### 6.0.0
+
+- Align the parameters across `BapiClient.categories.*` methods
+  - The `depth` parameter is now send to BAPI in all cases, even though it's not needed for every case (e.g. requesting categories by IDs wouldn't include children, unless those where specified using the `with` parameter). But this is done to keep the behavior of not loading all children by default for the root categories, unless explicitly requested.
+
 ### 5.0.0
 
 - Remove support for `/masters` endpoint
