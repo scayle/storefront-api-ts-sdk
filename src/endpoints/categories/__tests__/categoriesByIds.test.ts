@@ -10,6 +10,7 @@ Object {
   "endpoint": "categories",
   "method": "GET",
   "params": Object {
+    "depth": 1,
     "ids": "1,2",
   },
 }

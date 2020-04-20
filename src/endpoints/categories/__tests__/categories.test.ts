@@ -14,11 +14,9 @@ Object {
   expect(
     createCategoriesEndpointRequest({
       with: {
-        children: {
-          depth: 2,
-          includeHidden: true,
-        },
+        children: 2,
       },
+      includeHidden: true,
     }),
   ).toMatchInlineSnapshot(`
 Object {

@@ -14,9 +14,6 @@ export interface RootCategoriesEndpointParameters
     children?: number;
   };
 
-  // 1 means just the requested categories, 2 means requested categories and 1 level of children, etc.
-  depth?: number;
-
   // If `true`, hidden categories will be returned
   //
   // This is needed even if the hidden category is requested by ID or slug directly
@@ -25,7 +22,8 @@ export interface RootCategoriesEndpointParameters
 
 // Returns a request to load the root categories
 //
-// By default includes all children if no
+// Unlike the plain BAPI API, this does not load all children by default
+// Use `with.children` to specify how many levels of children to load
 export function createCategoriesEndpointRequest(
   params: RootCategoriesEndpointParameters = {},
 ): BapiCall<BapiCategory[]> {

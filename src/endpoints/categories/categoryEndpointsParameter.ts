@@ -29,10 +29,7 @@ export function parametersForCategoryEndpoint(
 function categoryWithQueryParameters(
   categoryWith?: CategoryEndpointsParameters['with'],
 ): {with?: string; depth?: number; showHidden?: 'true'} {
-  if (
-    !categoryWith ||
-    (!categoryWith.parents && categoryWith.children == undefined)
-  ) {
+  if (!categoryWith) {
     return {
       depth: 1,
     };
@@ -51,6 +48,9 @@ function categoryWithQueryParameters(
 
   return {
     ...(withParams.length > 0 ? {with: withParams.join(',')} : undefined),
+    // ...(categoryWith.children !== undefined
+    //   ? {depth: categoryWith.children + 1}
+    //   : undefined),
     depth: (categoryWith.children ?? 0) + 1,
   };
 }
