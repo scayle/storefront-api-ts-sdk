@@ -17,6 +17,7 @@ describe('Axios adapter', () => {
       host: 'https://api-cloud.example.com/v1/',
       shopId: 139,
       axiosAdapter: mock.adapter(),
+      shopIdPlacement: 'header',
     });
 
     const basketKey = 'customer_2137901';

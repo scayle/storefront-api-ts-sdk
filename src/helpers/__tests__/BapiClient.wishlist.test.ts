@@ -19,7 +19,6 @@ it('Gets the wishlist', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.wishlist.get('wishlist_1');
@@ -41,7 +40,6 @@ it('Adds an item to the wishlist', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.wishlist.addItem('wishlist_1', {
@@ -69,7 +67,6 @@ it('Additem failure', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.wishlist.addItem('wishlist_1', {
@@ -98,7 +95,6 @@ it('Deletes an item from the wishlist', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-    shopIdPlacement: 'query',
   });
 
   const response = await bapi.wishlist.deleteItem('wishlist_1', 'item_1');
