@@ -19,7 +19,7 @@ Object {
   expect(
     createCategoriesByIdsEndpointRequest({
       categoryIds: [1, 2],
-      with: {children: 0},
+      with: {absoluteDepth: 0},
     }),
   ).toMatchInlineSnapshot(`
 Object {
@@ -35,7 +35,7 @@ Object {
   expect(
     createCategoriesByIdsEndpointRequest({
       categoryIds: [1, 2],
-      with: {children: 1},
+      with: {absoluteDepth: 2},
     }),
   ).toMatchInlineSnapshot(`
 Object {
