@@ -1,13 +1,13 @@
 {
   "name": "@aboutyou/backbone",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
-    "@types/axios": "^0.14.0",
     "@types/jest": "^23.3.3",
     "@types/nock": "^9.3.0",
     "@types/query-string": "^6.1.0",
-    "axios-mock-adapter": "^1.17.0",
+    "axios": "^0.19.2",
+    "axios-mock-adapter": "^1.18.1",
     "jest": "^23.6.0",
     "nock": "^10.0.0",
     "prettier": "^1.19.0",
@@ -27,7 +27,9 @@
     "ts-check": "tsc --noEmit -w"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "query-string": "^6.2.0"
+  },
+  "peerDependencies": {
+    "axios": ">=0.18.0 <1.0.0"
   }
 }
