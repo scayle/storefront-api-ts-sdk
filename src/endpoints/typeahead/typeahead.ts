@@ -15,6 +15,15 @@ export interface TypeaheadSuggestionsEndpointRequestParameters {
   with?: {
     // The `with` includes user for all returned products
     products?: ProductWith;
+    // The `with` includes user for all returned categories
+    categories?: {
+      parents?: 'all';
+
+      // How many levels of children to load
+      //
+      // 0 means no children, 1 means 1 level of children, etc.
+      children?: number;
+    };
   };
 }
 
@@ -121,7 +130,16 @@ export function createTypeaheadSuggestionsEndpointRequest(
               productWithQueryParameterValues(parameters.with?.products),
             )
           : []),
+        ...(parameters.with?.categories?.parents == 'all'
+          ? ['category.parents']
+          : []),
+
+        ...(parameters.with?.categories?.children ? ['category.children'] : []),
       ].join(`,`),
+
+      ...(parameters.with?.categories?.children
+        ? {categoryDepth: parameters.with?.categories?.children + 1}
+        : undefined),
     },
   };
 }
