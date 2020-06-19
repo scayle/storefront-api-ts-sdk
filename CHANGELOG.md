@@ -1,5 +1,10 @@
 # Changelog
 
+### Unreleased
+
+- Export `BasketItemPrice` and `BasketTotalPrice` ([28](https://gitlab.com/aboutyou/cloud-core/backbone-ts/-/merge_requests/28))
+  - Thanks to [@sqonde](https://gitlab.com/sqonde) for contributing this fix
+
 ### 8.0.0
 
 - The `axios` library is now a peer dependency, so you can specify the version to be used in the consumer's `package.json`.
