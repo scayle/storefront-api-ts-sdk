@@ -1,5 +1,11 @@
 # Changelog
 
+### 8.0.0
+
+- The `axios` library is now a peer dependency, so you can specify the version to be used in the consumer's `package.json`.
+- `depth` is now exposed on the category response type
+- `skipAvailabilityCheck` can now be specified for basket requests
+
 ### 7.0.0
 
 - `BapiClient`: Change the default `shopID` placement to be `query`, which avoids `CORS` `OPTIONS` requests for `GET` requests.

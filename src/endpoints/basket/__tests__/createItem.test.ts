@@ -186,3 +186,26 @@ Object {
 }
 `);
 });
+
+it('Builds correct query with skip availability', () => {
+  expect(
+    createBasketItemRequest({
+      basketKey: 'basket1',
+      variantId: 1235,
+      quantity: 1,
+      skipAvailabilityCheck: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "quantity": 1,
+    "variantId": 1235,
+  },
+  "endpoint": "baskets/basket1/items",
+  "method": "POST",
+  "params": Object {
+    "skipAvailabilityCheck": true,
+  },
+}
+`);
+});
