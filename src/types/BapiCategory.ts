@@ -19,4 +19,5 @@ export interface BapiCategory {
 
   children?: BapiCategory[];
   parent?: BapiCategory;
+  depth: number;
 }
