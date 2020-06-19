@@ -16,6 +16,7 @@ export interface CreateBasketItemParameters {
   displayData?: BasketItemDisplayData;
   pricePromotionKey?: string;
   campaignKey?: 'px' | undefined;
+  skipAvailabilityCheck?: boolean;
 }
 
 export function createBasketItemRequest(
@@ -33,6 +34,9 @@ export function createBasketItemRequest(
         ? {with: basketWithQueryParameter(params.with).join(',')}
         : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
+      ...(params.skipAvailabilityCheck
+        ? {skipAvailabilityCheck: params.skipAvailabilityCheck}
+        : undefined),
     },
     data: {
       variantId: params.variantId,
