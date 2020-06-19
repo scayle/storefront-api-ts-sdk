@@ -13,7 +13,7 @@ export interface TypeaheadSuggestionsEndpointRequestParameters {
   campaignKey?: 'px' | undefined;
 
   with?: {
-    // The `with` includes applied to all returned products
+    // The `with` includes user for all returned products
     products?: ProductWith;
   };
 }
