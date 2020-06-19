@@ -13,9 +13,9 @@ export interface TypeaheadSuggestionsEndpointRequestParameters {
   campaignKey?: 'px' | undefined;
 
   with?: {
-    // The `with` includes user for all returned products
+    // The `with` includes used for all returned products
     products?: ProductWith;
-    // The `with` includes user for all returned categories
+    // The `with` includes used for all returned categories
     categories?: {
       parents?: 'all';
 
