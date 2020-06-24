@@ -1,15 +1,20 @@
 # Changelog
 
-### Unreleased
+### 9.0.0
 
+- Move `axios` back to a normal dependency, but with a wide range of versions supported, so consumers define which exact version should be used easily
 - Export `BasketItemPrice` and `BasketTotalPrice` ([28](https://gitlab.com/aboutyou/cloud-core/backbone-ts/-/merge_requests/28))
   - Thanks to [@sqonde](https://gitlab.com/sqonde) for contributing this fix
+- Expose `/typeahead` API endpoint methods
+
+### 8.0.1
+
+- `depth` is now exposed on the category response type
+- `skipAvailabilityCheck` can now be specified for basket requests
 
 ### 8.0.0
 
 - The `axios` library is now a peer dependency, so you can specify the version to be used in the consumer's `package.json`.
-- `depth` is now exposed on the category response type
-- `skipAvailabilityCheck` can now be specified for basket requests
 
 ### 7.0.0
 
@@ -27,7 +32,7 @@
 
 ### 5.0.0
 
-- Remove support for `/masters` endpoint
+- Remove support for `/masters` endpoisrc/endpoints/typeahead/typeahead.tsnt
 
 ### 4.1.1
 

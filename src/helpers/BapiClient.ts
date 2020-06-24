@@ -86,6 +86,11 @@ import {
   FilterValuesEndpointParameters,
   createFilterValuesEndpointRequest,
 } from 'bapi/endpoints/filters/filterValues';
+import {
+  TypeaheadSuggestionsEndpointRequestParameters,
+  createTypeaheadSuggestionsEndpointRequest,
+  TypeaheadSuggestionsEndpointResponseData,
+} from 'bapi/endpoints/typeahead/typeahead';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -634,6 +639,17 @@ export class BapiClient {
     },
     mappings: (term: string): Promise<SearchMappingsEndpointResponseData> => {
       return this.execute(createrSearchMappingsEndpointRequest({term}));
+    },
+  };
+
+  public readonly typeahead = {
+    suggestions: (
+      term: string,
+      params: Omit<TypeaheadSuggestionsEndpointRequestParameters, 'term'> = {},
+    ): Promise<TypeaheadSuggestionsEndpointResponseData> => {
+      return this.execute(
+        createTypeaheadSuggestionsEndpointRequest({...params, term}),
+      );
     },
   };
 
