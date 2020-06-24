@@ -5,6 +5,7 @@
 - Move `axios` back to a normal dependency, but with a wide range of versions supported, so consumers define which exact version should be used easily
 - Export `BasketItemPrice` and `BasketTotalPrice` ([28](https://gitlab.com/aboutyou/cloud-core/backbone-ts/-/merge_requests/28))
   - Thanks to [@sqonde](https://gitlab.com/sqonde) for contributing this fix
+- Expose `/typeahead` API endpoint methods
 
 ### 8.0.1
 
@@ -31,7 +32,7 @@
 
 ### 5.0.0
 
-- Remove support for `/masters` endpoint
+- Remove support for `/masters` endpoisrc/endpoints/typeahead/typeahead.tsnt
 
 ### 4.1.1
 
