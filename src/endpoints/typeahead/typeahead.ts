@@ -10,7 +10,8 @@ import {prefixList} from 'bapi/helpers/attributes';
 export interface TypeaheadSuggestionsEndpointRequestParameters {
   term: string;
 
-  campaignKey?: 'px' | undefined;
+  // Not enabled on BAPI side yet
+  // campaignKey?: 'px' | undefined;
 
   with?: {
     // The `with` includes used for all returned products
@@ -123,9 +124,9 @@ export function createTypeaheadSuggestionsEndpointRequest(
     params: {
       term: parameters.term,
 
-      ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
-        : undefined),
+      // ...(parameters.campaignKey
+      //   ? {campaignKey: parameters.campaignKey}
+      //   : undefined),
 
       with: [
         ...(parameters.with?.products
