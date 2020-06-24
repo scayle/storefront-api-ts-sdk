@@ -99,10 +99,7 @@ export interface BrandOrCategorySuggestion {
     // available for all non-fake attributes
     id?: number;
     name: string;
-    values: Array<{
-      id: number;
-      name: string;
-    }>;
+    values: number[];
   }>;
 
   /**
