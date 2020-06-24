@@ -25,6 +25,12 @@ export interface TypeaheadSuggestionsEndpointRequestParameters {
       children?: number;
     };
   };
+
+  // Category ID under which to search
+  categoryId?: number;
+
+  // Maximum number of products to be returned
+  productLimit?: number;
 }
 
 export type TypeaheadSuggestionsEndpointResponseData = {
@@ -112,7 +118,7 @@ export function createTypeaheadSuggestionsEndpointRequest(
   parameters: TypeaheadSuggestionsEndpointRequestParameters,
 ): BapiCall<TypeaheadSuggestionsEndpointResponseData> {
   return {
-    method: 'GET',
+    method: 'POST',
     endpoint: `typeahead`,
     params: {
       term: parameters.term,
@@ -136,6 +142,14 @@ export function createTypeaheadSuggestionsEndpointRequest(
 
       ...(parameters.with?.categories?.children
         ? {categoryDepth: parameters.with?.categories?.children + 1}
+        : undefined),
+    },
+    data: {
+      ...(parameters.categoryId
+        ? {categoryId: parameters.categoryId}
+        : undefined),
+      ...(parameters.productLimit != null
+        ? {limit: parameters.productLimit}
         : undefined),
     },
   };
