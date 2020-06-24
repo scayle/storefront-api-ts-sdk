@@ -1,8 +1,10 @@
 # Changelog
 
-### 8.1.0
+### 9.0.0
 
-- Expose new `/typeahead` endpoint
+- Move `axios` back to a normal dependency, but with a wide range of versions supported, so consumers define which exact version should be used easily
+- Export `BasketItemPrice` and `BasketTotalPrice` ([28](https://gitlab.com/aboutyou/cloud-core/backbone-ts/-/merge_requests/28))
+  - Thanks to [@sqonde](https://gitlab.com/sqonde) for contributing this fix
 
 ### 8.0.1
 

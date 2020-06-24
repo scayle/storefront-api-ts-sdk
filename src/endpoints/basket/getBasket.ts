@@ -8,9 +8,9 @@ import {
   variantWithQueryParameterValues,
 } from 'bapi/types/ProductWith';
 
-type BasketItemPrice = Omit<BapiPrice, 'tax'>;
+export type BasketItemPrice = Omit<BapiPrice, 'tax'>;
 
-type BasketTotalPrice = Omit<BapiPrice, 'tax' | 'reference'>;
+export type BasketTotalPrice = Omit<BapiPrice, 'tax' | 'reference'>;
 
 export type BasketKey = string & {
   readonly ____tagBasketKey: unique symbol;
