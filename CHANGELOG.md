@@ -1,5 +1,10 @@
 # Changelog
 
+### 9.1.0
+
+- Expose `referenceKey` on BAPI
+- Expose `products.byReferenceKeys` on `BAPIClient`
+
 ### 9.0.0
 
 - Move `axios` back to a normal dependency, but with a wide range of versions supported, so consumers define which exact version should be used easily
