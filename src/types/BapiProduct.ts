@@ -10,6 +10,7 @@ export interface BapiProduct {
   updatedAt: string; // Date string
   images: ProductImage[];
   masterKey?: string;
+  referenceKey?: string;
   variants?: Variant[];
   attributes?: Attributes;
   advancedAttributes?: AdvancedAttributes;
