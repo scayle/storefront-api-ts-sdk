@@ -91,6 +91,7 @@ import {
   createTypeaheadSuggestionsEndpointRequest,
   TypeaheadSuggestionsEndpointResponseData,
 } from 'bapi/endpoints/typeahead/typeahead';
+import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -572,6 +573,30 @@ export class BapiClient {
       );
       return response.entities;
     },
+    getByReferenceKeys: async (
+      referenceKeys: string[],
+      params: Omit<ProductsSearchEndpointParameters, 'where'> = {},
+    ): Promise<BapiProduct[]> => {
+      const paramsWithReferenceKeys: ProductsSearchEndpointParameters = {
+        ...params,
+        where: {
+          attributes: [
+            {
+              type: 'attributes',
+              key: 'referenceKey' as AttributeKey,
+              values: referenceKeys,
+            },
+          ],
+        },
+      };
+
+      const response = await this.execute(
+        createProductsSearchEndpointRequest(paramsWithReferenceKeys),
+      );
+
+      return response.entities;
+    },
+
     query: (
       params: ProductsSearchEndpointParameters = {},
     ): Promise<ProductsByIdsEndpointResponseData> =>

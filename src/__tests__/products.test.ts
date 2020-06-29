@@ -14,7 +14,6 @@ test('Fetch category products', async () => {
     .get(
       `/v1/products?filters%5Bcategory%5D=20201&sortScore=category_scores&sortChannel=etkp&perPage=2&shopId=139`,
     )
-    // .query({ ... })
     .replyWithFile(200, __dirname + '/responses/products.json', {
       'Content-Type': 'application/json',
     });

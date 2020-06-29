@@ -47,6 +47,29 @@ it('Gets products by IDs', async () => {
   expect(response.length).toBe(2);
 });
 
+it('Gets products by Reference Key', async () => {
+  nockWithBapiScope()
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .get(
+      '/v1/products?filters%5BreferenceKey%5D=GN4305-pc%2CGN4304-pc&shopId=139',
+    )
+    .replyWithFile(200, __dirname + '/responses/products/byIds.json', {
+      'Content-Type': 'application/json',
+    });
+
+  const bapi = new BapiClient({
+    host: 'https://api-cloud.example.com/v1/',
+    shopId: 139,
+  });
+
+  const response = await bapi.products.getByReferenceKeys([
+    'GN4305-pc',
+    'GN4304-pc',
+  ]);
+
+  expect(response.length).toBe(2);
+});
+
 it('Queries products', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
