@@ -123,8 +123,18 @@ export type AddManyItemsBasketResponse<P = BapiProduct, V = Variant> =
   | {
       readonly type: 'failure';
       readonly basket: BasketResponseData<P, V>;
-      readonly failedVariants: number[];
+      readonly errors: AddOrUpdateItemError[];
     };
+
+export interface AddOrUpdateItemError {
+  readonly operation: 'add' | 'update';
+  readonly variantId: number;
+  // TODO: Possibly use enum to describe,
+  // but should be easy to map back to original error
+  // (e.g. when logged)
+  // If needed have different enums for add and update
+  readonly statusCode: number;
+}
 
 type AddWishlistItemResponse =
   | {
