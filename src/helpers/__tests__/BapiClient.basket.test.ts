@@ -99,7 +99,7 @@ it('Basket: Add same variant twice', async () => {
     return;
   }
 
-  expect(secondTimeResponse.kind).toEqual(0);
+  expect(secondTimeResponse.kind).toEqual('VariantAlreadyPresent');
   expect(secondTimeResponse.basket).toEqual(firstAddToBasketResponse.basket);
 });
 
