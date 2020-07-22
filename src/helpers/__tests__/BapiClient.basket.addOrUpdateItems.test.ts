@@ -186,7 +186,15 @@ it('BapiClient.addOrUpdateItems: Handles failures (responding with the last bask
   }
 
   expect(basketResponse.basket.items.length).toBe(1);
-  expect(basketResponse.failedVariants).toEqual([1234]);
+  expect(basketResponse.errors).toEqual([
+    {kind: 'Unknown', operation: 'add', variantId: 1234},
+    {
+      kind: 'Unknown',
+      message: 'Error: Did not receive valid basket',
+      operation: 'add',
+      variantId: 1234,
+    },
+  ]);
 
   expect(nock.isDone()).toBeTruthy();
 });

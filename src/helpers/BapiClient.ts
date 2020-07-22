@@ -105,6 +105,17 @@ type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
       basket: BasketResponseData<P, V>;
     };
 
+type UpdateBasketItemResponse<P = BapiProduct, V = Variant> =
+  | {
+      type: 'success'; // operationStatus: succeeded / partially / not-at-all
+      basket: BasketResponseData<P, V>;
+    }
+  | {
+      type: 'failure';
+      kind: UpdateBasketItemFailureKind;
+      basket: BasketResponseData<P, V>;
+    };
+
 export type BasketResponse<P = BapiProduct, V = Variant> =
   | {
       type: 'success';
@@ -123,7 +134,28 @@ export type AddManyItemsBasketResponse<P = BapiProduct, V = Variant> =
   | {
       readonly type: 'failure';
       readonly basket: BasketResponseData<P, V>;
-      readonly failedVariants: number[];
+      readonly errors: AddOrUpdateItemError[];
+    };
+
+export type AddOrUpdateItemError =
+  | {
+      readonly operation: 'add';
+      readonly variantId: number;
+      readonly kind: AddToBasketFailureKind;
+      readonly message?: string;
+    }
+  | {
+      readonly operation: 'update';
+      readonly basketItemKey: string;
+      readonly variantId?: number;
+      readonly kind: UpdateBasketItemFailureKind;
+      readonly message?: string;
+    }
+  | {
+      readonly operation: 'delete';
+      readonly basketItemKey: string;
+      readonly variantId?: number;
+      readonly message?: string;
     };
 
 type AddWishlistItemResponse =
@@ -137,12 +169,12 @@ type AddWishlistItemResponse =
     };
 
 export enum AddToBasketFailureKind {
-  VariantAlreadyPresent,
-  ItemUnvailable,
-  MaximumItemCountReached,
-  ItemDataNotFound,
-  ItemAddedWithReducedQuantity,
-  Unknown,
+  VariantAlreadyPresent = 'VariantAlreadyPresent',
+  ItemUnvailable = 'ItemUnvailable',
+  MaximumItemCountReached = 'MaximumItemCountReached',
+  ItemDataNotFound = 'ItemDataNotFound',
+  ItemAddedWithReducedQuantity = 'ItemAddedWithReducedQuantity',
+  Unknown = 'Unknown',
 }
 
 function addToBasketFailureKindFromStatusCode(
@@ -166,6 +198,31 @@ function addToBasketFailureKindFromStatusCode(
 
     default:
       return AddToBasketFailureKind.Unknown;
+  }
+}
+
+export enum UpdateBasketItemFailureKind {
+  ItemUnvailable = 'ItemUnvailable',
+  BasketItemNotFound = 'BasketItemNotFound',
+  ItemAddedWithReducedQuantity = 'ItemAddedWithReducedQuantity',
+  Unknown = 'Unknown',
+}
+
+function updateBasketItemFailureKindFromStatusCode(
+  statusCode: number,
+): UpdateBasketItemFailureKind {
+  switch (statusCode) {
+    case 206:
+      return UpdateBasketItemFailureKind.ItemAddedWithReducedQuantity;
+
+    case 404:
+      return UpdateBasketItemFailureKind.BasketItemNotFound;
+
+    case 412:
+      return UpdateBasketItemFailureKind.ItemUnvailable;
+
+    default:
+      return UpdateBasketItemFailureKind.Unknown;
   }
 }
 
@@ -325,126 +382,111 @@ export class BapiClient {
         basketParams,
       );
 
-      let latestBasket = unwrapBasketResponse(initialBasketResponse);
-      const failedVariants: number[] = [];
+      if (initialBasketResponse.type !== 'success') {
+        throw Error('Failed to get initial basket');
+      }
+
+      const client = new BasketMultiOperationsClient(
+        this,
+        initialBasketResponse.basket,
+      );
 
       for (const itemToAdd of items) {
-        try {
-          const existingBasketItem = latestBasket.items.find(
-            item => item.variant.id == itemToAdd.variantId,
-          );
-          const {variantId, quantity = 1, params = {}} = itemToAdd;
+        const existingBasketItem = client.latestBasket.items.find(
+          item => item.variant.id == itemToAdd.variantId,
+        );
+        const {variantId, quantity = 1, params = {}} = itemToAdd;
 
-          if (existingBasketItem) {
-            if (quantity === 0) {
-              // Delete item if existing should not be kept
-              switch (options.existingItemHandling) {
-                case ExistingItemHandling.KeepExisting:
-                case ExistingItemHandling.AddQuantityToExisting:
-                  continue;
+        if (existingBasketItem) {
+          if (quantity === 0) {
+            // Delete item if existing should not be kept
+            switch (options.existingItemHandling) {
+              case ExistingItemHandling.KeepExisting:
+              case ExistingItemHandling.AddQuantityToExisting:
+                continue;
 
-                case ExistingItemHandling.ReplaceExisting:
-                  latestBasket = await this.basket.deleteItem(
-                    basketKey,
-                    existingBasketItem.key,
-                  );
-                  break;
+              case ExistingItemHandling.ReplaceExisting:
+                await client.deleteItem(
+                  existingBasketItem.key,
+                  params,
+                  variantId,
+                );
+                break;
 
-                case ExistingItemHandling.ReplaceExistingWithCombinedQuantity:
-                  // Delete the existing item, and use the current parameters to create a new item with the existing quantity (as the quantity here was 0)
-                  latestBasket = await this.basket.deleteItem(
-                    basketKey,
-                    existingBasketItem.key,
-                    params,
-                  );
-                  latestBasket = unwrapBasketResponse(
-                    await this.basket.addItem(
-                      basketKey,
-                      variantId,
-                      existingBasketItem.quantity,
-                      params,
-                    ),
-                  );
-                  break;
-              }
-            } else {
-              // Quantity > 0
-              switch (options.existingItemHandling) {
-                case ExistingItemHandling.KeepExisting:
-                  continue; // leave existing untouched
-
-                case ExistingItemHandling.AddQuantityToExisting:
-                  // update existing with combined quantity
-                  latestBasket = unwrapBasketResponse(
-                    await this.basket.updateItem(
-                      basketKey,
-                      existingBasketItem.key,
-                      existingBasketItem.quantity + quantity,
-                      params,
-                    ),
-                  );
-                  continue;
-
-                case ExistingItemHandling.ReplaceExisting:
-                  // delete existing
-                  latestBasket = await this.basket.deleteItem(
-                    basketKey,
-                    existingBasketItem.key,
-                  );
-
-                  // add new item as is
-                  latestBasket = unwrapBasketResponse(
-                    await this.basket.addItem(
-                      basketKey,
-                      variantId,
-                      quantity,
-                      params,
-                    ),
-                  );
-                  break;
-
-                case ExistingItemHandling.ReplaceExistingWithCombinedQuantity:
-                  // delete existing
-                  latestBasket = await this.basket.deleteItem(
-                    basketKey,
-                    existingBasketItem.key,
-                  );
-
-                  // add new item with combined quantity
-                  latestBasket = unwrapBasketResponse(
-                    await this.basket.addItem(
-                      basketKey,
-                      variantId,
-                      quantity + existingBasketItem.quantity,
-                      params,
-                    ),
-                  );
-                  break;
-              }
+              case ExistingItemHandling.ReplaceExistingWithCombinedQuantity:
+                // Delete the existing item, and use the current parameters to create a new item with the existing quantity (as the quantity here was 0)
+                await client.deleteItem(
+                  existingBasketItem.key,
+                  params,
+                  variantId,
+                );
+                await client.addItem(
+                  variantId,
+                  existingBasketItem.quantity,
+                  params,
+                );
+                break;
             }
           } else {
-            // item does not yet exist in basket
-            if (quantity > 0) {
-              latestBasket = unwrapBasketResponse(
-                await this.basket.addItem(
-                  basketKey,
-                  variantId,
-                  quantity,
+            // Quantity > 0
+            switch (options.existingItemHandling) {
+              case ExistingItemHandling.KeepExisting:
+                continue; // leave existing untouched
+
+              case ExistingItemHandling.AddQuantityToExisting:
+                // update existing with combined quantity
+                await client.updateItem(
+                  existingBasketItem.key,
+                  existingBasketItem.quantity + quantity,
                   params,
-                ),
-              );
+                  variantId,
+                );
+                continue;
+
+              case ExistingItemHandling.ReplaceExisting:
+                // delete existing
+                await client.deleteItem(
+                  existingBasketItem.key,
+                  params,
+                  variantId,
+                );
+
+                // add new item as is
+                await client.addItem(variantId, quantity, params);
+                break;
+
+              case ExistingItemHandling.ReplaceExistingWithCombinedQuantity:
+                // delete existing
+                await client.deleteItem(
+                  existingBasketItem.key,
+                  params,
+                  variantId,
+                );
+
+                // add new item with combined quantity
+                await client.addItem(
+                  variantId,
+                  quantity + existingBasketItem.quantity,
+                  params,
+                );
+                break;
             }
           }
-        } catch (e) {
-          failedVariants.push(itemToAdd.variantId);
+        } else {
+          // item does not yet exist in basket
+          if (quantity > 0) {
+            await client.addItem(variantId, quantity, params);
+          }
         }
       }
 
-      if (failedVariants.length) {
+      const errors = client.errors;
+      const latestBasket = client.latestBasket;
+      if (errors.length) {
         return {
           type: 'failure',
           basket: latestBasket,
-          failedVariants: failedVariants,
+          errors: errors,
         };
       }
 
@@ -461,7 +503,7 @@ export class BapiClient {
         UpdateBasketItemQuantity,
         'basketKey' | 'itemKey' | 'quantity'
       > = {},
-    ): Promise<BasketResponse> => {
+    ): Promise<UpdateBasketItemResponse> => {
       const response = await this.executeWithStatus(
         updateBasketItemQuantityRequest({
           ...params,
@@ -471,7 +513,7 @@ export class BapiClient {
         }),
       );
 
-      if (response.statusCode === 200 || response.statusCode === 201) {
+      if (response.statusCode === 200) {
         return {
           type: 'success',
           basket: response.data,
@@ -480,6 +522,7 @@ export class BapiClient {
         return {
           type: 'failure',
           basket: response.data,
+          kind: updateBasketItemFailureKindFromStatusCode(response.statusCode),
         };
       }
     },
@@ -713,10 +756,125 @@ export enum ExistingItemHandling {
   ReplaceExistingWithCombinedQuantity,
 }
 
-function unwrapBasketResponse(response: BasketResponse): BasketResponseData {
-  if (response.type === 'success') {
-    return response.basket;
+// Client for basket operations which keeps track of the latest successfully received basket,
+// as well as all errors encountered during it's operation.
+//
+// Does not fail on the first error encountered, which makes it useful for cases where partial operations are desired.
+class BasketMultiOperationsClient {
+  public latestBasket: BasketResponseData;
+
+  private _client: BapiClient;
+
+  public errors: AddOrUpdateItemError[];
+
+  constructor(client: BapiClient, latestBasket: BasketResponseData) {
+    this.latestBasket = latestBasket;
+    this.errors = [];
+    this._client = client;
   }
 
-  throw Error('Failed unwrapping basket');
+  async deleteItem(
+    itemKey: string,
+    params: Omit<DeleteItemParameters, 'basketKey' | 'itemKey'> = {},
+    debugVariantId: number,
+  ): Promise<void> {
+    try {
+      const response = await this._client.basket.deleteItem(
+        this.latestBasket.key,
+        itemKey,
+        params,
+      );
+
+      this.updateBasket(response);
+    } catch (e) {
+      this.errors.push({
+        operation: 'delete',
+        basketItemKey: itemKey,
+        variantId: debugVariantId,
+        message: `${e}`,
+      });
+    }
+  }
+
+  async addItem(
+    variantId: number,
+    quantity: number = 1,
+    params: Omit<
+      CreateBasketItemParameters,
+      'basketKey' | 'variantId' | 'quantity'
+    > = {},
+  ): Promise<void> {
+    try {
+      const response = await this._client.basket.addItem(
+        this.latestBasket.key,
+        variantId,
+        quantity,
+        params,
+      );
+
+      if (response.type == 'failure') {
+        this.errors.push({
+          operation: 'add',
+          kind: response.kind,
+          variantId: variantId,
+        });
+      }
+
+      this.updateBasket(response.basket);
+    } catch (e) {
+      this.errors.push({
+        operation: 'add',
+        kind: AddToBasketFailureKind.Unknown,
+        variantId: variantId,
+        message: `${e}`,
+      });
+    }
+  }
+
+  async updateItem(
+    itemKey: string,
+    quantity: number,
+    params: Omit<
+      UpdateBasketItemQuantity,
+      'basketKey' | 'itemKey' | 'quantity'
+    > = {},
+    debugVariantId: number,
+  ): Promise<void> {
+    try {
+      const response = await this._client.basket.updateItem(
+        this.latestBasket.key,
+        itemKey,
+        quantity,
+        params,
+      );
+
+      if (response.type == 'failure') {
+        this.errors.push({
+          operation: 'update',
+          basketItemKey: itemKey,
+          kind: response.kind,
+          variantId: debugVariantId,
+        });
+      }
+
+      this.updateBasket(response.basket);
+    } catch (e) {
+      this.errors.push({
+        operation: 'update',
+        basketItemKey: itemKey,
+        kind: UpdateBasketItemFailureKind.Unknown,
+        variantId: debugVariantId,
+        message: `${e}`,
+      });
+    }
+  }
+
+  private updateBasket(basket?: BasketResponseData) {
+    // Small sanity check that we really got a valid basket, else keep the previous
+    if (basket && basket?.key == this.latestBasket.key) {
+      this.latestBasket = basket;
+    } else {
+      throw Error(`Did not receive valid basket`);
+    }
+  }
 }
