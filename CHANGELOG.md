@@ -4,6 +4,7 @@
 
 - Update `BapiClient.addOrUpdateItems` to return more detailled errors if any occured during the operations
 - Make `AddToBasketFailureKind` enum string-based, so it's suitable for logging
+- Expose `skipAvailabilityCheck` on "add to wishlist" operation
 
 ### 9.1.0
 
