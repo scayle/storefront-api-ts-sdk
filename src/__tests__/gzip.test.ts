@@ -2,8 +2,8 @@
  * @jest-environment node
  */
 
-import { createFiltersEndpointRequest } from 'bapi/endpoints/filters/filters';
-import { execute } from 'bapi/helpers/execute';
+import {createFiltersEndpointRequest} from 'bapi/endpoints/filters/filters';
+import {execute} from 'bapi/helpers/execute';
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
@@ -14,11 +14,11 @@ disableNetAndAllowBapiCors();
 
 test('Integration: Requests GZip by default', async () => {
   nockWithBapiScope()
-    .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
+    .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .matchHeader('accept-encoding', 'gzip, deflate')
     .matchHeader('accept', 'application/json')
     .matchHeader('content-type', 'application/json')
-    .matchHeader('user-agent', 'axios/0.18.0')
+    .matchHeader('user-agent', 'axios/0.19.2')
     .get(`/v1/filters?with=values&filters%5Bcategory%5D=20201&shopId=139`)
 
     .reply(200, zlib.gzipSync('[]'), {
