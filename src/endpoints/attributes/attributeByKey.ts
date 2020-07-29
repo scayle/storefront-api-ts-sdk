@@ -1,11 +1,11 @@
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import {AttributeGroupMulti} from 'bapi/types/BapiProduct';
 
-export type FiltersEndpointResponseData = AttributeGroupMulti;
+export type AttributeByKeyEndpointResponseData = AttributeGroupMulti;
 
 export function createAttributeByKeyEndpointRequest(
   key: string,
-): BapiCall<FiltersEndpointResponseData> {
+): BapiCall<AttributeByKeyEndpointResponseData> {
   return {
     method: 'GET',
     endpoint: `attributes/${key}`,

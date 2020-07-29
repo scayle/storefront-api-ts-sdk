@@ -1,5 +1,9 @@
 # Changelog
 
+### 10.1.1
+
+- Fix incorrectly named "attribute by key" response type
+
 ### 10.1.0
 
 - Add support for the "attribute by key" `/attributes/${key}` API endpoint
