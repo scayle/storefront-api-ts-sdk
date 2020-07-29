@@ -92,6 +92,7 @@ import {
   TypeaheadSuggestionsEndpointResponseData,
 } from 'bapi/endpoints/typeahead/typeahead';
 import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
+import {createAttributeByKeyEndpointRequest} from 'bapi/endpoints/attributes/attributeByKey';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -292,6 +293,11 @@ export class BapiClient {
       statusCode: response.statusCode,
     };
   }
+
+  public readonly attributes = {
+    getByKey: (key: string) =>
+      this.execute(createAttributeByKeyEndpointRequest(key)),
+  };
 
   public readonly basket = {
     get: async (
