@@ -1,5 +1,9 @@
 # Changelog
 
+### 10.1.0
+
+- Add support for the "attribute by key" `/attributes/${key}` API endpoint
+
 ### 10.0.0
 
 - Update `BapiClient.addOrUpdateItems` to return more detailled errors if any occured during the operations
