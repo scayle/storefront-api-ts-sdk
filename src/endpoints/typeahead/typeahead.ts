@@ -46,13 +46,13 @@ export type TypeaheadSuggestion =
 
 export interface TypeaheadProductSuggestion {
   type: 'product';
-
+  score: number; // NOTE: Only comparable amongst product suggestions
   productSuggestion: ProductSuggestion;
 }
 
 export interface TypeaheadBrandOrCategorySuggestion {
   type: 'brandOrCategory';
-
+  score: number; // NOTE: Only comparable amongst brandOrCategory suggestions
   brandOrCategorySuggestion: BrandOrCategorySuggestion;
 }
 
