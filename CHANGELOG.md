@@ -1,5 +1,9 @@
 # Changelog
 
+### 10.2.0
+
+- Expose the `score` property on the Typeahead suggestions
+
 ### 10.1.1
 
 - Fix incorrectly named "attribute by key" response type
