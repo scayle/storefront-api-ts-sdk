@@ -93,6 +93,10 @@ import {
 } from 'bapi/endpoints/typeahead/typeahead';
 import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
 import {createAttributeByKeyEndpointRequest} from 'bapi/endpoints/attributes/attributeByKey';
+import {
+  createShopConfigurationRequest,
+  ShopConfigurationResponseData,
+} from 'bapi/endpoints/shopconfiguration/shopconfiguration';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -741,6 +745,12 @@ export class BapiClient {
       );
 
       return response.entities;
+    },
+  };
+
+  public readonly shopConfiguration = {
+    get: async (): Promise<ShopConfigurationResponseData> => {
+      return this.execute(createShopConfigurationRequest());
     },
   };
 }
