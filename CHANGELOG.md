@@ -1,5 +1,9 @@
 # Changelog
 
+### 10.3.0
+
+- Add `shop-configuration` endpoint
+
 ### 10.2.0
 
 - Expose the `score` property on the Typeahead suggestions

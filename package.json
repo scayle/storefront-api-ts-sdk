@@ -1,6 +1,6 @@
 {
   "name": "@aboutyou/backbone",
-  "version": "10.2.0",
+  "version": "10.3.0",
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
     "@types/jest": "^23.3.3",
