@@ -1,5 +1,10 @@
 # Changelog
 
+### 11.0.0
+
+- Breaking Change: For category requests, properties are not included by default anymore. Responses are now small by default.  
+  Use `with: { properties: 'all' }` to get the previous behavior, or better yet specify the exact properties you need using `with: { properties: { withName: ['foo', 'bar'] } }`
+
 ### 10.3.0
 
 - Add `shop-configuration` endpoint
