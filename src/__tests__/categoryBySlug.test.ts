@@ -12,7 +12,7 @@ test('Fetch category by id', async () => {
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(`/v1/categories/frauen/bekleidung/jeans/slim-fit`)
     .query({
-      with: 'descendants',
+      with: 'properties:name(),descendants',
       depth: '2',
       shopId: 139,
     })

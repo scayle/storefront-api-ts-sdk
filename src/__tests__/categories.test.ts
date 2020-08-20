@@ -10,7 +10,9 @@ disableNetAndAllowBapiCors();
 test('Fetch category by id', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .get(`/v1/categories?with=descendants&depth=2&shopId=139`)
+    .get(
+      `/v1/categories?with=properties%3Aname%28%29%2Cdescendants&depth=2&shopId=139`,
+    )
     .replyWithFile(200, __dirname + '/responses/categories.json', {
       'Content-Type': 'application/json',
     });
@@ -35,6 +37,7 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
+    "with": "properties:name()",
   },
 }
 `);
@@ -45,6 +48,7 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
+    "with": "properties:name()",
   },
 }
 `);
@@ -55,6 +59,7 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
+    "with": "properties:name()",
   },
 }
 `);
@@ -66,6 +71,7 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
+    "with": "properties:name()",
   },
 }
 `);
@@ -79,7 +85,7 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 2,
-    "with": "descendants",
+    "with": "properties:name(),descendants",
   },
 }
 `);
@@ -96,7 +102,7 @@ Object {
   "params": Object {
     "depth": 2,
     "showHidden": "true",
-    "with": "descendants",
+    "with": "properties:name(),descendants",
   },
 }
 `);

@@ -4,6 +4,7 @@ import {
   CategoryEndpointsParameters,
   parametersForCategoryEndpoint,
 } from './categoryEndpointsParameter';
+import {CategoryPropertiesWith} from './CategoryPropertiesWith';
 
 export interface CategoriesByIdsEndpointParameters
   extends CategoryEndpointsParameters {
@@ -22,6 +23,11 @@ export interface CategoriesByIdsEndpointParameters
     // If this category has a depth of `n`, and `absoluteDepth <= n` would not include any children
     // Use `absoluteDepth = n + 1` to include 1 level of children etc.
     absoluteDepth?: number;
+
+    // The properties to be included
+    //
+    // By default no properties will be included
+    properties?: CategoryPropertiesWith;
   };
 
   // `includeHidden` is currently not working on this endpoint

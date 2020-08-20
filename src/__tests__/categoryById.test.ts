@@ -14,6 +14,7 @@ test('Fetch category by id', async () => {
     .query({
       depth: 1,
       shopId: 139,
+      with: 'properties:name()',
     })
     .replyWithFile(200, __dirname + '/responses/categoryById.json', {
       'Content-Type': 'application/json',

@@ -7,6 +7,7 @@ Object {
   "method": "GET",
   "params": Object {
     "depth": 1,
+    "with": "properties:name()",
   },
 }
 `);
@@ -25,7 +26,7 @@ Object {
   "params": Object {
     "depth": 3,
     "showHidden": "true",
-    "with": "descendants",
+    "with": "properties:name(),descendants",
   },
 }
 `);
