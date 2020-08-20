@@ -242,7 +242,7 @@ it('Can request stock and custom on variants', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true)"`,
+    `"images.attributes:legacy(false),categories:hidden(true),categories:properties()"`,
   );
 
   expect(
@@ -253,6 +253,16 @@ it('Can request stock and custom on variants', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true),categories.properties"`,
+    `"images.attributes:legacy(false),categories:hidden(true)"`,
+  );
+
+  expect(
+    productWithQueryParameterValues({
+      categories: {
+        properties: {withName: ['category_context', 'reference_id']},
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories,categories:properties(category_context|reference_id)"`,
   );
 });

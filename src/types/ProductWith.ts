@@ -16,7 +16,6 @@ export type ProductImageWith =
  * 'all' is just first level
  */
 export interface ProductWith {
-  // TODO: Should these be arrays or also allow simple values, just `key` or `type`
   attributes?: AttributeInclude;
   advancedAttributes?: AttributeInclude;
   variants?: 'all' | VariantWith;
@@ -27,9 +26,15 @@ export interface ProductWith {
 }
 
 export interface ProductCategoryWith {
-  properties?: 'all';
+  properties?: ProductCategoryPropertyWith;
   includeHidden?: boolean;
 }
+
+export type ProductCategoryPropertyWith =
+  | 'all'
+  | {
+      withName: string[];
+    };
 
 export interface VariantWith {
   attributes?: AttributeInclude;
@@ -89,18 +94,30 @@ export function productWithQueryParameterValues(
   }
 
   if (productWith.categories) {
-    if (
-      typeof productWith.categories === 'object' &&
-      productWith.categories.includeHidden
-    ) {
-      parameterValues.push('categories:hidden(true)');
+    if (typeof productWith.categories === 'object') {
+      if (productWith.categories.includeHidden) {
+        parameterValues.push('categories:hidden(true)');
+      } else {
+        parameterValues.push('categories');
+      }
     } else {
       parameterValues.push('categories');
     }
 
     if (productWith.categories && typeof productWith.categories === 'object') {
       if (productWith.categories.properties) {
-        parameterValues.push('categories.properties');
+        if (productWith.categories.properties == 'all') {
+          // don't add anything to the request, properties are included by default (backwards compatible behavior on BAPI side)
+        } else {
+          parameterValues.push(
+            `categories:properties(${productWith.categories.properties.withName.join(
+              '|',
+            )})`,
+          );
+        }
+      } else {
+        // include no category properties by default
+        parameterValues.push('categories:properties()');
       }
     }
   }
