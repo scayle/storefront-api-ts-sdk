@@ -12,6 +12,7 @@ Object {
   "params": Object {
     "depth": 1,
     "ids": "1,2",
+    "with": "properties:name()",
   },
 }
 `);
@@ -28,6 +29,7 @@ Object {
   "params": Object {
     "depth": 1,
     "ids": "1,2",
+    "with": "properties:name()",
   },
 }
 `);
@@ -44,7 +46,7 @@ Object {
   "params": Object {
     "depth": 2,
     "ids": "1,2",
-    "with": "descendants",
+    "with": "properties:name(),descendants",
   },
 }
 `);

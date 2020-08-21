@@ -1,3 +1,5 @@
+import {CategoryPropertiesWith} from './CategoryPropertiesWith';
+
 // Base parameters for all category endpoints
 export interface CategoryEndpointsParameters {
   with?: {
@@ -8,6 +10,11 @@ export interface CategoryEndpointsParameters {
     //
     // 0 means no children, 1 means 1 level of children, etc.
     children?: number;
+
+    // The properties to be included
+    //
+    // By default no properties will be included
+    properties?: CategoryPropertiesWith;
   };
 
   // If `true`, hidden categories will be returned
@@ -32,6 +39,8 @@ function categoryWithQueryParameters(
   if (!categoryWith) {
     return {
       depth: 1,
+      // include no properties by default
+      with: 'properties:name()',
     };
   }
 
@@ -39,6 +48,19 @@ function categoryWithQueryParameters(
 
   if (categoryWith.parents) {
     withParams.push('parents');
+  }
+
+  if (categoryWith.properties) {
+    if (categoryWith.properties === 'all') {
+      withParams.push('properties');
+    } else {
+      withParams.push(
+        `properties:name(${categoryWith.properties.withName.join('|')})`,
+      );
+    }
+  } else {
+    // include no properties by default
+    withParams.push('properties:name()');
   }
 
   if (categoryWith.children !== undefined && categoryWith.children > 0) {

@@ -10,7 +10,7 @@ it('Gets category by ID', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/categories/20201')
-    .query({shopId: 139, depth: 1})
+    .query({shopId: 139, depth: 1, with: 'properties:name()'})
     .replyWithFile(200, __dirname + '/responses/categories/byId.json', {
       'Content-Type': 'application/json',
     });
@@ -29,7 +29,12 @@ it('Gets categories by IDs', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/categories')
-    .query({shopId: 139, ids: '20201,20204', depth: 1})
+    .query({
+      shopId: 139,
+      ids: '20201,20204',
+      depth: 1,
+      with: 'properties:name()',
+    })
     .replyWithFile(200, __dirname + '/responses/categories/byIds.json', {
       'Content-Type': 'application/json',
     });
@@ -48,7 +53,12 @@ it('Gets categories by ID (including hidden)', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/categories/20201')
-    .query({shopId: 139, depth: 1, showHidden: 'true'})
+    .query({
+      shopId: 139,
+      depth: 1,
+      showHidden: 'true',
+      with: 'properties:name()',
+    })
     .replyWithFile(200, __dirname + '/responses/categories/byId.json', {
       'Content-Type': 'application/json',
     });
@@ -69,7 +79,7 @@ it('Gets category by path', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/categories/frauen/bekleidung')
-    .query({shopId: 139, depth: 1})
+    .query({shopId: 139, depth: 1, with: 'properties:name()'})
     .replyWithFile(200, __dirname + '/responses/categories/byPath.json', {
       'Content-Type': 'application/json',
     });
@@ -84,11 +94,11 @@ it('Gets category by path', async () => {
   expect(response.id).toBe(20204);
 });
 
-it('Gets root categories wishlist', async () => {
+it('Gets root categories', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/categories')
-    .query({shopId: 139, depth: 1})
+    .query({shopId: 139, depth: 1, with: 'properties:name()'})
     .replyWithFile(200, __dirname + '/responses/categories/roots.json', {
       'Content-Type': 'application/json',
     });
