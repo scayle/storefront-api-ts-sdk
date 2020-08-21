@@ -112,7 +112,7 @@ export function productWithQueryParameterValues(
           `properties(${productWith.categories.properties.withName.join('|')})`,
         );
       } else {
-        // don't inlcude any properties by default
+        // don't include any properties by default
         categoryFlags.push(`properties()`);
       }
 
