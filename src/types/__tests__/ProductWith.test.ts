@@ -80,7 +80,60 @@ it('Converts category filters', () => {
     productWithQueryParameterValues({
       categories: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories"`);
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories:properties()"`,
+  );
+
+  expect(
+    productWithQueryParameterValues({
+      categories: {},
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories:properties()"`,
+  );
+
+  expect(
+    productWithQueryParameterValues({
+      categories: {
+        includeHidden: true,
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories:hidden(true):properties()"`,
+  );
+
+  expect(
+    productWithQueryParameterValues({
+      categories: {
+        includeHidden: true,
+        properties: 'all',
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories:hidden(true)"`,
+  );
+
+  expect(
+    productWithQueryParameterValues({
+      categories: {
+        includeHidden: true,
+        properties: {withName: ['foo', 'bar']},
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories:hidden(true):properties(foo|bar)"`,
+  );
+
+  expect(
+    productWithQueryParameterValues({
+      categories: {
+        includeHidden: false,
+        properties: {withName: ['foo', 'bar']},
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories:properties(foo|bar)"`,
+  );
 });
 
 it('Converts sibling filters', () => {
@@ -98,7 +151,7 @@ it('Converts sibling filters', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),siblings,siblings.attributes,siblings.images.attributes:legacy(false),siblings.categories"`,
+    `"images.attributes:legacy(false),siblings,siblings.attributes,siblings.images.attributes:legacy(false),siblings.categories:properties()"`,
   );
 });
 
@@ -152,7 +205,7 @@ it('Images attributes', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"variants,variants.attributes,images.attributes:legacy(false),categories,siblings"`,
+    `"variants,variants.attributes,images.attributes:legacy(false),categories:properties(),siblings"`,
   );
 
   expect(
@@ -242,7 +295,7 @@ it('Can request stock and custom on variants', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true),categories:properties()"`,
+    `"images.attributes:legacy(false),categories:hidden(true):properties()"`,
   );
 
   expect(
@@ -263,6 +316,6 @@ it('Can request stock and custom on variants', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories,categories:properties(category_context|reference_id)"`,
+    `"images.attributes:legacy(false),categories:properties(category_context|reference_id)"`,
   );
 });
