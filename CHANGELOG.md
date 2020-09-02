@@ -1,5 +1,9 @@
 # Changelog
 
+### 12.0.1
+
+- Add category properties to root categories request
+
 ### 12.0.0
 
 - Breaking Change: For categories included with products on `/products`, properties will not be included by default anymore. Responses are now small by default.  

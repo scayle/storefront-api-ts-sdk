@@ -30,4 +30,21 @@ Object {
   },
 }
 `);
+
+  expect(
+    createCategoriesEndpointRequest({
+      with: {
+        properties: {withName: ['category_context']},
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "categories",
+  "method": "GET",
+  "params": Object {
+    "depth": 1,
+    "with": "properties:name(category_context)",
+  },
+}
+`);
 });
