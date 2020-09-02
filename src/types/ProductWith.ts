@@ -16,20 +16,29 @@ export type ProductImageWith =
  * 'all' is just first level
  */
 export interface ProductWith {
-  // TODO: Should these be arrays or also allow simple values, just `key` or `type`
   attributes?: AttributeInclude;
   advancedAttributes?: AttributeInclude;
   variants?: 'all' | VariantWith;
   images?: ProductImageWith;
   siblings?: 'all' | ProductWith;
+  // If set product categories will be included
+  // 'all' will return non-hidden categories, without any properties
+  // Hidden ones can optional be requested as well
+  // By default the categories will have no properties, but all or specific ones (by name) can be requested
   categories?: 'all' | ProductCategoryWith;
   priceRange?: boolean;
 }
 
 export interface ProductCategoryWith {
-  properties?: 'all';
+  properties?: ProductCategoryPropertyWith;
   includeHidden?: boolean;
 }
+
+export type ProductCategoryPropertyWith =
+  | 'all'
+  | {
+      withName: string[];
+    };
 
 export interface VariantWith {
   attributes?: AttributeInclude;
@@ -89,19 +98,32 @@ export function productWithQueryParameterValues(
   }
 
   if (productWith.categories) {
-    if (
-      typeof productWith.categories === 'object' &&
-      productWith.categories.includeHidden
-    ) {
-      parameterValues.push('categories:hidden(true)');
-    } else {
-      parameterValues.push('categories');
-    }
+    if (typeof productWith.categories === 'object') {
+      const categoryFlags: string[] = [];
 
-    if (productWith.categories && typeof productWith.categories === 'object') {
-      if (productWith.categories.properties) {
-        parameterValues.push('categories.properties');
+      if (productWith.categories.includeHidden) {
+        categoryFlags.push('hidden(true)');
       }
+
+      if (productWith.categories.properties == 'all') {
+        // do nothing, all properties are included by default for legacy reasons
+      } else if (typeof productWith.categories.properties === 'object') {
+        categoryFlags.push(
+          `properties(${productWith.categories.properties.withName.join('|')})`,
+        );
+      } else {
+        // don't include any properties by default
+        categoryFlags.push(`properties()`);
+      }
+
+      if (categoryFlags.length > 0) {
+        parameterValues.push(`categories:${categoryFlags.join(':')}`);
+      } else {
+        parameterValues.push('categories');
+      }
+    } else if (productWith.categories == 'all') {
+      // include non-hidden categories, but without any properties
+      parameterValues.push('categories:properties()');
     }
   }
 

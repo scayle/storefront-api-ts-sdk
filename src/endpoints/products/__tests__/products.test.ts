@@ -17,7 +17,7 @@ Object {
   "endpoint": "products",
   "method": "GET",
   "params": Object {
-    "with": "images.attributes:legacy(false),categories",
+    "with": "images.attributes:legacy(false),categories:properties()",
   },
 }
 `);
@@ -35,7 +35,7 @@ Object {
   "endpoint": "products",
   "method": "GET",
   "params": Object {
-    "with": "images.attributes:legacy(false),categories,categories.properties",
+    "with": "images.attributes:legacy(false),categories",
   },
 }
 `);

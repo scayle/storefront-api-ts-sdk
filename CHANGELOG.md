@@ -1,5 +1,14 @@
 # Changelog
 
+### 12.0.1
+
+- Add category properties to root categories request
+
+### 12.0.0
+
+- Breaking Change: For categories included with products on `/products`, properties will not be included by default anymore. Responses are now small by default.  
+  Use `with: { categories: { properties: 'all' } }` to get the previous behavior, or better yet specify the exact properties you need using `with: { categories: { properties: { withName: ['foo', 'bar'] } } }`
+
 ### 11.0.0
 
 - Breaking Change: For category requests, properties are not included by default anymore. Responses are now small by default.  

@@ -4,6 +4,7 @@ import {
   CategoryEndpointsParameters,
   parametersForCategoryEndpoint,
 } from './categoryEndpointsParameter';
+import {CategoryPropertiesWith} from './CategoryPropertiesWith';
 
 export interface RootCategoriesEndpointParameters
   extends CategoryEndpointsParameters {
@@ -12,6 +13,11 @@ export interface RootCategoriesEndpointParameters
     //
     // 0 means no children, 1 means 1 level of children, etc.
     children?: number;
+
+    // The properties to be included
+    //
+    // By default no properties will be included
+    properties?: CategoryPropertiesWith;
   };
 
   // If `true`, hidden categories will be returned
