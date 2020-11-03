@@ -42,5 +42,7 @@ export function createCategoryBySlugEndpointRequest(
     params: {
       ...parametersForCategoryEndpoint(params),
     },
+    responseValidator: (response): response is BapiCategory =>
+      typeof response === 'object' && !Array.isArray(response),
   };
 }
