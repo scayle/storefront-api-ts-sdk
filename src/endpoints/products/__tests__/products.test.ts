@@ -199,4 +199,26 @@ Object {
   },
 }
 `);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      where: {
+        attributes: [
+          {
+            type: 'attributes',
+            key: 'ean' as AttributeKey,
+            values: ['7325860037489'],
+          },
+        ],
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "filters[ean]": "7325860037489",
+  },
+}
+`);
 });
