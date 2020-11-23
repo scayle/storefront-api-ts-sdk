@@ -16,6 +16,7 @@ Object {
     "depth": 3,
     "with": "properties:name(),descendants",
   },
+  "responseValidator": [Function],
 }
 `);
 
@@ -36,6 +37,7 @@ Object {
     "showHidden": "true",
     "with": "properties:name(),descendants",
   },
+  "responseValidator": [Function],
 }
 `);
 });

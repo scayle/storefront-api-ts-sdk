@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.0.0
+
+- Throw error if category's `getByPath` argument is invalid, resulting in the server returning the full list of categories
+
 ### 12.0.1
 
 - Add category properties to root categories request
