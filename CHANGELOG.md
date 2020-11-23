@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.1.0
+
+- Now supports CloudVault's token based authentication.
+
 ### 13.0.0
 
 - Throw error if category's `getByPath` argument is invalid, resulting in the server returning the full list of categories

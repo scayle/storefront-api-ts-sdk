@@ -2,6 +2,7 @@ import axios, {AxiosRequestConfig, AxiosResponse, AxiosAdapter} from 'axios';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 import * as queryString from 'query-string';
 import {ObjectMap} from 'bapi/types/ObjectMap';
+import {BapiAuthentication} from './BapiClient';
 
 const getParamsString = (params?: Partial<Record<string, any>>) => {
   if (!params) {
@@ -43,10 +44,7 @@ export async function execute<SuccessResponseT>(
   bapiCall: BapiCall<SuccessResponseT>,
   acceptAllResponseCodes = false,
   shopIdPlacement: 'header' | 'query' = 'query',
-  auth?: {
-    username: string;
-    password: string;
-  },
+  auth?: BapiAuthentication,
   additionalHeaders?: ObjectMap<string>,
   axiosAdapter?: AxiosAdapter,
 ): Promise<BapiResponse<SuccessResponseT>> {
@@ -61,7 +59,6 @@ export async function execute<SuccessResponseT>(
     shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : undefined;
 
   const fetchOptions: AxiosRequestConfig = {
-    auth,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -82,6 +79,17 @@ export async function execute<SuccessResponseT>(
       : statusCode => statusCode >= 200 && statusCode <= 299,
     adapter: axiosAdapter,
   };
+
+  if (auth) {
+    if (auth.type === 'token') {
+      fetchOptions.headers['X-Access-Token'] = auth.token;
+    } else {
+      fetchOptions.auth = {
+        username: auth.username,
+        password: auth.password,
+      };
+    }
+  }
 
   const response: AxiosResponse<SuccessResponseT> = await axios(fetchOptions);
 

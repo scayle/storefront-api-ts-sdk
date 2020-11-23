@@ -231,6 +231,17 @@ function updateBasketItemFailureKindFromStatusCode(
   }
 }
 
+export type BapiAuthentication =
+  | {
+      type?: 'basic'; // Optional for now, so it's not a breaking change to add token authentication below
+      username: string;
+      password: string;
+    }
+  | {
+      type: 'token';
+      token: string;
+    };
+
 /**
  * BAPI Client
  *
@@ -244,10 +255,7 @@ export class BapiClient {
       host: string;
       shopId: number;
       shopIdPlacement?: 'header' | 'query';
-      auth?: {
-        username: string;
-        password: string;
-      };
+      auth?: BapiAuthentication;
       axiosAdapter?: AxiosAdapter;
     },
   ) {
