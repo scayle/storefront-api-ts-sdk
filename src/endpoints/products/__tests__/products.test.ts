@@ -4,6 +4,7 @@ import {
   APISortOrder,
 } from '../products';
 import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
+import {getParamsString} from 'bapi/helpers/execute';
 
 it('Builds correct query', () => {
   expect(
@@ -221,4 +222,42 @@ Object {
   },
 }
 `);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      where: {
+        attributes: [
+          {
+            type: 'attributes',
+            key: 'minfirstLiveAt' as AttributeKey,
+            values: ['2020-11-27'],
+          },
+        ],
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "filters[minfirstLiveAt]": "2020-11-27",
+  },
+}
+`);
+
+  expect(
+    getParamsString(
+      createProductsSearchEndpointRequest({
+        where: {
+          attributes: [
+            {
+              type: 'attributes',
+              key: 'minfirstLiveAt' as AttributeKey,
+              values: ['2020-11-27'],
+            },
+          ],
+        },
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(`"?filters%5BminfirstLiveAt%5D=2020-11-27"`);
 });

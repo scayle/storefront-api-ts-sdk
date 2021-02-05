@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.2.0
+
+- Include `campaignKey` in `/filters` request
+
 ### 13.1.0
 
 - Now supports CloudVault's token based authentication.
