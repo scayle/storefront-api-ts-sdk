@@ -3,7 +3,6 @@
 ### 13.2.0
 
 - Expose `attributeGroupType` for `AttributesFilterItemWithValues` on `/filters` endpoint
-- Support `includeShopSizeRuns` parameter on `/filters` endpoint
 
 ### 13.1.0
 

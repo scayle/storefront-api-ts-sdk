@@ -21,8 +21,6 @@ export interface FiltersEndpointParameters {
    * Specifies which optional filters to include
    */
   including?: string[];
-
-  includeShopSizeRuns?: boolean;
 }
 
 export interface AttributesFilterValue {
@@ -123,9 +121,7 @@ export function createFiltersEndpointRequest(
       ...(parameters.including
         ? {including: parameters.including.join(',')}
         : undefined),
-      ...(parameters.includeShopSizeRuns
-        ? {includeShopSizeRuns: true}
-        : undefined),
+
       ...queryParamsFromProductSearchQuery(parameters.where),
     },
   };
