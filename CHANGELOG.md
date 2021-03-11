@@ -1,6 +1,6 @@
 # Changelog
 
-### 13.2.0
+### 13.3.0
 
 - Expose `attributeGroupType` for `AttributesFilterItemWithValues` on `/filters` endpoint
 
