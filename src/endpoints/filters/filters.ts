@@ -121,7 +121,6 @@ export function createFiltersEndpointRequest(
       ...(parameters.including
         ? {including: parameters.including.join(',')}
         : undefined),
-
       ...queryParamsFromProductSearchQuery(parameters.where),
     },
   };
