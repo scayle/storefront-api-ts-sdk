@@ -21,6 +21,8 @@ export interface FiltersEndpointParameters {
    * Specifies which optional filters to include
    */
   including?: string[];
+
+  includeShopSizeRuns?: boolean;
 }
 
 export interface AttributesFilterValue {
@@ -90,6 +92,7 @@ export interface AttributesFilterItemWithValues {
   name: string;
   values: AttributesFilterValue[];
   type: FilterTypes.ATTRIBUTES;
+  attributeGroupType: string;
 }
 
 export interface RangeFilterItemWithValues {
@@ -119,6 +122,9 @@ export function createFiltersEndpointRequest(
       with: parameters.with ? parameters.with.join(',') : 'values',
       ...(parameters.including
         ? {including: parameters.including.join(',')}
+        : undefined),
+      ...(parameters.includeShopSizeRuns
+        ? {includeShopSizeRuns: true}
         : undefined),
       ...queryParamsFromProductSearchQuery(parameters.where),
     },

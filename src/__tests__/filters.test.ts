@@ -134,4 +134,23 @@ Object {
   },
 }
 `);
+
+  expect(
+    createFiltersEndpointRequest({
+      where: {
+        categoryId: 20201,
+      },
+      includeShopSizeRuns: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "filters",
+  "method": "GET",
+  "params": Object {
+    "filters[category]": 20201,
+    "includeShopSizeRuns": true,
+    "with": "values",
+  },
+}
+`);
 });
