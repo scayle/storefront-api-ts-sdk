@@ -120,6 +120,9 @@ export function createFiltersEndpointRequest(
       ...(parameters.including
         ? {including: parameters.including.join(',')}
         : undefined),
+      ...(parameters.campaignKey
+        ? {campaignKey: parameters.campaignKey}
+        : undefined),
       ...queryParamsFromProductSearchQuery(parameters.where),
     },
   };
