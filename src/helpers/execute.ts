@@ -4,7 +4,7 @@ import * as queryString from 'query-string';
 import {ObjectMap} from 'bapi/types/ObjectMap';
 import {BapiAuthentication} from './BapiClient';
 
-const getParamsString = (params?: Partial<Record<string, any>>) => {
+export const getParamsString = (params?: Partial<Record<string, any>>) => {
   if (!params) {
     return '';
   }
