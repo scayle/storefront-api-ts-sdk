@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.3.0
+
+- Expose `attributeGroupType` for `AttributesFilterItemWithValues` on `/filters` endpoint
+
 ### 13.2.0
 
 - Include `campaignKey` in `/filters` request

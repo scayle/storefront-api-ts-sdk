@@ -90,6 +90,7 @@ export interface AttributesFilterItemWithValues {
   name: string;
   values: AttributesFilterValue[];
   type: FilterTypes.ATTRIBUTES;
+  attributeGroupType: string;
 }
 
 export interface RangeFilterItemWithValues {
