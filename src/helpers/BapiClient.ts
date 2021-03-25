@@ -667,11 +667,21 @@ export class BapiClient {
         ProductsByReferenceKeyEndpointParameters,
         'referenceKey'
       > = {},
-    ): Promise<BapiProduct[]> => {
+    ): Promise<BapiProduct | null> => {
       const response = await this.execute(
         createProductByReferenceKeyRequest({...params, referenceKey}),
       );
-      return response.entities;
+
+      // Reference keys are unique on BAPI, so we should only get 1 product (or none)
+      if (response.entities.length === 1) {
+        return response.entities[0];
+      } else if (response.entities.length > 1) {
+        throw new Error(
+          `Got ${response.entities.length} products for a single referenceKey`,
+        );
+      }
+
+      return null;
     },
     query: (
       params: ProductsSearchEndpointParameters = {},
