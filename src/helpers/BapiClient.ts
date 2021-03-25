@@ -661,7 +661,7 @@ export class BapiClient {
 
       return response.entities;
     },
-    getByByReferenceKey: async (
+    getByReferenceKey: async (
       referenceKey: string,
       params: Omit<
         ProductsByReferenceKeyEndpointParameters,

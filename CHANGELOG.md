@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.4.0
+
+- Add `getByReferenceKey`, which uses a faster implementation than `getByReferenceKeys` when requesting products for a single reference key
+
 ### 13.3.0
 
 - Expose `attributeGroupType` for `AttributesFilterItemWithValues` on `/filters` endpoint
