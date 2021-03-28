@@ -97,6 +97,10 @@ import {
   createShopConfigurationRequest,
   ShopConfigurationResponseData,
 } from 'bapi/endpoints/shopconfiguration/shopconfiguration';
+import {
+  createProductByReferenceKeyRequest,
+  ProductsByReferenceKeyRequestData as ProductsByReferenceKeyEndpointParameters,
+} from 'bapi/endpoints/products/productByReferenceKey';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -657,7 +661,28 @@ export class BapiClient {
 
       return response.entities;
     },
+    getByReferenceKey: async (
+      referenceKey: string,
+      params: Omit<
+        ProductsByReferenceKeyEndpointParameters,
+        'referenceKey'
+      > = {},
+    ): Promise<BapiProduct | null> => {
+      const response = await this.execute(
+        createProductByReferenceKeyRequest({...params, referenceKey}),
+      );
 
+      // Reference keys are unique on BAPI, so we should only get 1 product (or none)
+      if (response.entities.length === 1) {
+        return response.entities[0];
+      } else if (response.entities.length > 1) {
+        throw new Error(
+          `Got ${response.entities.length} products for a single referenceKey`,
+        );
+      }
+
+      return null;
+    },
     query: (
       params: ProductsSearchEndpointParameters = {},
     ): Promise<ProductsByIdsEndpointResponseData> =>
