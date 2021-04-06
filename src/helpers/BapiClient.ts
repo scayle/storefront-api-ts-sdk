@@ -101,6 +101,10 @@ import {
   createProductByReferenceKeyRequest,
   ProductsByReferenceKeyRequestData as ProductsByReferenceKeyEndpointParameters,
 } from 'bapi/endpoints/products/productByReferenceKey';
+import {
+  createSearchResolveEndpointRequest,
+  SearchResolveEndpointResponseData,
+} from 'bapi/endpoints/search/resolve';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -750,6 +754,9 @@ export class BapiClient {
     },
     mappings: (term: string): Promise<SearchMappingsEndpointResponseData> => {
       return this.execute(createrSearchMappingsEndpointRequest({term}));
+    },
+    resolve: (term: string): Promise<SearchResolveEndpointResponseData> => {
+      return this.execute(createSearchResolveEndpointRequest({term}));
     },
   };
 

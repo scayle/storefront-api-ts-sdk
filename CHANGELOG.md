@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.5.0
+
+- Expose `/search/resolve` API as `BapiClient.search.resolve`
+
 ### 13.4.0
 
 - Add `getByReferenceKey`, which uses a faster implementation than `getByReferenceKeys` when requesting products for a single reference key
@@ -59,7 +63,7 @@
 ### 9.1.0
 
 - Expose `referenceKey` on BAPI
-- Expose `products.byReferenceKeys` on `BAPIClient`
+- Expose `products.byReferenceKeys` on `BapiClient`
 
 ### 9.0.0
 
