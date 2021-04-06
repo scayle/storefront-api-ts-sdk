@@ -1,4 +1,5 @@
 import {
+  BasketItemDisplayData,
   BasketResponseData,
   BasketWith,
   basketWithQueryParameter,
@@ -9,15 +10,22 @@ export interface UpdateBasketItemQuantity {
   basketKey: string;
   itemKey: string;
   quantity: number;
-
   with?: BasketWith;
   campaignKey?: 'px' | undefined;
   skipAvailabilityCheck?: boolean;
+  // Beware that specifying any of `customData`, `displayData`, `pricePromotionKey` will update the _entire_ `customData` for the basket item
+  customData?: {[key: string]: any; [key: number]: any};
+  displayData?: BasketItemDisplayData;
+  pricePromotionKey?: string;
 }
 
 export function updateBasketItemQuantityRequest(
   params: UpdateBasketItemQuantity,
 ): BapiCall<BasketResponseData> {
+  const customData = params.pricePromotionKey
+    ? {...params.customData, pricePromotionKey: params.pricePromotionKey}
+    : params.customData;
+
   return {
     method: 'PATCH',
     endpoint: `baskets/${params.basketKey}/items/${params.itemKey}`,
@@ -32,6 +40,8 @@ export function updateBasketItemQuantityRequest(
     },
     data: {
       quantity: params.quantity,
+      ...(customData !== undefined ? {customData} : undefined),
+      ...(params.displayData ? {displayData: params.displayData} : undefined),
     },
   };
 }
