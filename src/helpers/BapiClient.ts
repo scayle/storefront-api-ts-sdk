@@ -384,6 +384,8 @@ export class BapiClient {
      * If a quantity of 0 is provided, that'll delete any existing basket item for the same variant unless "keep existing" is set.
      *
      * This method throws if the initial basket GET fails.
+     *
+     * If the caller specifies any of `customData`, `displayData`, or `pricePromotionKey` this will update the _entire_ `customData` for that specific basket item
      */
     addOrUpdateItems: async (
       basketKey: string,
