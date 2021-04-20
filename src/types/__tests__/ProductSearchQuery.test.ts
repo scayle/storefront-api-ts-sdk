@@ -63,4 +63,32 @@ Object {
   "filters[term]": "search term",
 }
 `);
+
+  expect(
+    queryParamsFromProductSearchQuery({
+      categoryId: 1235,
+      disableFuzziness: true,
+      term: '123',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "disableFuzziness": "true",
+  "filters[category]": 1235,
+  "filters[term]": "123",
+}
+`);
+
+  expect(
+    queryParamsFromProductSearchQuery({
+      categoryId: 1235,
+      containsSearch: true,
+      term: '123',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "containsSearch": "true",
+  "filters[category]": 1235,
+  "filters[term]": "123",
+}
+`);
 });

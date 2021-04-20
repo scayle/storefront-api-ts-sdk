@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.7.0
+
+- Support parameters `containsSearch` and `disableFuzziness` for product searches
+
 ### 13.6.0
 
 - `BapiClient.basket.updateItem` (and its usage through `BapiClient.basket.addOrUpdateItems`) now supports updating the `customData` as well as the `pricePromotionKey`
