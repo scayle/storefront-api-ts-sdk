@@ -1,5 +1,10 @@
 # Changelog
 
+### 13.7.1
+
+- Ignore `displayData` on `BapiClient.addOrUpdateItems` when strategy `ExistingItemHandling.AddQuantityToExisting` is used
+  - Reason: The underlying API does not support updating display data of existing items, only the custom data
+
 ### 13.7.0
 
 - Support parameters `containsSearch` and `disableFuzziness` for product searches
