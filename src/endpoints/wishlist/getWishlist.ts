@@ -23,7 +23,7 @@ export interface GetWishlistParameters {
   wishlistKey: string;
 
   with?: WishlistWith;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
 
   pricePromotionKey?: string;
 }

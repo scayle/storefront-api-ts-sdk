@@ -67,6 +67,20 @@ Object {
 
   expect(
     createProductsSearchEndpointRequest({
+      campaignKey: 'some-other-campaign',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "campaignKey": "some-other-campaign",
+  },
+}
+`);
+
+  expect(
+    createProductsSearchEndpointRequest({
       pagination: {
         page: 1,
       },

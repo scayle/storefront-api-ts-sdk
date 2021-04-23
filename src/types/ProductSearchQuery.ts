@@ -12,6 +12,8 @@ export interface ProductSearchQuery {
   attributes?: Array<
     AttributeWithValuesFilter | AttributeWithBooleanValueFilter
   >;
+  containsSearch?: boolean;
+  disableFuzziness?: boolean;
 }
 
 export function queryParamsFromProductSearchQuery(
@@ -45,6 +47,8 @@ export function queryParamsFromProductSearchQuery(
     'filters[term]': productSearchQuery.term,
     'filters[minPrice]': productSearchQuery.minPrice,
     'filters[maxPrice]': productSearchQuery.maxPrice,
+    containsSearch: productSearchQuery.containsSearch ? 'true' : undefined,
+    disableFuzziness: productSearchQuery.disableFuzziness ? 'true' : undefined,
   };
 
   const definedFilters: ObjectMap<string | number> = {};

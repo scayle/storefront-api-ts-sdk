@@ -10,7 +10,7 @@ export interface DeleteItemParameters {
   itemKey: string;
 
   with?: BasketWith;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
   skipAvailabilityCheck?: boolean;
 }
 

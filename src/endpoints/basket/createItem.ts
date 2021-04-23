@@ -15,7 +15,7 @@ export interface CreateBasketItemParameters {
   customData?: {[key: string]: any; [key: number]: any};
   displayData?: BasketItemDisplayData;
   pricePromotionKey?: string;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
   skipAvailabilityCheck?: boolean;
 }
 

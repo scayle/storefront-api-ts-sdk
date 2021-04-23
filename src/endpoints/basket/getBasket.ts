@@ -118,7 +118,7 @@ export interface GetBasketParameters {
   basketKey: string;
 
   with?: BasketWith;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
 
   // The shop ID to be used for reading the basket from Checkout
   // Product data will still be attached from the primary `shopId`

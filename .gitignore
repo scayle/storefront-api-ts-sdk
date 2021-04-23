@@ -1,3 +1,4 @@
+integration-test.js
 *.tgz
 dist/
 node_modules/

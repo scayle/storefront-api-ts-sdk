@@ -9,7 +9,7 @@ import {Pagination} from '../products/productsByIds';
 export interface VariantsByIdsEndpointParameters {
   variantIds: number[];
   with?: VariantWith;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
   pricePromotionKey?: string;
 }
 

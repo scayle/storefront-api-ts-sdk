@@ -9,7 +9,7 @@ import {BapiCategory} from 'bapi/types/BapiCategory';
 export interface SearchSuggestionsEndpointParameters {
   term: string;
 
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
 
   with?: {
     brands?: 'all';

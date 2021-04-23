@@ -34,7 +34,7 @@ export interface ProductsSearchEndpointParameters {
 
   sort?: ProductSortConfig;
 
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
 
   with?: ProductWith;
 

@@ -153,4 +153,23 @@ Object {
   },
 }
 `);
+
+  expect(
+    createFiltersEndpointRequest({
+      where: {
+        categoryId: 20201,
+      },
+      campaignKey: 'some-other-campaign',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "filters",
+  "method": "GET",
+  "params": Object {
+    "campaignKey": "some-other-campaign",
+    "filters[category]": 20201,
+    "with": "values",
+  },
+}
+`);
 });

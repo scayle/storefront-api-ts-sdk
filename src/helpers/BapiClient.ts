@@ -385,7 +385,8 @@ export class BapiClient {
      *
      * This method throws if the initial basket GET fails.
      *
-     * If the caller specifies any of `customData`, `displayData`, or `pricePromotionKey` this will update the _entire_ `customData` for that specific basket item
+     * If the caller specifies any of `customData`, `displayData`, or `pricePromotionKey` this will update the _entire_ `customData` for that specific basket item.
+     * There is one notable exception: If `ExistingItemHandling.AddQuantityToExisting` is specified, the previous display data will be preserved.
      */
     addOrUpdateItems: async (
       basketKey: string,
@@ -462,11 +463,14 @@ export class BapiClient {
                 continue; // leave existing untouched
 
               case ExistingItemHandling.AddQuantityToExisting:
+                const paramsWithoutDisplayData = {...params};
+                delete paramsWithoutDisplayData['displayData'];
+
                 // update existing with combined quantity
                 await client.updateItem(
                   existingBasketItem.key,
                   existingBasketItem.quantity + quantity,
-                  params,
+                  paramsWithoutDisplayData,
                   variantId,
                 );
                 continue;
