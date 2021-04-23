@@ -11,7 +11,7 @@ export interface UpdateBasketItemQuantity {
   itemKey: string;
   quantity: number;
   with?: BasketWith;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
   skipAvailabilityCheck?: boolean;
   // Beware that specifying any of `customData`, `displayData`, `pricePromotionKey` will update the _entire_ `customData` for the basket item
   customData?: {[key: string]: any; [key: number]: any};

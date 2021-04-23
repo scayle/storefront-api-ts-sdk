@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.8.0
+
+- Allow arbitrary campaign keys
+
 ### 13.7.1
 
 - Ignore `displayData` on `BapiClient.addOrUpdateItems` when strategy `ExistingItemHandling.AddQuantityToExisting` is used

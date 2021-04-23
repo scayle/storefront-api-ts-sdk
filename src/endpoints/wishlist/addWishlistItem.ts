@@ -22,7 +22,7 @@ export interface AddWishlistItemParameters {
   item: WishlistItemCreationID;
 
   with?: WishlistWith;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
 
   childShopId?: number;
 

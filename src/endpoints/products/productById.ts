@@ -8,7 +8,7 @@ import {
 export interface ProductByIdEndpointParameters {
   productId: number;
   with?: ProductWith;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
   pricePromotionKey?: string;
   includeSellableForFree?: boolean;
 }

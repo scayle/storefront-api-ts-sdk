@@ -11,7 +11,7 @@ export interface TypeaheadSuggestionsEndpointRequestParameters {
   term: string;
 
   // Not enabled on BAPI side yet
-  // campaignKey?: 'px' | undefined;
+  // campaignKey?: string;
 
   with?: {
     // The `with` includes used for all returned products

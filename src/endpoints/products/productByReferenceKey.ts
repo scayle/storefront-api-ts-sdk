@@ -9,7 +9,7 @@ import {Pagination} from './productsByIds';
 export interface ProductsByReferenceKeyRequestData {
   referenceKey: string;
   with?: ProductWith;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
   pricePromotionKey?: string;
   includeSellableForFree?: boolean;
 }

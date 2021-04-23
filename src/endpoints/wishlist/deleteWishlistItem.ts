@@ -10,7 +10,7 @@ export interface DeleteWishlistParameters {
   itemKey: string;
 
   with?: WishlistWith;
-  campaignKey?: 'px' | undefined;
+  campaignKey?: string;
 
   pricePromotionKey?: string;
 }
