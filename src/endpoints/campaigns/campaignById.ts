@@ -1,14 +1,5 @@
 import {BapiCall} from 'bapi/interfaces/BapiCall';
-
-export type Campaign = {
-  id: number;
-  key: string;
-  name: string;
-  description: string;
-  reduction: number;
-  start_at: string | null;
-  end_at: string | null;
-};
+import {Campaign} from 'bapi/types/campaign';
 
 export type CampaignByIdEndpointResponseData = Campaign;
 
