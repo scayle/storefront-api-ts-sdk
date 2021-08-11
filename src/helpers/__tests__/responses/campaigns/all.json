@@ -1,0 +1,32 @@
+{
+  "pagination": {
+    "current": 2,
+    "total": 2,
+    "perPage": 1,
+    "page": 10,
+    "first": 1,
+    "prev": 2,
+    "next": 2,
+    "last": 2
+  },
+  "entities": [
+    {
+      "id": 307,
+      "name": "PROMO 19.02",
+      "key": "4f01315b-ed92-45e2-a672-74e31f21c7f9",
+      "description": "",
+      "reduction": 0,
+      "start_at": "2021-02-19T10:00:00+00:00",
+      "end_at": "2021-08-31T22:00:00+00:00"
+    },
+    {
+      "id": 350,
+      "name": "The Founded Test Campaign",
+      "key": "77d6e0cf-7aa5-4862-b72b-e12730b54540",
+      "description": "",
+      "reduction": 0,
+      "start_at": "2021-06-18T16:15:00+00:00",
+      "end_at": "2021-06-27T10:00:00+00:00"
+    }
+  ]
+}

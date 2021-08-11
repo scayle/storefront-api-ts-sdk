@@ -106,6 +106,15 @@ import {
   SearchResolveEndpointResponseData,
 } from 'bapi/endpoints/search/resolve';
 import {
+  CampaignByIdEndpointResponseData,
+  createCampaignByIdEndpointRequest,
+} from 'bapi/endpoints/campaigns/campaignById';
+import {
+  CampaignsEndpointRequestParameters,
+  CampaignsEndpointResponseData,
+  createCampaignsEndpointRequest,
+} from 'bapi/endpoints/campaigns/campaigns';
+import {
   createNavigationByIdEndpointRequest,
   NavigationByIdEndpointResponseData,
 } from 'bapi/endpoints/navigation/navigationById';
@@ -805,6 +814,19 @@ export class BapiClient {
   public readonly shopConfiguration = {
     get: async (): Promise<ShopConfigurationResponseData> => {
       return this.execute(createShopConfigurationRequest());
+    },
+  };
+
+  public readonly campaigns = {
+    getById: (
+      campaignId: number,
+    ): Promise<CampaignByIdEndpointResponseData> => {
+      return this.execute(createCampaignByIdEndpointRequest(campaignId));
+    },
+    get: (
+      parameters: CampaignsEndpointRequestParameters = {},
+    ): Promise<CampaignsEndpointResponseData> => {
+      return this.execute(createCampaignsEndpointRequest(parameters));
     },
   };
 
