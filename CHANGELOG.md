@@ -1,5 +1,12 @@
 # Changelog
 
+### 13.9.0
+
+- Expose `/campaigns` API as `BapiClient.campaigns.get`
+- Expose `/campaigns/{campaignId}` API as `BapiClient.campaigns.getById`
+- Expose `/navigation/trees` API as `BapiClient.navigation.getAll`
+- Expose `/navigation/trees/{navigationTreeId}` API as `BapiClient.navigation.getById`
+
 ### 13.8.0
 
 - Allow arbitrary campaign keys
