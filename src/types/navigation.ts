@@ -6,7 +6,7 @@ export type NavigationItem = {
   languages: {[key: string]: string};
   visibleFrom: RFC33339Date | null;
   visibleTo: RFC33339Date | null;
-  children: NavigationItem[];
+  children: NavigationItems;
 };
 
 export type NavigationItemExternal = NavigationItem & {
@@ -28,13 +28,15 @@ export type NavigationItemPage = NavigationItem & {
   page: string;
 };
 
+export type NavigationItems = (
+  | NavigationItemExternal
+  | NavigationItemCategory
+  | NavigationItemPage
+)[];
+
 export type NavigationTree = {
   id: number;
   key: string;
   name: string;
-  items: (
-    | NavigationItemExternal
-    | NavigationItemCategory
-    | NavigationItemPage
-  )[];
+  items: NavigationItems;
 };
