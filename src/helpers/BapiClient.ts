@@ -114,6 +114,14 @@ import {
   CampaignsEndpointResponseData,
   createCampaignsEndpointRequest,
 } from 'bapi/endpoints/campaigns/campaigns';
+import {
+  createNavigationByIdEndpointRequest,
+  NavigationByIdEndpointResponseData,
+} from 'bapi/endpoints/navigation/navigationById';
+import {
+  createNavigationAllEndpointRequest,
+  NavigationAllEndpointResponseData,
+} from 'bapi/endpoints/navigation/navigation';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -819,6 +827,19 @@ export class BapiClient {
       parameters: CampaignsEndpointRequestParameters = {},
     ): Promise<CampaignsEndpointResponseData> => {
       return this.execute(createCampaignsEndpointRequest(parameters));
+    },
+  };
+
+  public readonly navigation = {
+    getById: (
+      navigationTreeId: number,
+    ): Promise<NavigationByIdEndpointResponseData> => {
+      return this.execute(
+        createNavigationByIdEndpointRequest(navigationTreeId),
+      );
+    },
+    getAll: (): Promise<NavigationAllEndpointResponseData> => {
+      return this.execute(createNavigationAllEndpointRequest());
     },
   };
 }
