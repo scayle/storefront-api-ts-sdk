@@ -1,0 +1,36 @@
+{
+  "pagination": {
+    "current": 2,
+    "total": 4879,
+    "perPage": 2,
+    "page": 1,
+    "first": 1,
+    "prev": 1,
+    "next": 2,
+    "last": 2440
+  },
+  "entities": [
+    {
+      "id": 2,
+      "attributeId": 692853,
+      "customData": {},
+      "externalReference": "",
+      "group": "",
+      "isActive": true,
+      "logoHash": "",
+      "createdAt": "2019-01-24 13:39:58",
+      "updatedAt": "2019-04-08 11:56:37"
+    },
+    {
+      "id": 4,
+      "attributeId": 709497,
+      "customData": {},
+      "externalReference": "",
+      "group": "",
+      "isActive": true,
+      "logoHash": "",
+      "createdAt": "2019-02-04 15:09:09",
+      "updatedAt": "2019-04-08 11:56:41"
+    }
+  ]
+}
