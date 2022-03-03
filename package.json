@@ -1,6 +1,10 @@
 {
   "name": "@aboutyou/backbone",
   "version": "13.9.0",
+  "dependencies": {
+    "axios": ">=0.18.0 <1.0.0",
+    "query-string": "^6.2.0"
+  },
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
     "@types/jest": "^23.3.3",
@@ -20,14 +24,11 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "check-format": "yarn prettier -l \"src/**/*.ts\"",
-    "format": "yarn prettier --write \"src/**/*.ts\"",
+    "build": "tsc",
+    "check-format": "prettier -l \"src/**/*.ts\"",
+    "lint": "prettier --write \"src/**/*.ts\"",
     "test": "jest",
     "ts-check": "tsc --noEmit -w"
-  },
-  "dependencies": {
-    "axios": ">=0.18.0 <1.0.0",
-    "query-string": "^6.2.0"
   },
   "peerDependencies": {}
 }

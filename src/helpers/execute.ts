@@ -1,7 +1,7 @@
-import axios, {AxiosRequestConfig, AxiosResponse, AxiosAdapter} from 'axios';
+import axios, {AxiosAdapter, AxiosRequestConfig, AxiosResponse} from 'axios';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
-import * as queryString from 'query-string';
 import {ObjectMap} from 'bapi/types/ObjectMap';
+import * as queryString from 'query-string';
 import {BapiAuthentication} from './BapiClient';
 
 export const getParamsString = (params?: Partial<Record<string, any>>) => {
@@ -82,7 +82,7 @@ export async function execute<SuccessResponseT>(
 
   if (auth) {
     if (auth.type === 'token') {
-      fetchOptions.headers['X-Access-Token'] = auth.token;
+      fetchOptions.headers!['X-Access-Token'] = auth.token;
     } else {
       fetchOptions.auth = {
         username: auth.username,
