@@ -1,4 +1,4 @@
-image: node:10-alpine
+image: registry.gitlab.com/aboutyou/cloud-agency/infrastructure/docker-images/ci/node:16.13.2-alpine3.15
 
 cache:
   paths:
