@@ -1,16 +1,22 @@
 # BACKBONE SDK
 
-TypeScript and JavaScript SDK source for the ABOUT YOU CLOUD BACKBONE APIs.
+TypeScript and JavaScript SDK source for the SCAYLE Storefront API.
 
 ## Documentation
 
-Developer Guides are available at https://resources.aboutyou.cloud/dev.
+Developer Guides are available at [scayle.dev](https://scayle.dev).
 
-For information about the BACKBONE HTTP API that this SDK abstracts see https://cloud.aboutyou.com/documentation.
+For information about the BACKBONE HTTP API that this SDK abstracts see the [documentation](https://scayle.dev/en/dev/storefront-api/introduction).
 
-For a general introduction to the ABOUT YOU CLOUD see https://cloud.aboutyou.com/.
+For a general introduction about SCAYLE see [scayle.com](https://scayle.com/).
 
 ## Installation
+
+```
+npm i @aboutyou/backbone
+```
+
+or
 
 ```
 yarn add @aboutyou/backbone
