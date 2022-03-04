@@ -1,7 +1,7 @@
 import {BapiClient} from 'bapi/helpers/BapiClient';
 import {
-  nockWithBapiScope,
   disableNetAndAllowBapiCors,
+  nockWithBapiScope,
 } from 'bapi/test-helpers/nock';
 import nock = require('nock');
 
@@ -73,7 +73,12 @@ it('Additem failure', async () => {
     productId: 1234,
   });
 
-  expect(response.type).toBe('failure');
+  if (response.type !== 'failure') {
+    fail('Expected failure response');
+    return;
+  }
+
+  expect(response.kind).toEqual('Unknown');
 });
 
 it('Deletes an item from the wishlist', async () => {

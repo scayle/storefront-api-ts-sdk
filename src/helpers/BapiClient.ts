@@ -204,8 +204,30 @@ type AddWishlistItemResponse =
     }
   | {
       type: 'failure';
+      kind: AddToWhistlistFailureKind;
       wishlist: WishlistResponseData;
     };
+
+export enum AddToWhistlistFailureKind {
+  OnlyOneParameterMustBeSet = 'OnlyOneParameterMustBeSet',
+  ItemUnvailable= 'ItemUnvailable',
+  Unknown = 'Unknown',
+}
+
+function addToWhistListFailureKindFromStatusCode(
+  statusCode: number,
+): AddToWhistlistFailureKind {
+  switch (statusCode) {
+    case 400:
+      return AddToWhistlistFailureKind.OnlyOneParameterMustBeSet;
+
+    case 412:
+      return AddToWhistlistFailureKind.ItemUnvailable;
+
+    default:
+      return AddToWhistlistFailureKind.Unknown;
+  }
+}
 
 export enum AddToBasketFailureKind {
   VariantAlreadyPresent = 'VariantAlreadyPresent',
@@ -757,6 +779,7 @@ export class BapiClient {
       } else {
         return {
           type: 'failure',
+          kind: addToWhistListFailureKindFromStatusCode(response.statusCode),
           wishlist: response.data,
         };
       }
