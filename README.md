@@ -1,4 +1,4 @@
-# BACKBONE SDK
+# SCAYLE Storefront SDK
 
 TypeScript and JavaScript SDK source for the SCAYLE Storefront API.
 

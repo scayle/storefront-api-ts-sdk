@@ -1,4 +1,4 @@
-image: registry.gitlab.com/aboutyou/cloud-agency/infrastructure/docker-images/ci/node:16.13.2-alpine3.15
+image: node:16-alpine3.15
 
 stages:
   - build
@@ -12,21 +12,15 @@ package:
   stage: build
   before_script:
     - apk update && apk upgrade && apk add --no-cache bash git openssh
-    - npm install
+    - yarn install
   script:
-    - npm run build
-  tags:
-    - ay-shared-runner
-lint:
-  stage: test
-  script:
-    - npm run lint
+    - yarn run build
   tags:
     - ay-shared-runner
 
-Unit tests:
+Test & Lint:
   stage: test
   script:
-    - npm run test
+    - yarn run test
   tags:
     - ay-shared-runner

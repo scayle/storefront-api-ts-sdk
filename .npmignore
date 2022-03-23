@@ -1,11 +1,13 @@
+.bin/
 .vscode/
+src/
 yarn.lock
 .editorconfig
 .prettierignore
 .prettierrc
-buildPackage.sh
 tsconfig.json
 jest.config.js
+DEV.md
 PUBLISHING.md
 tsconfig.json
 .gitlab-ci.yml
