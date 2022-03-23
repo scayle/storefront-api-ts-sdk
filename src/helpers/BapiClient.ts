@@ -210,7 +210,7 @@ type AddWishlistItemResponse =
 
 export enum AddToWhistlistFailureKind {
   OnlyOneParameterMustBeSet = 'OnlyOneParameterMustBeSet',
-  ItemUnvailable= 'ItemUnvailable',
+  ItemUnvailable = 'ItemUnvailable',
   Unknown = 'Unknown',
 }
 
