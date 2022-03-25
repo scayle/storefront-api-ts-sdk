@@ -1,5 +1,3 @@
-import {RFC33339Date} from 'bapi/types/BapiProduct';
-
 export interface BrandCustomData {
   floatData: number;
 
@@ -54,12 +52,12 @@ export interface Brand {
   logoHash: string;
 
   /**
-   * Date string of creation, formatted according to RFC 3339, e.g. `2018-06-01 14:56:08`
+   * Date string of creation, formatted according as `yyyy-MM-dd HH:mm:ss`, e.g. `2018-06-01 14:56:08`
    */
-  createdAt: RFC33339Date;
+  createdAt: string;
 
   /**
-   * Date string of last update, formatted according to RFC 3339, e.g. `2020-06-05 09:11:25`
+   * Date string of last update, formatted according as `yyyy-MM-dd HH:mm:ss`, e.g. `2020-06-05 09:11:25`
    */
-  updatedAt: RFC33339Date;
+  updatedAt: string;
 }
