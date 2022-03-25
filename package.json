@@ -12,11 +12,10 @@
     "@types/query-string": "^6.1.0",
     "axios-mock-adapter": "^1.18.1",
     "jest": "^23.6.0",
-    "nock": "^10.0.0",
+    "nock": "10.0.6",
     "prettier": "^1.19.0",
     "ts-jest": "^23.10.4",
-    "typescript": "^3.7",
-    "yarn": "^1.22.18"
+    "typescript": "^3.7"
   },
   "repository": {
     "type": "git",
