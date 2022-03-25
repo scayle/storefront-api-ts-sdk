@@ -33,7 +33,7 @@
     "forceConsistentCasingInFileNames": true,
     "removeComments": true,
     "noErrorTruncation": true,
-    "outDir": "./compiled",
+    "outDir": "./dist",
     "rootDir": "./src"
   },
   "include": [
@@ -41,6 +41,6 @@
     "src/**/*.d.ts"
   ],
   "exclude": [
-    "compiled/**"
+    "dist/**"
   ]
 }
