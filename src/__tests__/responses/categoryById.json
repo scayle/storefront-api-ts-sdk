@@ -11,5 +11,6 @@
     {"name": "legacy_category_id", "value": 20202},
     {"name": "category_context", "value": "male"}
   ],
+  "supportedFilter": ["mainMaterial"],
   "isHidden": false
 }

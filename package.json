@@ -1,6 +1,10 @@
 {
   "name": "@aboutyou/backbone",
-  "version": "13.9.0",
+  "version": "13.10.0",
+  "dependencies": {
+    "axios": ">=0.18.0 <1.0.0",
+    "query-string": "^6.2.0"
+  },
   "devDependencies": {
     "@ef-carbon/tspm": "^2.2.5",
     "@types/jest": "^23.3.3",
@@ -8,7 +12,7 @@
     "@types/query-string": "^6.1.0",
     "axios-mock-adapter": "^1.18.1",
     "jest": "^23.6.0",
-    "nock": "^10.0.0",
+    "nock": "10.0.6",
     "prettier": "^1.19.0",
     "ts-jest": "^23.10.4",
     "typescript": "^3.7"
@@ -20,14 +24,11 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "check-format": "yarn prettier -l \"src/**/*.ts\"",
-    "format": "yarn prettier --write \"src/**/*.ts\"",
-    "test": "jest",
+    "build": "tsc",
+    "check-format": "prettier -l \"src/**/*.ts\"",
+    "lint": "prettier --write \"src/**/*.ts\"",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "jest",
     "ts-check": "tsc --noEmit -w"
-  },
-  "dependencies": {
-    "axios": ">=0.18.0 <1.0.0",
-    "query-string": "^6.2.0"
-  },
-  "peerDependencies": {}
+  }
 }

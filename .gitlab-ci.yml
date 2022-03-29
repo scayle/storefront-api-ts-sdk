@@ -1,18 +1,26 @@
-image: node:10-alpine
+image: node:16-alpine3.15
+
+stages:
+  - build
+  - test
 
 cache:
   paths:
     - node_modules/
 
-stages:
-  - test
-
-check_build:
-  stage: test
-  script:
+package:
+  stage: build
+  before_script:
     - apk update && apk upgrade && apk add --no-cache bash git openssh
     - yarn install
-    - yarn check-format
-    - yarn test
+  script:
+    - yarn run build
   tags:
-    - docker
+    - ay-shared-runner
+
+Test & Lint:
+  stage: test
+  script:
+    - yarn run test
+  tags:
+    - ay-shared-runner

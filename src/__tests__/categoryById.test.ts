@@ -1,8 +1,8 @@
 import {createCategoryByIdEndpointRequest} from 'bapi/endpoints/categories/categoryById';
 import {execute} from 'bapi/helpers/execute';
 import {
-  nockWithBapiScope,
   disableNetAndAllowBapiCors,
+  nockWithBapiScope,
 } from 'bapi/test-helpers/nock';
 
 disableNetAndAllowBapiCors();
@@ -29,4 +29,6 @@ test('Fetch category by id', async () => {
   );
 
   expect(result.data.id).toBe(20202);
+  expect(result.data.supportedFilter).toBeDefined();
+  expect(result.data.supportedFilter![0]).toBe('mainMaterial');
 });
