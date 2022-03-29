@@ -22,10 +22,7 @@
     "url": "https://gitlab.com/aboutyou/cloud-core/backbone-ts.git"
   },
   "license": "MIT",
-  "main": "dist/index.js",
-  "files": [
-    "dist/"
-  ],
+  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "check-format": "prettier -l \"src/**/*.ts\"",
