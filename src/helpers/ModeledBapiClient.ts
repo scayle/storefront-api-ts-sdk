@@ -117,6 +117,7 @@ export type MappedProduct<T extends ProductMapping> = {
   isNew: BapiProduct['isNew'];
   categories: BapiProduct['categories'];
   images: BapiProduct['images'];
+  baseCategories: BapiProduct['baseCategories'];
 };
 
 type MappedVariant<T extends VariantMapping> = {
@@ -174,6 +175,7 @@ function productWithMappingApplied<T extends ProductMapping>(
     isNew: bapiProduct.isNew,
     categories: bapiProduct.categories,
     images: bapiProduct.images,
+    baseCategories: bapiProduct.baseCategories,
   };
 
   return mapped;

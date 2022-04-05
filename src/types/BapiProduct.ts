@@ -17,6 +17,14 @@ export interface BapiProduct {
   categories?: BapiProductCategory[][];
   siblings?: BapiProduct[];
   priceRange?: PriceRange;
+  baseCategories?: BaseCategory[];
+}
+
+export interface BaseCategory {
+  categoryId: number;
+  categoryName: string;
+  categoryParentId: number;
+  categoryPath: string;
 }
 
 export interface PriceRange {

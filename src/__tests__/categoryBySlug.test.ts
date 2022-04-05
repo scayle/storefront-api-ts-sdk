@@ -63,6 +63,6 @@ test('Fetch category by slug error input: Error if receiving category list', asy
     // Fail test if above expression doesn't throw anything.
     expect(true).toBe(false);
   } catch (e) {
-    expect(e.message).toBe('Invalid response data');
+    expect((e as any).message).toBe('Invalid response data');
   }
 });

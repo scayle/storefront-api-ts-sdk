@@ -119,6 +119,7 @@ Object {
     "name": "'Candy Kiss' Eau de Parfum",
     "quantityPerPack": 1,
   },
+  "baseCategories": undefined,
   "categories": undefined,
   "id": 3553214,
   "images": Array [

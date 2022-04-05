@@ -3,6 +3,7 @@ import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
 } from 'bapi/test-helpers/nock';
+import {BaseCategory} from 'bapi/types/BapiProduct';
 
 disableNetAndAllowBapiCors();
 
@@ -27,6 +28,14 @@ it('Gets product by ID', async () => {
   const response = await bapi.products.getById(4001039);
 
   expect(response.id).toBe(4001039);
+  expect(response.baseCategories).toEqual([
+    {
+      categoryId: 3951,
+      categoryName: 'Turnschuhe & Sneaker',
+      categoryParentId: 3947,
+      categoryPath: 'SecondHand|Fashion|Männer|Schuhe|Turnschuhe & Sneaker',
+    },
+  ] as BaseCategory[]);
 });
 
 it('Gets products by IDs', async () => {
