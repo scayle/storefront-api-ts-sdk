@@ -27,6 +27,7 @@ export interface ProductWith {
   // By default the categories will have no properties, but all or specific ones (by name) can be requested
   categories?: 'all' | ProductCategoryWith;
   priceRange?: boolean;
+  baseCategories?: boolean;
 }
 
 export interface ProductCategoryWith {
@@ -141,6 +142,10 @@ export function productWithQueryParameterValues(
 
   if (productWith.priceRange === true) {
     parameterValues.push('priceRange');
+  }
+
+  if (productWith.baseCategories === true) {
+    parameterValues.push('baseCategories');
   }
 
   return parameterValues;

@@ -29,7 +29,7 @@ it('execute 1', async () => {
       'header',
     );
   } catch (e) {
-    expect(e.message).toContain('Invalid response data');
+    expect((e as any).message).toContain('Invalid response data');
     return;
   }
 

@@ -24,7 +24,7 @@ it('execute 1', async () => {
   try {
     await execute('https://api-cloud.example.com', 139, TestCall, true);
   } catch (e) {
-    expect(e.message).toContain('Invalid response data');
+    expect((e as any).message).toContain('Invalid response data');
     return;
   }
 

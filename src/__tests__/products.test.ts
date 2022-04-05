@@ -57,7 +57,7 @@ test('Fetch unavailable product', async () => {
       }),
     );
   } catch (e) {
-    expect(e.message).toBe(`Request failed with status code 404`);
+    expect((e as any).message).toBe(`Request failed with status code 404`);
     return;
   }
 
