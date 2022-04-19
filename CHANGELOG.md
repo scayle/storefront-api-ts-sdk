@@ -1,5 +1,10 @@
 # Changelog
 
+### 13.10.2
+
+- Allows querying products based on minimum and max reduction
+- Allows querying products with baseCategories
+
 ### 13.9.0
 
 - Expose `/campaigns` API as `BapiClient.campaigns.get`
@@ -55,12 +60,12 @@
 
 ### 12.0.0
 
-- Breaking Change: For categories included with products on `/products`, properties will not be included by default anymore. Responses are now small by default.  
+- Breaking Change: For categories included with products on `/products`, properties will not be included by default anymore. Responses are now small by default.
   Use `with: { categories: { properties: 'all' } }` to get the previous behavior, or better yet specify the exact properties you need using `with: { categories: { properties: { withName: ['foo', 'bar'] } } }`
 
 ### 11.0.0
 
-- Breaking Change: For category requests, properties are not included by default anymore. Responses are now small by default.  
+- Breaking Change: For category requests, properties are not included by default anymore. Responses are now small by default.
   Use `with: { properties: 'all' }` to get the previous behavior, or better yet specify the exact properties you need using `with: { properties: { withName: ['foo', 'bar'] } }`
 
 ### 10.3.0
@@ -310,8 +315,8 @@ The `key` property is now exposed on basket responses.
 
 A `childShopId` parameter can now be passed to "add to basket" calls, which will be forward as `appId` in the payload of the checkout call.
 
-The shop ID can now be set via the header or via an URL query parameter.  
-Since it the URL parameter doesn't infere with CORS it's now mandatory in the SDK (and also in upcoming versions of the BAPI itself).  
+The shop ID can now be set via the header or via an URL query parameter.
+Since it the URL parameter doesn't infere with CORS it's now mandatory in the SDK (and also in upcoming versions of the BAPI itself).
 The `execute` function by default will place the shop ID in the URL, while the `BapiClient` will place the shop ID in the header to support existing BAPI installations. This might change in the future.
 
 ## 0.19.0
