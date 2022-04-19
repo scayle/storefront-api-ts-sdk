@@ -9,6 +9,8 @@ export interface ProductSearchQuery {
   term?: string;
   minPrice?: number;
   maxPrice?: number;
+  minReduction?: number;
+  maxReduction?: number;
   attributes?: Array<
     AttributeWithValuesFilter | AttributeWithBooleanValueFilter
   >;
@@ -47,6 +49,8 @@ export function queryParamsFromProductSearchQuery(
     'filters[term]': productSearchQuery.term,
     'filters[minPrice]': productSearchQuery.minPrice,
     'filters[maxPrice]': productSearchQuery.maxPrice,
+    'filters[minReduction]': productSearchQuery.minReduction,
+    'filters[maxReduction]': productSearchQuery.maxReduction,
     containsSearch: productSearchQuery.containsSearch ? 'true' : undefined,
     disableFuzziness: productSearchQuery.disableFuzziness ? 'true' : undefined,
   };
