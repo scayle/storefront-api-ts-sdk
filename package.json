@@ -1,34 +1,34 @@
 {
-  "name": "@aboutyou/backbone",
-  "version": "13.10.2",
-  "dependencies": {
-    "axios": ">=0.18.0 <1.0.0",
-    "query-string": "^6.2.0"
-  },
-  "devDependencies": {
-    "@ef-carbon/tspm": "^2.2.5",
-    "@types/jest": "^23.3.3",
-    "@types/nock": "^9.3.0",
-    "@types/query-string": "^6.1.0",
-    "axios-mock-adapter": "^1.18.1",
-    "jest": "^23.6.0",
-    "nock": "10.0.6",
-    "prettier": "^1.19.0",
-    "ts-jest": "^23.10.4",
-    "typescript": "^3.7"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.com/aboutyou/cloud-core/backbone-ts.git"
-  },
-  "license": "MIT",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc",
-    "check-format": "prettier -l \"src/**/*.ts\"",
-    "lint": "prettier --write \"src/**/*.ts\"",
-    "test": "npm run lint && npm run test:unit",
-    "test:unit": "jest",
-    "ts-check": "tsc --noEmit -w"
-  }
+    "name": "@aboutyou/backbone",
+    "version": "13.10.3",
+    "dependencies": {
+        "axios": ">=0.18.0 <1.0.0",
+        "query-string": "^6.2.0"
+    },
+    "devDependencies": {
+        "@ef-carbon/tspm": "^2.2.5",
+        "@types/jest": "^23.3.3",
+        "@types/nock": "^9.3.0",
+        "@types/query-string": "^6.1.0",
+        "axios-mock-adapter": "^1.18.1",
+        "jest": "^23.6.0",
+        "nock": "10.0.6",
+        "prettier": "^1.19.0",
+        "ts-jest": "^23.10.4",
+        "typescript": "^3.7"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.com/aboutyou/cloud-core/backbone-ts.git"
+    },
+    "license": "MIT",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc",
+        "check-format": "prettier -l \"src/**/*.ts\"",
+        "lint": "prettier --write \"src/**/*.ts\"",
+        "test": "npm run lint && npm run test:unit",
+        "test:unit": "jest",
+        "ts-check": "tsc --noEmit -w"
+    }
 }

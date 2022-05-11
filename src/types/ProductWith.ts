@@ -28,6 +28,7 @@ export interface ProductWith {
   categories?: 'all' | ProductCategoryWith;
   priceRange?: boolean;
   baseCategories?: boolean;
+  lowestPriorPrice?: boolean;
 }
 
 export interface ProductCategoryWith {
@@ -44,6 +45,7 @@ export type ProductCategoryPropertyWith =
 export interface VariantWith {
   attributes?: AttributeInclude;
   advancedAttributes?: AttributeInclude;
+  lowestPriorPrice?: boolean;
   stock?:
     | 'all'
     | {
@@ -148,6 +150,10 @@ export function productWithQueryParameterValues(
     parameterValues.push('baseCategories');
   }
 
+  if (productWith.lowestPriorPrice === true) {
+    parameterValues.push('lowestPriorPrice');
+  }
+
   return parameterValues;
 }
 
@@ -160,6 +166,7 @@ export function variantWithQueryParameterValues(
       'advancedAttributes',
       variantWith.advancedAttributes,
     ),
+    ...(variantWith.lowestPriorPrice ? ['lowestPriorPrice'] : []),
     ...(variantWith.stock ? ['stock'] : []),
     ...(variantWith.stock &&
     typeof variantWith.stock === 'object' &&

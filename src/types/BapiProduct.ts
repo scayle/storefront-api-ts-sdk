@@ -18,6 +18,12 @@ export interface BapiProduct {
   siblings?: BapiProduct[];
   priceRange?: PriceRange;
   baseCategories?: BaseCategory[];
+  lowestPriorPrice?: LowestPriorPrice;
+}
+
+export interface LowestPriorPrice {
+  withTax: number | null;
+  relativeDifferenceToPrice: number | null;
 }
 
 export interface BaseCategory {
@@ -96,6 +102,7 @@ export interface Variant {
   appliedPricePromotionKey?: string;
   attributes?: Attributes;
   advancedAttributes?: AdvancedAttributes;
+  lowestPriorPrice?: LowestPriorPrice;
 }
 
 interface AttributeGroupBasic {
