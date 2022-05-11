@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.10.3
+
+- Allows querying products and variants with `lowestPriorPrice`
+
 ### 13.10.2
 
 - Allows querying products based on minimum and max reduction
