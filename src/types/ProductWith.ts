@@ -29,6 +29,7 @@ export interface ProductWith {
   priceRange?: boolean;
   baseCategories?: boolean;
   lowestPriorPrice?: boolean;
+  searchCategoryIds?: boolean;
 }
 
 export interface ProductCategoryWith {
@@ -152,6 +153,10 @@ export function productWithQueryParameterValues(
 
   if (productWith.lowestPriorPrice === true) {
     parameterValues.push('lowestPriorPrice');
+  }
+
+  if (productWith.searchCategoryIds === true) {
+    parameterValues.push('searchCategoryIds');
   }
 
   return parameterValues;
