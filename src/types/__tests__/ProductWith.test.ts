@@ -318,4 +318,12 @@ it('Can request stock and custom on variants', () => {
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:properties(category_context|reference_id)"`,
   );
+
+  expect(
+    productWithQueryParameterValues({
+      searchCategoryIds: true,
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),searchCategoryIds"`,
+  );
 });

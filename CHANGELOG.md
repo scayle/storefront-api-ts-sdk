@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.10.4
+
+- Allows querying products with `searchCategoryIds`
+
 ### 13.10.3
 
 - Allows querying products and variants with `lowestPriorPrice`
