@@ -1,6 +1,6 @@
 # Changelog
 
-### 13.10.4
+### 13.11.0
 
 - Allows querying products with `searchCategoryIds`
 
