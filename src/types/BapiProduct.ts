@@ -66,6 +66,7 @@ export interface ImageAttributes {
 
 export interface Stock {
   supplierId?: number;
+  warehouseId: number | null;
   quantity: number;
   isSellableWithoutStock?: boolean;
   customData?: unknown;

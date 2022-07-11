@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.11.1
+
+- Returns merchantId information on product variant level
+
 ### 13.11.0
 
 - Allows querying products with `searchCategoryIds`
