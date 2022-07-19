@@ -211,6 +211,8 @@ type AddWishlistItemResponse =
 export enum AddToWhistlistFailureKind {
   OnlyOneParameterMustBeSet = 'OnlyOneParameterMustBeSet',
   ItemUnvailable = 'ItemUnvailable',
+  MaximumItemCountReached = 'MaximumItemCountReached',
+  ItemAlreadyPresent = 'ItemAlreadyPresent',
   Unknown = 'Unknown',
 }
 
@@ -221,8 +223,14 @@ function addToWhistListFailureKindFromStatusCode(
     case 400:
       return AddToWhistlistFailureKind.OnlyOneParameterMustBeSet;
 
+    case 409:
+      return AddToWhistlistFailureKind.ItemAlreadyPresent;
+
     case 412:
       return AddToWhistlistFailureKind.ItemUnvailable;
+
+    case 413:
+      return AddToWhistlistFailureKind.MaximumItemCountReached;
 
     default:
       return AddToWhistlistFailureKind.Unknown;
