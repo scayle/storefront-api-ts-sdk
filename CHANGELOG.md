@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.12.0
+
+- Add 409 and 413 wishlist response status codes
+
 ### 13.11.1
 
 - Returns merchantId information on product variant level
