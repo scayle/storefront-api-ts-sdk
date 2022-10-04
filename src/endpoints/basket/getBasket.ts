@@ -45,12 +45,7 @@ export interface BasketItem<P = BapiProduct, V = Variant> {
       key: string;
     };
   };
-  status:
-    | 'available'
-    | 'unavailable'
-    | 'deliverable'
-    | 'undeliverable'
-    | 'cancelled';
+  status: 'available' | 'unavailable' | 'deleted';
   product: P;
   variant: V;
   displayData: BasketItemDisplayData;
@@ -124,6 +119,8 @@ export interface GetBasketParameters {
   // Product data will still be attached from the primary `shopId`
   checkoutShopId?: number;
   skipAvailabilityCheck?: boolean;
+
+  includeItemsWithoutProductData?: boolean;
 }
 
 export function getBasketEndpointRequest(
@@ -142,6 +139,12 @@ export function getBasketEndpointRequest(
         : undefined),
       ...(params.skipAvailabilityCheck
         ? {skipAvailabilityCheck: params.skipAvailabilityCheck}
+        : undefined),
+      ...(params.includeItemsWithoutProductData
+        ? {
+            includeItemsWithoutProductData:
+              params.includeItemsWithoutProductData,
+          }
         : undefined),
     },
   };

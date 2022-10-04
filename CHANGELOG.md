@@ -1,5 +1,10 @@
 # Changelog
 
+### 13.13.0
+
+- Fix Basket Item Status
+- Add `includeItemsWithoutProductData` option for basket endpoints
+
 ### 13.12.0
 
 - Add 409 and 413 wishlist response status codes

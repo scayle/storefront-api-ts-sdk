@@ -17,6 +17,7 @@ export interface CreateBasketItemParameters {
   pricePromotionKey?: string;
   campaignKey?: string;
   skipAvailabilityCheck?: boolean;
+  includeItemsWithoutProductData?: boolean;
 }
 
 export function createBasketItemRequest(
@@ -36,6 +37,12 @@ export function createBasketItemRequest(
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
       ...(params.skipAvailabilityCheck
         ? {skipAvailabilityCheck: params.skipAvailabilityCheck}
+        : undefined),
+      ...(params.includeItemsWithoutProductData
+        ? {
+            includeItemsWithoutProductData:
+              params.includeItemsWithoutProductData,
+          }
         : undefined),
     },
     data: {
