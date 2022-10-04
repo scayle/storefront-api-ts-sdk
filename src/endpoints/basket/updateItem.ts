@@ -17,6 +17,7 @@ export interface UpdateBasketItemQuantity {
   customData?: {[key: string]: any; [key: number]: any};
   displayData?: BasketItemDisplayData;
   pricePromotionKey?: string;
+  includeItemsWithoutProductData?: boolean;
 }
 
 export function updateBasketItemQuantityRequest(
@@ -36,6 +37,12 @@ export function updateBasketItemQuantityRequest(
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
       ...(params.skipAvailabilityCheck
         ? {skipAvailabilityCheck: params.skipAvailabilityCheck}
+        : undefined),
+      ...(params.includeItemsWithoutProductData
+        ? {
+            includeItemsWithoutProductData:
+              params.includeItemsWithoutProductData,
+          }
         : undefined),
     },
     data: {

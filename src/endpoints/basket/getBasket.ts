@@ -119,6 +119,8 @@ export interface GetBasketParameters {
   // Product data will still be attached from the primary `shopId`
   checkoutShopId?: number;
   skipAvailabilityCheck?: boolean;
+
+  includeItemsWithoutProductData?: boolean;
 }
 
 export function getBasketEndpointRequest(
@@ -137,6 +139,12 @@ export function getBasketEndpointRequest(
         : undefined),
       ...(params.skipAvailabilityCheck
         ? {skipAvailabilityCheck: params.skipAvailabilityCheck}
+        : undefined),
+      ...(params.includeItemsWithoutProductData
+        ? {
+            includeItemsWithoutProductData:
+              params.includeItemsWithoutProductData,
+          }
         : undefined),
     },
   };

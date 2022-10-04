@@ -3,6 +3,7 @@
 ### 13.13.0
 
 - Fix Basket Item Status
+- Add `includeItemsWithoutProductData` option for basket endpoints
 
 ### 13.12.0
 

@@ -12,6 +12,8 @@ export interface DeleteItemParameters {
   with?: BasketWith;
   campaignKey?: string;
   skipAvailabilityCheck?: boolean;
+
+  includeItemsWithoutProductData?: boolean;
 }
 
 export function deleteBasketItemRequest(
@@ -27,6 +29,12 @@ export function deleteBasketItemRequest(
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
       ...(params.skipAvailabilityCheck
         ? {skipAvailabilityCheck: params.skipAvailabilityCheck}
+        : undefined),
+      ...(params.includeItemsWithoutProductData
+        ? {
+            includeItemsWithoutProductData:
+              params.includeItemsWithoutProductData,
+          }
         : undefined),
     },
   };
