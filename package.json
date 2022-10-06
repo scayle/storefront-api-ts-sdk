@@ -22,9 +22,10 @@
         "url": "https://github.com/aboutyou/storefront-ts.git"
     },
     "license": "MIT",
-    "main": "index.js",
+    "main": "compiled/index.js",
     "scripts": {
-        "build": "tsc",
+        "build": "tsc && ef-tspm",
+        "prepublish": "rm -rf compiled/ && yarn test && yarn build",
         "check-format": "prettier -l \"src/**/*.ts\"",
         "lint": "prettier --write \"src/**/*.ts\"",
         "test": "npm run lint && npm run test:unit",

@@ -1,6 +1,7 @@
 .bin/
 .vscode/
 src/
+coverage/
 yarn.lock
 .editorconfig
 .prettierignore
