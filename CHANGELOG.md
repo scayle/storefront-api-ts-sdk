@@ -1,5 +1,8 @@
 # Changelog
 
+### 13.15.1
+-- Refactor Extract typings for better import handling
+
 ### 13.13.0
 
 - Fix Basket Item Status
