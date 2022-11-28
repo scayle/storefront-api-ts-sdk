@@ -1,5 +1,8 @@
 # Changelog
 
+### 13.16.0
+- Allows querying products with `reductionRange` 
+
 ### 13.13.0
 
 - Fix Basket Item Status
