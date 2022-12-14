@@ -1,16 +1,22 @@
 export {BapiClient, ExistingItemHandling} from './helpers/BapiClient';
 
+// Basket
 export {
   BasketItem,
   BasketKey,
+  BasketWith,
   BasketItemPrice,
   BasketTotalPrice,
   BasketResponseData,
   BasketItemDisplayData,
   BasketPackageInformation,
   GetBasketParameters,
-} from 'bapi/endpoints/basket/getBasket';
+} from './endpoints/basket/getBasket';
+export {DeleteItemParameters} from './endpoints/basket/deleteItem';
+export {CreateBasketItemParameters} from './endpoints/basket/createItem';
+export {UpdateBasketItemQuantity} from './endpoints/basket/updateItem';
 
+// Typeahead
 export {
   ProductSuggestion,
   TypeaheadProductSuggestion,
@@ -19,59 +25,46 @@ export {
   TypeaheadBrandOrCategorySuggestion,
   TypeaheadSuggestionsEndpointRequestParameters,
   TypeaheadSuggestionsEndpointResponseData,
-} from 'bapi/endpoints/typeahead/typeahead';
+} from './endpoints/typeahead/typeahead';
 
-export {CreateBasketItemParameters} from 'bapi/endpoints/basket/createItem';
-
+// Wishlist
 export {
   WishlistItem,
   WishlistResponseData,
   WishlistWith,
   GetWishlistParameters,
-} from 'bapi/endpoints/wishlist/getWishlist';
+} from './endpoints/wishlist/getWishlist';
+export {DeleteWishlistParameters} from './endpoints/wishlist/deleteWishlistItem';
+export {AddWishlistItemParameters} from './endpoints/wishlist/addWishlistItem';
 
-export {CampaignSortOption} from 'bapi/endpoints/campaigns/campaigns';
+// Campaigns
+export {
+  CampaignSortOption,
+  CampaignsEndpointResponseData,
+  CampaignsSortConfig,
+  CampaignsEndpointRequestParameters,
+} from './endpoints/campaigns/campaigns';
 
+// Products
 export {
   APISortOption,
   APISortOrder,
   ProductSortConfig,
   ProductsSearchEndpointResponseData,
-} from 'bapi/endpoints/products/products';
-
+  ProductsSearchEndpointParameters,
+} from './endpoints/products/products';
 export {
   ProductByIdEndpointParameters,
   ProductByIdEndpointResponseData,
-} from 'bapi/endpoints/products/productById';
-
-export {NavigationAllEndpointResponseData} from 'bapi/endpoints/navigation/navigation';
-
-export {NavigationByIdEndpointResponseData} from 'bapi/endpoints/navigation/navigationById';
-
+} from './endpoints/products/productById';
 export {
-  FiltersEndpointResponseData,
-  FiltersEndpointParameters,
-  IdentifierFilterValue,
-  AttributesFilterValue,
-  FilterItemWithValues,
-  FilterTypes,
-} from 'bapi/endpoints/filters/filters';
-
+  ProductsByIdsEndpointParameters,
+  ProductsByIdsEndpointResponseData,
+} from './endpoints/products/productsByIds';
 export {
-  AttributeFilter,
-  AttributeKey,
-  AttributeOrAttributeWithValuesFilter,
-  AttributeWithBooleanValueFilter,
-  AttributeWithValuesFilter,
-} from 'bapi/types/AttributeOrAttributeValueFilter';
-
-export {
-  NavigationTree,
-  NavigationItem,
-  NavigationItemCategory,
-  NavigationItems,
-} from 'bapi/types/navigation';
-
+  ProductsByReferenceKeyRequestData,
+  ProductByReferenceKeyResponseData,
+} from './endpoints/products/productByReferenceKey';
 export {
   Attributes,
   AttributeGroup,
@@ -89,17 +82,69 @@ export {
   AdvancedAttribute,
   AdvancedAttributes,
   Stock,
-} from 'bapi/types/BapiProduct';
+} from './types/BapiProduct';
+export {
+  VariantWith,
+  ProductWith,
+  ProductImageWith,
+  ProductCategoryWith,
+  ProductCategoryPropertyWith,
+} from './types/ProductWith';
 
-export {BapiCategory} from 'bapi/types/BapiCategory';
+// Navigation
+export {NavigationAllEndpointResponseData} from './endpoints/navigation/navigation';
+export {NavigationByIdEndpointResponseData} from './endpoints/navigation/navigationById';
+export {
+  NavigationTree,
+  NavigationItem,
+  NavigationItemCategory,
+  NavigationItems,
+  NavigationItemPage,
+  NavigationItemExternal,
+} from './types/navigation';
 
-export {VariantWith, ProductWith} from 'bapi/types/ProductWith';
+// Filters
+export {
+  FiltersEndpointResponseData,
+  FiltersEndpointParameters,
+  IdentifierFilterValue,
+  AttributesFilterValue,
+  FilterItemWithValues,
+  FilterTypes,
+} from './endpoints/filters/filters';
 
-export {Campaign} from 'bapi/types/campaign';
+// Attributes
+export {
+  AttributeFilter,
+  AttributeKey,
+  AttributeOrAttributeWithValuesFilter,
+  AttributeWithBooleanValueFilter,
+  AttributeWithValuesFilter,
+} from './types/AttributeOrAttributeValueFilter';
 
-export {ProductSearchQuery} from 'bapi/types/ProductSearchQuery';
+// Category
+export {BapiCategory, BapiCategoryProperty} from './types/BapiCategory';
+export {RootCategoriesEndpointParameters} from './endpoints/categories/categories';
+export {
+  CategoriesByIdsEndpointParameters,
+  CategoriesByIdsEndpointResponseData,
+} from './endpoints/categories/categoriesByIds';
+export {
+  CategoryByIdEndpointParameters,
+  CategoryByIdEndpointResponseData,
+} from './endpoints/categories/categoryById';
+export {
+  CategoryBySlugEndpointParameters,
+  CategoryBySlugEndpointResponseData,
+} from './endpoints/categories/categoryBySlug';
+
+export {AttributeInclude} from './helpers/attributes';
+
+export {Campaign} from './types/campaign';
+
+export {ProductSearchQuery} from './types/ProductSearchQuery';
 
 export {
   getAttributeValues,
   getFirstAttributeValue,
-} from 'bapi/helpers/bapiProduct';
+} from './helpers/bapiProduct';
