@@ -17,6 +17,7 @@ export interface BapiProduct {
   categories?: BapiProductCategory[][];
   siblings?: BapiProduct[];
   priceRange?: PriceRange;
+  reductionRange?: PriceRange;
   baseCategories?: BaseCategory[];
   lowestPriorPrice?: LowestPriorPrice;
   searchCategoryIds?: number[];

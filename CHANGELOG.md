@@ -1,7 +1,13 @@
 # Changelog
 
-### 13.15.1
--- Refactor Extract typings for better import handling
+
+### 13.16.1
+- Refactor Extract typings for better import handling
+
+
+### 13.16.0
+- Allows querying products with `reductionRange` 
+
 
 ### 13.13.0
 

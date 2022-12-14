@@ -1,6 +1,0 @@
-export type * from './categories'
-export type * from './categoryById'
-export type * from './categoriesByIds'
-export type * from './categoryBySlug'
-export type * from './categoryEndpointsParameter'
-export type * from './CategoryPropertiesWith'
