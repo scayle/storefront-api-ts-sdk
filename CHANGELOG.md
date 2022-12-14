@@ -1,9 +1,10 @@
 # Changelog
 
-
-### 13.16.1
+### 13.18.0
 - Refactor Extract typings for better import handling
 
+### 13.17.0
+- Add `includeSoldOut` on filters endpoint
 
 ### 13.16.0
 - Allows querying products with `reductionRange` 
