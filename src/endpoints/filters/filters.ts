@@ -21,6 +21,8 @@ export interface FiltersEndpointParameters {
    * Specifies which optional filters to include
    */
   including?: string[];
+
+  includeSoldOut?: boolean;
 }
 
 export interface AttributesFilterValue {
@@ -123,6 +125,9 @@ export function createFiltersEndpointRequest(
         : undefined),
       ...(parameters.campaignKey
         ? {campaignKey: parameters.campaignKey}
+        : undefined),
+      ...(parameters.includeSoldOut
+        ? {includeSoldOut: parameters.includeSoldOut}
         : undefined),
       ...queryParamsFromProductSearchQuery(parameters.where),
     },

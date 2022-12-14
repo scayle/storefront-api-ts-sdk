@@ -1,5 +1,8 @@
 # Changelog
 
+### 13.17.0
+- Add `includeSoldOut` on filters endpoint
+
 ### 13.16.0
 - Allows querying products with `reductionRange` 
 
