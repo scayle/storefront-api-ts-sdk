@@ -6,6 +6,12 @@ import {
 } from 'bapi/endpoints/basket/getBasket';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 
+export interface ItemGroup {
+  id: string;
+  isMainItem: boolean;
+  isRequired: boolean;
+}
+
 export interface UpdateBasketItemQuantity {
   basketKey: string;
   itemKey: string;
@@ -18,6 +24,7 @@ export interface UpdateBasketItemQuantity {
   displayData?: BasketItemDisplayData;
   pricePromotionKey?: string;
   includeItemsWithoutProductData?: boolean;
+  itemGroup?: ItemGroup;
 }
 
 export function updateBasketItemQuantityRequest(
@@ -49,6 +56,7 @@ export function updateBasketItemQuantityRequest(
       quantity: params.quantity,
       ...(customData !== undefined ? {customData} : undefined),
       ...(params.displayData ? {displayData: params.displayData} : undefined),
+      ...(params.itemGroup ? {itemGroup: params.itemGroup} : undefined),
     },
   };
 }

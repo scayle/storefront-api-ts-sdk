@@ -15,10 +15,20 @@ it('Builds correct query', () => {
           variant: {attributes: 'all', advancedAttributes: 'all'},
         },
       },
+      itemGroup: {
+        isMainItem: false,
+        isRequired: true,
+        id: '42',
+      },
     }),
   ).toMatchInlineSnapshot(`
 Object {
   "data": Object {
+    "itemGroup": Object {
+      "id": "42",
+      "isMainItem": false,
+      "isRequired": true,
+    },
     "quantity": 2,
     "variantId": 1235,
   },
