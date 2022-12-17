@@ -1,9 +1,15 @@
 # Changelog
 
+### 13.18.0
+
+- Add support for `itemGroup` on basket endpoints
+
 ### 13.17.0
+
 - Add `includeSoldOut` on filters endpoint
 
 ### 13.16.0
+
 - Allows querying products with `reductionRange` 
 
 ### 13.13.0
