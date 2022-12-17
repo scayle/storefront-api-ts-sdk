@@ -3,14 +3,9 @@ import {
   BasketResponseData,
   BasketWith,
   basketWithQueryParameter,
+  ItemGroup,
 } from 'bapi/endpoints/basket/getBasket';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
-
-export interface ItemGroup {
-  id: string;
-  isMainItem: boolean;
-  isRequired: boolean;
-}
 
 export interface UpdateBasketItemQuantity {
   basketKey: string;
