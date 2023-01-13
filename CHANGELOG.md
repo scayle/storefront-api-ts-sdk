@@ -1,5 +1,9 @@
 # Changelog
 
+### 14.0.0
+
+- extraFilters on NavigationItemCategory are now correctly typed as number[] instead of boolean
+
 ### 13.18.0
 
 - Add support for `itemGroup` on basket endpoints
