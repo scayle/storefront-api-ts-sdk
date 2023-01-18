@@ -491,7 +491,7 @@ export class BapiClient {
             return true;
           }
 
-          return item.itemGroup?.id === itemToAdd.params?.itemGroup;
+          return item.itemGroup?.id === itemToAdd.params?.itemGroup?.id;
         });
         const {variantId, quantity = 1, params = {}} = itemToAdd;
 
