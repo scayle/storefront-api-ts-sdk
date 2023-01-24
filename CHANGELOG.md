@@ -1,5 +1,9 @@
 # Changelog
 
+### 14.1.0
+- Implements `redirects.get` method
+- Implements `redirects.match` method -> method will return either a matched redirect or undefined if the redirect is matched
+
 ### 14.0.0
 
 - extraFilters on NavigationItemCategory are now correctly typed as number[] instead of boolean

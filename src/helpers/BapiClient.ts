@@ -44,6 +44,11 @@ import {
   ProductsSearchEndpointParameters,
 } from 'bapi/endpoints/products/products';
 import {
+  createGetRedirectsEndpointRequest,
+  createPostRedirectEndpointRequest,
+  GetRedirectsEndpointParameters,
+} from 'bapi/endpoints/redirects/redirects';
+import {
   createProductsByIdsEndpointRequest,
   ProductsByIdsEndpointParameters,
   ProductsByIdsEndpointResponseData,
@@ -76,7 +81,7 @@ import {
   createrSearchMappingsEndpointRequest,
   SearchMappingsEndpointResponseData,
 } from 'bapi/endpoints/search/mappings';
-import {AxiosAdapter} from 'axios';
+import axios, {AxiosAdapter} from 'axios';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
@@ -696,6 +701,26 @@ export class BapiClient {
           ...params,
         }),
       ),
+  };
+
+  public readonly redirects = {
+    get: (params: GetRedirectsEndpointParameters = {}) =>
+      this.execute(createGetRedirectsEndpointRequest(params)),
+
+    post: async (url: string) => {
+      try {
+        const response = await this.execute(
+          createPostRedirectEndpointRequest(url),
+        );
+        return response;
+      } catch (e) {
+        if (axios.isAxiosError(e) && e.response?.status === 404) {
+          return undefined;
+        }
+
+        throw e;
+      }
+    },
   };
 
   public readonly products = {
