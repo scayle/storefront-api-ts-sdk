@@ -1,5 +1,9 @@
 # Changelog
 
+### 14.2.0
+
+- Refactor Extract typings for better import handling
+
 ### 14.1.0
 - Implements `redirects.get` method
 - Implements `redirects.match` method -> method will return either a matched redirect or undefined if the redirect is matched
@@ -19,6 +23,7 @@
 ### 13.16.0
 
 - Allows querying products with `reductionRange` 
+
 
 ### 13.13.0
 
