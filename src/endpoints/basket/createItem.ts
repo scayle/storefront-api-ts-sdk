@@ -3,6 +3,7 @@ import {
   BasketWith,
   basketWithQueryParameter,
   BasketItemDisplayData,
+  ItemGroup,
 } from 'bapi/endpoints/basket/getBasket';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 
@@ -18,6 +19,7 @@ export interface CreateBasketItemParameters {
   campaignKey?: string;
   skipAvailabilityCheck?: boolean;
   includeItemsWithoutProductData?: boolean;
+  itemGroup?: ItemGroup;
 }
 
 export function createBasketItemRequest(
@@ -51,6 +53,7 @@ export function createBasketItemRequest(
       ...(customData !== undefined ? {customData} : undefined),
       ...(params.childShopId ? {shopId: params.childShopId} : undefined),
       ...(params.displayData ? {displayData: params.displayData} : undefined),
+      ...(params.itemGroup ? {itemGroup: params.itemGroup} : undefined),
     },
   };
 }

@@ -19,7 +19,7 @@ export type NavigationItemExternal = NavigationItem & {
 
 export type NavigationItemCategory = NavigationItem & {
   type: 'category';
-  extraFilters: {[key: string]: {include: boolean}}[];
+  extraFilters: {[key: string]: {include: number[]}}[];
   categoryId: number;
 };
 

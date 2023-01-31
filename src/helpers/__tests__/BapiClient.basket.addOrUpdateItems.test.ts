@@ -85,7 +85,9 @@ it('BapiClient.addOrUpdateItems: Deletes existing variant variant with quantity 
       },
     ],
     {},
-    {existingItemHandling: ExistingItemHandling.ReplaceExisting},
+    {
+      existingItemHandling: ExistingItemHandling.ReplaceExisting,
+    },
   );
 
   if (basketResponse.type !== 'success') {
@@ -320,7 +322,9 @@ it('BapiClient.addOrUpdateItems: Replaces existing item (with origin quantity, u
       },
     ],
     {},
-    {existingItemHandling: ExistingItemHandling.ReplaceExisting},
+    {
+      existingItemHandling: ExistingItemHandling.ReplaceExisting,
+    },
   );
 
   if (basketResponse.type !== 'success') {

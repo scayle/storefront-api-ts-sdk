@@ -44,6 +44,11 @@ import {
   ProductsSearchEndpointParameters,
 } from 'bapi/endpoints/products/products';
 import {
+  createGetRedirectsEndpointRequest,
+  createPostRedirectEndpointRequest,
+  GetRedirectsEndpointParameters,
+} from 'bapi/endpoints/redirects/redirects';
+import {
   createProductsByIdsEndpointRequest,
   ProductsByIdsEndpointParameters,
   ProductsByIdsEndpointResponseData,
@@ -76,7 +81,7 @@ import {
   createrSearchMappingsEndpointRequest,
   SearchMappingsEndpointResponseData,
 } from 'bapi/endpoints/search/mappings';
-import {AxiosAdapter} from 'axios';
+import axios, {AxiosAdapter} from 'axios';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
@@ -435,6 +440,8 @@ export class BapiClient {
      *
      * If an item with the same variant ID already exists the strategy defined in
      * `options.existingItemHandling` will be used to resolve the conflict.
+     * If considerItemGroupForUniqueness is set to true, then the variant ID as well
+     * as itemGroup ID need to match in order for variant to be considered the same
      * See `ExistingItemHandling` for more details on the individual approaches.
      *
      * If a quantity of 0 is provided, that'll delete any existing basket item for the same variant unless "keep existing" is set.
@@ -457,7 +464,10 @@ export class BapiClient {
         >;
       }>,
       basketParams: Omit<GetBasketParameters, 'basketKey'> = {},
-      options: {existingItemHandling: ExistingItemHandling} = {
+      options: {
+        existingItemHandling: ExistingItemHandling;
+        considerItemGroupForUniqueness?: boolean;
+      } = {
         existingItemHandling:
           ExistingItemHandling.ReplaceExistingWithCombinedQuantity,
       },
@@ -477,9 +487,17 @@ export class BapiClient {
       );
 
       for (const itemToAdd of items) {
-        const existingBasketItem = client.latestBasket.items.find(
-          item => item.variant.id == itemToAdd.variantId,
-        );
+        const existingBasketItem = client.latestBasket.items.find(item => {
+          if (item.variant.id !== itemToAdd.variantId) {
+            return false;
+          }
+
+          if (!options.considerItemGroupForUniqueness) {
+            return true;
+          }
+
+          return item.itemGroup?.id === itemToAdd.params?.itemGroup?.id;
+        });
         const {variantId, quantity = 1, params = {}} = itemToAdd;
 
         if (existingBasketItem) {
@@ -683,6 +701,26 @@ export class BapiClient {
           ...params,
         }),
       ),
+  };
+
+  public readonly redirects = {
+    get: (params: GetRedirectsEndpointParameters = {}) =>
+      this.execute(createGetRedirectsEndpointRequest(params)),
+
+    post: async (url: string) => {
+      try {
+        const response = await this.execute(
+          createPostRedirectEndpointRequest(url),
+        );
+        return response;
+      } catch (e) {
+        if (axios.isAxiosError(e) && e.response?.status === 404) {
+          return undefined;
+        }
+
+        throw e;
+      }
+    },
   };
 
   public readonly products = {

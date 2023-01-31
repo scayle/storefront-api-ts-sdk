@@ -1,12 +1,27 @@
 # Changelog
 
-### 13.18.0
+### 14.2.0
+
 - Refactor Extract typings for better import handling
 
+### 14.1.0
+- Implements `redirects.get` method
+- Implements `redirects.match` method -> method will return either a matched redirect or undefined if the redirect is matched
+
+### 14.0.0
+
+- extraFilters on NavigationItemCategory are now correctly typed as number[] instead of boolean
+
+### 13.18.0
+
+- Add support for `itemGroup` on basket endpoints
+
 ### 13.17.0
+
 - Add `includeSoldOut` on filters endpoint
 
 ### 13.16.0
+
 - Allows querying products with `reductionRange` 
 
 

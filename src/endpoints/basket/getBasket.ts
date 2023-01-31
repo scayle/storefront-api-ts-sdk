@@ -25,6 +25,12 @@ export interface BasketResponseData<P = BapiProduct, V = Variant> {
   packages: BasketPackageInformation[];
 }
 
+export interface ItemGroup {
+  id: string;
+  isMainItem: boolean;
+  isRequired: boolean;
+}
+
 export interface BasketItem<P = BapiProduct, V = Variant> {
   key: string;
   customData: unknown;
@@ -49,6 +55,7 @@ export interface BasketItem<P = BapiProduct, V = Variant> {
   product: P;
   variant: V;
   displayData: BasketItemDisplayData;
+  itemGroup?: ItemGroup;
 }
 
 export interface BaskteItemDisplayDataItem {

@@ -3,6 +3,7 @@ import {
   BasketResponseData,
   BasketWith,
   basketWithQueryParameter,
+  ItemGroup,
 } from 'bapi/endpoints/basket/getBasket';
 import {BapiCall} from 'bapi/interfaces/BapiCall';
 
@@ -18,6 +19,7 @@ export interface UpdateBasketItemQuantity {
   displayData?: BasketItemDisplayData;
   pricePromotionKey?: string;
   includeItemsWithoutProductData?: boolean;
+  itemGroup?: ItemGroup;
 }
 
 export function updateBasketItemQuantityRequest(
@@ -49,6 +51,7 @@ export function updateBasketItemQuantityRequest(
       quantity: params.quantity,
       ...(customData !== undefined ? {customData} : undefined),
       ...(params.displayData ? {displayData: params.displayData} : undefined),
+      ...(params.itemGroup ? {itemGroup: params.itemGroup} : undefined),
     },
   };
 }
