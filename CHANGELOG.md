@@ -1,5 +1,9 @@
 # Changelog
 
+### 14.3.0
+
+- Adds ?includeSellableForFree parameter for filters API call
+
 ### 14.2.0
 
 - Refactor Extract typings for better import handling
