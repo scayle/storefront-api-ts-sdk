@@ -23,6 +23,8 @@ export interface FiltersEndpointParameters {
   including?: string[];
 
   includeSoldOut?: boolean;
+
+  includeSellableForFree?: boolean;
 }
 
 export interface AttributesFilterValue {
@@ -128,6 +130,9 @@ export function createFiltersEndpointRequest(
         : undefined),
       ...(parameters.includeSoldOut
         ? {includeSoldOut: parameters.includeSoldOut}
+        : undefined),
+      ...(parameters.includeSellableForFree
+        ? {includeSellableForFree: parameters.includeSellableForFree}
         : undefined),
       ...queryParamsFromProductSearchQuery(parameters.where),
     },
