@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.0.0
+
+- Updates navigation response to reflect the new structure
+
 ### 14.3.0
 
 - Adds ?includeSellableForFree parameter for filters API call

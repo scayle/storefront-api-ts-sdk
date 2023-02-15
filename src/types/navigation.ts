@@ -17,9 +17,28 @@ export type NavigationItemExternal = NavigationItem & {
   };
 };
 
+export type NavigationItemExtraFilter = {
+  include?: number[];
+  exclude?: number[];
+};
+
+export type NavigationItemAttributeExtraFilter = NavigationItemExtraFilter & {
+  attribute: {
+    id: number;
+    key: string;
+    label: string;
+    type: string;
+    multiSelect: boolean;
+  };
+};
+
 export type NavigationItemCategory = NavigationItem & {
   type: 'category';
-  extraFilters: {[key: string]: {include: number[]}}[];
+  extraFilters: {
+    [key: string]:
+      | NavigationItemExtraFilter
+      | NavigationItemAttributeExtraFilter[];
+  }[];
   categoryId: number;
 };
 
