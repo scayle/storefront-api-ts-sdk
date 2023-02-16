@@ -1,4 +1,5 @@
 import {RFC33339Date} from 'bapi/types/BapiProduct';
+import {BapiCategory} from './BapiCategory';
 
 export type NavigationItem = {
   id: number;
@@ -17,10 +18,29 @@ export type NavigationItemExternal = NavigationItem & {
   };
 };
 
+export type NavigationItemExtraFilter = {
+  include?: number[];
+};
+
+export type NavigationItemAttributeExtraFilter = NavigationItemExtraFilter & {
+  attribute: {
+    id: number;
+    key: string;
+    label: string;
+    type: string;
+    multiSelect: boolean;
+  };
+};
+
 export type NavigationItemCategory = NavigationItem & {
   type: 'category';
-  extraFilters: {[key: string]: {include: number[]}}[];
+  extraFilters: {
+    [key: string]:
+      | NavigationItemExtraFilter
+      | NavigationItemAttributeExtraFilter[];
+  };
   categoryId: number;
+  category: BapiCategory | null;
 };
 
 export type NavigationItemPage = NavigationItem & {
