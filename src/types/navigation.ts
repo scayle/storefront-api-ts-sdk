@@ -40,7 +40,7 @@ export type NavigationItemCategory = NavigationItem & {
       | NavigationItemAttributeExtraFilter[];
   };
   categoryId: number;
-  category: BapiCategory | null;
+  category?: BapiCategory | null;
 };
 
 export type NavigationItemPage = NavigationItem & {

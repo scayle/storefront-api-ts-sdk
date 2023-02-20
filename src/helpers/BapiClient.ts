@@ -134,6 +134,7 @@ import {
 } from 'bapi/endpoints/navigation/navigationById';
 import {
   createNavigationAllEndpointRequest,
+  GetNavigationParameters,
   NavigationAllEndpointResponseData,
 } from 'bapi/endpoints/navigation/navigation';
 
@@ -922,13 +923,16 @@ export class BapiClient {
   public readonly navigation = {
     getById: (
       navigationTreeId: number,
+      parameters: GetNavigationParameters = {},
     ): Promise<NavigationByIdEndpointResponseData> => {
       return this.execute(
-        createNavigationByIdEndpointRequest(navigationTreeId),
+        createNavigationByIdEndpointRequest(navigationTreeId, parameters),
       );
     },
-    getAll: (): Promise<NavigationAllEndpointResponseData> => {
-      return this.execute(createNavigationAllEndpointRequest());
+    getAll: (
+      parameters: GetNavigationParameters = {},
+    ): Promise<NavigationAllEndpointResponseData> => {
+      return this.execute(createNavigationAllEndpointRequest(parameters));
     },
   };
 }
