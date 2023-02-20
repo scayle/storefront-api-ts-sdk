@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.1.0
+
+- Adds supported request parameters to navigation endpoints
+
 ### 15.0.0
 
 - Updates navigation response to reflect the new structure
