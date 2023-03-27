@@ -1,7 +1,9 @@
 import {createFiltersEndpointRequest} from 'bapi/endpoints/filters/filters';
 import {execute, getParamsString} from 'bapi/helpers/execute';
-import {disableNetAndAllowBapiCors, nockWithBapiScope,} from 'bapi/test-helpers/nock';
-import {createProductsSearchEndpointRequest} from 'bapi/endpoints/products/products';
+import {
+  disableNetAndAllowBapiCors,
+  nockWithBapiScope,
+} from 'bapi/test-helpers/nock';
 
 disableNetAndAllowBapiCors();
 
@@ -192,7 +194,7 @@ Object {
 
   expect(
     getParamsString(
-      createProductsSearchEndpointRequest({
+      createFiltersEndpointRequest({
         campaignKey: 'foo',
         where: {
           hasCampaignReduction: false,
@@ -200,6 +202,25 @@ Object {
       }).params,
     ),
   ).toMatchInlineSnapshot(
-    `"?filters%5BhasCampaignReduction%5D=false&campaignKey=foo"`,
+    `"?with=values&campaignKey=foo&filters%5BhasCampaignReduction%5D=false"`,
   );
+
+  expect(
+    getParamsString(
+      createFiltersEndpointRequest({
+        campaignKey: '92',
+        where: {
+          hasCampaignReduction: true,
+        },
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(
+    `"?with=values&campaignKey=92&filters%5BhasCampaignReduction%5D=true"`,
+  );
+
+  expect(
+    getParamsString(
+      createFiltersEndpointRequest({campaignKey: '92', where: {}}).params,
+    ),
+  ).toMatchInlineSnapshot(`"?with=values&campaignKey=92"`);
 });

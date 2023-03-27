@@ -316,4 +316,25 @@ Object {
   ).toMatchInlineSnapshot(
     `"?filters%5BhasCampaignReduction%5D=true&campaignKey=px"`,
   );
+
+  expect(
+    getParamsString(
+      createProductsSearchEndpointRequest({
+        campaignKey: 'px',
+        where: {
+          hasCampaignReduction: false,
+        },
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(
+    `"?filters%5BhasCampaignReduction%5D=false&campaignKey=px"`,
+  );
+
+  expect(
+    getParamsString(
+      createProductsSearchEndpointRequest({
+        campaignKey: 'px',
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(`"?campaignKey=px"`);
 });
