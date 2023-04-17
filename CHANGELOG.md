@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.2.0
+
+- Allow a new filter `filters[hasCampaignReduction]` on the /filters and /products endpoints
+
 ### 15.1.0
 
 - Adds supported request parameters to navigation endpoints

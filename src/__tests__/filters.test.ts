@@ -1,8 +1,8 @@
 import {createFiltersEndpointRequest} from 'bapi/endpoints/filters/filters';
-import {execute} from 'bapi/helpers/execute';
+import {execute, getParamsString} from 'bapi/helpers/execute';
 import {
-  nockWithBapiScope,
   disableNetAndAllowBapiCors,
+  nockWithBapiScope,
 } from 'bapi/test-helpers/nock';
 
 disableNetAndAllowBapiCors();
@@ -172,4 +172,55 @@ Object {
   },
 }
 `);
+
+  expect(
+    createFiltersEndpointRequest({
+      where: {
+        hasCampaignReduction: true,
+      },
+      campaignKey: 'px',
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "filters",
+  "method": "GET",
+  "params": Object {
+    "campaignKey": "px",
+    "filters[hasCampaignReduction]": "true",
+    "with": "values",
+  },
+}
+`);
+
+  expect(
+    getParamsString(
+      createFiltersEndpointRequest({
+        campaignKey: 'foo',
+        where: {
+          hasCampaignReduction: false,
+        },
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(
+    `"?with=values&campaignKey=foo&filters%5BhasCampaignReduction%5D=false"`,
+  );
+
+  expect(
+    getParamsString(
+      createFiltersEndpointRequest({
+        campaignKey: '92',
+        where: {
+          hasCampaignReduction: true,
+        },
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(
+    `"?with=values&campaignKey=92&filters%5BhasCampaignReduction%5D=true"`,
+  );
+
+  expect(
+    getParamsString(
+      createFiltersEndpointRequest({campaignKey: '92', where: {}}).params,
+    ),
+  ).toMatchInlineSnapshot(`"?with=values&campaignKey=92"`);
 });

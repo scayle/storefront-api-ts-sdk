@@ -5,6 +5,7 @@ import {
 } from '../products';
 import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
 import {getParamsString} from 'bapi/helpers/execute';
+import {queryParamsFromProductSearchQuery} from 'bapi/types/ProductSearchQuery';
 
 it('Builds correct query', () => {
   expect(
@@ -274,4 +275,66 @@ Object {
       }).params,
     ),
   ).toMatchInlineSnapshot(`"?filters%5BminfirstLiveAt%5D=2020-11-27"`);
+
+  expect(
+    queryParamsFromProductSearchQuery({
+      hasCampaignReduction: true,
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "filters[hasCampaignReduction]": "true",
+}
+`);
+
+  expect(
+    createProductsSearchEndpointRequest({
+      campaignKey: 'px',
+      where: {
+        hasCampaignReduction: true,
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+Object {
+  "endpoint": "products",
+  "method": "GET",
+  "params": Object {
+    "campaignKey": "px",
+    "filters[hasCampaignReduction]": "true",
+  },
+}
+`);
+
+  expect(
+    getParamsString(
+      createProductsSearchEndpointRequest({
+        campaignKey: 'px',
+        where: {
+          hasCampaignReduction: true,
+        },
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(
+    `"?filters%5BhasCampaignReduction%5D=true&campaignKey=px"`,
+  );
+
+  expect(
+    getParamsString(
+      createProductsSearchEndpointRequest({
+        campaignKey: 'px',
+        where: {
+          hasCampaignReduction: false,
+        },
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(
+    `"?filters%5BhasCampaignReduction%5D=false&campaignKey=px"`,
+  );
+
+  expect(
+    getParamsString(
+      createProductsSearchEndpointRequest({
+        campaignKey: 'px',
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(`"?campaignKey=px"`);
 });

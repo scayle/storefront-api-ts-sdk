@@ -16,6 +16,7 @@ export interface ProductSearchQuery {
   >;
   containsSearch?: boolean;
   disableFuzziness?: boolean;
+  hasCampaignReduction?: boolean;
 }
 
 export function queryParamsFromProductSearchQuery(
@@ -51,6 +52,10 @@ export function queryParamsFromProductSearchQuery(
     'filters[maxPrice]': productSearchQuery.maxPrice,
     'filters[minReduction]': productSearchQuery.minReduction,
     'filters[maxReduction]': productSearchQuery.maxReduction,
+    'filters[hasCampaignReduction]':
+      productSearchQuery.hasCampaignReduction === undefined
+        ? undefined
+        : productSearchQuery.hasCampaignReduction.toString(),
     containsSearch: productSearchQuery.containsSearch ? 'true' : undefined,
     disableFuzziness: productSearchQuery.disableFuzziness ? 'true' : undefined,
   };
