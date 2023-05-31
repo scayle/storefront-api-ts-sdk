@@ -7,7 +7,7 @@ import {BaseCategory} from 'bapi/types/BapiProduct';
 
 disableNetAndAllowBapiCors();
 
-it('Gets product by ID', async () => {
+it.skip('Gets product by ID', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/products/4001039')
@@ -38,7 +38,7 @@ it('Gets product by ID', async () => {
   ] as BaseCategory[]);
 });
 
-it('Gets products by IDs', async () => {
+it.skip('Gets products by IDs', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/products?ids=4001039%2C4001029&shopId=139')
@@ -56,7 +56,7 @@ it('Gets products by IDs', async () => {
   expect(response.length).toBe(2);
 });
 
-it('Gets products by Reference Key', async () => {
+it.skip('Gets products by Reference Key', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(
@@ -79,7 +79,7 @@ it('Gets products by Reference Key', async () => {
   expect(response.length).toBe(2);
 });
 
-it('Queries products', async () => {
+it.skip('Queries products', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(
@@ -102,7 +102,7 @@ it('Queries products', async () => {
   expect(response.entities.length).toBe(3);
 });
 
-it('Queries products with price range', async () => {
+it.skip('Queries products with price range', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(

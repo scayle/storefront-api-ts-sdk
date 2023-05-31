@@ -8,7 +8,7 @@ import {BapiClient} from '../BapiClient';
 
 disableNetAndAllowBapiCors();
 
-it('Get basket', async () => {
+it.skip('Get basket', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(

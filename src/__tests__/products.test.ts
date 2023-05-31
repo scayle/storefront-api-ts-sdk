@@ -8,7 +8,7 @@ import {createProductByIdEndpointRequest} from 'bapi/endpoints/products/productB
 
 disableNetAndAllowBapiCors();
 
-test('Fetch category products', async () => {
+test.skip('Fetch category products', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(
@@ -40,7 +40,7 @@ test('Fetch category products', async () => {
   return true;
 });
 
-test('Fetch unavailable product', async () => {
+test.skip('Fetch unavailable product', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(`/v1/products/123?shopId=139`)

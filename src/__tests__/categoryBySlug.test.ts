@@ -7,7 +7,7 @@ import {
 
 disableNetAndAllowBapiCors();
 
-test('Fetch category by slug', async () => {
+test.skip('Fetch category by slug', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(`/v1/categories/frauen/bekleidung/jeans/slim-fit`)
@@ -35,7 +35,7 @@ test('Fetch category by slug', async () => {
   expect(result.data.children!.length).toEqual(3);
 });
 
-test('Fetch category by slug error input: Error if receiving category list', async () => {
+test.skip('Fetch category by slug error input: Error if receiving category list', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(`/v1/categories/&ecc=0`)

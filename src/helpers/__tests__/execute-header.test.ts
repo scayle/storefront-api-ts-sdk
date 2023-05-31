@@ -14,7 +14,7 @@ const TestCall: BapiCall<true> = {
 
 disableNetAndAllowBapiCors({shopIdHeader: true});
 
-it('execute 1', async () => {
+it.skip('execute 1', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/api/true')

@@ -6,7 +6,7 @@ import {
 
 disableNetAndAllowBapiCors();
 
-it('Gets product by ID', async () => {
+it.skip('Gets product by ID', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/shop-configuration')

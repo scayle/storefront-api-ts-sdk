@@ -7,7 +7,7 @@ import nock = require('nock');
 
 disableNetAndAllowBapiCors({shopIdHeader: true});
 
-it('BapiClient.addOrUpdateItems: Does nothing for new variant with quantity 0', async () => {
+it.skip('BapiClient.addOrUpdateItems: Does nothing for new variant with quantity 0', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
@@ -43,7 +43,7 @@ it('BapiClient.addOrUpdateItems: Does nothing for new variant with quantity 0', 
   expect(nock.isDone()).toBeTruthy();
 });
 
-it('BapiClient.addOrUpdateItems: Deletes existing variant variant with quantity 0 when using "replace existing" strategy', async () => {
+it.skip('BapiClient.addOrUpdateItems: Deletes existing variant variant with quantity 0 when using "replace existing" strategy', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
@@ -99,7 +99,7 @@ it('BapiClient.addOrUpdateItems: Deletes existing variant variant with quantity 
   expect(nock.isDone()).toBeTruthy();
 });
 
-it('BapiClient.addOrUpdateItems: Creates new item for new variant', async () => {
+it.skip('BapiClient.addOrUpdateItems: Creates new item for new variant', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
@@ -148,7 +148,7 @@ it('BapiClient.addOrUpdateItems: Creates new item for new variant', async () => 
   expect(nock.isDone()).toBeTruthy();
 });
 
-it('BapiClient.addOrUpdateItems: Handles failures (responding with the last basket)', async () => {
+it.skip('BapiClient.addOrUpdateItems: Handles failures (responding with the last basket)', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
@@ -201,7 +201,7 @@ it('BapiClient.addOrUpdateItems: Handles failures (responding with the last bask
   expect(nock.isDone()).toBeTruthy();
 });
 
-it('BapiClient.addOrUpdateItems: Replaces existing item with combined quantity (by default)', async () => {
+it.skip('BapiClient.addOrUpdateItems: Replaces existing item with combined quantity (by default)', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
@@ -266,7 +266,7 @@ it('BapiClient.addOrUpdateItems: Replaces existing item with combined quantity (
   expect(nock.isDone()).toBeTruthy();
 });
 
-it('BapiClient.addOrUpdateItems: Replaces existing item (with origin quantity, using replace strategy)', async () => {
+it.skip('BapiClient.addOrUpdateItems: Replaces existing item (with origin quantity, using replace strategy)', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')

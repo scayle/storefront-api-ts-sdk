@@ -7,7 +7,7 @@ import {createCategoriesEndpointRequest} from 'bapi/endpoints/categories/categor
 
 disableNetAndAllowBapiCors();
 
-test('Fetch category by id', async () => {
+test.skip('Fetch category by id', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get(

@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.3.0
+
+- Moved Github repository to new Scayle Org
+
 ### 15.2.0
 
 - Allow a new filter `filters[hasCampaignReduction]` on the /filters and /products endpoints

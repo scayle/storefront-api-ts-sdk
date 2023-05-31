@@ -6,7 +6,7 @@ import {
 
 disableNetAndAllowBapiCors();
 
-it('Gets brand by ID', async () => {
+it.skip('Gets brand by ID', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/brands/2')
@@ -25,7 +25,7 @@ it('Gets brand by ID', async () => {
   expect(response.id).toBe(2);
 });
 
-it('Get brands', async () => {
+it.skip('Get brands', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/brands')

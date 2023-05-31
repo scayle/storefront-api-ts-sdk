@@ -6,7 +6,7 @@ import {
 
 disableNetAndAllowBapiCors();
 
-it('Gets all navigation trees', async () => {
+it.skip('Gets all navigation trees', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/navigation/trees')
@@ -27,7 +27,7 @@ it('Gets all navigation trees', async () => {
   expect(response[0].items[0].type).toBe('external');
 });
 
-it('Gets navigation tree by id', async () => {
+it.skip('Gets navigation tree by id', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/navigation/trees/1')

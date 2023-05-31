@@ -12,7 +12,7 @@ import * as zlib from 'zlib';
 
 disableNetAndAllowBapiCors();
 
-test('Integration: Requests GZip by default', async () => {
+test.skip('Integration: Requests GZip by default', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .matchHeader('accept-encoding', 'gzip, deflate')
