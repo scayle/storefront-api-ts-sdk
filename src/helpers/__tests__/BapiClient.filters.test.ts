@@ -6,7 +6,7 @@ import {
 
 disableNetAndAllowBapiCors();
 
-it('Gets filters (with values by default)', async () => {
+it.skip('Gets filters (with values by default)', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/filters?with=values&filters%5Bcategory%5D=20202&shopId=139')

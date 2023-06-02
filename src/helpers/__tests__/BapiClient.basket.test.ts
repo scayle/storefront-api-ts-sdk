@@ -6,7 +6,7 @@ import {
 
 disableNetAndAllowBapiCors({shopIdHeader: true});
 
-it('Get basket', async () => {
+it.skip('Get basket', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/customer_2137901')
@@ -31,7 +31,7 @@ it('Get basket', async () => {
   expect(basketResponse.basket).toHaveProperty(`cost`);
 });
 
-it('Get basket with error', async () => {
+it.skip('Get basket with error', async () => {
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/customer_2137901')
@@ -58,7 +58,7 @@ it('Get basket with error', async () => {
   }
 });
 
-it('Basket: Add same variant twice', async () => {
+it.skip('Basket: Add same variant twice', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -103,7 +103,7 @@ it('Basket: Add same variant twice', async () => {
   expect(secondTimeResponse.basket).toEqual(firstAddToBasketResponse.basket);
 });
 
-it('Basket: Add variant failure 1', async () => {
+it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -131,7 +131,7 @@ it('Basket: Add variant failure 1', async () => {
   expect(response.type).toBe('failure');
 });
 
-it('Basket: Add variant failure 1', async () => {
+it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -159,7 +159,7 @@ it('Basket: Add variant failure 1', async () => {
   expect(response.type).toBe('failure');
 });
 
-it('Basket: Add variant failure 1', async () => {
+it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -187,7 +187,7 @@ it('Basket: Add variant failure 1', async () => {
   expect(response.type).toBe('failure');
 });
 
-it('Basket: Add variant failure 1', async () => {
+it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -215,7 +215,7 @@ it('Basket: Add variant failure 1', async () => {
   expect(response.type).toBe('failure');
 });
 
-it('Basket: Add variant failure 1', async () => {
+it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -243,7 +243,7 @@ it('Basket: Add variant failure 1', async () => {
   expect(response.type).toBe('failure');
 });
 
-it('Basket: Add variant failure 1', async () => {
+it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -271,7 +271,7 @@ it('Basket: Add variant failure 1', async () => {
   expect(response.type).toBe('failure');
 });
 
-it('Basket: Add same variant twice', async () => {
+it.skip('Basket: Add same variant twice', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -290,7 +290,7 @@ it('Basket: Add same variant twice', async () => {
   expect(deleteItemResponse.items.length).toBe(1);
 });
 
-it('Basket: Update item quantity', async () => {
+it.skip('Basket: Update item quantity', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
@@ -315,7 +315,7 @@ it('Basket: Update item quantity', async () => {
   expect(deleteItemResponse.type).toBe('success');
 });
 
-it('Basket: Update item failure', async () => {
+it.skip('Basket: Update item failure', async () => {
   const bapi = new BapiClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,

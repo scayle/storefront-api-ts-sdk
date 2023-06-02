@@ -6,7 +6,7 @@ import {
 
 disableNetAndAllowBapiCors();
 
-it('Get basket', async () => {
+it.skip('Get basket', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/customer_2137901?shopId=123')

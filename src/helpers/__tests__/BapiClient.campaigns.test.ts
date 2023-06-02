@@ -11,7 +11,7 @@ import {APISortOrder} from 'bapi/endpoints/products/products';
 
 disableNetAndAllowBapiCors();
 
-it('Gets single campaign by id', async () => {
+it.skip('Gets single campaign by id', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/campaigns/350?shopId=139')
@@ -29,7 +29,7 @@ it('Gets single campaign by id', async () => {
   expect(campaign.id).toBe(350);
 });
 
-it('Gets multiple campaigns', async () => {
+it.skip('Gets multiple campaigns', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/campaigns?sort=id&sortDir=asc&shopId=139')

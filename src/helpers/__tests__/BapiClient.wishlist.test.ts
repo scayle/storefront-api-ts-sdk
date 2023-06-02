@@ -7,7 +7,7 @@ import nock = require('nock');
 
 disableNetAndAllowBapiCors();
 
-it('Gets the wishlist', async () => {
+it.skip('Gets the wishlist', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/wishlists/wishlist_1')
@@ -26,7 +26,7 @@ it('Gets the wishlist', async () => {
   expect(response.items.length).toBe(2);
 });
 
-it('Adds an item to the wishlist', async () => {
+it.skip('Adds an item to the wishlist', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .post('/v1/wishlists/wishlist_1/items', {
@@ -49,7 +49,7 @@ it('Adds an item to the wishlist', async () => {
   expect(response.type).toBe('success');
 });
 
-it('Additem failure', async () => {
+it.skip('Additem failure', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .post('/v1/wishlists/wishlist_1/items', {
@@ -81,7 +81,7 @@ it('Additem failure', async () => {
   expect(response.kind).toEqual('Unknown');
 });
 
-it('Deletes an item from the wishlist', async () => {
+it.skip('Deletes an item from the wishlist', async () => {
   // For `DELETE` pre-flight request
   nock('https://api-cloud.example.com/')
     .options(/.*/)

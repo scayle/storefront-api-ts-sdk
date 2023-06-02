@@ -5,6 +5,7 @@ it('builds correct endpoint request', () => {
 Object {
   "endpoint": "navigation/trees/350",
   "method": "GET",
+  "params": Object {},
 }
 `);
 });

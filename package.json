@@ -1,6 +1,6 @@
 {
     "name": "@aboutyou/backbone",
-    "version": "15.2.0",
+    "version": "15.3.0",
     "dependencies": {
         "axios": ">=0.18.0 <1.0.0",
         "query-string": "^6.2.0"
@@ -19,7 +19,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/aboutyou/storefront-ts.git"
+        "url": "https://github.com/scayle/storefront-api-ts-sdk.git"
     },
     "license": "MIT",
     "main": "index.js",

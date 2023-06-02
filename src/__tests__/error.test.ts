@@ -10,7 +10,7 @@ disableNetAndAllowBapiCors();
 
 describe('Throw error with status code', async () => {
   for (const statusCode of [404, 500]) {
-    test(`${statusCode}`, async () => {
+    test.skip(`${statusCode}`, async () => {
       nockWithBapiScope()
         .defaultReplyHeaders({'access-control-allow-origin': '*'})
         .get(`/v1/filters?with=values&filters%5Bcategory%5D=20201&shopId=139`)

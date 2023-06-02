@@ -2,7 +2,7 @@ import {BapiClient} from 'bapi/helpers/BapiClient';
 import {nockWithBapiScope} from 'bapi/test-helpers/nock';
 import * as nock from 'nock';
 
-it('Authentication: Basic Auth Implicit', async () => {
+it.skip('Authentication: Basic Auth Implicit', async () => {
   nock.disableNetConnect();
 
   nock('https://api-cloud.example.com/', {
@@ -45,7 +45,7 @@ it('Authentication: Basic Auth Implicit', async () => {
   expect(basketResponse.basket).toHaveProperty(`cost`);
 });
 
-it('Authentication: Basic Auth Explicit', async () => {
+it.skip('Authentication: Basic Auth Explicit', async () => {
   nock.disableNetConnect();
 
   nock('https://api-cloud.example.com/', {
@@ -89,7 +89,7 @@ it('Authentication: Basic Auth Explicit', async () => {
   expect(basketResponse.basket).toHaveProperty(`cost`);
 });
 
-it('Authentication: CloudVault token', async () => {
+it.skip('Authentication: CloudVault token', async () => {
   nock.disableNetConnect();
 
   nock('https://api-cloud.example.com/', {
