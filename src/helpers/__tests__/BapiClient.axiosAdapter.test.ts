@@ -29,5 +29,6 @@ describe('Axios adapter', () => {
     }
 
     expect(basketResponse.basket).toHaveProperty(`cost`);
+    expect(basketResponse.statusCode).toBe(200);
   });
 });

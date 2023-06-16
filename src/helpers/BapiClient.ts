@@ -142,10 +142,12 @@ import {
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
   | {
       type: 'success'; // operationStatus: succeeded / partially / not-at-all
+      statusCode: number;
       basket: BasketResponseData<P, V>;
     }
   | {
       type: 'failure';
+      statusCode: number;
       kind: AddToBasketFailureKind;
       basket: BasketResponseData<P, V>;
     };
@@ -153,10 +155,12 @@ type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
 type UpdateBasketItemResponse<P = BapiProduct, V = Variant> =
   | {
       type: 'success'; // operationStatus: succeeded / partially / not-at-all
+      statusCode: number;
       basket: BasketResponseData<P, V>;
     }
   | {
       type: 'failure';
+      statusCode: number;
       kind: UpdateBasketItemFailureKind;
       basket: BasketResponseData<P, V>;
     };
@@ -164,10 +168,12 @@ type UpdateBasketItemResponse<P = BapiProduct, V = Variant> =
 export type BasketResponse<P = BapiProduct, V = Variant> =
   | {
       type: 'success';
+      statusCode: number;
       basket: BasketResponseData<P, V>;
     }
   | {
       type: 'failure';
+      statusCode: number;
       basket: BasketResponseData<P, V>;
     };
 
@@ -206,10 +212,12 @@ export type AddOrUpdateItemError =
 type AddWishlistItemResponse =
   | {
       type: 'success';
+      statusCode: number;
       wishlist: WishlistResponseData;
     }
   | {
       type: 'failure';
+      statusCode: number;
       kind: AddToWhistlistFailureKind;
       wishlist: WishlistResponseData;
     };
@@ -396,11 +404,13 @@ export class BapiClient {
       if (response.statusCode === 200) {
         return {
           type: 'success',
+          statusCode: response.statusCode,
           basket: response.data,
         };
       } else {
         return {
           type: 'failure',
+          statusCode: response.statusCode,
           basket: response.data,
         };
       }
@@ -426,11 +436,13 @@ export class BapiClient {
       if (response.statusCode === 200 || response.statusCode === 201) {
         return {
           type: 'success',
+          statusCode: response.statusCode,
           basket: response.data,
         };
       } else {
         return {
           type: 'failure',
+          statusCode: response.statusCode,
           kind: addToBasketFailureKindFromStatusCode(response.statusCode),
           basket: response.data,
         };
@@ -623,11 +635,13 @@ export class BapiClient {
       if (response.statusCode === 200) {
         return {
           type: 'success',
+          statusCode: response.statusCode,
           basket: response.data,
         };
       } else {
         return {
           type: 'failure',
+          statusCode: response.statusCode,
           basket: response.data,
           kind: updateBasketItemFailureKindFromStatusCode(response.statusCode),
         };
@@ -821,11 +835,13 @@ export class BapiClient {
       if (response.statusCode === 200 || response.statusCode === 201) {
         return {
           type: 'success',
+          statusCode: response.statusCode,
           wishlist: response.data,
         };
       } else {
         return {
           type: 'failure',
+          statusCode: response.statusCode,
           kind: addToWhistListFailureKindFromStatusCode(response.statusCode),
           wishlist: response.data,
         };

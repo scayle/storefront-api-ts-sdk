@@ -199,7 +199,7 @@ export class ModeledBapiClient<T extends ProductMapping> {
       basketKey: string,
       // params: Omit<GetBasketParameters, 'basketKey'> = {},
     ): Promise<BasketResponse<MappedProduct<T>>> => {
-      const {basket, type} = await this.bapi.basket.get(basketKey, {
+      const {basket, type, statusCode} = await this.bapi.basket.get(basketKey, {
         with: {
           items: {
             product: this.productWith,
@@ -221,6 +221,7 @@ export class ModeledBapiClient<T extends ProductMapping> {
       if (type === 'success') {
         return {
           type,
+          statusCode,
           basket: {
             ...basket,
             items: itemsWithModel,
@@ -229,6 +230,7 @@ export class ModeledBapiClient<T extends ProductMapping> {
       } else {
         return {
           type,
+          statusCode,
           basket: {
             ...basket,
             items: itemsWithModel,
