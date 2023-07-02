@@ -47,6 +47,7 @@ it.skip('Adds an item to the wishlist', async () => {
   });
 
   expect(response.type).toBe('success');
+  expect(response.statusCode).toBe(200);
 });
 
 it.skip('Additem failure', async () => {
@@ -79,6 +80,7 @@ it.skip('Additem failure', async () => {
   }
 
   expect(response.kind).toEqual('Unknown');
+  expect(response.statusCode).toEqual(500);
 });
 
 it.skip('Deletes an item from the wishlist', async () => {

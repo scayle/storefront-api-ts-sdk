@@ -28,4 +28,5 @@ it.skip('Get basket', async () => {
   }
 
   expect(basketResponse.basket).toHaveProperty(`cost`);
+  expect(basketResponse.statusCode).toBe(200);
 });

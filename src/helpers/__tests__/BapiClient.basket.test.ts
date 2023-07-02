@@ -56,6 +56,7 @@ it.skip('Get basket with error', async () => {
   if (basketResponse.type !== 'failure') {
     fail('Expected failure response');
   }
+  expect(basketResponse.statusCode).toBe(500);
 });
 
 it.skip('Basket: Add same variant twice', async () => {
@@ -101,6 +102,8 @@ it.skip('Basket: Add same variant twice', async () => {
 
   expect(secondTimeResponse.kind).toEqual('VariantAlreadyPresent');
   expect(secondTimeResponse.basket).toEqual(firstAddToBasketResponse.basket);
+  expect(firstAddToBasketResponse.statusCode).toEqual(200);
+  expect(secondTimeResponse.statusCode).toEqual(409);
 });
 
 it.skip('Basket: Add variant failure 1', async () => {
@@ -129,6 +132,7 @@ it.skip('Basket: Add variant failure 1', async () => {
   const response = await bapi.basket.addItem(basketKey, 35149152);
 
   expect(response.type).toBe('failure');
+  expect(response.statusCode).toBe(206);
 });
 
 it.skip('Basket: Add variant failure 1', async () => {
@@ -157,6 +161,7 @@ it.skip('Basket: Add variant failure 1', async () => {
   const response = await bapi.basket.addItem(basketKey, 35149152);
 
   expect(response.type).toBe('failure');
+  expect(response.statusCode).toBe(424);
 });
 
 it.skip('Basket: Add variant failure 1', async () => {
@@ -185,6 +190,7 @@ it.skip('Basket: Add variant failure 1', async () => {
   const response = await bapi.basket.addItem(basketKey, 35149152);
 
   expect(response.type).toBe('failure');
+  expect(response.statusCode).toBe(409);
 });
 
 it.skip('Basket: Add variant failure 1', async () => {
@@ -213,6 +219,7 @@ it.skip('Basket: Add variant failure 1', async () => {
   const response = await bapi.basket.addItem(basketKey, 35149152);
 
   expect(response.type).toBe('failure');
+  expect(response.statusCode).toBe(412);
 });
 
 it.skip('Basket: Add variant failure 1', async () => {
@@ -241,6 +248,7 @@ it.skip('Basket: Add variant failure 1', async () => {
   const response = await bapi.basket.addItem(basketKey, 35149152);
 
   expect(response.type).toBe('failure');
+  expect(response.statusCode).toBe(413);
 });
 
 it.skip('Basket: Add variant failure 1', async () => {
@@ -269,6 +277,7 @@ it.skip('Basket: Add variant failure 1', async () => {
   const response = await bapi.basket.addItem(basketKey, 35149152);
 
   expect(response.type).toBe('failure');
+  expect(response.statusCode).toBe(400);
 });
 
 it.skip('Basket: Add same variant twice', async () => {
@@ -313,6 +322,7 @@ it.skip('Basket: Update item quantity', async () => {
   );
 
   expect(deleteItemResponse.type).toBe('success');
+  expect(deleteItemResponse.statusCode).toBe(200);
 });
 
 it.skip('Basket: Update item failure', async () => {
@@ -342,4 +352,5 @@ it.skip('Basket: Update item failure', async () => {
   );
 
   expect(deleteItemResponse.type).toBe('failure');
+  expect(deleteItemResponse.statusCode).toBe(500);
 });

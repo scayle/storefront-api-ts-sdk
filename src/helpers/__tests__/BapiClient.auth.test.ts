@@ -43,6 +43,7 @@ it.skip('Authentication: Basic Auth Implicit', async () => {
   }
 
   expect(basketResponse.basket).toHaveProperty(`cost`);
+  expect(basketResponse.statusCode).toBe(200);
 });
 
 it.skip('Authentication: Basic Auth Explicit', async () => {
@@ -87,6 +88,7 @@ it.skip('Authentication: Basic Auth Explicit', async () => {
   }
 
   expect(basketResponse.basket).toHaveProperty(`cost`);
+  expect(basketResponse.statusCode).toBe(200);
 });
 
 it.skip('Authentication: CloudVault token', async () => {
@@ -130,4 +132,5 @@ it.skip('Authentication: CloudVault token', async () => {
   }
 
   expect(basketResponse.basket).toHaveProperty(`cost`);
+  expect(basketResponse.statusCode).toBe(200);
 });
