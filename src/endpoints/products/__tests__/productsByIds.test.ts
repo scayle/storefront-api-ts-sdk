@@ -6,10 +6,10 @@ it('Builds correct query', () => {
       productIds: [1, 2],
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "ids": "1,2",
   },
 }
@@ -29,10 +29,10 @@ Object {
       includeSellableForFree: false, // don't send, it's the default
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "ids": "1,2",
     "with": "attributes,variants,variants.attributes:key(name),images.attributes:legacy(false)",
   },
@@ -45,10 +45,10 @@ Object {
       includeSellableForFree: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "ids": "10",
     "includeSellableForFree": true,
   },
@@ -67,10 +67,10 @@ Object {
       pricePromotionKey: 'abc123',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "ids": "1",
     "pricePromotionKey": "abc123",
   },

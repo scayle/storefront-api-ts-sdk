@@ -51,10 +51,10 @@ test('Filters request', async () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "filters",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[category]": 20201,
     "with": "values",
   },
@@ -69,10 +69,10 @@ Object {
       with: [],
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "filters",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[category]": 20201,
     "with": "",
   },
@@ -87,10 +87,10 @@ Object {
       with: ['values', 'category_ids'],
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "filters",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[category]": 20201,
     "with": "values,category_ids",
   },
@@ -105,10 +105,10 @@ Object {
       including: ['styleGroup'],
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "filters",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[category]": 20201,
     "including": "styleGroup",
     "with": "values",
@@ -124,10 +124,10 @@ Object {
       including: ['styleGroup', 'isNew'],
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "filters",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[category]": 20201,
     "including": "styleGroup,isNew",
     "with": "values",
@@ -143,10 +143,10 @@ Object {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "filters",
   "method": "GET",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
     "filters[category]": 20201,
     "with": "values",
@@ -162,10 +162,10 @@ Object {
       campaignKey: 'some-other-campaign',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "filters",
   "method": "GET",
-  "params": Object {
+  "params": {
     "campaignKey": "some-other-campaign",
     "filters[category]": 20201,
     "with": "values",
@@ -181,10 +181,10 @@ Object {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "filters",
   "method": "GET",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
     "filters[hasCampaignReduction]": "true",
     "with": "values",

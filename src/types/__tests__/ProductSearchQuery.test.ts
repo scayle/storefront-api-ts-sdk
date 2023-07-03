@@ -4,14 +4,12 @@ import {queryParamsFromProductSearchQuery} from '../../types/ProductSearchQuery'
 it('Converts search query', () => {
   expect(queryParamsFromProductSearchQuery(undefined)).toEqual(undefined);
 
-  expect(queryParamsFromProductSearchQuery({})).toMatchInlineSnapshot(
-    `Object {}`,
-  );
+  expect(queryParamsFromProductSearchQuery({})).toMatchInlineSnapshot(`{}`);
 
   // Leave some but not all values blank
   expect(queryParamsFromProductSearchQuery({categoryId: 1234}))
     .toMatchInlineSnapshot(`
-Object {
+{
   "filters[category]": 1234,
 }
 `);
@@ -51,7 +49,7 @@ Object {
       term: 'search term',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "filters[category]": 1235,
   "filters[emptyAttribute]": "",
   "filters[listAttributes]": "1,2,3",
@@ -71,7 +69,7 @@ Object {
       term: '123',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "disableFuzziness": "true",
   "filters[category]": 1235,
   "filters[term]": "123",
@@ -85,7 +83,7 @@ Object {
       term: '123',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "containsSearch": "true",
   "filters[category]": 1235,
   "filters[term]": "123",

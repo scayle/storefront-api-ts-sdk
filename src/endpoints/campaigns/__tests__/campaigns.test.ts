@@ -3,10 +3,10 @@ import {APISortOrder} from '../../../endpoints/products/products';
 
 it('builds correct endpoint request with no arguments', () => {
   expect(createCampaignsEndpointRequest()).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "campaigns",
   "method": "GET",
-  "params": Object {},
+  "params": {},
 }
 `);
 });
@@ -19,10 +19,10 @@ it('builds correct endpoint request with single sort option', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "campaigns",
   "method": "GET",
-  "params": Object {
+  "params": {
     "sort": "end_at",
   },
 }
@@ -38,10 +38,10 @@ it('builds correct endpoint request with sort options', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "campaigns",
   "method": "GET",
-  "params": Object {
+  "params": {
     "sort": "id",
     "sortDir": "asc",
   },
@@ -58,10 +58,10 @@ it('builds correct endpoint request with pagination', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "campaigns",
   "method": "GET",
-  "params": Object {
+  "params": {
     "page": 3,
     "perPage": 5,
   },
@@ -82,10 +82,10 @@ it('builds correct endpoint request with sort options and pagination', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "campaigns",
   "method": "GET",
-  "params": Object {
+  "params": {
     "page": 6,
     "perPage": 13,
     "sort": "id",

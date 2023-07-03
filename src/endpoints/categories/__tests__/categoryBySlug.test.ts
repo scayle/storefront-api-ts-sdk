@@ -9,10 +9,10 @@ it('Builds correct query', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories/frauen/bekleidung",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 3,
     "with": "properties:name(),descendants",
   },
@@ -29,10 +29,10 @@ Object {
       includeHidden: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories/frauen/bekleidung",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 3,
     "showHidden": "true",
     "with": "properties:name(),descendants",

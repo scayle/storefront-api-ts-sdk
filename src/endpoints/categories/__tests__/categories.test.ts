@@ -2,10 +2,10 @@ import {createCategoriesEndpointRequest} from '../categories';
 
 it('Builds correct query for root categories', () => {
   expect(createCategoriesEndpointRequest({})).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties:name()",
   },
@@ -20,10 +20,10 @@ Object {
       includeHidden: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 3,
     "showHidden": "true",
     "with": "properties:name(),descendants",
@@ -38,10 +38,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties:name(category_context)",
   },

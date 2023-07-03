@@ -15,10 +15,10 @@ it('Builds correct query', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "with": "images.attributes:legacy(false),categories:properties()",
   },
 }
@@ -33,10 +33,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "with": "images.attributes:legacy(false),categories",
   },
 }
@@ -53,10 +53,10 @@ Object {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
     "sort": "new",
     "sortChannel": "size",
@@ -71,10 +71,10 @@ Object {
       campaignKey: 'some-other-campaign',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "campaignKey": "some-other-campaign",
   },
 }
@@ -87,10 +87,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "page": 1,
   },
 }
@@ -103,10 +103,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "sortingKey": "custom_sort_order",
   },
 }
@@ -117,10 +117,10 @@ Object {
       includeSellableForFree: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "includeSellableForFree": true,
   },
 }
@@ -131,10 +131,10 @@ Object {
       includeSoldOut: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "includeSoldOut": true,
   },
 }
@@ -146,10 +146,10 @@ Object {
       includeSellableForFree: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "includeSellableForFree": true,
     "includeSoldOut": true,
   },
@@ -170,10 +170,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[brand]": "271,567",
     "pricePromotionKey": "abc123",
   },
@@ -193,10 +193,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[1]": "1,2",
   },
 }
@@ -207,10 +207,10 @@ Object {
       minProductId: 123456,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "minProductId": 123456,
   },
 }
@@ -229,10 +229,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[ean]": "7325860037489",
   },
 }
@@ -251,10 +251,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[minfirstLiveAt]": "2020-11-27",
   },
 }
@@ -281,7 +281,7 @@ Object {
       hasCampaignReduction: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "filters[hasCampaignReduction]": "true",
 }
 `);
@@ -294,10 +294,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
     "filters[hasCampaignReduction]": "true",
   },

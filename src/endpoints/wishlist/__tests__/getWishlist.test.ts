@@ -6,10 +6,10 @@ it('Builds correct query', () => {
       wishlistKey: 'wishlist_1',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "wishlists/wishlist_1",
   "method": "GET",
-  "params": Object {},
+  "params": {},
 }
 `);
 
@@ -25,10 +25,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "wishlists/wishlist_1",
   "method": "GET",
-  "params": Object {
+  "params": {
     "with": "items.product.attributes,items.product.images.attributes:legacy(false)",
   },
 }
@@ -40,10 +40,10 @@ Object {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "wishlists/wishlist_1",
   "method": "GET",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
   },
 }
@@ -56,10 +56,10 @@ Object {
       pricePromotionKey: 'test',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "wishlists/wishlist_1",
   "method": "GET",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
     "pricePromotionKey": "test",
   },

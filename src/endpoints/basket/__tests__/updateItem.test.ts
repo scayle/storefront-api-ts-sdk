@@ -8,13 +8,13 @@ it('Builds corrects query', () => {
       quantity: 10,
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "quantity": 10,
   },
   "endpoint": "baskets/basket_1/items/item_5",
   "method": "PATCH",
-  "params": Object {},
+  "params": {},
 }
 `);
 
@@ -34,13 +34,13 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "quantity": 10,
   },
   "endpoint": "baskets/basket_1/items/item_5",
   "method": "PATCH",
-  "params": Object {
+  "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
   },
 }
@@ -54,13 +54,13 @@ Object {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "quantity": 10,
   },
   "endpoint": "baskets/basket_1/items/item_5",
   "method": "PATCH",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
   },
 }

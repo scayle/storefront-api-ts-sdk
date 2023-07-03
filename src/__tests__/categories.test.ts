@@ -32,10 +32,10 @@ test.skip('Fetch category by id', async () => {
 
 test('Fetch categories (without any explicit depth)', async () => {
   expect(createCategoriesEndpointRequest()).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties:name()",
   },
@@ -43,10 +43,10 @@ Object {
 `);
 
   expect(createCategoriesEndpointRequest({})).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties:name()",
   },
@@ -54,10 +54,10 @@ Object {
 `);
 
   expect(createCategoriesEndpointRequest({with: {}})).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties:name()",
   },
@@ -66,10 +66,10 @@ Object {
 
   expect(createCategoriesEndpointRequest({with: {children: undefined}}))
     .toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties:name()",
   },
@@ -80,10 +80,10 @@ Object {
 test('Fetch categories (with explicit depth)', async () => {
   expect(createCategoriesEndpointRequest({with: {children: 1}}))
     .toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 2,
     "with": "properties:name(),descendants",
   },
@@ -96,10 +96,10 @@ Object {
       includeHidden: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 2,
     "showHidden": "true",
     "with": "properties:name(),descendants",

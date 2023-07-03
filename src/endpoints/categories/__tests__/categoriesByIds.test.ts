@@ -6,10 +6,10 @@ it('Builds correct query', () => {
       categoryIds: [1, 2],
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "ids": "1,2",
     "with": "properties:name()",
@@ -23,10 +23,10 @@ Object {
       with: {absoluteDepth: 0},
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "ids": "1,2",
     "with": "properties:name()",
@@ -40,10 +40,10 @@ Object {
       with: {absoluteDepth: 2},
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 2,
     "ids": "1,2",
     "with": "properties:name(),descendants",

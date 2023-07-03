@@ -6,10 +6,10 @@ import {
 it('Builds correct query', () => {
   expect(createSearchResolveEndpointRequest({term: 'maxi rot'}))
     .toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "search/resolve",
   "method": "GET",
-  "params": Object {
+  "params": {
     "term": "maxi rot",
   },
 }

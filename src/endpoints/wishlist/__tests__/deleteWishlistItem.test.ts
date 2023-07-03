@@ -7,10 +7,10 @@ it('Builds correct query', () => {
       itemKey: 'item_1',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
-  "params": Object {},
+  "params": {},
 }
 `);
 
@@ -27,10 +27,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
-  "params": Object {
+  "params": {
     "with": "items.product.attributes,items.product.images.attributes:legacy(false)",
   },
 }
@@ -43,10 +43,10 @@ Object {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
   },
 }
@@ -60,10 +60,10 @@ Object {
       pricePromotionKey: 'test',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
     "pricePromotionKey": "test",
   },

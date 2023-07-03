@@ -1,16 +1,8 @@
-// TODO: Use helper for up to date `paths` mappings
-// const {pathsToModuleNameMapper} = require('ts-jest/utils');
-
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   roots: ['<rootDir>/src'],
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
-  globals: {
-    'ts-jest': {
-      tsConfig: 'tsconfig.json',
-    },
-  },
+  preset: 'ts-jest',
+  testEnvironment: 'node',
   testRegex: '(/tests/.*|/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {'^bapi/(.*)$': '<rootDir>/src/$1'},

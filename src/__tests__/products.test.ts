@@ -73,10 +73,10 @@ test('Product by ID request', async () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products/123",
   "method": "GET",
-  "params": Object {
+  "params": {
     "with": "attributes,images.attributes:legacy(false)",
   },
 }
@@ -90,10 +90,10 @@ test('Product by ID request with price promotion key', async () => {
       pricePromotionKey: 'abc123',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products/123",
   "method": "GET",
-  "params": Object {
+  "params": {
     "pricePromotionKey": "abc123",
   },
 }
@@ -111,10 +111,10 @@ test('Product by ID with categories', async () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products/123",
   "method": "GET",
-  "params": Object {
+  "params": {
     "with": "images.attributes:legacy(false),categories",
   },
 }
@@ -128,10 +128,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products/123",
   "method": "GET",
-  "params": Object {
+  "params": {
     "with": "images.attributes:legacy(false),categories:properties()",
   },
 }
@@ -145,10 +145,10 @@ test('sellable for free parameter', () => {
       includeSellableForFree: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products/123",
   "method": "GET",
-  "params": Object {
+  "params": {
     "includeSellableForFree": true,
   },
 }
@@ -162,10 +162,10 @@ Object {
       includeSellableForFree: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "filters[category]": 20201,
     "includeSellableForFree": true,
   },

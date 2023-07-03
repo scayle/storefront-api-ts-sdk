@@ -72,33 +72,33 @@ it.skip('Get basket', async () => {
   const typed: ExpectedType = model;
 
   expect(typed).toMatchInlineSnapshot(`
-Object {
-  "advancedAttributes": Object {
-    "bulletPoints": Array [
+{
+  "advancedAttributes": {
+    "bulletPoints": [
       "Langlebige, besonders abriebfeste Gummiaußensohle",
       "Stoßabsorbierende und dämpfende EVA-Zwischensohle",
       "Herausnehmbare Einlegesohle, die durch orthopädische Einlagen ersetzt werden kann",
     ],
-    "materialCompositionTextile": Array [
-      Object {
+    "materialCompositionTextile": [
+      {
         "label": "Schuh-Obermaterial",
-        "materials": Array [
-          Object {
+        "materials": [
+          {
             "label": "Leder",
             "unit": "%",
             "value": null,
           },
         ],
       },
-      Object {
+      {
         "label": "Obermaterial",
-        "materials": Array [
-          Object {
+        "materials": [
+          {
             "label": "Baumwolle",
             "unit": "%",
             "value": 95,
           },
-          Object {
+          {
             "label": "Elasthan",
             "unit": "%",
             "value": 5,
@@ -109,8 +109,8 @@ Object {
     "minPrice": 2499,
     "name": "Langarm-Nachthemden",
   },
-  "attributes": Object {
-    "color": Object {
+  "attributes": {
+    "color": {
       "id": 38919,
       "label": "beige",
       "value": "beige",
@@ -122,26 +122,26 @@ Object {
   "baseCategories": undefined,
   "categories": undefined,
   "id": 3553214,
-  "images": Array [
-    Object {
-      "attributes": Object {
-        "imageBackground": Object {
+  "images": [
+    {
+      "attributes": {
+        "imageBackground": {
           "key": "imageBackground",
           "label": "Bild Hintergrund",
           "multiSelect": false,
           "type": "",
-          "values": Object {
+          "values": {
             "id": 66504,
             "label": "weiß",
             "value": "white",
           },
         },
-        "imageType": Object {
+        "imageType": {
           "key": "imageType",
           "label": "Bild Typ",
           "multiSelect": false,
           "type": "",
-          "values": Object {
+          "values": {
             "id": 66480,
             "label": "Büste",
             "value": "bust",
@@ -150,25 +150,25 @@ Object {
       },
       "hash": "de505cc8c141d4212d30b35b02748431",
     },
-    Object {
-      "attributes": Object {
-        "imageBackground": Object {
+    {
+      "attributes": {
+        "imageBackground": {
           "key": "imageBackground",
           "label": "Bild Hintergrund",
           "multiSelect": false,
           "type": "",
-          "values": Object {
+          "values": {
             "id": 66506,
             "label": "grau",
             "value": "grey",
           },
         },
-        "imageType": Object {
+        "imageType": {
           "key": "imageType",
           "label": "Bild Typ",
           "multiSelect": false,
           "type": "",
-          "values": Object {
+          "values": {
             "id": 66480,
             "label": "Büste",
             "value": "bust",
@@ -177,47 +177,47 @@ Object {
       },
       "hash": "2c1f2dcb163d56c94c7844f8b205665c",
     },
-    Object {
-      "attributes": Object {
-        "imageBackground": Object {
+    {
+      "attributes": {
+        "imageBackground": {
           "key": "imageBackground",
           "label": "Bild Hintergrund",
           "multiSelect": false,
           "type": "",
-          "values": Object {
+          "values": {
             "id": 66504,
             "label": "weiß",
             "value": "white",
           },
         },
-        "imageFocus": Object {
+        "imageFocus": {
           "key": "imageFocus",
           "label": "Bild Fokus",
           "multiSelect": false,
           "type": "",
-          "values": Object {
+          "values": {
             "id": 66484,
             "label": "Produkt",
             "value": "product",
           },
         },
-        "imageType": Object {
+        "imageType": {
           "key": "imageType",
           "label": "Bild Typ",
           "multiSelect": false,
           "type": "",
-          "values": Object {
+          "values": {
             "id": 66480,
             "label": "Büste",
             "value": "bust",
           },
         },
-        "imageView": Object {
+        "imageView": {
           "key": "imageView",
           "label": "Bild Ansicht",
           "multiSelect": false,
           "type": "",
-          "values": Object {
+          "values": {
             "id": 66486,
             "label": "Frontalansicht",
             "value": "front",
@@ -230,15 +230,15 @@ Object {
   "isActive": true,
   "isNew": false,
   "isSoldOut": false,
-  "variants": Array [
-    Object {
-      "attributes": Object {
+  "variants": [
+    {
+      "attributes": {
         "shopSize": "30 ml",
       },
       "id": 33156972,
     },
-    Object {
-      "attributes": Object {
+    {
+      "attributes": {
         "shopSize": "50 ml",
       },
       "id": 33748217,

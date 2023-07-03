@@ -22,9 +22,9 @@ it('Builds correct query', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
-    "itemGroup": Object {
+{
+  "data": {
+    "itemGroup": {
       "id": "42",
       "isMainItem": false,
       "isRequired": true,
@@ -34,7 +34,7 @@ Object {
   },
   "endpoint": "baskets/basket1/items",
   "method": "POST",
-  "params": Object {
+  "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
   },
 }
@@ -52,9 +52,9 @@ it('Builds correct query with custom data', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
-    "customData": Object {
+{
+  "data": {
+    "customData": {
       "pricePromotionKey": "abc123",
     },
     "quantity": 1,
@@ -62,7 +62,7 @@ Object {
   },
   "endpoint": "baskets/basket1/items",
   "method": "POST",
-  "params": Object {},
+  "params": {},
 }
 `);
 });
@@ -76,15 +76,15 @@ it('Support sending a child shop ID', () => {
       childShopId: 456,
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "quantity": 1,
     "shopId": 456,
     "variantId": 1235,
   },
   "endpoint": "baskets/basket1/items",
   "method": "POST",
-  "params": Object {},
+  "params": {},
 }
 `);
 });
@@ -98,9 +98,9 @@ it('Builds correct query with price promotion key', () => {
       pricePromotionKey: 'key123',
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
-    "customData": Object {
+{
+  "data": {
+    "customData": {
       "pricePromotionKey": "key123",
     },
     "quantity": 1,
@@ -108,7 +108,7 @@ Object {
   },
   "endpoint": "baskets/basket1/items",
   "method": "POST",
-  "params": Object {},
+  "params": {},
 }
 `);
 });
@@ -125,9 +125,9 @@ it('Builds correct query with price promotion key and custom data', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
-    "customData": Object {
+{
+  "data": {
+    "customData": {
       "pricePromotionKey": "final key",
     },
     "quantity": 1,
@@ -135,7 +135,7 @@ Object {
   },
   "endpoint": "baskets/basket1/items",
   "method": "POST",
-  "params": Object {},
+  "params": {},
 }
 `);
 });
@@ -149,14 +149,14 @@ it('Builds correct query with campaign key', () => {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "quantity": 1,
     "variantId": 1235,
   },
   "endpoint": "baskets/basket1/items",
   "method": "POST",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
   },
 }
@@ -178,10 +178,10 @@ it('Builds correct query with display data', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
-    "displayData": Object {
-      "identifier": Object {
+{
+  "data": {
+    "displayData": {
+      "identifier": {
         "key": "product-id",
         "label": "Product ID",
         "value": "a-random-value",
@@ -192,7 +192,7 @@ Object {
   },
   "endpoint": "baskets/basket1/items",
   "method": "POST",
-  "params": Object {},
+  "params": {},
 }
 `);
 });
@@ -206,14 +206,14 @@ it('Builds correct query with skip availability', () => {
       skipAvailabilityCheck: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "quantity": 1,
     "variantId": 1235,
   },
   "endpoint": "baskets/basket1/items",
   "method": "POST",
-  "params": Object {
+  "params": {
     "skipAvailabilityCheck": true,
   },
 }

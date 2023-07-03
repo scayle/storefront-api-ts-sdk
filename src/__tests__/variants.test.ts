@@ -12,10 +12,10 @@ test('Product by ID request', async () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "variants",
   "method": "GET",
-  "params": Object {
+  "params": {
     "ids": "1,2,3",
     "with": "attributes",
   },

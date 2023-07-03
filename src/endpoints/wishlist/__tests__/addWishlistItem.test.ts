@@ -9,13 +9,13 @@ it('Builds correct query', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "masterKey": "master_1",
   },
   "endpoint": "wishlists/wishlist_1/items",
   "method": "POST",
-  "params": Object {},
+  "params": {},
 }
 `);
 
@@ -27,13 +27,13 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "productId": 123,
   },
   "endpoint": "wishlists/wishlist_1/items",
   "method": "POST",
-  "params": Object {},
+  "params": {},
 }
 `);
 
@@ -45,13 +45,13 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "variantId": 789,
   },
   "endpoint": "wishlists/wishlist_1/items",
   "method": "POST",
-  "params": Object {},
+  "params": {},
 }
 `);
 
@@ -70,13 +70,13 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "productId": 1,
   },
   "endpoint": "wishlists/wishlist_1/items",
   "method": "POST",
-  "params": Object {
+  "params": {
     "with": "items.product.attributes,items.product.images.attributes:legacy(false)",
   },
 }
@@ -91,13 +91,13 @@ Object {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "productId": 1,
   },
   "endpoint": "wishlists/wishlist_1/items",
   "method": "POST",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
   },
 }
@@ -112,14 +112,14 @@ Object {
       childShopId: 456,
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "productId": 1,
     "shopId": 456,
   },
   "endpoint": "wishlists/wishlist_1/items",
   "method": "POST",
-  "params": Object {},
+  "params": {},
 }
 `);
 
@@ -132,13 +132,13 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "masterKey": "master_1",
   },
   "endpoint": "wishlists/wishlist_1/items",
   "method": "POST",
-  "params": Object {
+  "params": {
     "pricePromotionKey": "test",
   },
 }

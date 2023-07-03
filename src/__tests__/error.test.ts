@@ -8,7 +8,7 @@ import {AxiosError} from 'axios';
 
 disableNetAndAllowBapiCors();
 
-describe('Throw error with status code', async () => {
+describe('Throw error with status code', () => {
   for (const statusCode of [404, 500]) {
     test.skip(`${statusCode}`, async () => {
       nockWithBapiScope()

@@ -7,10 +7,10 @@ it('Builds corrects parameter', () => {
       itemKey: 'item_5',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "baskets/basket_1/items/item_5",
   "method": "DELETE",
-  "params": Object {},
+  "params": {},
 }
 `);
 
@@ -29,10 +29,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "baskets/basket_1/items/item_5",
   "method": "DELETE",
-  "params": Object {
+  "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
   },
 }
@@ -45,10 +45,10 @@ Object {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "baskets/basket_1/items/item_5",
   "method": "DELETE",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
   },
 }

@@ -1,7 +1,7 @@
 import {basketWithQueryParameter, getBasketEndpointRequest} from '../getBasket';
 
 it('Builds corrects with query parameter', () => {
-  expect(basketWithQueryParameter({})).toMatchInlineSnapshot(`Array []`);
+  expect(basketWithQueryParameter({})).toMatchInlineSnapshot(`[]`);
 
   expect(
     basketWithQueryParameter({
@@ -11,7 +11,7 @@ it('Builds corrects with query parameter', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Array [
+[
   "items.product.images.attributes:legacy(false)",
 ]
 `);
@@ -27,7 +27,7 @@ Array [
       },
     }),
   ).toMatchInlineSnapshot(`
-Array [
+[
   "items.product.attributes",
   "items.product.advancedAttributes",
   "items.product.images.attributes:legacy(false)",
@@ -54,7 +54,7 @@ Array [
       },
     }),
   ).toMatchInlineSnapshot(`
-Array [
+[
   "items.product.attributes",
   "items.product.advancedAttributes",
   "items.product.images.attributes:legacy(false)",
@@ -79,10 +79,10 @@ it('Builds correct query', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "baskets/basket1",
   "method": "GET",
-  "params": Object {
+  "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
   },
 }
@@ -98,10 +98,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "baskets/basket1",
   "method": "GET",
-  "params": Object {
+  "params": {
     "with": "items.variant.stock,items.variant.stock.customData",
   },
 }
@@ -115,10 +115,10 @@ it('Builds correct query with campaign key', () => {
       campaignKey: 'px',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "baskets/basket1",
   "method": "GET",
-  "params": Object {
+  "params": {
     "campaignKey": "px",
   },
 }
@@ -132,10 +132,10 @@ it('Builds correct query with checkoutShopId', () => {
       checkoutShopId: 589,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "baskets/basket1",
   "method": "GET",
-  "params": Object {
+  "params": {
     "checkoutShopId": 589,
   },
 }

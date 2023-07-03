@@ -10,10 +10,10 @@ it('Builds correct query', () => {
       includeHidden: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories/1234",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 3,
     "showHidden": "true",
     "with": "properties:name(),descendants",
@@ -29,10 +29,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories/1234",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties",
   },
@@ -47,10 +47,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories/1234",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties:name()",
   },
@@ -65,10 +65,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories/1234",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties:name(category_context)",
   },
@@ -83,10 +83,10 @@ Object {
       },
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "categories/1234",
   "method": "GET",
-  "params": Object {
+  "params": {
     "depth": 1,
     "with": "properties:name(category_context|reference_id)",
   },

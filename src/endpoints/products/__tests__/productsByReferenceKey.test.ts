@@ -6,10 +6,10 @@ it('Builds correct query', () => {
       referenceKey: '122222051352_990',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "referenceKey": "122222051352_990",
   },
 }
@@ -29,10 +29,10 @@ Object {
       includeSellableForFree: false, // don't send, it's the default
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "referenceKey": "122222051352_990",
     "with": "attributes,variants,variants.attributes:key(name),images.attributes:legacy(false)",
   },
@@ -45,10 +45,10 @@ Object {
       includeSellableForFree: true,
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "includeSellableForFree": true,
     "referenceKey": "122222051352_990",
   },
@@ -67,10 +67,10 @@ Object {
       pricePromotionKey: 'abc123',
     }),
   ).toMatchInlineSnapshot(`
-Object {
+{
   "endpoint": "products",
   "method": "GET",
-  "params": Object {
+  "params": {
     "pricePromotionKey": "abc123",
     "referenceKey": "122222051352_990",
   },
