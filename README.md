@@ -1,4 +1,4 @@
-# SCAYLE Storefront SDK
+# SCAYLE Storefront API SDK for Typescript
 
 TypeScript and JavaScript SDK source for the SCAYLE Storefront API.
 
@@ -13,11 +13,11 @@ For a general introduction about SCAYLE see [scayle.com](https://scayle.com/).
 ## Installation
 
 ```
-npm i @aboutyou/backbone
+npm i @scayle/storefront-api-sdk
 ```
 
 or
 
 ```
-yarn add @aboutyou/backbone
+yarn add @scayle/storefront-api-sdk
 ```
