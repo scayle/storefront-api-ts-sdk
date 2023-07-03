@@ -1,5 +1,5 @@
 {
-    "name": "@aboutyou/backbone",
+    "name": "@scayle/storefront-api-sdk",
     "version": "15.5.0",
     "dependencies": {
         "axios": ">=0.18.0 <1.0.0",
