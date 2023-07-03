@@ -1,4 +1,4 @@
-import {BapiClient} from '../../helpers/BapiClient';
+import {StorefrontAPIClient} from '../../helpers/BapiClient';
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
@@ -16,7 +16,7 @@ it.skip('Gets the wishlist', async () => {
       'Content-Type': 'application/json',
     });
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
   });
@@ -37,7 +37,7 @@ it.skip('Adds an item to the wishlist', async () => {
       'Content-Type': 'application/json',
     });
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
   });
@@ -65,7 +65,7 @@ it.skip('Additem failure', async () => {
       },
     );
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
   });
@@ -97,7 +97,7 @@ it.skip('Deletes an item from the wishlist', async () => {
       'Content-Type': 'application/json',
     });
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
   });

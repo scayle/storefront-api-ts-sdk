@@ -1,4 +1,7 @@
-import {BapiClient, ExistingItemHandling} from '../../helpers/BapiClient';
+import {
+  StorefrontAPIClient,
+  ExistingItemHandling,
+} from '../../helpers/BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
@@ -19,7 +22,7 @@ it.skip('BapiClient.addOrUpdateItems: Does nothing for new variant with quantity
       },
     );
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
     shopIdPlacement: 'header',
@@ -68,7 +71,7 @@ it.skip('BapiClient.addOrUpdateItems: Deletes existing variant variant with quan
       },
     );
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
     shopIdPlacement: 'header',
@@ -125,7 +128,7 @@ it.skip('BapiClient.addOrUpdateItems: Creates new item for new variant', async (
       },
     );
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
     shopIdPlacement: 'header',
@@ -168,7 +171,7 @@ it.skip('BapiClient.addOrUpdateItems: Handles failures (responding with the last
     })
     .reply(500, {});
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
     shopIdPlacement: 'header',
@@ -241,7 +244,7 @@ it.skip('BapiClient.addOrUpdateItems: Replaces existing item with combined quant
       },
     );
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
     shopIdPlacement: 'header',
@@ -305,7 +308,7 @@ it.skip('BapiClient.addOrUpdateItems: Replaces existing item (with origin quanti
       },
     );
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
     shopIdPlacement: 'header',

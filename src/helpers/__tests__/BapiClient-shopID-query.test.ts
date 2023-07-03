@@ -1,4 +1,4 @@
-import {BapiClient} from '../../helpers/BapiClient';
+import {StorefrontAPIClient} from '../../helpers/BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
@@ -14,7 +14,7 @@ it.skip('Get basket', async () => {
       'Content-Type': 'application/json',
     });
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 123,
   });

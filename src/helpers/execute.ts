@@ -1,8 +1,7 @@
-import axios, {AxiosAdapter, AxiosRequestConfig, AxiosResponse} from 'axios';
+import {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 import {BapiCall} from '../interfaces/BapiCall';
-import {ObjectMap} from '../types/ObjectMap';
-import * as queryString from 'query-string';
-import {BapiAuthentication} from './BapiClient';
+import queryString from 'query-string';
+import {StorefrontAPIAuth} from './BapiClient';
 
 export const getParamsString = (params?: Partial<Record<string, any>>) => {
   if (!params) {
@@ -33,20 +32,19 @@ function prepareUrl(
 
 export interface BapiResponse<T> {
   statusCode: number;
-  headers: {[key: string]: string | undefined};
+  headers: AxiosResponse['headers'];
   url: string;
   data: T;
 }
 
 export async function execute<SuccessResponseT>(
+  axios: AxiosInstance,
   apiLocation: string,
   shopId: number,
   bapiCall: BapiCall<SuccessResponseT>,
-  acceptAllResponseCodes = false,
-  shopIdPlacement: 'header' | 'query' = 'query',
-  auth?: BapiAuthentication,
-  additionalHeaders?: ObjectMap<string>,
-  axiosAdapter?: AxiosAdapter,
+  acceptAllResponseCodes: boolean = false,
+  shopIdPlacement: 'header' | 'query',
+  auth?: StorefrontAPIAuth,
 ): Promise<BapiResponse<SuccessResponseT>> {
   const params =
     shopIdPlacement === 'query'
@@ -66,7 +64,6 @@ export async function execute<SuccessResponseT>(
         ? {'accept-encoding': 'gzip, deflate'}
         : undefined),
       ...shopIdHeader,
-      ...additionalHeaders,
     },
     url,
     method: bapiCall.method,
@@ -77,11 +74,10 @@ export async function execute<SuccessResponseT>(
     validateStatus: acceptAllResponseCodes
       ? () => true
       : statusCode => statusCode >= 200 && statusCode <= 299,
-    adapter: axiosAdapter,
   };
 
   if (auth) {
-    if (auth.type === 'token') {
+    if ('token' in auth) {
       fetchOptions.headers!['X-Access-Token'] = auth.token;
     } else {
       fetchOptions.auth = {
@@ -91,7 +87,9 @@ export async function execute<SuccessResponseT>(
     }
   }
 
-  const response: AxiosResponse<SuccessResponseT> = await axios(fetchOptions);
+  const response: AxiosResponse<SuccessResponseT> = await axios.request(
+    fetchOptions,
+  );
 
   if (
     bapiCall.responseValidator &&

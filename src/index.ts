@@ -1,4 +1,9 @@
-export {BapiClient, ExistingItemHandling} from './helpers/BapiClient';
+export {
+  StorefrontAPIClient,
+  StorefrontAPIAuth,
+  StorefrontAPIConfig,
+  ExistingItemHandling,
+} from './helpers/BapiClient';
 
 // Basket
 export {

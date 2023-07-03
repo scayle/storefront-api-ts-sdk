@@ -71,7 +71,6 @@ import {execute} from '../helpers/execute';
 import {BapiCall} from '../interfaces/BapiCall';
 import {BapiCategory} from '../types/BapiCategory';
 import {BapiProduct, Variant} from '../types/BapiProduct';
-import {ModeledBapiClient, ProductMapping} from './ModeledBapiClient';
 import {
   SearchSuggestionsEndpointParameters,
   SearchSuggestionsEndpointResponseData,
@@ -81,7 +80,7 @@ import {
   createrSearchMappingsEndpointRequest,
   SearchMappingsEndpointResponseData,
 } from '../endpoints/search/mappings';
-import axios, {AxiosAdapter} from 'axios';
+import axios, {AxiosInstance} from 'axios';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
@@ -309,56 +308,58 @@ function updateBasketItemFailureKindFromStatusCode(
   }
 }
 
-export type BapiAuthentication =
+export type StorefrontAPIAuth =
   | {
-      type?: 'basic'; // Optional for now, so it's not a breaking change to add token authentication below
       username: string;
       password: string;
     }
   | {
-      type: 'token';
       token: string;
     };
+
+export interface StorefrontAPIConfig {
+  host: string;
+  shopId: number;
+  shopIdPlacement?: 'header' | 'query';
+  auth?: StorefrontAPIAuth;
+  axios?: AxiosInstance;
+}
 
 /**
  * BAPI Client
  *
  * Constructor returns a preconfigured client which has the `host` and `appId` set for all requests
  */
-export class BapiClient {
+export class StorefrontAPIClient {
   private readonly shopIdPlacement: 'header' | 'query';
 
-  public constructor(
-    private readonly env: {
-      host: string;
-      shopId: number;
-      shopIdPlacement?: 'header' | 'query';
-      auth?: BapiAuthentication;
-      axiosAdapter?: AxiosAdapter;
-    },
-  ) {
-    this.shopIdPlacement = env.shopIdPlacement || 'query';
-  }
+  private readonly host: string;
 
-  public static withModels<T extends ProductMapping>(
-    env: {host: string; shopId: number},
-    mappings: {product: T},
-  ) {
-    return new ModeledBapiClient(env, mappings);
+  private readonly shopId: number;
+
+  private readonly axios: AxiosInstance;
+
+  private readonly auth: StorefrontAPIAuth | undefined;
+
+  public constructor(config: StorefrontAPIConfig) {
+    this.host = config.host;
+    this.shopId = config.shopId;
+    this.shopIdPlacement = config.shopIdPlacement ?? 'query';
+    this.auth = config.auth;
+    this.axios = config.axios ?? axios;
   }
 
   private async execute<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<SuccessResponseT> {
     const response = await execute(
-      this.env.host,
-      this.env.shopId,
+      this.axios,
+      this.host,
+      this.shopId,
       bapiCall,
-      undefined,
+      false,
       this.shopIdPlacement,
-      this.env.auth,
-      undefined,
-      this.env.axiosAdapter,
+      this.auth,
     );
 
     return response.data;
@@ -368,14 +369,13 @@ export class BapiClient {
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<{data: SuccessResponseT; statusCode: number}> {
     const response = await execute(
-      this.env.host,
-      this.env.shopId,
+      this.axios,
+      this.host,
+      this.shopId,
       bapiCall,
       true,
       this.shopIdPlacement,
-      this.env.auth,
-      undefined,
-      this.env.axiosAdapter,
+      this.auth,
     );
 
     return {
@@ -977,11 +977,11 @@ export enum ExistingItemHandling {
 class BasketMultiOperationsClient {
   public latestBasket: BasketResponseData;
 
-  private _client: BapiClient;
+  private _client: StorefrontAPIClient;
 
   public errors: AddOrUpdateItemError[];
 
-  constructor(client: BapiClient, latestBasket: BasketResponseData) {
+  constructor(client: StorefrontAPIClient, latestBasket: BasketResponseData) {
     this.latestBasket = latestBasket;
     this.errors = [];
     this._client = client;
