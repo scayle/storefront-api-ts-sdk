@@ -1,6 +1,6 @@
 import axios, {AxiosAdapter, AxiosRequestConfig, AxiosResponse} from 'axios';
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {ObjectMap} from 'bapi/types/ObjectMap';
+import {BapiCall} from '../interfaces/BapiCall';
+import {ObjectMap} from '../types/ObjectMap';
 import * as queryString from 'query-string';
 import {BapiAuthentication} from './BapiClient';
 

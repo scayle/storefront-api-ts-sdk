@@ -1,9 +1,9 @@
-import {createFiltersEndpointRequest} from 'bapi/endpoints/filters/filters';
-import {execute, getParamsString} from 'bapi/helpers/execute';
+import {createFiltersEndpointRequest} from '../endpoints/filters/filters';
+import {execute, getParamsString} from '../helpers/execute';
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
-} from 'bapi/test-helpers/nock';
+} from '../test-helpers/nock';
 
 disableNetAndAllowBapiCors();
 

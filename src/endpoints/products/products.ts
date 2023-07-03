@@ -1,14 +1,14 @@
-import {Pagination} from 'bapi/endpoints/products/productsByIds';
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {BapiProduct} from 'bapi/types/BapiProduct';
+import {Pagination} from '../../endpoints/products/productsByIds';
+import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiProduct} from '../../types/BapiProduct';
 import {
   ProductSearchQuery,
   queryParamsFromProductSearchQuery,
-} from 'bapi/types/ProductSearchQuery';
+} from '../../types/ProductSearchQuery';
 import {
   ProductWith,
   productWithQueryParameterValues,
-} from 'bapi/types/ProductWith';
+} from '../../types/ProductWith';
 
 export enum APISortOption {
   Price = 'price',

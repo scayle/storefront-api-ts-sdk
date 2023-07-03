@@ -3,9 +3,9 @@ import {
   APISortOption,
   APISortOrder,
 } from '../products';
-import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
-import {getParamsString} from 'bapi/helpers/execute';
-import {queryParamsFromProductSearchQuery} from 'bapi/types/ProductSearchQuery';
+import {AttributeKey} from '../../../types/AttributeOrAttributeValueFilter';
+import {getParamsString} from '../../../helpers/execute';
+import {queryParamsFromProductSearchQuery} from '../../../types/ProductSearchQuery';
 
 it('Builds correct query', () => {
   expect(

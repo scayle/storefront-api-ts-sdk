@@ -1,7 +1,7 @@
 import {
   AttributeWithBooleanValueFilter,
   AttributeWithValuesFilter,
-} from 'bapi/types/AttributeOrAttributeValueFilter';
+} from '../types/AttributeOrAttributeValueFilter';
 import {ObjectMap} from './ObjectMap';
 
 export interface ProductSearchQuery {
@@ -31,9 +31,8 @@ export function queryParamsFromProductSearchQuery(
     ...(productSearchQuery.attributes || []).reduce((acc, attribute) => {
       switch (attribute.type) {
         case 'attributes':
-          acc[
-            `filters[${attribute.key || attribute.id}]`
-          ] = attribute.values.join(`,`);
+          acc[`filters[${attribute.key || attribute.id}]`] =
+            attribute.values.join(`,`);
           break;
 
         case 'boolean':

@@ -2,8 +2,8 @@ import {
   BasketResponseData,
   BasketWith,
   basketWithQueryParameter,
-} from 'bapi/endpoints/basket/getBasket';
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+} from '../../endpoints/basket/getBasket';
+import {BapiCall} from '../../interfaces/BapiCall';
 
 export interface DeleteItemParameters {
   basketKey: string;

@@ -1,4 +1,4 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+import {BapiCall} from '../../interfaces/BapiCall';
 
 export interface ShopConfigurationResponseData {
   shopId: number;
@@ -9,9 +9,7 @@ export interface ShopConfigurationResponseData {
   }>;
 }
 
-export function createShopConfigurationRequest(): BapiCall<
-  ShopConfigurationResponseData
-> {
+export function createShopConfigurationRequest(): BapiCall<ShopConfigurationResponseData> {
   return {
     method: 'GET',
     endpoint: 'shop-configuration',

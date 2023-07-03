@@ -1,9 +1,9 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {Variant} from 'bapi/types/BapiProduct';
+import {BapiCall} from '../../interfaces/BapiCall';
+import {Variant} from '../../types/BapiProduct';
 import {
   VariantWith,
   variantWithQueryParameterValues,
-} from 'bapi/types/ProductWith';
+} from '../../types/ProductWith';
 import {Pagination} from '../products/productsByIds';
 
 export interface VariantsByIdsEndpointParameters {

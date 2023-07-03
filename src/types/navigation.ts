@@ -1,4 +1,4 @@
-import {RFC33339Date} from 'bapi/types/BapiProduct';
+import {RFC33339Date} from '../types/BapiProduct';
 import {BapiCategory} from './BapiCategory';
 
 export type NavigationItem = {

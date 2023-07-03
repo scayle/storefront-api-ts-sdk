@@ -1,10 +1,10 @@
-import {createProductsSearchEndpointRequest} from 'bapi/endpoints/products/products';
-import {execute} from 'bapi/helpers/execute';
+import {createProductsSearchEndpointRequest} from '../endpoints/products/products';
+import {execute} from '../helpers/execute';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from 'bapi/test-helpers/nock';
-import {createProductByIdEndpointRequest} from 'bapi/endpoints/products/productById';
+} from '../test-helpers/nock';
+import {createProductByIdEndpointRequest} from '../endpoints/products/productById';
 
 disableNetAndAllowBapiCors();
 

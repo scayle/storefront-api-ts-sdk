@@ -1,9 +1,9 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {BapiProduct} from 'bapi/types/BapiProduct';
+import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiProduct} from '../../types/BapiProduct';
 import {
   ProductWith,
   productWithQueryParameterValues,
-} from 'bapi/types/ProductWith';
+} from '../../types/ProductWith';
 
 export interface ProductByIdEndpointParameters {
   productId: number;

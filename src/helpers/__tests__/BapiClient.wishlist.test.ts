@@ -1,8 +1,8 @@
-import {BapiClient} from 'bapi/helpers/BapiClient';
+import {BapiClient} from '../../helpers/BapiClient';
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
-} from 'bapi/test-helpers/nock';
+} from '../../test-helpers/nock';
 import nock = require('nock');
 
 disableNetAndAllowBapiCors();
@@ -85,11 +85,9 @@ it.skip('Additem failure', async () => {
 
 it.skip('Deletes an item from the wishlist', async () => {
   // For `DELETE` pre-flight request
-  nock('https://api-cloud.example.com/')
-    .options(/.*/)
-    .reply(200, '', {
-      'access-control-allow-origin': '*',
-    });
+  nock('https://api-cloud.example.com/').options(/.*/).reply(200, '', {
+    'access-control-allow-origin': '*',
+  });
 
   nockWithBapiScope()
     .defaultReplyHeaders({'access-control-allow-origin': '*'})

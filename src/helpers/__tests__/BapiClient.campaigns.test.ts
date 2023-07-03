@@ -1,13 +1,13 @@
 /**
  * @jest-environment node
  */
-import {BapiClient} from 'bapi/helpers/BapiClient';
+import {BapiClient} from '../../helpers/BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from 'bapi/test-helpers/nock';
-import {CampaignSortOption} from 'bapi/endpoints/campaigns/campaigns';
-import {APISortOrder} from 'bapi/endpoints/products/products';
+} from '../../test-helpers/nock';
+import {CampaignSortOption} from '../../endpoints/campaigns/campaigns';
+import {APISortOrder} from '../../endpoints/products/products';
 
 disableNetAndAllowBapiCors();
 

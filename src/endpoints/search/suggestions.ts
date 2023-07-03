@@ -1,10 +1,10 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+import {BapiCall} from '../../interfaces/BapiCall';
 import {
   ProductWith,
   productWithQueryParameterValues,
-} from 'bapi/types/ProductWith';
-import {BapiProduct} from 'bapi/types/BapiProduct';
-import {BapiCategory} from 'bapi/types/BapiCategory';
+} from '../../types/ProductWith';
+import {BapiProduct} from '../../types/BapiProduct';
+import {BapiCategory} from '../../types/BapiCategory';
 
 export interface SearchSuggestionsEndpointParameters {
   term: string;

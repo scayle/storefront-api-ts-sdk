@@ -1,5 +1,5 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {NavigationTree} from 'bapi/types/navigation';
+import {BapiCall} from '../../interfaces/BapiCall';
+import {NavigationTree} from '../../types/navigation';
 
 export type NavigationAllEndpointResponseData = NavigationTree[];
 

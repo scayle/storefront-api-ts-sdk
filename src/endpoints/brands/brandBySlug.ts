@@ -1,5 +1,5 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {Brand} from 'bapi/types/Brand';
+import {BapiCall} from '../../interfaces/BapiCall';
+import {Brand} from '../../types/Brand';
 
 export type BrandBySlugEndpointResponseData = Brand;
 

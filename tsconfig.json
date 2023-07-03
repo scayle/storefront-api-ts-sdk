@@ -24,11 +24,6 @@
     "noEmitOnError": true,
     "declaration": true,
     "baseUrl": "./src",
-    "paths": {
-      "bapi/*": [
-        "./*"
-      ]
-    },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "removeComments": true,

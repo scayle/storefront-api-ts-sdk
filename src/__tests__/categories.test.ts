@@ -1,9 +1,9 @@
-import {execute} from 'bapi/helpers/execute';
+import {execute} from '../helpers/execute';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from 'bapi/test-helpers/nock';
-import {createCategoriesEndpointRequest} from 'bapi/endpoints/categories/categories';
+} from '../test-helpers/nock';
+import {createCategoriesEndpointRequest} from '../endpoints/categories/categories';
 
 disableNetAndAllowBapiCors();
 

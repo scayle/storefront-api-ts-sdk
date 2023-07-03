@@ -4,8 +4,8 @@ import {
   BasketWith,
   basketWithQueryParameter,
   ItemGroup,
-} from 'bapi/endpoints/basket/getBasket';
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+} from '../../endpoints/basket/getBasket';
+import {BapiCall} from '../../interfaces/BapiCall';
 
 export interface UpdateBasketItemQuantity {
   basketKey: string;

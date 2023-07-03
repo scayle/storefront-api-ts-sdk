@@ -2,12 +2,12 @@
  * @jest-environment node
  */
 
-import {createFiltersEndpointRequest} from 'bapi/endpoints/filters/filters';
-import {execute} from 'bapi/helpers/execute';
+import {createFiltersEndpointRequest} from '../endpoints/filters/filters';
+import {execute} from '../helpers/execute';
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
-} from 'bapi/test-helpers/nock';
+} from '../test-helpers/nock';
 import * as zlib from 'zlib';
 
 disableNetAndAllowBapiCors();

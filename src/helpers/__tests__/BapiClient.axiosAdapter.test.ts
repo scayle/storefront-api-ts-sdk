@@ -1,5 +1,5 @@
-import {BapiClient} from 'bapi/helpers/BapiClient';
-import {disableNetAndAllowBapiCors} from 'bapi/test-helpers/nock';
+import {BapiClient} from '../../helpers/BapiClient';
+import {disableNetAndAllowBapiCors} from '../../test-helpers/nock';
 import MockAdapter from 'axios-mock-adapter';
 import Axios from 'axios';
 

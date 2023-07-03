@@ -1,9 +1,9 @@
 import {MaterialComposition} from '../ModeledBapiClient';
-import {Value} from 'bapi/types/BapiProduct';
+import {Value} from '../../types/BapiProduct';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from 'bapi/test-helpers/nock';
+} from '../../test-helpers/nock';
 import {BapiClient} from '../BapiClient';
 
 disableNetAndAllowBapiCors();
