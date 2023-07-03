@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.4.0
+
+- Expose status codes in basket responses
+
 ### 15.3.0
 
 - Moved Github repository to new Scayle Org
