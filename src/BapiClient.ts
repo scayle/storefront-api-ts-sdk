@@ -1,141 +1,140 @@
 import {
   CreateBasketItemParameters,
   createBasketItemRequest,
-} from '../endpoints/basket/createItem';
+} from './endpoints/basket/createItem';
 import {
   deleteBasketItemRequest,
   DeleteItemParameters,
-} from '../endpoints/basket/deleteItem';
+} from './endpoints/basket/deleteItem';
 import {
   BasketResponseData,
   getBasketEndpointRequest,
   GetBasketParameters,
-} from '../endpoints/basket/getBasket';
+} from './endpoints/basket/getBasket';
 import {
   UpdateBasketItemQuantity,
   updateBasketItemQuantityRequest,
-} from '../endpoints/basket/updateItem';
+} from './endpoints/basket/updateItem';
 import {
   createCategoriesEndpointRequest,
   RootCategoriesEndpointParameters,
-} from '../endpoints/categories/categories';
+} from './endpoints/categories/categories';
 import {
   CategoriesByIdsEndpointParameters,
   createCategoriesByIdsEndpointRequest,
-} from '../endpoints/categories/categoriesByIds';
+} from './endpoints/categories/categoriesByIds';
 import {
   CategoryByIdEndpointParameters,
   createCategoryByIdEndpointRequest,
-} from '../endpoints/categories/categoryById';
+} from './endpoints/categories/categoryById';
 import {
   CategoryBySlugEndpointParameters,
   createCategoryBySlugEndpointRequest,
-} from '../endpoints/categories/categoryBySlug';
+} from './endpoints/categories/categoryBySlug';
 import {
   createFiltersEndpointRequest,
   FiltersEndpointParameters,
-} from '../endpoints/filters/filters';
+} from './endpoints/filters/filters';
 import {
   createProductByIdEndpointRequest,
   ProductByIdEndpointParameters,
-} from '../endpoints/products/productById';
+} from './endpoints/products/productById';
 import {
   createProductsSearchEndpointRequest,
   ProductsSearchEndpointParameters,
-} from '../endpoints/products/products';
+} from './endpoints/products/products';
 import {
   createGetRedirectsEndpointRequest,
   createPostRedirectEndpointRequest,
   GetRedirectsEndpointParameters,
-} from '../endpoints/redirects/redirects';
+} from './endpoints/redirects/redirects';
 import {
   createProductsByIdsEndpointRequest,
   ProductsByIdsEndpointParameters,
   ProductsByIdsEndpointResponseData,
-} from '../endpoints/products/productsByIds';
+} from './endpoints/products/productsByIds';
 import {
   addWishlistItemEndpointRequest,
   AddWishlistItemParameters,
   WishlistItemCreationID,
-} from '../endpoints/wishlist/addWishlistItem';
+} from './endpoints/wishlist/addWishlistItem';
 import {
   deleteWishlistEndpointRequest,
   DeleteWishlistParameters,
-} from '../endpoints/wishlist/deleteWishlistItem';
+} from './endpoints/wishlist/deleteWishlistItem';
 import {
   getWishlistEndpointRequest,
   GetWishlistParameters,
   WishlistResponseData,
-} from '../endpoints/wishlist/getWishlist';
-import {execute} from '../helpers/execute';
-import {BapiCall} from '../interfaces/BapiCall';
-import {BapiCategory} from '../types/BapiCategory';
-import {BapiProduct, Variant} from '../types/BapiProduct';
+} from './endpoints/wishlist/getWishlist';
+import {execute, BapiCall} from './helpers/execute';
+import {BapiCategory} from './types/BapiCategory';
+import {BapiProduct, Variant} from './types/BapiProduct';
 import {
   SearchSuggestionsEndpointParameters,
   SearchSuggestionsEndpointResponseData,
   createSearchSuggestionsEndpointRequest,
-} from '../endpoints/search/suggestions';
+} from './endpoints/search/suggestions';
 import {
   createrSearchMappingsEndpointRequest,
   SearchMappingsEndpointResponseData,
-} from '../endpoints/search/mappings';
+} from './endpoints/search/mappings';
 import axios, {AxiosInstance} from 'axios';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
   VariantDetail,
-} from '../endpoints/variants/variantsByIds';
+} from './endpoints/variants/variantsByIds';
 import {
   FilterValuesEndpointParameters,
   createFilterValuesEndpointRequest,
-} from '../endpoints/filters/filterValues';
+} from './endpoints/filters/filterValues';
 import {
   TypeaheadSuggestionsEndpointRequestParameters,
   createTypeaheadSuggestionsEndpointRequest,
   TypeaheadSuggestionsEndpointResponseData,
-} from '../endpoints/typeahead/typeahead';
-import {AttributeKey} from '../types/AttributeOrAttributeValueFilter';
-import {createAttributeByKeyEndpointRequest} from '../endpoints/attributes/attributeByKey';
+} from './endpoints/typeahead/typeahead';
+import {AttributeKey} from './types/AttributeOrAttributeValueFilter';
+import {createAttributeByKeyEndpointRequest} from './endpoints/attributes/attributeByKey';
 import {
   createShopConfigurationRequest,
   ShopConfigurationResponseData,
-} from '../endpoints/shopconfiguration/shopconfiguration';
+} from './endpoints/shopconfiguration/shopconfiguration';
 import {
   createProductByReferenceKeyRequest,
   ProductsByReferenceKeyRequestData as ProductsByReferenceKeyEndpointParameters,
-} from '../endpoints/products/productByReferenceKey';
+} from './endpoints/products/productByReferenceKey';
 import {
   createSearchResolveEndpointRequest,
   SearchResolveEndpointResponseData,
-} from '../endpoints/search/resolve';
+} from './endpoints/search/resolve';
 import {
   BrandsEndpointRequestParameters,
   BrandsEndpointResponseData,
   createBrandsEndpointRequest,
-} from '../endpoints/brands/brands';
+} from './endpoints/brands/brands';
 import {
   BrandByIdEndpointResponseData,
   createBrandByIdEndpointRequest,
-} from '../endpoints/brands/brandById';
+} from './endpoints/brands/brandById';
 import {
   CampaignByIdEndpointResponseData,
   createCampaignByIdEndpointRequest,
-} from '../endpoints/campaigns/campaignById';
+} from './endpoints/campaigns/campaignById';
 import {
   CampaignsEndpointRequestParameters,
   CampaignsEndpointResponseData,
   createCampaignsEndpointRequest,
-} from '../endpoints/campaigns/campaigns';
+} from './endpoints/campaigns/campaigns';
 import {
   createNavigationByIdEndpointRequest,
   NavigationByIdEndpointResponseData,
-} from '../endpoints/navigation/navigationById';
+} from './endpoints/navigation/navigationById';
 import {
   createNavigationAllEndpointRequest,
   GetNavigationParameters,
   NavigationAllEndpointResponseData,
-} from '../endpoints/navigation/navigation';
+} from './endpoints/navigation/navigation';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =

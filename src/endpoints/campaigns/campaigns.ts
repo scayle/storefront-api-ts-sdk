@@ -1,4 +1,4 @@
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 import {APISortOrder} from '../../endpoints/products/products';
 import {Pagination} from '../../endpoints/products/productsByIds';
 import {Campaign} from '../../types/campaign';

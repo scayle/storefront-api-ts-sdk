@@ -3,7 +3,7 @@ import {
   WishlistResponseData,
   WishlistWith,
 } from '../../endpoints/wishlist/getWishlist';
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 
 export interface DeleteWishlistParameters {
   wishlistKey: string;

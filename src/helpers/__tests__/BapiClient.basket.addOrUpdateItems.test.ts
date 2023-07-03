@@ -1,12 +1,12 @@
 import {
   StorefrontAPIClient,
   ExistingItemHandling,
-} from '../../helpers/BapiClient';
+} from '../../BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
 } from '../../test-helpers/nock';
-import nock = require('nock');
+import nock from 'nock';
 
 disableNetAndAllowBapiCors({shopIdHeader: true});
 

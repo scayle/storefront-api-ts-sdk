@@ -1,4 +1,4 @@
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 import {Brand} from '../../types/Brand';
 
 export type BrandByIdEndpointResponseData = Brand;

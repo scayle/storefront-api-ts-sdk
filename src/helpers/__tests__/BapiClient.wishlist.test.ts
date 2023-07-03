@@ -1,9 +1,9 @@
-import {StorefrontAPIClient} from '../../helpers/BapiClient';
+import {StorefrontAPIClient} from '../../BapiClient';
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
 } from '../../test-helpers/nock';
-import nock = require('nock');
+import nock from 'nock';
 
 disableNetAndAllowBapiCors();
 

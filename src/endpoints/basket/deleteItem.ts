@@ -3,7 +3,7 @@ import {
   BasketWith,
   basketWithQueryParameter,
 } from '../../endpoints/basket/getBasket';
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 
 export interface DeleteItemParameters {
   basketKey: string;

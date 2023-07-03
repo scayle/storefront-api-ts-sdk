@@ -5,7 +5,7 @@ import {
   basketWithQueryParameter,
   ItemGroup,
 } from '../../endpoints/basket/getBasket';
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 
 export interface UpdateBasketItemQuantity {
   basketKey: string;

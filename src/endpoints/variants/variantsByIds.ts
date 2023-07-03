@@ -1,4 +1,4 @@
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 import {Variant} from '../../types/BapiProduct';
 import {
   VariantWith,

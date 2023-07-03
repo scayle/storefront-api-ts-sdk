@@ -3,7 +3,7 @@ export {
   StorefrontAPIAuth,
   StorefrontAPIConfig,
   ExistingItemHandling,
-} from './helpers/BapiClient';
+} from './BapiClient';
 
 // Basket
 export {

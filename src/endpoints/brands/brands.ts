@@ -1,4 +1,4 @@
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 import {Pagination} from '../products/productsByIds';
 import {Brand} from '../../types/Brand';
 

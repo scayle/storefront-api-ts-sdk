@@ -1,5 +1,5 @@
-import {BapiCall} from '../..//interfaces/BapiCall';
-import {BapiCategory} from '../..//types/BapiCategory';
+import {BapiCall} from '../../helpers/execute';
+import {BapiCategory} from '../../types/BapiCategory';
 import {
   CategoryEndpointsParameters,
   parametersForCategoryEndpoint,

@@ -1,6 +1,5 @@
 import {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
-import {BapiCall} from '../interfaces/BapiCall';
-import {StorefrontAPIAuth} from './BapiClient';
+import {StorefrontAPIAuth} from '../BapiClient';
 
 export const getParamsString = (
   params?: Partial<Record<string, string | number | boolean>>,
@@ -28,6 +27,28 @@ export const getParamsString = (
 
   return '';
 };
+
+export type BapiCall<SuccessResponseT> =
+  | {
+      method: 'GET' | 'DELETE';
+      endpoint: string;
+      params?: {
+        [key: string]: string | boolean | number;
+      };
+
+      responseValidator?: (o: any) => o is SuccessResponseT;
+    }
+  | {
+      method: 'POST' | 'PATCH';
+      endpoint: string;
+      params?: {
+        [key: string]: string | boolean | number;
+      };
+      data?: any;
+
+      responseValidator?: (o: any) => o is SuccessResponseT;
+    };
+
 
 export interface BapiResponse<T> {
   statusCode: number;

@@ -1,4 +1,4 @@
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 import {BapiProduct} from '../../types/BapiProduct';
 import {
   ProductWith,

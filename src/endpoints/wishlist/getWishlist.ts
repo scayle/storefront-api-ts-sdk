@@ -2,7 +2,7 @@ import {
   BasketWith,
   basketWithQueryParameter,
 } from '../../endpoints/basket/getBasket';
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 import {BapiProduct, Variant} from '../../types/BapiProduct';
 
 export type WishlistWith = BasketWith;

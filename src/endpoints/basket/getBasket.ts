@@ -1,5 +1,5 @@
 import {prefixList} from '../../helpers/attributes';
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 import {BapiPrice, BapiProduct, Variant} from '../../types/BapiProduct';
 import {
   ProductWith,

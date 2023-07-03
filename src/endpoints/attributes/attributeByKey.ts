@@ -1,4 +1,4 @@
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 import {AttributeGroupMulti} from '../../types/BapiProduct';
 
 export type AttributeByKeyEndpointResponseData = AttributeGroupMulti;

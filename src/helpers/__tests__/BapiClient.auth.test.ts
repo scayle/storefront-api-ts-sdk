@@ -1,4 +1,4 @@
-import {StorefrontAPIClient} from '../../helpers/BapiClient';
+import {StorefrontAPIClient} from '../../BapiClient';
 import {nockWithBapiScope} from '../../test-helpers/nock';
 import * as nock from 'nock';
 

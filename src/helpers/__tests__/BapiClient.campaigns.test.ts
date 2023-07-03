@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import {StorefrontAPIClient} from '../../helpers/BapiClient';
+import {StorefrontAPIClient} from '../../BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,

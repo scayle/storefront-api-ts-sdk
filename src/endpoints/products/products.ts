@@ -1,5 +1,5 @@
 import {Pagination} from '../../endpoints/products/productsByIds';
-import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiCall} from '../../helpers/execute';
 import {BapiProduct} from '../../types/BapiProduct';
 import {
   ProductSearchQuery,
