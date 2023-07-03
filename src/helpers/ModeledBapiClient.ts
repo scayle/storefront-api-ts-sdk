@@ -496,9 +496,8 @@ function mapAdvancedAttributes(
       }
 
       case 'asMaterialComposition':
-        mappedAttributes[key] = materialCompositionFromAdvancedAttribute(
-          attribute,
-        );
+        mappedAttributes[key] =
+          materialCompositionFromAdvancedAttribute(attribute);
         break;
 
       default:
