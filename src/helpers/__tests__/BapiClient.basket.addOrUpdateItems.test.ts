@@ -1,8 +1,8 @@
-import {BapiClient, ExistingItemHandling} from 'bapi/helpers/BapiClient';
+import {BapiClient, ExistingItemHandling} from '../../helpers/BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from 'bapi/test-helpers/nock';
+} from '../../test-helpers/nock';
 import nock = require('nock');
 
 disableNetAndAllowBapiCors({shopIdHeader: true});

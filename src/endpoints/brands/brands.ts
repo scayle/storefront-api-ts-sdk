@@ -1,6 +1,6 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+import {BapiCall} from '../../interfaces/BapiCall';
 import {Pagination} from '../products/productsByIds';
-import {Brand} from 'bapi/types/Brand';
+import {Brand} from '../../types/Brand';
 
 export interface BrandsEndpointResponseData {
   pagination: Pagination;

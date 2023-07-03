@@ -1,9 +1,9 @@
-import {createCategoryBySlugEndpointRequest} from 'bapi/endpoints/categories/categoryBySlug';
-import {execute} from 'bapi/helpers/execute';
+import {createCategoryBySlugEndpointRequest} from '../endpoints/categories/categoryBySlug';
+import {execute} from '../helpers/execute';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from 'bapi/test-helpers/nock';
+} from '../test-helpers/nock';
 
 disableNetAndAllowBapiCors();
 

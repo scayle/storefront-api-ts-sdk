@@ -1,9 +1,9 @@
-import {basketWithQueryParameter} from 'bapi/endpoints/basket/getBasket';
+import {basketWithQueryParameter} from '../../endpoints/basket/getBasket';
 import {
   WishlistResponseData,
   WishlistWith,
-} from 'bapi/endpoints/wishlist/getWishlist';
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+} from '../../endpoints/wishlist/getWishlist';
+import {BapiCall} from '../../interfaces/BapiCall';
 
 export type WishlistItemCreationID =
   | {

@@ -1,7 +1,7 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {APISortOrder} from 'bapi/endpoints/products/products';
-import {Pagination} from 'bapi/endpoints/products/productsByIds';
-import {Campaign} from 'bapi/types/campaign';
+import {BapiCall} from '../../interfaces/BapiCall';
+import {APISortOrder} from '../../endpoints/products/products';
+import {Pagination} from '../../endpoints/products/productsByIds';
+import {Campaign} from '../../types/campaign';
 
 export type CampaignsEndpointResponseData = {
   pagination: Pagination;

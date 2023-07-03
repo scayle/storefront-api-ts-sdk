@@ -1,9 +1,9 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+import {BapiCall} from '../../interfaces/BapiCall';
 import {
   ProductSearchQuery,
   queryParamsFromProductSearchQuery,
-} from 'bapi/types/ProductSearchQuery';
-import {CentAmount} from 'bapi/types/BapiProduct';
+} from '../../types/ProductSearchQuery';
+import {CentAmount} from '../../types/BapiProduct';
 
 export interface FiltersEndpointParameters {
   where: ProductSearchQuery;

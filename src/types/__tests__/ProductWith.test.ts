@@ -1,4 +1,4 @@
-import {productWithQueryParameterValues} from 'bapi/types/ProductWith';
+import {productWithQueryParameterValues} from '../../types/ProductWith';
 
 it('Converts attribute filters', () => {
   expect(

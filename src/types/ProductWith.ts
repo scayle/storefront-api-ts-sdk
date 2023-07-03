@@ -2,7 +2,7 @@ import {
   AttributeInclude,
   attributeIncludeParameters,
   prefixList,
-} from 'bapi/helpers/attributes';
+} from '../helpers/attributes';
 
 export type ProductImageWith =
   | 'all'

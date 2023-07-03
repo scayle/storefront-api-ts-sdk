@@ -1,5 +1,5 @@
 import {CampaignSortOption, createCampaignsEndpointRequest} from '../campaigns';
-import {APISortOrder} from 'bapi/endpoints/products/products';
+import {APISortOrder} from '../../../endpoints/products/products';
 
 it('builds correct endpoint request with no arguments', () => {
   expect(createCampaignsEndpointRequest()).toMatchInlineSnapshot(`

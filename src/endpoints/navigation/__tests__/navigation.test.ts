@@ -1,4 +1,4 @@
-import {createNavigationAllEndpointRequest} from 'bapi/endpoints/navigation/navigation';
+import {createNavigationAllEndpointRequest} from '../../../endpoints/navigation/navigation';
 
 it('builds correct endpoint request', () => {
   expect(createNavigationAllEndpointRequest({})).toMatchInlineSnapshot(`

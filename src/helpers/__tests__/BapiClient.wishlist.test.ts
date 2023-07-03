@@ -1,8 +1,8 @@
-import {BapiClient} from 'bapi/helpers/BapiClient';
+import {BapiClient} from '../../helpers/BapiClient';
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
-} from 'bapi/test-helpers/nock';
+} from '../../test-helpers/nock';
 import nock = require('nock');
 
 disableNetAndAllowBapiCors();

@@ -1,8 +1,8 @@
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from 'bapi/test-helpers/nock';
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+} from '../../test-helpers/nock';
+import {BapiCall} from '../../interfaces/BapiCall';
 import {execute} from '../execute';
 
 const TestCall: BapiCall<true> = {

@@ -1,9 +1,9 @@
-import {BapiClient} from 'bapi/helpers/BapiClient';
+import {BapiClient} from '../../helpers/BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from 'bapi/test-helpers/nock';
-import {BaseCategory} from 'bapi/types/BapiProduct';
+} from '../../test-helpers/nock';
+import {BaseCategory} from '../../types/BapiProduct';
 
 disableNetAndAllowBapiCors();
 

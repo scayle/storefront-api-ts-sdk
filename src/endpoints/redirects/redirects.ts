@@ -1,4 +1,4 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+import {BapiCall} from '../../interfaces/BapiCall';
 import {Pagination} from '../products/productsByIds';
 
 export interface GetRedirectsEndpointParameters {

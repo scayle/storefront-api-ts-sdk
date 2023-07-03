@@ -1,8 +1,8 @@
-import {BapiClient} from 'bapi/helpers/BapiClient';
+import {BapiClient} from '../../helpers/BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from 'bapi/test-helpers/nock';
+} from '../../test-helpers/nock';
 
 disableNetAndAllowBapiCors({shopIdHeader: true});
 

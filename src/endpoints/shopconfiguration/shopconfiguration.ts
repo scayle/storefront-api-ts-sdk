@@ -1,4 +1,4 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+import {BapiCall} from '../../interfaces/BapiCall';
 
 export interface ShopConfigurationResponseData {
   shopId: number;

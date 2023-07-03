@@ -1,5 +1,5 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {Campaign} from 'bapi/types/campaign';
+import {BapiCall} from '../../interfaces/BapiCall';
+import {Campaign} from '../../types/campaign';
 
 export type CampaignByIdEndpointResponseData = Campaign;
 

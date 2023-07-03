@@ -1,5 +1,5 @@
-import {BapiClient} from 'bapi/helpers/BapiClient';
-import {nockWithBapiScope} from 'bapi/test-helpers/nock';
+import {BapiClient} from '../../helpers/BapiClient';
+import {nockWithBapiScope} from '../../test-helpers/nock';
 import * as nock from 'nock';
 
 it.skip('Authentication: Basic Auth Implicit', async () => {

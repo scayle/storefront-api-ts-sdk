@@ -6,7 +6,6 @@
         "query-string": "^6.2.0"
     },
     "devDependencies": {
-        "@ef-carbon/tspm": "^2.2.5",
         "@types/jest": "^23.3.3",
         "@types/nock": "^9.3.0",
         "@types/query-string": "^6.1.0",
@@ -24,7 +23,7 @@
     "license": "MIT",
     "main": "index.js",
     "scripts": {
-        "build": "tsc && ef-tspm",
+        "build": "tsc",
         "check-format": "prettier -l \"src/**/*.ts\"",
         "lint": "prettier --write \"src/**/*.ts\"",
         "test": "npm run lint && npm run test:unit",

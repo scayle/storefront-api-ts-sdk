@@ -1,8 +1,8 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+import {BapiCall} from '../../interfaces/BapiCall';
 import {
   ProductSearchQuery,
   queryParamsFromProductSearchQuery,
-} from 'bapi/types/ProductSearchQuery';
+} from '../../types/ProductSearchQuery';
 import {
   BooleanFilterValue,
   RangeFilterValue,

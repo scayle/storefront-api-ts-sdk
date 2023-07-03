@@ -1,5 +1,5 @@
-import {AttributeKey} from 'bapi/types/AttributeOrAttributeValueFilter';
-import {queryParamsFromProductSearchQuery} from 'bapi/types/ProductSearchQuery';
+import {AttributeKey} from '../../types/AttributeOrAttributeValueFilter';
+import {queryParamsFromProductSearchQuery} from '../../types/ProductSearchQuery';
 
 it('Converts search query', () => {
   expect(queryParamsFromProductSearchQuery(undefined)).toEqual(undefined);

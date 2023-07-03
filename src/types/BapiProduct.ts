@@ -1,5 +1,5 @@
 import {ObjectMap} from './ObjectMap';
-import {BapiCategoryProperty} from 'bapi/types/BapiCategory';
+import {BapiCategoryProperty} from '../types/BapiCategory';
 
 export interface BapiProduct {
   id: number;

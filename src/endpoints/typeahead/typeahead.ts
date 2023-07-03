@@ -1,11 +1,11 @@
-import {BapiCall} from 'bapi/interfaces/BapiCall';
+import {BapiCall} from '../../interfaces/BapiCall';
 import {
   ProductWith,
   productWithQueryParameterValues,
-} from 'bapi/types/ProductWith';
-import {BapiProduct} from 'bapi/types/BapiProduct';
-import {BapiCategory} from 'bapi/types/BapiCategory';
-import {prefixList} from 'bapi/helpers/attributes';
+} from '../../types/ProductWith';
+import {BapiProduct} from '../../types/BapiProduct';
+import {BapiCategory} from '../../types/BapiCategory';
+import {prefixList} from '../../helpers/attributes';
 
 export interface TypeaheadSuggestionsEndpointRequestParameters {
   term: string;

@@ -1,7 +1,7 @@
 import {
   AttributeWithBooleanValueFilter,
   AttributeWithValuesFilter,
-} from 'bapi/types/AttributeOrAttributeValueFilter';
+} from '../types/AttributeOrAttributeValueFilter';
 import {ObjectMap} from './ObjectMap';
 
 export interface ProductSearchQuery {

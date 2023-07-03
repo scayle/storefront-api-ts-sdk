@@ -1,12 +1,12 @@
-import {prefixList} from 'bapi/helpers/attributes';
-import {BapiCall} from 'bapi/interfaces/BapiCall';
-import {BapiPrice, BapiProduct, Variant} from 'bapi/types/BapiProduct';
+import {prefixList} from '../../helpers/attributes';
+import {BapiCall} from '../../interfaces/BapiCall';
+import {BapiPrice, BapiProduct, Variant} from '../../types/BapiProduct';
 import {
   ProductWith,
   productWithQueryParameterValues,
   VariantWith,
   variantWithQueryParameterValues,
-} from 'bapi/types/ProductWith';
+} from '../../types/ProductWith';
 
 export type BasketItemPrice = Omit<BapiPrice, 'tax'>;
 
