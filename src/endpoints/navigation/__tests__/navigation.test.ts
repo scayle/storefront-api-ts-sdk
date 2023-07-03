@@ -3,7 +3,7 @@ import {createNavigationAllEndpointRequest} from '../../../endpoints/navigation/
 it('builds correct endpoint request', () => {
   expect(createNavigationAllEndpointRequest({})).toMatchInlineSnapshot(`
 {
-  "endpoint": "navigation/trees",
+  "endpoint": "/v1/navigation/trees",
   "method": "GET",
   "params": {},
 }

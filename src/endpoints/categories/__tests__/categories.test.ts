@@ -3,7 +3,7 @@ import {createCategoriesEndpointRequest} from '../categories';
 it('Builds correct query for root categories', () => {
   expect(createCategoriesEndpointRequest({})).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 1,
@@ -21,7 +21,7 @@ it('Builds correct query for root categories', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 3,
@@ -39,7 +39,7 @@ it('Builds correct query for root categories', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 1,

@@ -8,7 +8,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1/items/item_1",
+  "endpoint": "/v1/wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
   "params": {},
 }
@@ -28,7 +28,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1/items/item_1",
+  "endpoint": "/v1/wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
   "params": {
     "with": "items.product.attributes,items.product.images.attributes:legacy(false)",
@@ -44,7 +44,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1/items/item_1",
+  "endpoint": "/v1/wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
   "params": {
     "campaignKey": "px",
@@ -61,7 +61,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1/items/item_1",
+  "endpoint": "/v1/wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
   "params": {
     "campaignKey": "px",

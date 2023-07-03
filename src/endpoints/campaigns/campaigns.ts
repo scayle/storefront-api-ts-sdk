@@ -33,7 +33,7 @@ export function createCampaignsEndpointRequest(
 ): BapiCall<CampaignsEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: 'campaigns',
+    endpoint: '/v1/campaigns',
     params: {
       ...(parameters.sort && parameters.sort.by
         ? {sort: parameters.sort.by}

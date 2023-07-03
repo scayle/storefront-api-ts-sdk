@@ -16,7 +16,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "with": "images.attributes:legacy(false),categories:properties()",
@@ -34,7 +34,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "with": "images.attributes:legacy(false),categories",
@@ -54,7 +54,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "campaignKey": "px",
@@ -72,7 +72,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "campaignKey": "some-other-campaign",
@@ -88,7 +88,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "page": 1,
@@ -104,7 +104,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "sortingKey": "custom_sort_order",
@@ -118,7 +118,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "includeSellableForFree": true,
@@ -132,7 +132,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "includeSoldOut": true,
@@ -147,7 +147,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "includeSellableForFree": true,
@@ -171,7 +171,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "filters[brand]": "271,567",
@@ -194,7 +194,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "filters[1]": "1,2",
@@ -208,7 +208,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "minProductId": 123456,
@@ -230,7 +230,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "filters[ean]": "7325860037489",
@@ -252,7 +252,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "filters[minfirstLiveAt]": "2020-11-27",
@@ -295,7 +295,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "campaignKey": "px",

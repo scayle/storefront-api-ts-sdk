@@ -62,7 +62,7 @@ export function createProductsSearchEndpointRequest(
 ): BapiCall<ProductsSearchEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: 'products',
+    endpoint: '/v1/products',
     params: {
       ...(parameters.with
         ? {with: productWithQueryParameterValues(parameters.with).join(`,`)}

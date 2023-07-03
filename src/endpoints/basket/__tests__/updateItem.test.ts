@@ -12,7 +12,7 @@ it('Builds corrects query', () => {
   "data": {
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {},
 }
@@ -38,7 +38,7 @@ it('Builds corrects query', () => {
   "data": {
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
@@ -58,7 +58,7 @@ it('Builds corrects query', () => {
   "data": {
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {
     "campaignKey": "px",

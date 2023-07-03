@@ -25,7 +25,7 @@ export function createGetRedirectsEndpointRequest(
 ): BapiCall<RedirectsResponseData> {
   return {
     method: 'GET',
-    endpoint: `redirects`,
+    endpoint: `/v1/redirects`,
     params: {
       ...(parameters.pagination && parameters.pagination.page
         ? {page: parameters.pagination.page}
@@ -42,7 +42,7 @@ export function createPostRedirectEndpointRequest(
 ): BapiCall<Redirect> {
   return {
     method: 'POST',
-    endpoint: 'redirects',
+    endpoint: '/v1/redirects',
     data: {
       url: url,
     },

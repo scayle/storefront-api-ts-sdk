@@ -28,7 +28,7 @@ export function createProductByReferenceKeyRequest(
 
   return {
     method: 'GET',
-    endpoint: `products`,
+    endpoint: `/v1/products`,
     params: {
       referenceKey: parameters.referenceKey,
       ...(parameters.with

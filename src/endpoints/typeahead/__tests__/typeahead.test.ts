@@ -5,7 +5,7 @@ it('Builds correct query', () => {
     .toMatchInlineSnapshot(`
 {
   "data": {},
-  "endpoint": "typeahead",
+  "endpoint": "/v1/typeahead",
   "method": "POST",
   "params": {
     "term": "term 1",
@@ -24,7 +24,7 @@ it('Builds correct query', () => {
   ).toMatchInlineSnapshot(`
 {
   "data": {},
-  "endpoint": "typeahead",
+  "endpoint": "/v1/typeahead",
   "method": "POST",
   "params": {
     "term": "term 2",
@@ -43,7 +43,7 @@ it('Builds correct query for category children', () => {
   ).toMatchInlineSnapshot(`
 {
   "data": {},
-  "endpoint": "typeahead",
+  "endpoint": "/v1/typeahead",
   "method": "POST",
   "params": {
     "term": "no children",
@@ -60,7 +60,7 @@ it('Builds correct query for category children', () => {
   ).toMatchInlineSnapshot(`
 {
   "data": {},
-  "endpoint": "typeahead",
+  "endpoint": "/v1/typeahead",
   "method": "POST",
   "params": {
     "categoryDepth": 2,
@@ -80,7 +80,7 @@ it('Builds correct query for category parents', () => {
   ).toMatchInlineSnapshot(`
 {
   "data": {},
-  "endpoint": "typeahead",
+  "endpoint": "/v1/typeahead",
   "method": "POST",
   "params": {
     "term": "no children",
@@ -103,7 +103,7 @@ it('Builds correct request for category-relative searches', () => {
     "categoryId": 20236,
     "limit": 7,
   },
-  "endpoint": "typeahead",
+  "endpoint": "/v1/typeahead",
   "method": "POST",
   "params": {
     "term": "specific category",

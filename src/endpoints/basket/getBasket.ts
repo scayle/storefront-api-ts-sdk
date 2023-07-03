@@ -135,7 +135,7 @@ export function getBasketEndpointRequest(
 ): BapiCall<BasketResponseData> {
   return {
     method: 'GET',
-    endpoint: `baskets/${params.basketKey}`,
+    endpoint: `/v1/baskets/${params.basketKey}`,
     params: {
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}

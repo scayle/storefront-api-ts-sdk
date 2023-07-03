@@ -4,7 +4,7 @@ it('Builds correct query', () => {
   expect(createrSearchMappingsEndpointRequest({term: 'term 1'}))
     .toMatchInlineSnapshot(`
 {
-  "endpoint": "search/mappings",
+  "endpoint": "/v1/search/mappings",
   "method": "GET",
   "params": {
     "term": "term 1",

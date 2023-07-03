@@ -23,7 +23,7 @@ export function createProductByIdEndpointRequest(
 ): BapiCall<ProductByIdEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `products/${parameters.productId}`,
+    endpoint: `/v1/products/${parameters.productId}`,
     params: {
       ...(parameters.with
         ? {with: productWithQueryParameterValues(parameters.with).join(`,`)}

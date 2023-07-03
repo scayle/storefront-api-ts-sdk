@@ -10,7 +10,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/frauen/bekleidung",
+  "endpoint": "/v1/categories/frauen/bekleidung",
   "method": "GET",
   "params": {
     "depth": 3,
@@ -30,7 +30,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/frauen/bekleidung",
+  "endpoint": "/v1/categories/frauen/bekleidung",
   "method": "GET",
   "params": {
     "depth": 3,

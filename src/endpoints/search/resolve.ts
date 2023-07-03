@@ -28,7 +28,7 @@ export function createSearchResolveEndpointRequest(
 ): BapiCall<SearchResolveEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `search/resolve`,
+    endpoint: `/v1/search/resolve`,
     params: {
       term: parameters.term,
     },

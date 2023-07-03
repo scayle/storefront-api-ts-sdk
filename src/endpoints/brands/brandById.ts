@@ -8,6 +8,6 @@ export function createBrandByIdEndpointRequest(
 ): BapiCall<BrandByIdEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `brands/${brandId}`,
+    endpoint: `/v1/brands/${brandId}`,
   };
 }

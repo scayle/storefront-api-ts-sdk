@@ -11,7 +11,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 3,
@@ -30,7 +30,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 1,
@@ -48,7 +48,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 1,
@@ -66,7 +66,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 1,
@@ -84,7 +84,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 1,

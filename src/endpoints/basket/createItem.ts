@@ -31,7 +31,7 @@ export function createBasketItemRequest(
 
   return {
     method: 'POST',
-    endpoint: `baskets/${params.basketKey}/items`,
+    endpoint: `/v1/baskets/${params.basketKey}/items`,
     params: {
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}

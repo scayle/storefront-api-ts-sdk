@@ -80,7 +80,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket1",
+  "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
@@ -99,7 +99,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket1",
+  "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
     "with": "items.variant.stock,items.variant.stock.customData",
@@ -116,7 +116,7 @@ it('Builds correct query with campaign key', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket1",
+  "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
     "campaignKey": "px",
@@ -133,7 +133,7 @@ it('Builds correct query with checkoutShopId', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket1",
+  "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
     "checkoutShopId": 589,

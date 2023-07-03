@@ -7,7 +7,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1",
+  "endpoint": "/v1/wishlists/wishlist_1",
   "method": "GET",
   "params": {},
 }
@@ -26,7 +26,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1",
+  "endpoint": "/v1/wishlists/wishlist_1",
   "method": "GET",
   "params": {
     "with": "items.product.attributes,items.product.images.attributes:legacy(false)",
@@ -41,7 +41,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1",
+  "endpoint": "/v1/wishlists/wishlist_1",
   "method": "GET",
   "params": {
     "campaignKey": "px",
@@ -57,7 +57,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1",
+  "endpoint": "/v1/wishlists/wishlist_1",
   "method": "GET",
   "params": {
     "campaignKey": "px",

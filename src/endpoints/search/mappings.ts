@@ -20,7 +20,7 @@ export function createrSearchMappingsEndpointRequest(
 ): BapiCall<SearchMappingsEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `search/mappings`,
+    endpoint: `/v1/search/mappings`,
     params: {
       term: parameters.term,
     },

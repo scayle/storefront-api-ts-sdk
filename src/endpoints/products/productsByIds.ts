@@ -37,7 +37,7 @@ export function createProductsByIdsEndpointRequest(
 
   return {
     method: 'GET',
-    endpoint: `products`,
+    endpoint: `/v1/products`,
     params: {
       ids: parameters.productIds.join(`,`),
       ...(parameters.with

@@ -8,6 +8,6 @@ export function createCampaignByIdEndpointRequest(
 ): BapiCall<CampaignByIdEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `campaigns/${campaignId}`,
+    endpoint: `/v1/campaigns/${campaignId}`,
   };
 }

@@ -31,7 +31,7 @@ export function updateBasketItemQuantityRequest(
 
   return {
     method: 'PATCH',
-    endpoint: `baskets/${params.basketKey}/items/${params.itemKey}`,
+    endpoint: `/v1/baskets/${params.basketKey}/items/${params.itemKey}`,
     params: {
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}

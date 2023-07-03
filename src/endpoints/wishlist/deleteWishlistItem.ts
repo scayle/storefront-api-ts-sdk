@@ -20,7 +20,7 @@ export function deleteWishlistEndpointRequest(
 ): BapiCall<WishlistResponseData> {
   return {
     method: 'DELETE',
-    endpoint: `wishlists/${params.wishlistKey}/items/${params.itemKey}`,
+    endpoint: `/v1/wishlists/${params.wishlistKey}/items/${params.itemKey}`,
     params: {
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}

@@ -21,7 +21,7 @@ export function deleteBasketItemRequest(
 ): BapiCall<BasketResponseData> {
   return {
     method: 'DELETE',
-    endpoint: `baskets/${params.basketKey}/items/${params.itemKey}`,
+    endpoint: `/v1/baskets/${params.basketKey}/items/${params.itemKey}`,
     params: {
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}

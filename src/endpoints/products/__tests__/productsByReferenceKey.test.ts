@@ -7,7 +7,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "referenceKey": "122222051352_990",
@@ -30,7 +30,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "referenceKey": "122222051352_990",
@@ -46,7 +46,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "includeSellableForFree": true,
@@ -68,7 +68,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "pricePromotionKey": "abc123",

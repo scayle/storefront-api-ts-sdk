@@ -7,7 +7,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 1,
@@ -24,7 +24,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 1,
@@ -41,7 +41,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 2,

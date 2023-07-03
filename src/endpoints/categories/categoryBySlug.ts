@@ -38,7 +38,7 @@ export function createCategoryBySlugEndpointRequest(
 ): BapiCall<CategoryBySlugEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `categories/${params.slugPath.join(`/`)}`,
+    endpoint: `/v1/categories/${params.slugPath.join(`/`)}`,
     params: {
       ...parametersForCategoryEndpoint(params),
     },

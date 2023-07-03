@@ -7,7 +7,7 @@ it('builds correct endpoint request', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "filters/brands/values",
+  "endpoint": "/v1/filters/brands/values",
   "method": "GET",
   "params": {},
 }
@@ -22,7 +22,7 @@ it('adds the campaignKey to the request params', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "filters/brands/values",
+  "endpoint": "/v1/filters/brands/values",
   "method": "GET",
   "params": {
     "campaignKey": "px",
@@ -41,7 +41,7 @@ it('adds any product filter query param to the request', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "filters/brands/values",
+  "endpoint": "/v1/filters/brands/values",
   "method": "GET",
   "params": {
     "filters[category]": 20201,

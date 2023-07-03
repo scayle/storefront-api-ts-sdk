@@ -30,7 +30,7 @@ export function createVariantsByIdsEndpointRequest(
 
   return {
     method: 'GET',
-    endpoint: `variants`,
+    endpoint: `/v1/variants`,
     params: {
       ids: parameters.variantIds.join(`,`),
       ...(parameters.with

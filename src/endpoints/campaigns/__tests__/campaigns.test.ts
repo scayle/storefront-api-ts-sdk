@@ -4,7 +4,7 @@ import {APISortOrder} from '../../../endpoints/products/products';
 it('builds correct endpoint request with no arguments', () => {
   expect(createCampaignsEndpointRequest()).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {},
 }
@@ -20,7 +20,7 @@ it('builds correct endpoint request with single sort option', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {
     "sort": "end_at",
@@ -39,7 +39,7 @@ it('builds correct endpoint request with sort options', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {
     "sort": "id",
@@ -59,7 +59,7 @@ it('builds correct endpoint request with pagination', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {
     "page": 3,
@@ -83,7 +83,7 @@ it('builds correct endpoint request with sort options and pagination', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {
     "page": 6,

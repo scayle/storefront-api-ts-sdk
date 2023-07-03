@@ -36,7 +36,7 @@ export function addWishlistItemEndpointRequest(
 ): BapiCall<WishlistResponseData> {
   return {
     method: 'POST',
-    endpoint: `wishlists/${params.wishlistKey}/items`,
+    endpoint: `/v1/wishlists/${params.wishlistKey}/items`,
     params: {
       ...(params.with
         ? {

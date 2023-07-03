@@ -78,7 +78,7 @@ export function createSearchSuggestionsEndpointRequest(
 
   return {
     method: 'GET',
-    endpoint: `search/suggestions`,
+    endpoint: `/v1/search/suggestions`,
     params: {
       term: parameters.term,
 

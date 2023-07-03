@@ -3,7 +3,7 @@ import {createBrandBySlugEndpointRequest} from '../brandBySlug';
 it('builds correct endpoint request', () => {
   expect(createBrandBySlugEndpointRequest('nike')).toMatchInlineSnapshot(`
 {
-  "endpoint": "brands/nike",
+  "endpoint": "/v1/brands/nike",
   "method": "GET",
 }
 `);

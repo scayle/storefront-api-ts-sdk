@@ -12,6 +12,6 @@ export interface ShopConfigurationResponseData {
 export function createShopConfigurationRequest(): BapiCall<ShopConfigurationResponseData> {
   return {
     method: 'GET',
-    endpoint: 'shop-configuration',
+    endpoint: '/v1/shop-configuration',
   };
 }

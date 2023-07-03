@@ -5,7 +5,6 @@ module.exports = {
   testEnvironment: 'node',
   testRegex: '(/tests/.*|/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  moduleNameMapper: {'^bapi/(.*)$': '<rootDir>/src/$1'},
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',

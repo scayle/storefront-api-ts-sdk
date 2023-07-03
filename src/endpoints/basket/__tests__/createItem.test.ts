@@ -32,7 +32,7 @@ it('Builds correct query', () => {
     "quantity": 2,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
@@ -60,7 +60,7 @@ it('Builds correct query with custom data', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
 }
@@ -82,7 +82,7 @@ it('Support sending a child shop ID', () => {
     "shopId": 456,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
 }
@@ -106,7 +106,7 @@ it('Builds correct query with price promotion key', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
 }
@@ -133,7 +133,7 @@ it('Builds correct query with price promotion key and custom data', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
 }
@@ -154,7 +154,7 @@ it('Builds correct query with campaign key', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {
     "campaignKey": "px",
@@ -190,7 +190,7 @@ it('Builds correct query with display data', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
 }
@@ -211,7 +211,7 @@ it('Builds correct query with skip availability', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {
     "skipAvailabilityCheck": true,

@@ -19,7 +19,7 @@ export function createBrandsEndpointRequest(
 ): BapiCall<BrandsEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: 'brands',
+    endpoint: '/v1/brands',
     params: {
       ...(parameters.pagination && parameters.pagination.page
         ? {page: parameters.pagination.page}

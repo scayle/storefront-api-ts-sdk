@@ -38,7 +38,7 @@ export function createCategoryByIdEndpointRequest(
 ): BapiCall<CategoryByIdEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `categories/${params.categoryId}`,
+    endpoint: `/v1/categories/${params.categoryId}`,
     params: {
       ...parametersForCategoryEndpoint(params),
     },

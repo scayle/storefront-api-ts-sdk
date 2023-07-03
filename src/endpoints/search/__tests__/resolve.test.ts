@@ -7,7 +7,7 @@ it('Builds correct query', () => {
   expect(createSearchResolveEndpointRequest({term: 'maxi rot'}))
     .toMatchInlineSnapshot(`
 {
-  "endpoint": "search/resolve",
+  "endpoint": "/v1/search/resolve",
   "method": "GET",
   "params": {
     "term": "maxi rot",

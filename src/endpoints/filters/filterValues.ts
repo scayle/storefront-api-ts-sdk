@@ -29,7 +29,7 @@ export function createFilterValuesEndpointRequest(
 ): BapiCall<FilterValuesResponseData> {
   return {
     method: 'GET',
-    endpoint: `filters/${parameters.groupName}/values`,
+    endpoint: `/v1/filters/${parameters.groupName}/values`,
     params: {
       ...queryParamsFromProductSearchQuery(parameters.where),
 

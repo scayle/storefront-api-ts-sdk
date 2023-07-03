@@ -33,7 +33,7 @@ export function getWishlistEndpointRequest(
 ): BapiCall<WishlistResponseData> {
   return {
     method: 'GET',
-    endpoint: `wishlists/${params.wishlistKey}`,
+    endpoint: `/v1/wishlists/${params.wishlistKey}`,
     params: {
       ...(params.with
         ? {with: basketWithQueryParameter(params.with).join(',')}

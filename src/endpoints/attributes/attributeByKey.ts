@@ -8,6 +8,6 @@ export function createAttributeByKeyEndpointRequest(
 ): BapiCall<AttributeByKeyEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `attributes/${key}`,
+    endpoint: `/v1/attributes/${key}`,
   };
 }

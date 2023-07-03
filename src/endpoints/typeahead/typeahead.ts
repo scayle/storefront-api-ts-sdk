@@ -32,6 +32,8 @@ export interface TypeaheadSuggestionsEndpointRequestParameters {
 
   // Maximum number of products to be returned
   productLimit?: number;
+
+  campaignKey?: string;
 }
 
 export type TypeaheadSuggestionsEndpointResponseData = {
@@ -120,13 +122,13 @@ export function createTypeaheadSuggestionsEndpointRequest(
 ): BapiCall<TypeaheadSuggestionsEndpointResponseData> {
   return {
     method: 'POST',
-    endpoint: `typeahead`,
+    endpoint: `/v1/typeahead`,
     params: {
       term: parameters.term,
 
-      // ...(parameters.campaignKey
-      //   ? {campaignKey: parameters.campaignKey}
-      //   : undefined),
+      ...(parameters.campaignKey
+        ? {campaignKey: parameters.campaignKey}
+        : undefined),
 
       with: [
         ...(parameters.with?.products

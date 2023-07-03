@@ -119,7 +119,7 @@ export function createFiltersEndpointRequest(
 ): BapiCall<FiltersEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: 'filters',
+    endpoint: '/v1/filters',
     params: {
       with: parameters.with ? parameters.with.join(',') : 'values',
       ...(parameters.including

@@ -35,7 +35,7 @@ export function createCategoriesEndpointRequest(
 ): BapiCall<BapiCategory[]> {
   return {
     method: 'GET',
-    endpoint: `categories`,
+    endpoint: `/v1/categories`,
     params: {
       ...parametersForCategoryEndpoint(params),
     },

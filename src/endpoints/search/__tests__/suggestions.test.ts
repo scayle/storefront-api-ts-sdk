@@ -4,7 +4,7 @@ it('Builds correct query', () => {
   expect(createSearchSuggestionsEndpointRequest({term: 'term 1'}))
     .toMatchInlineSnapshot(`
 {
-  "endpoint": "search/suggestions",
+  "endpoint": "/v1/search/suggestions",
   "method": "GET",
   "params": {
     "term": "term 1",
@@ -26,7 +26,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "search/suggestions",
+  "endpoint": "/v1/search/suggestions",
   "method": "GET",
   "params": {
     "term": "term 1",
@@ -50,7 +50,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "search/suggestions",
+  "endpoint": "/v1/search/suggestions",
   "method": "GET",
   "params": {
     "campaignKey": "px",

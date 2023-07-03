@@ -13,7 +13,7 @@ it('Builds correct query', () => {
   "data": {
     "masterKey": "master_1",
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {},
 }
@@ -31,7 +31,7 @@ it('Builds correct query', () => {
   "data": {
     "productId": 123,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {},
 }
@@ -49,7 +49,7 @@ it('Builds correct query', () => {
   "data": {
     "variantId": 789,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {},
 }
@@ -74,7 +74,7 @@ it('Builds correct query', () => {
   "data": {
     "productId": 1,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {
     "with": "items.product.attributes,items.product.images.attributes:legacy(false)",
@@ -95,7 +95,7 @@ it('Builds correct query', () => {
   "data": {
     "productId": 1,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {
     "campaignKey": "px",
@@ -117,7 +117,7 @@ it('Builds correct query', () => {
     "productId": 1,
     "shopId": 456,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {},
 }
@@ -136,7 +136,7 @@ it('Builds correct query', () => {
   "data": {
     "masterKey": "master_1",
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {
     "pricePromotionKey": "test",

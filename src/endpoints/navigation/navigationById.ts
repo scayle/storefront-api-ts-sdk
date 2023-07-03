@@ -10,7 +10,7 @@ export function createNavigationByIdEndpointRequest(
 ): BapiCall<NavigationByIdEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `navigation/trees/${navigationTreeId}`,
+    endpoint: `/v1/navigation/trees/${navigationTreeId}`,
     params: {
       ...(parameters.locale ? {locale: parameters.locale} : {}),
       ...(parameters?.with?.category ? {with: 'category'} : {}),

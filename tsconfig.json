@@ -7,8 +7,10 @@
       "esnext",
       "esnext.asynciterable"
     ],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "ESNext",
+		"moduleResolution": "Node",
+		"moduleDetection": "force",
+		"target": "ESNext",
     "types": [
       "jest"
     ],
@@ -16,7 +18,6 @@
     "noUnusedLocals": true,
     "preserveConstEnums": true,
     "pretty": true,
-    "target": "es5",
     "inlineSourceMap": true,
     "inlineSources": true,
     "skipLibCheck": true,

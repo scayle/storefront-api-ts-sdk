@@ -1,20 +1,26 @@
 import {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 import {BapiCall} from '../interfaces/BapiCall';
-import queryString from 'query-string';
 import {StorefrontAPIAuth} from './BapiClient';
 
-export const getParamsString = (params?: Partial<Record<string, any>>) => {
+export const getParamsString = (
+  params?: Partial<Record<string, string | number | boolean>>,
+) => {
   if (!params) {
     return '';
   }
 
-  const query = queryString.stringify(
-    params as object,
-    {
-      arrayFormat: 'bracket',
-      sort: false,
-    } as any,
-  );
+  let query = '';
+  for (const [key, value] of Object.entries(params)) {
+    if (!value) {
+      continue;
+    }
+
+    if (query.length > 0) {
+      query += '&';
+    }
+
+    query += `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+  }
 
   if (query) {
     return '?' + query;
@@ -22,13 +28,6 @@ export const getParamsString = (params?: Partial<Record<string, any>>) => {
 
   return '';
 };
-
-function prepareUrl(
-  endpoint: string,
-  params: Partial<Record<string, string>> | undefined,
-) {
-  return endpoint + getParamsString(params);
-}
 
 export interface BapiResponse<T> {
   statusCode: number;
@@ -39,7 +38,7 @@ export interface BapiResponse<T> {
 
 export async function execute<SuccessResponseT>(
   axios: AxiosInstance,
-  apiLocation: string,
+  host: string,
   shopId: number,
   bapiCall: BapiCall<SuccessResponseT>,
   acceptAllResponseCodes: boolean = false,
@@ -51,7 +50,7 @@ export async function execute<SuccessResponseT>(
       ? {...bapiCall.params, shopId: shopId}
       : bapiCall.params;
 
-  const url = apiLocation + prepareUrl(bapiCall.endpoint, params);
+  const url = `https://${host}${bapiCall.endpoint}${getParamsString(params)}`;
 
   const shopIdHeader =
     shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : undefined;
