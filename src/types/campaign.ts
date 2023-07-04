@@ -8,4 +8,4 @@ export interface Campaign {
   reduction: number;
   start_at: RFC33339Date | null;
   end_at: RFC33339Date | null;
-};
+}

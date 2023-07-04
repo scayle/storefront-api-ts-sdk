@@ -1,6 +1,6 @@
 import {StorefrontAPIClient} from '../../BapiClient';
 import {nockWithBapiScope} from '../../test-helpers/nock';
-import * as nock from 'nock';
+import nock from 'nock';
 
 it.skip('Authentication: Basic Auth', async () => {
   nock.disableNetConnect();

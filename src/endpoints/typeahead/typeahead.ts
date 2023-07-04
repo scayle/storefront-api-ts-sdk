@@ -136,7 +136,7 @@ export function createTypeaheadSuggestionsEndpointRequest(
               productWithQueryParameterValues(parameters.with?.products),
             )
           : []),
-        ...(parameters.with?.categories?.parents == 'all'
+        ...(parameters.with?.categories?.parents === 'all'
           ? ['category.parents']
           : []),
 

@@ -307,6 +307,23 @@ function updateBasketItemFailureKindFromStatusCode(
   }
 }
 
+/**
+ * Describes how to handle existing variants on basket item updates
+ */
+export enum ExistingItemHandling {
+  // Keeps the existing variant untouched
+  KeepExisting,
+
+  // Updates the quantity of the existing item
+  AddQuantityToExisting,
+
+  // Deletes the existing item and adds the new one as it
+  ReplaceExisting,
+
+  // Deletes the existing item and adds the new one with its quantity increased by the existing value
+  ReplaceExistingWithCombinedQuantity,
+}
+
 export type StorefrontAPIAuth =
   | {
       type: 'basic';
@@ -954,23 +971,6 @@ export class StorefrontAPIClient {
   };
 }
 
-/**
- * Describes how to handle existing variants on basket item updates
- */
-export enum ExistingItemHandling {
-  // Keeps the existing variant untouched
-  KeepExisting,
-
-  // Updates the quantity of the existing item
-  AddQuantityToExisting,
-
-  // Deletes the existing item and adds the new one as it
-  ReplaceExisting,
-
-  // Deletes the existing item and adds the new one with its quantity increased by the existing value
-  ReplaceExistingWithCombinedQuantity,
-}
-
 // Client for basket operations which keeps track of the latest successfully received basket,
 // as well as all errors encountered during it's operation.
 //
@@ -1027,7 +1027,7 @@ class BasketMultiOperationsClient {
         params,
       );
 
-      if (response.type == 'failure') {
+      if (response.type === 'failure') {
         this.errors.push({
           operation: 'add',
           kind: response.kind,
@@ -1063,7 +1063,7 @@ class BasketMultiOperationsClient {
         params,
       );
 
-      if (response.type == 'failure') {
+      if (response.type === 'failure') {
         this.errors.push({
           operation: 'update',
           basketItemKey: itemKey,
@@ -1086,7 +1086,7 @@ class BasketMultiOperationsClient {
 
   private updateBasket(basket?: BasketResponseData) {
     // Small sanity check that we really got a valid basket, else keep the previous
-    if (basket && basket?.key == this.latestBasket.key) {
+    if (basket && basket?.key === this.latestBasket.key) {
       this.latestBasket = basket;
     } else {
       throw Error(`Did not receive valid basket`);

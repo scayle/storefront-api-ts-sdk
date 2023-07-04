@@ -1,4 +1,4 @@
-import {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
+import {AxiosInstance, AxiosResponse, AxiosRequestConfig} from 'axios';
 import {StorefrontAPIAuth} from '../BapiClient';
 
 export const getParamsString = (
@@ -33,7 +33,7 @@ export type BapiCall<SuccessResponseT> =
       method: 'GET' | 'DELETE';
       endpoint: string;
       params?: {
-        [key: string]: string | boolean | number;
+        [key: string]: string | boolean | number | undefined;
       };
 
       responseValidator?: (o: any) => o is SuccessResponseT;
@@ -42,7 +42,7 @@ export type BapiCall<SuccessResponseT> =
       method: 'POST' | 'PATCH';
       endpoint: string;
       params?: {
-        [key: string]: string | boolean | number;
+        [key: string]: string | boolean | number | undefined;
       };
       data?: any;
 
@@ -72,20 +72,18 @@ export async function execute<SuccessResponseT>(
 
   const url = `https://${host}${bapiCall.endpoint}${getParamsString(params)}`;
 
-  const shopIdHeader =
-    shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : undefined;
-
-  const fetchOptions: AxiosRequestConfig = {
+  const response: AxiosResponse<SuccessResponseT> = await axios.request({
+    method: bapiCall.method,
+    url,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       ...(typeof window === 'undefined'
         ? {'accept-encoding': 'gzip, deflate'}
-        : undefined),
-      ...shopIdHeader,
+        : {}),
+      ...(shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : {}),
+      ...(auth?.type === 'token' ? {'X-Access-Token': auth.token} : {}),
     },
-    url,
-    method: bapiCall.method,
     data:
       bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
         ? bapiCall.data
@@ -93,24 +91,14 @@ export async function execute<SuccessResponseT>(
     validateStatus: acceptAllResponseCodes
       ? () => true
       : statusCode => statusCode >= 200 && statusCode <= 299,
-  };
-
-  switch (auth?.type) {
-    case 'basic':
-      fetchOptions.auth = {
-        username: auth.username,
-        password: auth.password,
-      };
-      break;
-
-    case 'token':
-      fetchOptions.headers!['X-Access-Token'] = auth.token;
-      break;
-  }
-
-  const response: AxiosResponse<SuccessResponseT> = await axios.request(
-    fetchOptions,
-  );
+    auth:
+      auth?.type === 'basic'
+        ? {
+            username: auth.username,
+            password: auth.password,
+          }
+        : undefined,
+  } as AxiosRequestConfig);
 
   if (
     bapiCall.responseValidator &&

@@ -110,7 +110,7 @@ export function productWithQueryParameterValues(
         categoryFlags.push('hidden(true)');
       }
 
-      if (productWith.categories.properties == 'all') {
+      if (productWith.categories.properties === 'all') {
         // do nothing, all properties are included by default for legacy reasons
       } else if (typeof productWith.categories.properties === 'object') {
         categoryFlags.push(
@@ -126,7 +126,7 @@ export function productWithQueryParameterValues(
       } else {
         parameterValues.push('categories');
       }
-    } else if (productWith.categories == 'all') {
+    } else if (productWith.categories === 'all') {
       // include non-hidden categories, but without any properties
       parameterValues.push('categories:properties()');
     }
