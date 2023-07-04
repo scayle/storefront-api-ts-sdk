@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {NavigationTree} from '../../types/navigation';
+import {NavigationTree} from '../../types/Navigation';
 
 export type NavigationAllEndpointResponseData = NavigationTree[];
 

@@ -106,7 +106,7 @@ export {
   NavigationItems,
   NavigationItemPage,
   NavigationItemExternal,
-} from './types/navigation';
+} from './types/Navigation';
 
 // Filters
 export {

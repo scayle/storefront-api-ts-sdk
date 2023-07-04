@@ -1,6 +1,6 @@
 import {RFC33339Date} from './Product';
 
-export type Campaign = {
+export interface Campaign {
   id: number;
   key: string;
   name: string;
