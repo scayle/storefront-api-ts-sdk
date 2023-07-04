@@ -24,8 +24,8 @@ jobs:
           npm install --global yarn
           yarn install
 
+      - name: Test
+        run: yarn run lint
+
       - name: Build
         run: yarn run build
-
-      - name: Test
-        run: yarn run test
