@@ -1,4 +1,4 @@
-import {RFC33339Date} from '../types/BapiProduct';
+import {RFC33339Date} from './Product';
 
 export interface BrandCustomData {
   floatData: number;

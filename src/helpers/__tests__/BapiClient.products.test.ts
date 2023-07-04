@@ -3,7 +3,7 @@ import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
 } from '../../test-helpers/nock';
-import {BaseCategory} from '../../types/BapiProduct';
+import {BaseCategory} from '../../types/Product';
 
 disableNetAndAllowBapiCors();
 

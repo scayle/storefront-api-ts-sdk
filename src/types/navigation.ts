@@ -1,5 +1,5 @@
-import {RFC33339Date} from '../types/BapiProduct';
-import {BapiCategory} from './BapiCategory';
+import {RFC33339Date} from './Product';
+import {Category} from './Category';
 
 export type NavigationItem = {
   id: number;
@@ -40,7 +40,7 @@ export type NavigationItemCategory = NavigationItem & {
       | NavigationItemAttributeExtraFilter[];
   };
   categoryId: number;
-  category?: BapiCategory | null;
+  category?: Category | null;
 };
 
 export type NavigationItemPage = NavigationItem & {

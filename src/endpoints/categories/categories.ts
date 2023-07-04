@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {BapiCategory} from '../../types/BapiCategory';
+import {Category} from '../../types/Category';
 import {
   CategoryEndpointsParameters,
   parametersForCategoryEndpoint,
@@ -32,7 +32,7 @@ export interface RootCategoriesEndpointParameters
 // Use `with.children` to specify how many levels of children to load
 export function createCategoriesEndpointRequest(
   params: RootCategoriesEndpointParameters = {},
-): BapiCall<BapiCategory[]> {
+): BapiCall<Category[]> {
   return {
     method: 'GET',
     endpoint: `/v1/categories`,

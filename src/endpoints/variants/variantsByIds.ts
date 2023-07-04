@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {Variant} from '../../types/BapiProduct';
+import {Variant} from '../../types/Product';
 import {
   VariantWith,
   variantWithQueryParameterValues,

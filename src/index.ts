@@ -80,14 +80,14 @@ export {
   CentAmount,
   RFC33339Date,
   BapiPrice,
-  BapiProduct,
+  Product as BapiProduct,
   ProductImage,
   Value,
   Variant,
   AdvancedAttribute,
   AdvancedAttributes,
   Stock,
-} from './types/BapiProduct';
+} from './types/Product';
 export {
   VariantWith,
   ProductWith,
@@ -128,7 +128,10 @@ export {
 } from './types/AttributeOrAttributeValueFilter';
 
 // Category
-export {BapiCategory, BapiCategoryProperty} from './types/BapiCategory';
+export {
+  Category as BapiCategory,
+  CategoryProperty as BapiCategoryProperty,
+} from './types/Category';
 export {RootCategoriesEndpointParameters} from './endpoints/categories/categories';
 export {
   CategoriesByIdsEndpointParameters,

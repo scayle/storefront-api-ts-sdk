@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {BapiCategory} from '../../types/BapiCategory';
+import {Category} from '../../types/Category';
 import {
   CategoryEndpointsParameters,
   parametersForCategoryEndpoint,
@@ -35,7 +35,7 @@ export interface CategoriesByIdsEndpointParameters
   includeHidden?: undefined;
 }
 
-export type CategoriesByIdsEndpointResponseData = BapiCategory[];
+export type CategoriesByIdsEndpointResponseData = Category[];
 
 /**
  * Retrieve categories by their IDs

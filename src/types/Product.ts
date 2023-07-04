@@ -1,7 +1,6 @@
-import {ObjectMap} from './ObjectMap';
-import {BapiCategoryProperty} from '../types/BapiCategory';
+import {CategoryProperty} from './Category';
 
-export interface BapiProduct {
+export interface Product {
   id: number;
   isActive: boolean;
   isSoldOut: boolean;
@@ -15,7 +14,7 @@ export interface BapiProduct {
   attributes?: Attributes;
   advancedAttributes?: AdvancedAttributes;
   categories?: BapiProductCategory[][];
-  siblings?: BapiProduct[];
+  siblings?: Product[];
   priceRange?: PriceRange;
   reductionRange?: PriceRange;
   baseCategories?: BaseCategory[];
@@ -44,7 +43,7 @@ export interface BapiProductCategory {
   categoryId: number;
   categoryName: string;
   categoryUrl: string;
-  categoryProperties?: BapiCategoryProperty[];
+  categoryProperties?: CategoryProperty[];
 }
 
 export interface ProductImage {
@@ -127,7 +126,7 @@ export interface AttributeGroupMulti extends AttributeGroupBasic {
 
 export type AttributeGroup = AttributeGroupSingle | AttributeGroupMulti;
 
-export type Attributes = ObjectMap<AttributeGroup>;
+export type Attributes = Record<string, AttributeGroup | undefined>;
 
 export interface Value {
   label: string;
@@ -135,7 +134,7 @@ export interface Value {
   value?: string;
 }
 
-export type AdvancedAttributes = ObjectMap<AdvancedAttribute>;
+export type AdvancedAttributes = Record<string, AdvancedAttribute | undefined>;
 
 export type AdvancedAttribute = {
   id: number | null;

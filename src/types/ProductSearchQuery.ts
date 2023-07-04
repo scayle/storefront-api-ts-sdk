@@ -2,7 +2,6 @@ import {
   AttributeWithBooleanValueFilter,
   AttributeWithValuesFilter,
 } from '../types/AttributeOrAttributeValueFilter';
-import {ObjectMap} from './ObjectMap';
 
 export interface ProductSearchQuery {
   categoryId?: number;
@@ -21,7 +20,7 @@ export interface ProductSearchQuery {
 
 export function queryParamsFromProductSearchQuery(
   productSearchQuery: ProductSearchQuery | undefined,
-): ObjectMap<string | number> | undefined {
+): Record<string, string | number> | undefined {
   if (!productSearchQuery) {
     return undefined;
   }
@@ -45,7 +44,7 @@ export function queryParamsFromProductSearchQuery(
       }
 
       return acc;
-    }, {} as ObjectMap<string>),
+    }, {} as Record<string, string>),
     'filters[term]': productSearchQuery.term,
     'filters[minPrice]': productSearchQuery.minPrice,
     'filters[maxPrice]': productSearchQuery.maxPrice,
@@ -59,7 +58,7 @@ export function queryParamsFromProductSearchQuery(
     disableFuzziness: productSearchQuery.disableFuzziness ? 'true' : undefined,
   };
 
-  const definedFilters: ObjectMap<string | number> = {};
+  const definedFilters: Record<string, string | number> = {};
 
   for (const [key, value] of Object.entries(filters)) {
     if (value !== undefined && value !== null) {

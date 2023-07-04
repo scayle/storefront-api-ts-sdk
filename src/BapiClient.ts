@@ -68,8 +68,8 @@ import {
   WishlistResponseData,
 } from './endpoints/wishlist/getWishlist';
 import {execute, BapiCall} from './helpers/execute';
-import {BapiCategory} from './types/BapiCategory';
-import {BapiProduct, Variant} from './types/BapiProduct';
+import {Category} from './types/Category';
+import {Product, Variant} from './types/Product';
 import {
   SearchSuggestionsEndpointParameters,
   SearchSuggestionsEndpointResponseData,
@@ -137,7 +137,7 @@ import {
 } from './endpoints/navigation/navigation';
 
 // TODO: Also account for unexpected cases, where no basket is returned
-type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
+type CreateBasketItemResponse<P = Product, V = Variant> =
   | {
       type: 'success'; // operationStatus: succeeded / partially / not-at-all
       statusCode: number;
@@ -150,7 +150,7 @@ type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
       basket: BasketResponseData<P, V>;
     };
 
-type UpdateBasketItemResponse<P = BapiProduct, V = Variant> =
+type UpdateBasketItemResponse<P = Product, V = Variant> =
   | {
       type: 'success'; // operationStatus: succeeded / partially / not-at-all
       statusCode: number;
@@ -163,7 +163,7 @@ type UpdateBasketItemResponse<P = BapiProduct, V = Variant> =
       basket: BasketResponseData<P, V>;
     };
 
-export type BasketResponse<P = BapiProduct, V = Variant> =
+export type BasketResponse<P = Product, V = Variant> =
   | {
       type: 'success';
       statusCode: number;
@@ -175,7 +175,7 @@ export type BasketResponse<P = BapiProduct, V = Variant> =
       basket: BasketResponseData<P, V>;
     };
 
-export type AddManyItemsBasketResponse<P = BapiProduct, V = Variant> =
+export type AddManyItemsBasketResponse<P = Product, V = Variant> =
   | {
       readonly type: 'success';
       readonly basket: BasketResponseData<P, V>;
@@ -309,10 +309,12 @@ function updateBasketItemFailureKindFromStatusCode(
 
 export type StorefrontAPIAuth =
   | {
+      type: 'basic';
       username: string;
       password: string;
     }
   | {
+      type: 'token';
       token: string;
     };
 
@@ -664,7 +666,7 @@ export class StorefrontAPIClient {
     getById: (
       categoryId: number,
       parameters: Omit<CategoryByIdEndpointParameters, 'categoryId'> = {},
-    ): Promise<BapiCategory> => {
+    ): Promise<Category> => {
       return this.execute(
         createCategoryByIdEndpointRequest({
           ...parameters,
@@ -675,7 +677,7 @@ export class StorefrontAPIClient {
     getByIds: (
       categoryIds: number[],
       parameters: Omit<CategoriesByIdsEndpointParameters, 'categoryIds'> = {},
-    ): Promise<BapiCategory[]> => {
+    ): Promise<Category[]> => {
       return this.execute(
         createCategoriesByIdsEndpointRequest({
           ...parameters,
@@ -686,7 +688,7 @@ export class StorefrontAPIClient {
     getByPath: (
       path: string[],
       parameters: Omit<CategoryBySlugEndpointParameters, 'slugPath'> = {},
-    ): Promise<BapiCategory> => {
+    ): Promise<Category> => {
       return this.execute(
         createCategoryBySlugEndpointRequest({
           ...parameters,
@@ -696,7 +698,7 @@ export class StorefrontAPIClient {
     },
     getRoots: (
       parameters: RootCategoriesEndpointParameters = {},
-    ): Promise<BapiCategory[]> => {
+    ): Promise<Category[]> => {
       return this.execute(createCategoriesEndpointRequest(parameters));
     },
   };
@@ -741,12 +743,12 @@ export class StorefrontAPIClient {
     getById: (
       productId: number,
       params: Omit<ProductByIdEndpointParameters, 'productId'> = {},
-    ): Promise<BapiProduct> =>
+    ): Promise<Product> =>
       this.execute(createProductByIdEndpointRequest({...params, productId})),
     getByIds: async (
       productIds: number[],
       params: Omit<ProductsByIdsEndpointParameters, 'productIds'> = {},
-    ): Promise<BapiProduct[]> => {
+    ): Promise<Product[]> => {
       if (productIds.length === 0) {
         return [];
       }
@@ -759,7 +761,7 @@ export class StorefrontAPIClient {
     getByReferenceKeys: async (
       referenceKeys: string[],
       params: Omit<ProductsSearchEndpointParameters, 'where'> = {},
-    ): Promise<BapiProduct[]> => {
+    ): Promise<Product[]> => {
       const paramsWithReferenceKeys: ProductsSearchEndpointParameters = {
         ...params,
         where: {
@@ -785,7 +787,7 @@ export class StorefrontAPIClient {
         ProductsByReferenceKeyEndpointParameters,
         'referenceKey'
       > = {},
-    ): Promise<BapiProduct | null> => {
+    ): Promise<Product | null> => {
       const response = await this.execute(
         createProductByReferenceKeyRequest({...params, referenceKey}),
       );

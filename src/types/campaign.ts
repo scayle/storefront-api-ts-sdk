@@ -1,4 +1,4 @@
-import {RFC33339Date} from '../types/BapiProduct';
+import {RFC33339Date} from './Product';
 
 export type Campaign = {
   id: number;

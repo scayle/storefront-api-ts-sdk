@@ -3,7 +3,7 @@ import {
   ProductSearchQuery,
   queryParamsFromProductSearchQuery,
 } from '../../types/ProductSearchQuery';
-import {CentAmount} from '../../types/BapiProduct';
+import {CentAmount} from '../../types/Product';
 
 export interface FiltersEndpointParameters {
   where: ProductSearchQuery;

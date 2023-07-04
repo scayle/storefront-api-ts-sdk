@@ -1,7 +1,4 @@
-import {
-  StorefrontAPIClient,
-  ExistingItemHandling,
-} from '../../BapiClient';
+import {StorefrontAPIClient, ExistingItemHandling} from '../../BapiClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,

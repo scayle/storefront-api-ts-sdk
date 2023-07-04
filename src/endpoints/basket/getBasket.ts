@@ -1,6 +1,6 @@
 import {prefixList} from '../../helpers/attributes';
 import {BapiCall} from '../../helpers/execute';
-import {BapiPrice, BapiProduct, Variant} from '../../types/BapiProduct';
+import {BapiPrice, Product, Variant} from '../../types/Product';
 import {
   ProductWith,
   productWithQueryParameterValues,
@@ -16,7 +16,7 @@ export type BasketKey = string & {
   readonly ____tagBasketKey: unique symbol;
 };
 
-export interface BasketResponseData<P = BapiProduct, V = Variant> {
+export interface BasketResponseData<P = Product, V = Variant> {
   key: BasketKey;
   cost: BasketTotalPrice;
   currencyCode: 'EUR';
@@ -31,7 +31,7 @@ export interface ItemGroup {
   isRequired: boolean;
 }
 
-export interface BasketItem<P = BapiProduct, V = Variant> {
+export interface BasketItem<P = Product, V = Variant> {
   key: string;
   customData: unknown;
   packageId: number;

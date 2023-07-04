@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {BapiProduct} from '../../types/BapiProduct';
+import {Product} from '../../types/Product';
 import {
   ProductWith,
   productWithQueryParameterValues,
@@ -13,7 +13,7 @@ export interface ProductByIdEndpointParameters {
   includeSellableForFree?: boolean;
 }
 
-export type ProductByIdEndpointResponseData = BapiProduct;
+export type ProductByIdEndpointResponseData = Product;
 
 /**
  * Required as single product call is the only one that can return `siblings`

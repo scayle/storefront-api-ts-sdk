@@ -1,6 +1,6 @@
 import {Pagination} from '../../endpoints/products/productsByIds';
 import {BapiCall} from '../../helpers/execute';
-import {BapiProduct} from '../../types/BapiProduct';
+import {Product} from '../../types/Product';
 import {
   ProductSearchQuery,
   queryParamsFromProductSearchQuery,
@@ -53,7 +53,7 @@ export interface ProductsSearchEndpointParameters {
 }
 
 export interface ProductsSearchEndpointResponseData {
-  entities: BapiProduct[];
+  entities: Product[];
   pagination: Pagination;
 }
 

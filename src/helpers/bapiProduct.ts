@@ -1,4 +1,4 @@
-import {Attributes, Value} from '../types/BapiProduct';
+import {Attributes, Value} from '../types/Product';
 
 /**
  * Returns the first value of an attribute.

@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {BapiProduct} from '../../types/BapiProduct';
+import {Product} from '../../types/Product';
 import {
   ProductWith,
   productWithQueryParameterValues,
@@ -24,7 +24,7 @@ export interface Pagination {
 }
 
 export interface ProductsByIdsEndpointResponseData {
-  entities: BapiProduct[];
+  entities: Product[];
   pagination: Pagination;
 }
 

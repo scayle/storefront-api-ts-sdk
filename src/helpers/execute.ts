@@ -49,7 +49,6 @@ export type BapiCall<SuccessResponseT> =
       responseValidator?: (o: any) => o is SuccessResponseT;
     };
 
-
 export interface BapiResponse<T> {
   statusCode: number;
   headers: AxiosResponse['headers'];
@@ -96,15 +95,17 @@ export async function execute<SuccessResponseT>(
       : statusCode => statusCode >= 200 && statusCode <= 299,
   };
 
-  if (auth) {
-    if ('token' in auth) {
-      fetchOptions.headers!['X-Access-Token'] = auth.token;
-    } else {
+  switch (auth?.type) {
+    case 'basic':
       fetchOptions.auth = {
         username: auth.username,
         password: auth.password,
       };
-    }
+      break;
+
+    case 'token':
+      fetchOptions.headers!['X-Access-Token'] = auth.token;
+      break;
   }
 
   const response: AxiosResponse<SuccessResponseT> = await axios.request(

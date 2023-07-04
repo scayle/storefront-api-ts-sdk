@@ -3,8 +3,8 @@ import {
   ProductWith,
   productWithQueryParameterValues,
 } from '../../types/ProductWith';
-import {BapiProduct} from '../../types/BapiProduct';
-import {BapiCategory} from '../../types/BapiCategory';
+import {Product} from '../../types/Product';
+import {Category} from '../../types/Category';
 
 export interface SearchSuggestionsEndpointParameters {
   term: string;
@@ -26,13 +26,13 @@ export type SearchSuggestionsEndpointResponseData = {
     value: string;
   }>;
 
-  categories: Array<BapiCategory>;
+  categories: Array<Category>;
 
   productNames: Array<{
     term: string;
   }>;
 
-  products: Array<BapiProduct>;
+  products: Array<Product>;
 };
 
 function suggetionsWithQueryParameter(

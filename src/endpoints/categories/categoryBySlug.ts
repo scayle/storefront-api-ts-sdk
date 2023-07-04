@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {BapiCategory} from '../../types/BapiCategory';
+import {Category} from '../../types/Category';
 import {
   CategoryEndpointsParameters,
   parametersForCategoryEndpoint,
@@ -31,7 +31,7 @@ export interface CategoryBySlugEndpointParameters
   includeHidden?: true;
 }
 
-export type CategoryBySlugEndpointResponseData = BapiCategory;
+export type CategoryBySlugEndpointResponseData = Category;
 
 export function createCategoryBySlugEndpointRequest(
   params: CategoryBySlugEndpointParameters,
@@ -42,7 +42,7 @@ export function createCategoryBySlugEndpointRequest(
     params: {
       ...parametersForCategoryEndpoint(params),
     },
-    responseValidator: (response): response is BapiCategory =>
+    responseValidator: (response): response is Category =>
       typeof response === 'object' && !Array.isArray(response),
   };
 }

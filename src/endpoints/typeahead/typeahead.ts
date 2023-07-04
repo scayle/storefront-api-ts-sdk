@@ -3,8 +3,8 @@ import {
   ProductWith,
   productWithQueryParameterValues,
 } from '../../types/ProductWith';
-import {BapiProduct} from '../../types/BapiProduct';
-import {BapiCategory} from '../../types/BapiCategory';
+import {Product} from '../../types/Product';
+import {Category} from '../../types/Category';
 import {prefixList} from '../../helpers/attributes';
 
 export interface TypeaheadSuggestionsEndpointRequestParameters {
@@ -61,7 +61,7 @@ export interface TypeaheadBrandOrCategorySuggestion {
 export interface ProductSuggestion {
   suggestion: string;
 
-  product: BapiProduct;
+  product: Product;
 }
 
 export interface BrandOrCategorySuggestion {
@@ -87,7 +87,7 @@ export interface BrandOrCategorySuggestion {
    * Either from the matched or suggested category,
    * or if none was applicable use the input category
    */
-  category: BapiCategory;
+  category: Category;
 
   /**
    * Brand information if one was matched for the input

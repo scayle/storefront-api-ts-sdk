@@ -3,7 +3,7 @@ import {
   basketWithQueryParameter,
 } from '../../endpoints/basket/getBasket';
 import {BapiCall} from '../../helpers/execute';
-import {BapiProduct, Variant} from '../../types/BapiProduct';
+import {Product, Variant} from '../../types/Product';
 
 export type WishlistWith = BasketWith;
 
@@ -15,7 +15,7 @@ export interface WishlistResponseData {
 export interface WishlistItem {
   key: string;
 
-  product?: BapiProduct;
+  product?: Product;
   variant?: Variant;
 }
 

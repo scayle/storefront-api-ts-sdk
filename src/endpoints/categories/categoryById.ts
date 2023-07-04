@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {BapiCategory} from '../../types/BapiCategory';
+import {Category} from '../../types/Category';
 import {
   CategoryEndpointsParameters,
   parametersForCategoryEndpoint,
@@ -31,7 +31,7 @@ export interface CategoryByIdEndpointParameters
   includeHidden?: true;
 }
 
-export type CategoryByIdEndpointResponseData = BapiCategory;
+export type CategoryByIdEndpointResponseData = Category;
 
 export function createCategoryByIdEndpointRequest(
   params: CategoryByIdEndpointParameters,

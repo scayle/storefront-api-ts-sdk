@@ -1,10 +1,9 @@
-export interface BapiCategoryProperty {
+export interface CategoryProperty {
   name: string;
   value: string;
-  is_inheritable?: 1 | 0;
 }
 
-export interface BapiCategory {
+export interface Category {
   /**
    * the category id
    */
@@ -40,7 +39,7 @@ export interface BapiCategory {
   /**
    * Properties attached to this category.
    */
-  properties?: BapiCategoryProperty[];
+  properties: CategoryProperty[];
   /**
    * The category should not be shown in the front end if this is set to `true`.
    */
@@ -52,9 +51,9 @@ export interface BapiCategory {
    *
    * The `childrenIds` are always included.
    */
-  children?: BapiCategory[];
+  children?: Category[];
   /** Parent category, if existent and requested, using `with`. */
-  parent?: BapiCategory;
+  parent?: Category;
   /**
    * nesting level of the category (root-level depth = 1, child nodes = 2, child nodes' children = 3, etc.)
    */
@@ -62,17 +61,8 @@ export interface BapiCategory {
   /**
    * a list of filters that can be used for filtering products in the category (for example, `armLength` or `mainMaterial`)
    */
-  supportedFilter?: string[];
-  /**
-   *
-   * @type {CategoryShopLevelCustomData}
-   * @memberof Category
-   */
-  shopLevelCustomData?: any;
-  /**
-   *
-   * @type {CategoryCountryLevelCustomData}
-   * @memberof Category
-   */
-  countryLevelCustomData?: any;
+  supportedFilter: string[];
+
+  shopLevelCustomData?: Record<string, unknown>;
+  countryLevelCustomData?: Record<string, unknown>;
 }
