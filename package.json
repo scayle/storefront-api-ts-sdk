@@ -1,6 +1,6 @@
 {
   "name": "@scayle/storefront-api-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -29,7 +29,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "yarn build:ts && yarn build:types",
+    "prepublish": "yarn test && yarn build",
+    "build": "rm -rf dist/ && yarn build:ts && yarn build:types",
     "build:ts": "esbuild --bundle src/index.ts --outdir=dist --sourcemap --packages=external --format=esm --target=esnext",
     "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "format": "prettier -w \"src/**/*.ts\"",
