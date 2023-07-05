@@ -24,8 +24,6 @@ export interface AddWishlistItemParameters {
   with?: WishlistWith;
   campaignKey?: string;
 
-  childShopId?: number;
-
   pricePromotionKey?: string;
 
   skipAvailabilityCheck?: boolean;
@@ -53,7 +51,6 @@ export function addWishlistItemEndpointRequest(
     },
     data: {
       ...params.item,
-      ...(params.childShopId ? {shopId: params.childShopId} : undefined),
     },
   };
 }

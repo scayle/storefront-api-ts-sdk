@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import {StorefrontAPIClient} from '../../BapiClient';
+import {StorefrontAPIClient} from '../../StorefrontAPIClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
@@ -21,7 +21,7 @@ it.skip('Gets single campaign by id', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
+    countryId: 139,
   });
 
   const campaign = await bapi.campaigns.getById(350);
@@ -39,7 +39,7 @@ it.skip('Gets multiple campaigns', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
+    countryId: 139,
   });
 
   const campaignsResponse = await bapi.campaigns.get({

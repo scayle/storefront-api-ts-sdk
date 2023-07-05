@@ -122,9 +122,6 @@ export interface GetBasketParameters {
   with?: BasketWith;
   campaignKey?: string;
 
-  // The shop ID to be used for reading the basket from Checkout
-  // Product data will still be attached from the primary `shopId`
-  checkoutShopId?: number;
   skipAvailabilityCheck?: boolean;
 
   includeItemsWithoutProductData?: boolean;
@@ -141,9 +138,6 @@ export function getBasketEndpointRequest(
         ? {with: basketWithQueryParameter(params.with).join(',')}
         : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
-      ...(params.checkoutShopId
-        ? {checkoutShopId: params.checkoutShopId}
-        : undefined),
       ...(params.skipAvailabilityCheck
         ? {skipAvailabilityCheck: params.skipAvailabilityCheck}
         : undefined),

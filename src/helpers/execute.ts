@@ -1,5 +1,5 @@
 import {AxiosInstance, AxiosResponse, AxiosRequestConfig} from 'axios';
-import {StorefrontAPIAuth} from '../BapiClient';
+import {StorefrontAPIAuth} from '../StorefrontAPIClient';
 
 export const getParamsString = (
   params?: Partial<Record<string, string | number | boolean>>,
@@ -59,15 +59,15 @@ export interface BapiResponse<T> {
 export async function execute<SuccessResponseT>(
   axios: AxiosInstance,
   host: string,
-  shopId: number,
+  countryId: number,
   bapiCall: BapiCall<SuccessResponseT>,
   acceptAllResponseCodes: boolean = false,
-  shopIdPlacement: 'header' | 'query',
+  countryIdPlacement: 'header' | 'query',
   auth?: StorefrontAPIAuth,
 ): Promise<BapiResponse<SuccessResponseT>> {
   const params =
-    shopIdPlacement === 'query'
-      ? {...bapiCall.params, shopId: shopId}
+    countryIdPlacement === 'query'
+      ? {...bapiCall.params, countryId: countryId}
       : bapiCall.params;
 
   const url = `https://${host}${bapiCall.endpoint}${getParamsString(params)}`;
@@ -81,7 +81,9 @@ export async function execute<SuccessResponseT>(
       ...(typeof window === 'undefined'
         ? {'accept-encoding': 'gzip, deflate'}
         : {}),
-      ...(shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : {}),
+      ...(countryIdPlacement === 'header'
+        ? {'X-Country-Id': `${countryId}`}
+        : {}),
       ...(auth?.type === 'token' ? {'X-Access-Token': auth.token} : {}),
     },
     data:

@@ -1,4 +1,4 @@
-import {StorefrontAPIClient} from '../../BapiClient';
+import {StorefrontAPIClient} from '../../StorefrontAPIClient';
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
@@ -17,7 +17,7 @@ it.skip('Gets the wishlist', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
+    countryId: 139,
   });
 
   const response = await bapi.wishlist.get('wishlist_1');
@@ -38,7 +38,7 @@ it.skip('Adds an item to the wishlist', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
+    countryId: 139,
   });
 
   const response = await bapi.wishlist.addItem('wishlist_1', {
@@ -66,7 +66,7 @@ it.skip('Additem failure', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
+    countryId: 139,
   });
 
   const response = await bapi.wishlist.addItem('wishlist_1', {
@@ -93,7 +93,7 @@ it.skip('Deletes an item from the wishlist', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
+    countryId: 139,
   });
 
   const response = await bapi.wishlist.deleteItem('wishlist_1', 'item_1');

@@ -1,4 +1,7 @@
-import {StorefrontAPIClient, ExistingItemHandling} from '../../BapiClient';
+import {
+  StorefrontAPIClient,
+  ExistingItemHandling,
+} from '../../StorefrontAPIClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
@@ -21,8 +24,8 @@ it.skip('BapiClient.addOrUpdateItems: Does nothing for new variant with quantity
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -70,8 +73,8 @@ it.skip('BapiClient.addOrUpdateItems: Deletes existing variant variant with quan
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -127,8 +130,8 @@ it.skip('BapiClient.addOrUpdateItems: Creates new item for new variant', async (
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -170,8 +173,8 @@ it.skip('BapiClient.addOrUpdateItems: Handles failures (responding with the last
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -243,8 +246,8 @@ it.skip('BapiClient.addOrUpdateItems: Replaces existing item with combined quant
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';
@@ -307,8 +310,8 @@ it.skip('BapiClient.addOrUpdateItems: Replaces existing item (with origin quanti
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'aboutyou_customer_4351754';

@@ -1,4 +1,4 @@
-import {StorefrontAPIClient} from '../../BapiClient';
+import {StorefrontAPIClient} from '../../StorefrontAPIClient';
 import {nockWithBapiScope} from '../../test-helpers/nock';
 import nock from 'nock';
 
@@ -27,7 +27,7 @@ it.skip('Authentication: Basic Auth', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 123,
+    countryId: 123,
     auth: {
       type: 'basic',
       username: 'user1',
@@ -72,7 +72,7 @@ it.skip('Authentication: CloudVault token', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 123,
+    countryId: 123,
     auth: {
       type: 'token',
       token: 'foobar123',

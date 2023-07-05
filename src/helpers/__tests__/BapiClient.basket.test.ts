@@ -1,4 +1,4 @@
-import {StorefrontAPIClient} from '../../BapiClient';
+import {StorefrontAPIClient} from '../../StorefrontAPIClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
@@ -16,8 +16,8 @@ it.skip('Get basket', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -45,8 +45,8 @@ it.skip('Get basket with error', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -62,8 +62,8 @@ it.skip('Get basket with error', async () => {
 it.skip('Basket: Add same variant twice', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -109,8 +109,8 @@ it.skip('Basket: Add same variant twice', async () => {
 it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -138,8 +138,8 @@ it.skip('Basket: Add variant failure 1', async () => {
 it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -167,8 +167,8 @@ it.skip('Basket: Add variant failure 1', async () => {
 it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -196,8 +196,8 @@ it.skip('Basket: Add variant failure 1', async () => {
 it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -225,8 +225,8 @@ it.skip('Basket: Add variant failure 1', async () => {
 it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -254,8 +254,8 @@ it.skip('Basket: Add variant failure 1', async () => {
 it.skip('Basket: Add variant failure 1', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   const basketKey = 'customer_2137901';
@@ -283,8 +283,8 @@ it.skip('Basket: Add variant failure 1', async () => {
 it.skip('Basket: Add same variant twice', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   nockWithBapiScope({shopIdHeader: true})
@@ -302,8 +302,8 @@ it.skip('Basket: Add same variant twice', async () => {
 it.skip('Basket: Update item quantity', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   nockWithBapiScope({shopIdHeader: true})
@@ -328,8 +328,8 @@ it.skip('Basket: Update item quantity', async () => {
 it.skip('Basket: Update item failure', async () => {
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
-    shopIdPlacement: 'header',
+    countryId: 139,
+    countryIdPlacement: 'header',
   });
 
   nockWithBapiScope({shopIdHeader: true})

@@ -106,26 +106,6 @@ it('Builds correct query', () => {
   expect(
     addWishlistItemEndpointRequest({
       wishlistKey: 'wishlist_1',
-      item: {
-        productId: 1,
-      },
-      childShopId: 456,
-    }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "productId": 1,
-    "shopId": 456,
-  },
-  "endpoint": "/v1/wishlists/wishlist_1/items",
-  "method": "POST",
-  "params": {},
-}
-`);
-
-  expect(
-    addWishlistItemEndpointRequest({
-      wishlistKey: 'wishlist_1',
       pricePromotionKey: 'test',
       item: {
         masterKey: 'master_1',

@@ -1,4 +1,4 @@
-import {StorefrontAPIClient} from '../../BapiClient';
+import {StorefrontAPIClient} from '../../StorefrontAPIClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
@@ -17,7 +17,7 @@ it.skip('Gets brand by ID', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
+    countryId: 139,
   });
 
   const response = await bapi.brands.getById(2);
@@ -36,7 +36,7 @@ it.skip('Get brands', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
+    countryId: 139,
   });
 
   const response = await bapi.brands.get({

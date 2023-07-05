@@ -1,4 +1,4 @@
-import {StorefrontAPIClient} from '../../BapiClient';
+import {StorefrontAPIClient} from '../../StorefrontAPIClient';
 import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
@@ -16,7 +16,7 @@ it.skip('Gets filters (with values by default)', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    shopId: 139,
+    countryId: 139,
   });
 
   const filtersResponse = await bapi.filters.get({where: {categoryId: 20202}});

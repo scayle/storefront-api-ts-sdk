@@ -11,7 +11,6 @@ export interface CreateBasketItemParameters {
   basketKey: string;
   variantId: number;
   quantity: number;
-  childShopId?: number;
   with?: BasketWith;
   customData?: {[key: string]: any; [key: number]: any};
   displayData?: BasketItemDisplayData;
@@ -51,7 +50,6 @@ export function createBasketItemRequest(
       variantId: params.variantId,
       quantity: params.quantity,
       ...(customData !== undefined ? {customData} : undefined),
-      ...(params.childShopId ? {shopId: params.childShopId} : undefined),
       ...(params.displayData ? {displayData: params.displayData} : undefined),
       ...(params.itemGroup ? {itemGroup: params.itemGroup} : undefined),
     },

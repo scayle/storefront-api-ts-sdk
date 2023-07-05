@@ -337,8 +337,8 @@ export type StorefrontAPIAuth =
 
 export interface StorefrontAPIConfig {
   host: string;
-  shopId: number;
-  shopIdPlacement?: 'header' | 'query';
+  countryId: number;
+  countryIdPlacement?: 'header' | 'query';
   auth?: StorefrontAPIAuth;
   axios?: AxiosInstance;
 }
@@ -349,11 +349,11 @@ export interface StorefrontAPIConfig {
  * Constructor returns a preconfigured client which has the `host` and `appId` set for all requests
  */
 export class StorefrontAPIClient {
-  private readonly shopIdPlacement: 'header' | 'query';
+  private readonly countryIdPlacement: 'header' | 'query';
 
   private readonly host: string;
 
-  private readonly shopId: number;
+  private readonly countryId: number;
 
   private readonly axios: AxiosInstance;
 
@@ -361,8 +361,8 @@ export class StorefrontAPIClient {
 
   public constructor(config: StorefrontAPIConfig) {
     this.host = config.host;
-    this.shopId = config.shopId;
-    this.shopIdPlacement = config.shopIdPlacement ?? 'query';
+    this.countryId = config.countryId;
+    this.countryIdPlacement = config.countryIdPlacement ?? 'query';
     this.auth = config.auth;
     this.axios = config.axios ?? axios;
   }
@@ -373,10 +373,10 @@ export class StorefrontAPIClient {
     const response = await execute(
       this.axios,
       this.host,
-      this.shopId,
+      this.countryId,
       bapiCall,
       false,
-      this.shopIdPlacement,
+      this.countryIdPlacement,
       this.auth,
     );
 
@@ -389,10 +389,10 @@ export class StorefrontAPIClient {
     const response = await execute(
       this.axios,
       this.host,
-      this.shopId,
+      this.countryId,
       bapiCall,
       true,
-      this.shopIdPlacement,
+      this.countryIdPlacement,
       this.auth,
     );
 

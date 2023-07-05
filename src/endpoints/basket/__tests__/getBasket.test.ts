@@ -124,20 +124,3 @@ it('Builds correct query with campaign key', () => {
 }
 `);
 });
-
-it('Builds correct query with checkoutShopId', () => {
-  expect(
-    getBasketEndpointRequest({
-      basketKey: 'basket1',
-      checkoutShopId: 589,
-    }),
-  ).toMatchInlineSnapshot(`
-{
-  "endpoint": "/v1/baskets/basket1",
-  "method": "GET",
-  "params": {
-    "checkoutShopId": 589,
-  },
-}
-`);
-});

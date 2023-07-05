@@ -67,28 +67,6 @@ it('Builds correct query with custom data', () => {
 `);
 });
 
-it('Support sending a child shop ID', () => {
-  expect(
-    createBasketItemRequest({
-      basketKey: 'basket1',
-      variantId: 1235,
-      quantity: 1,
-      childShopId: 456,
-    }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "quantity": 1,
-    "shopId": 456,
-    "variantId": 1235,
-  },
-  "endpoint": "/v1/baskets/basket1/items",
-  "method": "POST",
-  "params": {},
-}
-`);
-});
-
 it('Builds correct query with price promotion key', () => {
   expect(
     createBasketItemRequest({
