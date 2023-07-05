@@ -13,11 +13,11 @@ For a general introduction about SCAYLE see [scayle.com](https://scayle.com/).
 ## Installation
 
 ```
-npm i @scayle/storefront-api-sdk
-```
-
-or
-
-```
 yarn add @scayle/storefront-api-sdk
+```
+
+## Publishing
+
+```
+yarn publish --access public
 ```

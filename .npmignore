@@ -1,14 +1,13 @@
 .bin/
 .vscode/
+.github/
 src/
 coverage/
 yarn.lock
 .editorconfig
-.prettierignore
 .prettierrc
 tsconfig.json
 jest.config.js
 DEV.md
 PUBLISHING.md
 tsconfig.json
-.gitlab-ci.yml
