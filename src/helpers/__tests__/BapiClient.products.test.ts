@@ -96,10 +96,17 @@ it.skip('Queries products', async () => {
 
   const response = await bapi.products.query({
     with: {attributes: 'all'},
-    pagination: {perPage: 3},
+    pagination: {perPage: 3, page: 1},
   });
 
   expect(response.entities.length).toBe(3);
+
+  const response2 = await bapi.products.query({
+    with: {attributes: 'all'},
+    pagination: {offset: 0, limit: 1},
+  });
+
+  expect(response2.pagination.total).toBe(3);
 });
 
 it.skip('Queries products with price range', async () => {

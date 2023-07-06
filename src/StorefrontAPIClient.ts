@@ -7,7 +7,6 @@ import {
   DeleteItemParameters,
 } from './endpoints/basket/deleteItem';
 import {
-  BasketResponseData,
   getBasketEndpointRequest,
   GetBasketParameters,
 } from './endpoints/basket/getBasket';
@@ -42,6 +41,7 @@ import {
 import {
   createProductsSearchEndpointRequest,
   ProductsSearchEndpointParameters,
+  ProductsSearchEndpointResponseData,
 } from './endpoints/products/products';
 import {
   createGetRedirectsEndpointRequest,
@@ -51,7 +51,6 @@ import {
 import {
   createProductsByIdsEndpointRequest,
   ProductsByIdsEndpointParameters,
-  ProductsByIdsEndpointResponseData,
 } from './endpoints/products/productsByIds';
 import {
   addWishlistItemEndpointRequest,
@@ -65,11 +64,10 @@ import {
 import {
   getWishlistEndpointRequest,
   GetWishlistParameters,
-  WishlistResponseData,
 } from './endpoints/wishlist/getWishlist';
 import {execute, BapiCall} from './helpers/execute';
 import {Category} from './types/Category';
-import {Product, Variant} from './types/Product';
+import {Product} from './types/Product';
 import {
   SearchSuggestionsEndpointParameters,
   SearchSuggestionsEndpointResponseData,
@@ -96,10 +94,7 @@ import {
 } from './endpoints/typeahead/typeahead';
 import {AttributeKey} from './types/AttributeOrAttributeValueFilter';
 import {createAttributeByKeyEndpointRequest} from './endpoints/attributes/attributeByKey';
-import {
-  createShopConfigurationRequest,
-  ShopConfigurationResponseData,
-} from './endpoints/shopconfiguration/shopconfiguration';
+import {createShopConfigurationRequest} from './endpoints/shopconfiguration/shopconfiguration';
 import {
   createProductByReferenceKeyRequest,
   ProductsByReferenceKeyRequestData as ProductsByReferenceKeyEndpointParameters,
@@ -135,54 +130,61 @@ import {
   GetNavigationParameters,
   NavigationAllEndpointResponseData,
 } from './endpoints/navigation/navigation';
+import {
+  InferResponsePagination,
+  PagePaginationRequest,
+  RequestPagination,
+} from './types/Pagination';
+import {WishlistResponse} from './types/Wishlist';
+import {BasketResponse} from './types/Basket';
 
 // TODO: Also account for unexpected cases, where no basket is returned
-type CreateBasketItemResponse<P = Product, V = Variant> =
+type CreateBasketItemResponse =
   | {
       type: 'success'; // operationStatus: succeeded / partially / not-at-all
       statusCode: number;
-      basket: BasketResponseData<P, V>;
+      basket: BasketResponse;
     }
   | {
       type: 'failure';
       statusCode: number;
       kind: AddToBasketFailureKind;
-      basket: BasketResponseData<P, V>;
+      basket: BasketResponse;
     };
 
-type UpdateBasketItemResponse<P = Product, V = Variant> =
+type UpdateBasketItemResponse =
   | {
       type: 'success'; // operationStatus: succeeded / partially / not-at-all
       statusCode: number;
-      basket: BasketResponseData<P, V>;
+      basket: BasketResponse;
     }
   | {
       type: 'failure';
       statusCode: number;
       kind: UpdateBasketItemFailureKind;
-      basket: BasketResponseData<P, V>;
+      basket: BasketResponse;
     };
 
-export type BasketResponse<P = Product, V = Variant> =
+export type GetBasketResponse =
   | {
       type: 'success';
       statusCode: number;
-      basket: BasketResponseData<P, V>;
+      basket: BasketResponse;
     }
   | {
       type: 'failure';
       statusCode: number;
-      basket: BasketResponseData<P, V>;
+      basket: BasketResponse;
     };
 
-export type AddManyItemsBasketResponse<P = Product, V = Variant> =
+export type AddManyItemsBasketResponse =
   | {
       readonly type: 'success';
-      readonly basket: BasketResponseData<P, V>;
+      readonly basket: BasketResponse;
     }
   | {
       readonly type: 'failure';
-      readonly basket: BasketResponseData<P, V>;
+      readonly basket: BasketResponse;
       readonly errors: AddOrUpdateItemError[];
     };
 
@@ -211,13 +213,13 @@ type AddWishlistItemResponse =
   | {
       type: 'success';
       statusCode: number;
-      wishlist: WishlistResponseData;
+      wishlist: WishlistResponse;
     }
   | {
       type: 'failure';
       statusCode: number;
       kind: AddToWhistlistFailureKind;
-      wishlist: WishlistResponseData;
+      wishlist: WishlistResponse;
     };
 
 export enum AddToWhistlistFailureKind {
@@ -411,7 +413,7 @@ export class StorefrontAPIClient {
     get: async (
       basketKey: string,
       params: Omit<GetBasketParameters, 'basketKey'> = {},
-    ): Promise<BasketResponse> => {
+    ): Promise<GetBasketResponse> => {
       const response = await this.executeWithStatus(
         getBasketEndpointRequest({
           ...params,
@@ -669,7 +671,7 @@ export class StorefrontAPIClient {
       basketKey: string,
       itemKey: string,
       params: Omit<DeleteItemParameters, 'basketKey' | 'itemKey'> = {},
-    ): Promise<BasketResponseData> =>
+    ): Promise<BasketResponse> =>
       this.execute(
         deleteBasketItemRequest({
           ...params,
@@ -777,20 +779,24 @@ export class StorefrontAPIClient {
     },
     getByReferenceKeys: async (
       referenceKeys: string[],
-      params: Omit<ProductsSearchEndpointParameters, 'where'> = {},
+      params: Omit<
+        ProductsSearchEndpointParameters<PagePaginationRequest>,
+        'where'
+      > = {},
     ): Promise<Product[]> => {
-      const paramsWithReferenceKeys: ProductsSearchEndpointParameters = {
-        ...params,
-        where: {
-          attributes: [
-            {
-              type: 'attributes',
-              key: 'referenceKey' as AttributeKey,
-              values: referenceKeys,
-            },
-          ],
-        },
-      };
+      const paramsWithReferenceKeys: ProductsSearchEndpointParameters<PagePaginationRequest> =
+        {
+          ...params,
+          where: {
+            attributes: [
+              {
+                type: 'attributes',
+                key: 'referenceKey' as AttributeKey,
+                values: referenceKeys,
+              },
+            ],
+          },
+        };
 
       const response = await this.execute(
         createProductsSearchEndpointRequest(paramsWithReferenceKeys),
@@ -820,10 +826,11 @@ export class StorefrontAPIClient {
 
       return null;
     },
-    query: (
-      params: ProductsSearchEndpointParameters = {},
-    ): Promise<ProductsByIdsEndpointResponseData> =>
-      this.execute(createProductsSearchEndpointRequest(params)),
+    query: <Pagination extends RequestPagination = PagePaginationRequest>(
+      params: ProductsSearchEndpointParameters<Pagination> = {},
+    ): Promise<
+      ProductsSearchEndpointResponseData<InferResponsePagination<Pagination>>
+    > => this.execute(createProductsSearchEndpointRequest<Pagination>(params)),
   };
 
   public readonly wishlist = {
@@ -925,7 +932,7 @@ export class StorefrontAPIClient {
   };
 
   public readonly shopConfiguration = {
-    get: async (): Promise<ShopConfigurationResponseData> => {
+    get: () => {
       return this.execute(createShopConfigurationRequest());
     },
   };
@@ -976,13 +983,13 @@ export class StorefrontAPIClient {
 //
 // Does not fail on the first error encountered, which makes it useful for cases where partial operations are desired.
 class BasketMultiOperationsClient {
-  public latestBasket: BasketResponseData;
+  public latestBasket: BasketResponse;
 
   private _client: StorefrontAPIClient;
 
   public errors: AddOrUpdateItemError[];
 
-  constructor(client: StorefrontAPIClient, latestBasket: BasketResponseData) {
+  constructor(client: StorefrontAPIClient, latestBasket: BasketResponse) {
     this.latestBasket = latestBasket;
     this.errors = [];
     this._client = client;
@@ -1084,7 +1091,7 @@ class BasketMultiOperationsClient {
     }
   }
 
-  private updateBasket(basket?: BasketResponseData) {
+  private updateBasket(basket?: BasketResponse) {
     // Small sanity check that we really got a valid basket, else keep the previous
     if (basket && basket?.key === this.latestBasket.key) {
       this.latestBasket = basket;

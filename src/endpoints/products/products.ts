@@ -1,5 +1,10 @@
-import {Pagination} from '../../endpoints/products/productsByIds';
 import {BapiCall} from '../../helpers/execute';
+import {
+  InferResponsePagination,
+  RequestPagination,
+  ResponsePagination,
+  buildRequestPaginationParameters,
+} from '../../types/Pagination';
 import {Product} from '../../types/Product';
 import {
   ProductSearchQuery,
@@ -29,7 +34,9 @@ export interface ProductSortConfig {
   sortingKey?: string;
 }
 
-export interface ProductsSearchEndpointParameters {
+export interface ProductsSearchEndpointParameters<
+  Pagination extends RequestPagination,
+> {
   where?: ProductSearchQuery;
 
   sort?: ProductSortConfig;
@@ -38,10 +45,7 @@ export interface ProductsSearchEndpointParameters {
 
   with?: ProductWith;
 
-  pagination?: {
-    page?: number;
-    perPage?: number;
-  };
+  pagination?: Pagination;
 
   includeSellableForFree?: boolean;
 
@@ -52,14 +56,20 @@ export interface ProductsSearchEndpointParameters {
   minProductId?: number;
 }
 
-export interface ProductsSearchEndpointResponseData {
+export interface ProductsSearchEndpointResponseData<
+  Pagination extends ResponsePagination,
+> {
   entities: Product[];
   pagination: Pagination;
 }
 
-export function createProductsSearchEndpointRequest(
-  parameters: ProductsSearchEndpointParameters,
-): BapiCall<ProductsSearchEndpointResponseData> {
+export function createProductsSearchEndpointRequest<
+  Pagination extends RequestPagination,
+>(
+  parameters: ProductsSearchEndpointParameters<Pagination>,
+): BapiCall<
+  ProductsSearchEndpointResponseData<InferResponsePagination<Pagination>>
+> {
   return {
     method: 'GET',
     endpoint: '/v1/products',
@@ -92,12 +102,7 @@ export function createProductsSearchEndpointRequest(
         ? {sortingKey: parameters.sort.sortingKey}
         : undefined),
 
-      ...(parameters.pagination && parameters.pagination.page
-        ? {page: parameters.pagination.page}
-        : undefined),
-      ...(parameters.pagination && parameters.pagination.perPage
-        ? {perPage: parameters.pagination.perPage}
-        : undefined),
+      ...buildRequestPaginationParameters(parameters.pagination),
 
       ...(parameters.campaignKey
         ? {campaignKey: parameters.campaignKey}

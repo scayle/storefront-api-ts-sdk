@@ -84,6 +84,7 @@ it('Builds correct query', () => {
     createProductsSearchEndpointRequest({
       pagination: {
         page: 1,
+        perPage: 1,
       },
     }),
   ).toMatchInlineSnapshot(`
@@ -92,6 +93,7 @@ it('Builds correct query', () => {
   "method": "GET",
   "params": {
     "page": 1,
+    "perPage": 1,
   },
 }
 `);

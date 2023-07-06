@@ -6,20 +6,19 @@ export {
 } from './StorefrontAPIClient';
 
 // Basket
-export {
-  BasketItem,
-  BasketKey,
-  BasketWith,
-  BasketItemPrice,
-  BasketTotalPrice,
-  BasketResponseData,
-  BasketItemDisplayData,
-  BasketPackageInformation,
-  GetBasketParameters,
-} from './endpoints/basket/getBasket';
+export {BasketWith, GetBasketParameters} from './endpoints/basket/getBasket';
 export {DeleteItemParameters} from './endpoints/basket/deleteItem';
 export {CreateBasketItemParameters} from './endpoints/basket/createItem';
 export {UpdateBasketItemQuantity} from './endpoints/basket/updateItem';
+export {
+  BasketItem,
+  BasketKey,
+  BasketItemPrice,
+  BasketTotalPrice,
+  BasketResponse,
+  BasketItemDisplayData,
+  BasketPackageInformation,
+} from './types/Basket';
 
 // Typeahead
 export {
@@ -34,8 +33,6 @@ export {
 
 // Wishlist
 export {
-  WishlistItem,
-  WishlistResponseData,
   WishlistWith,
   GetWishlistParameters,
 } from './endpoints/wishlist/getWishlist';
@@ -151,8 +148,3 @@ export {AttributeInclude} from './helpers/attributes';
 export {Campaign} from './types/campaign';
 
 export {ProductSearchQuery} from './types/ProductSearchQuery';
-
-export {
-  getAttributeValues,
-  getFirstAttributeValue,
-} from './helpers/bapiProduct';

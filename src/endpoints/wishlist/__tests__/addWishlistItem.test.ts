@@ -5,24 +5,6 @@ it('Builds correct query', () => {
     addWishlistItemEndpointRequest({
       wishlistKey: 'wishlist_1',
       item: {
-        masterKey: 'master_1',
-      },
-    }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "masterKey": "master_1",
-  },
-  "endpoint": "/v1/wishlists/wishlist_1/items",
-  "method": "POST",
-  "params": {},
-}
-`);
-
-  expect(
-    addWishlistItemEndpointRequest({
-      wishlistKey: 'wishlist_1',
-      item: {
         productId: 123,
       },
     }),
@@ -99,27 +81,6 @@ it('Builds correct query', () => {
   "method": "POST",
   "params": {
     "campaignKey": "px",
-  },
-}
-`);
-
-  expect(
-    addWishlistItemEndpointRequest({
-      wishlistKey: 'wishlist_1',
-      pricePromotionKey: 'test',
-      item: {
-        masterKey: 'master_1',
-      },
-    }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "masterKey": "master_1",
-  },
-  "endpoint": "/v1/wishlists/wishlist_1/items",
-  "method": "POST",
-  "params": {
-    "pricePromotionKey": "test",
   },
 }
 `);
