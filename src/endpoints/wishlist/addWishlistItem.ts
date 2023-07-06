@@ -1,14 +1,9 @@
 import {basketWithQueryParameter} from '../../endpoints/basket/getBasket';
-import {
-  WishlistResponseData,
-  WishlistWith,
-} from '../../endpoints/wishlist/getWishlist';
+import {WishlistWith} from '../../endpoints/wishlist/getWishlist';
 import {BapiCall} from '../../helpers/execute';
+import {WishlistResponse} from '../../types/Wishlist';
 
 export type WishlistItemCreationID =
-  | {
-      masterKey: string;
-    }
   | {
       productId: number;
     }
@@ -31,7 +26,7 @@ export interface AddWishlistItemParameters {
 
 export function addWishlistItemEndpointRequest(
   params: AddWishlistItemParameters,
-): BapiCall<WishlistResponseData> {
+): BapiCall<WishlistResponse> {
   return {
     method: 'POST',
     endpoint: `/v1/wishlists/${params.wishlistKey}/items`,

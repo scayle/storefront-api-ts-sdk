@@ -1,9 +1,7 @@
 import {basketWithQueryParameter} from '../../endpoints/basket/getBasket';
-import {
-  WishlistResponseData,
-  WishlistWith,
-} from '../../endpoints/wishlist/getWishlist';
+import {WishlistWith} from '../../endpoints/wishlist/getWishlist';
 import {BapiCall} from '../../helpers/execute';
+import {WishlistResponse} from '../../types/Wishlist';
 
 export interface DeleteWishlistParameters {
   wishlistKey: string;
@@ -17,7 +15,7 @@ export interface DeleteWishlistParameters {
 
 export function deleteWishlistEndpointRequest(
   params: DeleteWishlistParameters,
-): BapiCall<WishlistResponseData> {
+): BapiCall<WishlistResponse> {
   return {
     method: 'DELETE',
     endpoint: `/v1/wishlists/${params.wishlistKey}/items/${params.itemKey}`,

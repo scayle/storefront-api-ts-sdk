@@ -3,21 +3,9 @@ import {
   basketWithQueryParameter,
 } from '../../endpoints/basket/getBasket';
 import {BapiCall} from '../../helpers/execute';
-import {Product, Variant} from '../../types/Product';
+import {WishlistResponse} from '../../types/Wishlist';
 
 export type WishlistWith = BasketWith;
-
-export interface WishlistResponseData {
-  key: string;
-  items: WishlistItem[];
-}
-
-export interface WishlistItem {
-  key: string;
-
-  product?: Product;
-  variant?: Variant;
-}
 
 export interface GetWishlistParameters {
   wishlistKey: string;
@@ -30,7 +18,7 @@ export interface GetWishlistParameters {
 
 export function getWishlistEndpointRequest(
   params: GetWishlistParameters,
-): BapiCall<WishlistResponseData> {
+): BapiCall<WishlistResponse> {
   return {
     method: 'GET',
     endpoint: `/v1/wishlists/${params.wishlistKey}`,
