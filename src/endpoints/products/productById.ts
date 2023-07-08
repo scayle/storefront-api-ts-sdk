@@ -1,9 +1,6 @@
 import {BapiCall} from '../../helpers/execute';
 import {Product} from '../../types/Product';
-import {
-  ProductWith,
-  productWithQueryParameterValues,
-} from '../../types/ProductWith';
+import {ProductWith, productWithQueryParameterValues} from '../../types/ProductWith';
 
 export interface ProductByIdEndpointParameters {
   productId: number;
@@ -25,20 +22,14 @@ export function createProductByIdEndpointRequest(
     method: 'GET',
     endpoint: `/v1/products/${parameters.productId}`,
     params: {
-      ...(parameters.with
-        ? {with: productWithQueryParameterValues(parameters.with).join(`,`)}
-        : undefined),
-      ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
-        : undefined),
+      ...(parameters.with ? {with: productWithQueryParameterValues(parameters.with).join(`,`)} : undefined),
+      ...(parameters.campaignKey ? {campaignKey: parameters.campaignKey} : undefined),
       ...(parameters.pricePromotionKey
         ? {
             pricePromotionKey: parameters.pricePromotionKey,
           }
         : undefined),
-      ...(parameters.includeSellableForFree
-        ? {includeSellableForFree: parameters.includeSellableForFree}
-        : undefined),
+      ...(parameters.includeSellableForFree ? {includeSellableForFree: parameters.includeSellableForFree} : undefined),
     },
   };
 }

@@ -1,6 +1,7 @@
+import {CustomData} from './CustomData';
 import {RFC33339Date} from './Product';
 
-export interface Campaign {
+export type Campaign = {
   id: number;
   key: string;
   name: string;
@@ -8,4 +9,5 @@ export interface Campaign {
   reduction: number;
   start_at: RFC33339Date | null;
   end_at: RFC33339Date | null;
-}
+  customData: CustomData;
+};

@@ -33,15 +33,11 @@ export function attributeIncludeParameters(
     parameterValues.push(type);
   } else {
     if (attributeInclude.withKey) {
-      parameterValues.push(
-        `${type}:key(${attributeInclude.withKey.join('|')})`,
-      );
+      parameterValues.push(`${type}:key(${attributeInclude.withKey.join('|')})`);
     }
 
     if (attributeInclude.ofType) {
-      parameterValues.push(
-        `${type}:type(${attributeInclude.ofType.join('|')})`,
-      );
+      parameterValues.push(`${type}:type(${attributeInclude.ofType.join('|')})`);
     }
   }
 

@@ -1,8 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {
-  ProductWith,
-  productWithQueryParameterValues,
-} from '../../types/ProductWith';
+import {ProductWith, productWithQueryParameterValues} from '../../types/ProductWith';
 import {Product} from '../../types/Product';
 import {Category} from '../../types/Category';
 import {prefixList} from '../../helpers/attributes';
@@ -42,9 +39,7 @@ export type TypeaheadSuggestionsEndpointResponseData = {
   suggestions: Array<TypeaheadSuggestion>;
 };
 
-export type TypeaheadSuggestion =
-  | TypeaheadProductSuggestion
-  | TypeaheadBrandOrCategorySuggestion;
+export type TypeaheadSuggestion = TypeaheadProductSuggestion | TypeaheadBrandOrCategorySuggestion;
 
 export interface TypeaheadProductSuggestion {
   type: 'product';
@@ -126,19 +121,13 @@ export function createTypeaheadSuggestionsEndpointRequest(
     params: {
       term: parameters.term,
 
-      ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
-        : undefined),
+      ...(parameters.campaignKey ? {campaignKey: parameters.campaignKey} : undefined),
 
       with: [
         ...(parameters.with?.products
-          ? prefixList('product.')(
-              productWithQueryParameterValues(parameters.with?.products),
-            )
+          ? prefixList('product.')(productWithQueryParameterValues(parameters.with?.products))
           : []),
-        ...(parameters.with?.categories?.parents === 'all'
-          ? ['category.parents']
-          : []),
+        ...(parameters.with?.categories?.parents === 'all' ? ['category.parents'] : []),
 
         ...(parameters.with?.categories?.children ? ['category.children'] : []),
       ].join(`,`),
@@ -148,12 +137,8 @@ export function createTypeaheadSuggestionsEndpointRequest(
         : undefined),
     },
     data: {
-      ...(parameters.categoryId
-        ? {categoryId: parameters.categoryId}
-        : undefined),
-      ...(parameters.productLimit != null
-        ? {limit: parameters.productLimit}
-        : undefined),
+      ...(parameters.categoryId ? {categoryId: parameters.categoryId} : undefined),
+      ...(parameters.productLimit != null ? {limit: parameters.productLimit} : undefined),
     },
   };
 }

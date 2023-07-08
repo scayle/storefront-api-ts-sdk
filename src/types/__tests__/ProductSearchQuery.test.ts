@@ -7,8 +7,7 @@ it('Converts search query', () => {
   expect(queryParamsFromProductSearchQuery({})).toMatchInlineSnapshot(`{}`);
 
   // Leave some but not all values blank
-  expect(queryParamsFromProductSearchQuery({categoryId: 1234}))
-    .toMatchInlineSnapshot(`
+  expect(queryParamsFromProductSearchQuery({categoryId: 1234})).toMatchInlineSnapshot(`
 {
   "filters[category]": 1234,
 }

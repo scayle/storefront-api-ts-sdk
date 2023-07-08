@@ -13,9 +13,7 @@ it('Converts attribute filters', () => {
         withKey: ['singleKey'],
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"attributes:key(singleKey),images.attributes:legacy(false)"`,
-  );
+  ).toMatchInlineSnapshot(`"attributes:key(singleKey),images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -23,9 +21,7 @@ it('Converts attribute filters', () => {
         withKey: ['keyA', 'keyB'],
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"attributes:key(keyA|keyB),images.attributes:legacy(false)"`,
-  );
+  ).toMatchInlineSnapshot(`"attributes:key(keyA|keyB),images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -33,9 +29,7 @@ it('Converts attribute filters', () => {
         ofType: ['type1', 'type2'],
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"attributes:type(type1|type2),images.attributes:legacy(false)"`,
-  );
+  ).toMatchInlineSnapshot(`"attributes:type(type1|type2),images.attributes:legacy(false)"`);
 });
 
 it('Converts image filters', () => {
@@ -80,17 +74,13 @@ it('Converts category filters', () => {
     productWithQueryParameterValues({
       categories: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:properties()"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:properties()"`);
 
   expect(
     productWithQueryParameterValues({
       categories: {},
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:properties()"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:properties()"`);
 
   expect(
     productWithQueryParameterValues({
@@ -98,9 +88,7 @@ it('Converts category filters', () => {
         includeHidden: true,
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true):properties()"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:hidden(true):properties()"`);
 
   expect(
     productWithQueryParameterValues({
@@ -109,9 +97,7 @@ it('Converts category filters', () => {
         properties: 'all',
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true)"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:hidden(true)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -120,9 +106,7 @@ it('Converts category filters', () => {
         properties: {withName: ['foo', 'bar']},
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true):properties(foo|bar)"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:hidden(true):properties(foo|bar)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -131,9 +115,7 @@ it('Converts category filters', () => {
         properties: {withName: ['foo', 'bar']},
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:properties(foo|bar)"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:properties(foo|bar)"`);
 });
 
 it('Converts sibling filters', () => {
@@ -168,9 +150,7 @@ it('Converts variant filters', () => {
         attributes: 'all',
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"variants,variants.attributes,images.attributes:legacy(false)"`,
-  );
+  ).toMatchInlineSnapshot(`"variants,variants.attributes,images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -180,9 +160,7 @@ it('Converts variant filters', () => {
         },
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"variants,variants.attributes:key(keyA),images.attributes:legacy(false)"`,
-  );
+  ).toMatchInlineSnapshot(`"variants,variants.attributes:key(keyA),images.attributes:legacy(false)"`);
 });
 
 it('Images attributes', () => {
@@ -238,9 +216,7 @@ it('Includes price range field', () => {
     }).join(','),
   ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
 
-  expect(productWithQueryParameterValues({}).join(',')).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false)"`,
-  );
+  expect(productWithQueryParameterValues({}).join(',')).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
 });
 
 it('Can request stock and custom on variants', () => {
@@ -252,9 +228,7 @@ it('Can request stock and custom on variants', () => {
         },
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"variants,variants.stock,variants.stock.customData,images.attributes:legacy(false)"`,
-  );
+  ).toMatchInlineSnapshot(`"variants,variants.stock,variants.stock.customData,images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -274,9 +248,7 @@ it('Can request stock and custom on variants', () => {
         stock: 'all',
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"variants,variants.stock,images.attributes:legacy(false)"`,
-  );
+  ).toMatchInlineSnapshot(`"variants,variants.stock,images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -284,9 +256,7 @@ it('Can request stock and custom on variants', () => {
         stock: {},
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"variants,variants.stock,images.attributes:legacy(false)"`,
-  );
+  ).toMatchInlineSnapshot(`"variants,variants.stock,images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -294,9 +264,7 @@ it('Can request stock and custom on variants', () => {
         includeHidden: true,
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true):properties()"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:hidden(true):properties()"`);
 
   expect(
     productWithQueryParameterValues({
@@ -305,9 +273,7 @@ it('Can request stock and custom on variants', () => {
         properties: 'all',
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true)"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:hidden(true)"`);
 
   expect(
     productWithQueryParameterValues({
@@ -315,15 +281,11 @@ it('Can request stock and custom on variants', () => {
         properties: {withName: ['category_context', 'reference_id']},
       },
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:properties(category_context|reference_id)"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:properties(category_context|reference_id)"`);
 
   expect(
     productWithQueryParameterValues({
       searchCategoryIds: true,
     }).join(','),
-  ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),searchCategoryIds"`,
-  );
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),searchCategoryIds"`);
 });

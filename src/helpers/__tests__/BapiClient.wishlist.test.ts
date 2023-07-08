@@ -1,8 +1,5 @@
 import {StorefrontAPIClient} from '../../StorefrontAPIClient';
-import {
-  disableNetAndAllowBapiCors,
-  nockWithBapiScope,
-} from '../../test-helpers/nock';
+import {disableNetAndAllowBapiCors, nockWithBapiScope} from '../../test-helpers/nock';
 
 disableNetAndAllowBapiCors();
 

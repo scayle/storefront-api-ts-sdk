@@ -1,9 +1,9 @@
 import {BapiCall} from '../../helpers/execute';
 import {APISortOrder} from '../../endpoints/products/products';
 import {Pagination} from '../../endpoints/products/productsByIds';
-import {Campaign} from '../../types/campaign';
+import {Campaign} from '../../types/Campaign';
 
-export type CampaignsEndpointResponseData = {
+export type CampaignsEndpointResponse = {
   pagination: Pagination;
   entities: Campaign[];
 };
@@ -30,21 +30,15 @@ export interface CampaignsEndpointRequestParameters {
 
 export function createCampaignsEndpointRequest(
   parameters: CampaignsEndpointRequestParameters = {},
-): BapiCall<CampaignsEndpointResponseData> {
+): BapiCall<CampaignsEndpointResponse> {
   return {
     method: 'GET',
     endpoint: '/v1/campaigns',
     params: {
-      ...(parameters.sort && parameters.sort.by
-        ? {sort: parameters.sort.by}
-        : undefined),
-      ...(parameters.sort && parameters.sort.direction
-        ? {sortDir: parameters.sort.direction}
-        : undefined),
+      ...(parameters.sort && parameters.sort.by ? {sort: parameters.sort.by} : undefined),
+      ...(parameters.sort && parameters.sort.direction ? {sortDir: parameters.sort.direction} : undefined),
 
-      ...(parameters.pagination && parameters.pagination.page
-        ? {page: parameters.pagination.page}
-        : undefined),
+      ...(parameters.pagination && parameters.pagination.page ? {page: parameters.pagination.page} : undefined),
       ...(parameters.pagination && parameters.pagination.perPage
         ? {perPage: parameters.pagination.perPage}
         : undefined),

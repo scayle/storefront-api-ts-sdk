@@ -1,11 +1,7 @@
-import {
-  createSearchResolveEndpointRequest,
-  SearchResolveEndpointResponseData,
-} from '../resolve';
+import {createSearchResolveEndpointRequest, SearchResolveEndpointResponseData} from '../resolve';
 
 it('Builds correct query', () => {
-  expect(createSearchResolveEndpointRequest({term: 'maxi rot'}))
-    .toMatchInlineSnapshot(`
+  expect(createSearchResolveEndpointRequest({term: 'maxi rot'})).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/search/resolve",
   "method": "GET",

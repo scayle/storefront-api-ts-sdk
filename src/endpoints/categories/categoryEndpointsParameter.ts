@@ -23,9 +23,7 @@ export interface CategoryEndpointsParameters {
   includeHidden?: true;
 }
 
-export function parametersForCategoryEndpoint(
-  parameters: CategoryEndpointsParameters,
-) {
+export function parametersForCategoryEndpoint(parameters: CategoryEndpointsParameters) {
   return {
     ...categoryWithQueryParameters(parameters.with),
 
@@ -33,9 +31,11 @@ export function parametersForCategoryEndpoint(
   };
 }
 
-function categoryWithQueryParameters(
-  categoryWith?: CategoryEndpointsParameters['with'],
-): {with?: string; depth?: number; showHidden?: 'true'} {
+function categoryWithQueryParameters(categoryWith?: CategoryEndpointsParameters['with']): {
+  with?: string;
+  depth?: number;
+  showHidden?: 'true';
+} {
   if (!categoryWith) {
     return {
       depth: 1,
@@ -54,9 +54,7 @@ function categoryWithQueryParameters(
     if (categoryWith.properties === 'all') {
       withParams.push('properties');
     } else {
-      withParams.push(
-        `properties:name(${categoryWith.properties.withName.join('|')})`,
-      );
+      withParams.push(`properties:name(${categoryWith.properties.withName.join('|')})`);
     }
   } else {
     // include no properties by default

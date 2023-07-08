@@ -1,6 +1,7 @@
+import {CustomData} from './CustomData';
 import {RFC33339Date} from './Product';
 
-export interface Brand {
+export type Brand = {
   /**
    * The unique identifier of the brand, can be used for retrieving specific brand. ID which would be used to filter for brands in the `products` and `filters` endpoint
    */
@@ -14,17 +15,17 @@ export interface Brand {
   /**
    * Name of the brand
    */
-  name?: string;
+  name: string;
 
   /**
    * Arbitrary custom data object to be added to the brand.
    */
-  customData?: Record<string, unknown>;
+  customData: CustomData;
 
   /**
    * External reference set by the client to integrate a third-party party system.
    */
-  externalReference?: string;
+  externalReference: string;
 
   /**
    * Brand group.
@@ -50,4 +51,4 @@ export interface Brand {
    * Date string of last update, formatted according to RFC 3339, e.g. `2020-06-05 09:11:25`
    */
   updatedAt: RFC33339Date;
-}
+};

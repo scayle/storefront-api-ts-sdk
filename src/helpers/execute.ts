@@ -1,9 +1,7 @@
 import {AxiosInstance, AxiosResponse, AxiosRequestConfig} from 'axios';
 import {StorefrontAPIAuth} from '../StorefrontAPIClient';
 
-export const getParamsString = (
-  params?: Partial<Record<string, string | number | boolean>>,
-) => {
+export const getParamsString = (params?: Partial<Record<string, string | number | boolean>>) => {
   if (!params) {
     return '';
   }
@@ -65,10 +63,7 @@ export async function execute<SuccessResponseT>(
   countryIdPlacement: 'header' | 'query',
   auth?: StorefrontAPIAuth,
 ): Promise<BapiResponse<SuccessResponseT>> {
-  const params =
-    countryIdPlacement === 'query'
-      ? {...bapiCall.params, countryId: countryId}
-      : bapiCall.params;
+  const params = countryIdPlacement === 'query' ? {...bapiCall.params, countryId: countryId} : bapiCall.params;
 
   const url = `https://${host}${bapiCall.endpoint}${getParamsString(params)}`;
 
@@ -78,21 +73,12 @@ export async function execute<SuccessResponseT>(
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      ...(typeof window === 'undefined'
-        ? {'accept-encoding': 'gzip, deflate'}
-        : {}),
-      ...(countryIdPlacement === 'header'
-        ? {'X-Country-Id': `${countryId}`}
-        : {}),
+      ...(typeof window === 'undefined' ? {'accept-encoding': 'gzip, deflate'} : {}),
+      ...(countryIdPlacement === 'header' ? {'X-Country-Id': `${countryId}`} : {}),
       ...(auth?.type === 'token' ? {'X-Access-Token': auth.token} : {}),
     },
-    data:
-      bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
-        ? bapiCall.data
-        : undefined,
-    validateStatus: acceptAllResponseCodes
-      ? () => true
-      : statusCode => statusCode >= 200 && statusCode <= 299,
+    data: bapiCall.method === 'POST' || bapiCall.method === 'PATCH' ? bapiCall.data : undefined,
+    validateStatus: acceptAllResponseCodes ? () => true : statusCode => statusCode >= 200 && statusCode <= 299,
     auth:
       auth?.type === 'basic'
         ? {
@@ -102,10 +88,7 @@ export async function execute<SuccessResponseT>(
         : undefined,
   } as AxiosRequestConfig);
 
-  if (
-    bapiCall.responseValidator &&
-    !bapiCall.responseValidator(response.data)
-  ) {
+  if (bapiCall.responseValidator && !bapiCall.responseValidator(response.data)) {
     throw new Error(`Invalid response data`);
   }
 

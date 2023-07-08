@@ -1,11 +1,13 @@
-export interface ShopConfigurationResponse {
+import {CustomData} from './CustomData';
+
+export type ShopConfigurationResponse = {
   shopId: number;
   name: string;
   properties: Array<{
     key: string;
     value: string;
   }>;
-  customData: Partial<Record<string, unknown>>;
-  shopCustomData: Partial<Record<string, unknown>>;
+  customData: CustomData;
+  shopCustomData: CustomData;
   country: string;
-}
+};

@@ -24,9 +24,7 @@ export interface AddWishlistItemParameters {
   skipAvailabilityCheck?: boolean;
 }
 
-export function addWishlistItemEndpointRequest(
-  params: AddWishlistItemParameters,
-): BapiCall<WishlistResponse> {
+export function addWishlistItemEndpointRequest(params: AddWishlistItemParameters): BapiCall<WishlistResponse> {
   return {
     method: 'POST',
     endpoint: `/v1/wishlists/${params.wishlistKey}/items`,
@@ -37,12 +35,8 @@ export function addWishlistItemEndpointRequest(
           }
         : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
-      ...(params.pricePromotionKey
-        ? {pricePromotionKey: params.pricePromotionKey}
-        : undefined),
-      ...(params.skipAvailabilityCheck
-        ? {skipAvailabilityCheck: params.skipAvailabilityCheck}
-        : undefined),
+      ...(params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
+      ...(params.skipAvailabilityCheck ? {skipAvailabilityCheck: params.skipAvailabilityCheck} : undefined),
     },
     data: {
       ...params.item,

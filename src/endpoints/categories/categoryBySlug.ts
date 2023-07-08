@@ -1,13 +1,9 @@
 import {BapiCall} from '../../helpers/execute';
 import {Category} from '../../types/Category';
-import {
-  CategoryEndpointsParameters,
-  parametersForCategoryEndpoint,
-} from './categoryEndpointsParameter';
+import {CategoryEndpointsParameters, parametersForCategoryEndpoint} from './categoryEndpointsParameter';
 import {CategoryPropertiesWith} from './CategoryPropertiesWith';
 
-export interface CategoryBySlugEndpointParameters
-  extends CategoryEndpointsParameters {
+export interface CategoryBySlugEndpointParameters extends CategoryEndpointsParameters {
   slugPath: string[];
 
   with?: {
@@ -42,7 +38,6 @@ export function createCategoryBySlugEndpointRequest(
     params: {
       ...parametersForCategoryEndpoint(params),
     },
-    responseValidator: (response): response is Category =>
-      typeof response === 'object' && !Array.isArray(response),
+    responseValidator: (response): response is Category => typeof response === 'object' && !Array.isArray(response),
   };
 }

@@ -1,13 +1,9 @@
 import {BapiCall} from '../../helpers/execute';
 import {Category} from '../../types/Category';
-import {
-  CategoryEndpointsParameters,
-  parametersForCategoryEndpoint,
-} from './categoryEndpointsParameter';
+import {CategoryEndpointsParameters, parametersForCategoryEndpoint} from './categoryEndpointsParameter';
 import {CategoryPropertiesWith} from './CategoryPropertiesWith';
 
-export interface CategoriesByIdsEndpointParameters
-  extends CategoryEndpointsParameters {
+export interface CategoriesByIdsEndpointParameters extends CategoryEndpointsParameters {
   categoryIds: number[];
 
   with?: {
@@ -59,9 +55,7 @@ export function createCategoriesByIdsEndpointRequest(
           // Set children here to `absoluteDepth - 1` as we map from absolute depth to `levels of children` depth
           // (meaning `+1` will be added again further down the call chain)
           children:
-            parameters.with?.absoluteDepth !== undefined
-              ? Math.max(parameters.with.absoluteDepth - 1, 0)
-              : undefined,
+            parameters.with?.absoluteDepth !== undefined ? Math.max(parameters.with.absoluteDepth - 1, 0) : undefined,
         },
       }),
     },

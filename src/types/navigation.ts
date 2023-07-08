@@ -1,6 +1,7 @@
 import {RFC33339Date} from './Product';
 import {Category} from './Category';
 
+// TODO: Check types
 export type NavigationItem = {
   id: number;
   assets: {[key: string]: string};
@@ -35,9 +36,7 @@ export type NavigationItemAttributeExtraFilter = NavigationItemExtraFilter & {
 export type NavigationItemCategory = NavigationItem & {
   type: 'category';
   extraFilters: {
-    [key: string]:
-      | NavigationItemExtraFilter
-      | NavigationItemAttributeExtraFilter[];
+    [key: string]: NavigationItemExtraFilter | NavigationItemAttributeExtraFilter[];
   };
   categoryId: number;
   category?: Category | null;
@@ -48,11 +47,7 @@ export type NavigationItemPage = NavigationItem & {
   page: string;
 };
 
-export type NavigationItems = (
-  | NavigationItemExternal
-  | NavigationItemCategory
-  | NavigationItemPage
-)[];
+export type NavigationItems = (NavigationItemExternal | NavigationItemCategory | NavigationItemPage)[];
 
 export type NavigationTree = {
   id: number;

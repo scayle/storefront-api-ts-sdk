@@ -2,6 +2,10 @@
 
 We
 
+- Removed `currencyCode` on basket response
+- Changed typing of `customData` fields to `Record<string, unknown>`
+- Removed description field from category
+
 ### Removal of product helpers
 
 ```

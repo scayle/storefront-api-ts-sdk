@@ -147,9 +147,7 @@ export type AdvancedAttribute = {
   }>;
 };
 
-type FieldSet = Array<
-  Array<{[key: string]: string | number | null | undefined}>
->;
+type FieldSet = Array<Array<{[key: string]: string | number | null | undefined}>>;
 
 type GroupSet = Array<{
   fieldSet: FieldSet;

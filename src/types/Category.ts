@@ -1,9 +1,11 @@
-export interface CategoryProperty {
-  name: string;
-  value: string;
-}
+import {CustomData} from './CustomData';
 
-export interface Category {
+export type CategoryProperty = {
+  name: string;
+  value: string | number | null;
+};
+
+export type Category = {
   /**
    * the category id
    */
@@ -21,17 +23,13 @@ export interface Category {
    */
   slug: string;
   /**
-   * the description of the category
-   */
-  description: string;
-  /**
    * parentId is 0 for root categories
    */
   parentId: number;
   /**
    * Contains the IDs for the path from the topmost root category to the current category, which is included as the last item.
    */
-  rootlineIds?: number[];
+  rootlineIds: number[];
   /**
    * child category IDs attached to the current category
    */
@@ -63,6 +61,6 @@ export interface Category {
    */
   supportedFilter: string[];
 
-  shopLevelCustomData?: Record<string, unknown>;
-  countryLevelCustomData?: Record<string, unknown>;
-}
+  shopLevelCustomData: CustomData;
+  countryLevelCustomData: CustomData;
+};

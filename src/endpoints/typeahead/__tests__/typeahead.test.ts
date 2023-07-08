@@ -1,8 +1,7 @@
 import {createTypeaheadSuggestionsEndpointRequest} from '../typeahead';
 
 it('Builds correct query', () => {
-  expect(createTypeaheadSuggestionsEndpointRequest({term: 'term 1'}))
-    .toMatchInlineSnapshot(`
+  expect(createTypeaheadSuggestionsEndpointRequest({term: 'term 1'})).toMatchInlineSnapshot(`
 {
   "data": {},
   "endpoint": "/v1/typeahead",

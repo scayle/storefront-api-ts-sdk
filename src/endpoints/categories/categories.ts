@@ -1,13 +1,9 @@
 import {BapiCall} from '../../helpers/execute';
 import {Category} from '../../types/Category';
-import {
-  CategoryEndpointsParameters,
-  parametersForCategoryEndpoint,
-} from './categoryEndpointsParameter';
+import {CategoryEndpointsParameters, parametersForCategoryEndpoint} from './categoryEndpointsParameter';
 import {CategoryPropertiesWith} from './CategoryPropertiesWith';
 
-export interface RootCategoriesEndpointParameters
-  extends CategoryEndpointsParameters {
+export interface RootCategoriesEndpointParameters extends CategoryEndpointsParameters {
   with?: {
     // How many levels of children to load
     //
@@ -30,9 +26,7 @@ export interface RootCategoriesEndpointParameters
 //
 // Unlike the plain BAPI API, this does not load all children by default
 // Use `with.children` to specify how many levels of children to load
-export function createCategoriesEndpointRequest(
-  params: RootCategoriesEndpointParameters = {},
-): BapiCall<Category[]> {
+export function createCategoriesEndpointRequest(params: RootCategoriesEndpointParameters = {}): BapiCall<Category[]> {
   return {
     method: 'GET',
     endpoint: `/v1/categories`,

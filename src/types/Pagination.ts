@@ -1,8 +1,8 @@
-export interface OffsetPaginationResponse {
+export type OffsetPaginationResponse = {
   total: number;
-}
+};
 
-export interface PagePaginationResponse {
+export type PagePaginationResponse = {
   current: number;
   total: number;
   perPage: number;
@@ -11,32 +11,27 @@ export interface PagePaginationResponse {
   prev: number;
   next: number;
   last: number;
-}
+};
 
-export type ResponsePagination =
-  | PagePaginationResponse
-  | OffsetPaginationResponse;
+export type ResponsePagination = PagePaginationResponse | OffsetPaginationResponse;
 
-export type InferResponsePagination<R extends RequestPagination> =
-  R extends PagePaginationRequest
-    ? PagePaginationResponse
-    : OffsetPaginationResponse;
+export type InferResponsePagination<R extends RequestPagination> = R extends PagePaginationRequest
+  ? PagePaginationResponse
+  : OffsetPaginationResponse;
 
-export interface PagePaginationRequest {
+export type PagePaginationRequest = {
   page: number;
   perPage: number;
-}
+};
 
-export interface OffsetPaginationRequest {
+export type OffsetPaginationRequest = {
   offset: number;
   limit: number;
-}
+};
 
 export type RequestPagination = PagePaginationRequest | OffsetPaginationRequest;
 
-export const buildRequestPaginationParameters = (
-  pagination?: RequestPagination,
-) => {
+export const buildRequestPaginationParameters = (pagination?: RequestPagination) => {
   if (!pagination) {
     return {};
   }

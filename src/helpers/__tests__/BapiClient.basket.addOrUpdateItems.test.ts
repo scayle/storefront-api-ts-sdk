@@ -1,11 +1,5 @@
-import {
-  StorefrontAPIClient,
-  ExistingItemHandling,
-} from '../../StorefrontAPIClient';
-import {
-  nockWithBapiScope,
-  disableNetAndAllowBapiCors,
-} from '../../test-helpers/nock';
+import {StorefrontAPIClient, ExistingItemHandling} from '../../StorefrontAPIClient';
+import {nockWithBapiScope, disableNetAndAllowBapiCors} from '../../test-helpers/nock';
 import nock from 'nock';
 
 disableNetAndAllowBapiCors({shopIdHeader: true});
@@ -14,13 +8,9 @@ it.skip('BapiClient.addOrUpdateItems: Does nothing for new variant with quantity
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json', {
+      'Content-Type': 'application/json',
+    });
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
@@ -50,26 +40,16 @@ it.skip('BapiClient.addOrUpdateItems: Deletes existing variant variant with quan
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json', {
+      'Content-Type': 'application/json',
+    });
 
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .delete(
-      '/v1/baskets/aboutyou_customer_4351754/items/2f321b8a934c34c5620833cfb1451a6e',
-    )
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/empty-basket.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .delete('/v1/baskets/aboutyou_customer_4351754/items/2f321b8a934c34c5620833cfb1451a6e')
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/empty-basket.json', {
+      'Content-Type': 'application/json',
+    });
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
@@ -106,13 +86,9 @@ it.skip('BapiClient.addOrUpdateItems: Creates new item for new variant', async (
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json', {
+      'Content-Type': 'application/json',
+    });
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .post('/v1/baskets/aboutyou_customer_4351754/items', {
@@ -121,8 +97,7 @@ it.skip('BapiClient.addOrUpdateItems: Creates new item for new variant', async (
     })
     .replyWithFile(
       200,
-      __dirname +
-        '/responses/basket-addOrUpdateItems/basket-with-2-items-including-new-variant-1234.json',
+      __dirname + '/responses/basket-addOrUpdateItems/basket-with-2-items-including-new-variant-1234.json',
       {
         'Content-Type': 'application/json',
       },
@@ -155,13 +130,9 @@ it.skip('BapiClient.addOrUpdateItems: Handles failures (responding with the last
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json', {
+      'Content-Type': 'application/json',
+    });
 
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
@@ -208,26 +179,16 @@ it.skip('BapiClient.addOrUpdateItems: Replaces existing item with combined quant
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json', {
+      'Content-Type': 'application/json',
+    });
 
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .delete(
-      '/v1/baskets/aboutyou_customer_4351754/items/2f321b8a934c34c5620833cfb1451a6e',
-    )
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/empty-basket.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .delete('/v1/baskets/aboutyou_customer_4351754/items/2f321b8a934c34c5620833cfb1451a6e')
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/empty-basket.json', {
+      'Content-Type': 'application/json',
+    });
 
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
@@ -236,13 +197,9 @@ it.skip('BapiClient.addOrUpdateItems: Replaces existing item with combined quant
       quantity: 5,
       customData: {pricePromotionKey: 'some-pPK'},
     })
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json', {
+      'Content-Type': 'application/json',
+    });
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
@@ -273,26 +230,16 @@ it.skip('BapiClient.addOrUpdateItems: Replaces existing item (with origin quanti
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
     .get('/v1/baskets/aboutyou_customer_4351754')
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json', {
+      'Content-Type': 'application/json',
+    });
 
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .delete(
-      '/v1/baskets/aboutyou_customer_4351754/items/2f321b8a934c34c5620833cfb1451a6e',
-    )
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/empty-basket.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .delete('/v1/baskets/aboutyou_customer_4351754/items/2f321b8a934c34c5620833cfb1451a6e')
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/empty-basket.json', {
+      'Content-Type': 'application/json',
+    });
 
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
@@ -300,13 +247,9 @@ it.skip('BapiClient.addOrUpdateItems: Replaces existing item (with origin quanti
       variantId: 8683280,
       quantity: 4,
     })
-    .replyWithFile(
-      200,
-      __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json',
-      {
-        'Content-Type': 'application/json',
-      },
-    );
+    .replyWithFile(200, __dirname + '/responses/basket-addOrUpdateItems/basket-with-1-item.json', {
+      'Content-Type': 'application/json',
+    });
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',

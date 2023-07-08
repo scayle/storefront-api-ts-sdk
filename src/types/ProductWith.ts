@@ -1,8 +1,4 @@
-import {
-  AttributeInclude,
-  attributeIncludeParameters,
-  prefixList,
-} from '../helpers/attributes';
+import {AttributeInclude, attributeIncludeParameters, prefixList} from '../helpers/attributes';
 
 export type ProductImageWith =
   | 'all'
@@ -55,28 +51,19 @@ export interface VariantWith {
       };
 }
 
-export function productWithQueryParameterValues(
-  productWith: ProductWith,
-): string[] {
+export function productWithQueryParameterValues(productWith: ProductWith): string[] {
   const parameterValues: string[] = [];
 
   parameterValues.push(
     ...attributeIncludeParameters('attributes', productWith.attributes),
-    ...attributeIncludeParameters(
-      'advancedAttributes',
-      productWith.advancedAttributes,
-    ),
+    ...attributeIncludeParameters('advancedAttributes', productWith.advancedAttributes),
   );
 
   if (productWith.variants) {
     parameterValues.push('variants'); // always add, if any variants data requested
 
     if (productWith.variants && typeof productWith.variants === 'object') {
-      parameterValues.push(
-        ...prefixList('variants.')(
-          variantWithQueryParameterValues(productWith.variants),
-        ),
-      );
+      parameterValues.push(...prefixList('variants.')(variantWithQueryParameterValues(productWith.variants)));
     }
   }
 
@@ -90,15 +77,11 @@ export function productWithQueryParameterValues(
     imagesAttributesFilters.push('legacy(false)');
 
     if (productWith.images.attributes.withKey) {
-      imagesAttributesFilters.push(
-        `key(${productWith.images.attributes.withKey.join('|')})`,
-      );
+      imagesAttributesFilters.push(`key(${productWith.images.attributes.withKey.join('|')})`);
     }
 
     if (imagesAttributesFilters.length > 0) {
-      parameterValues.push(
-        `images.attributes:${imagesAttributesFilters.join(':')}`,
-      );
+      parameterValues.push(`images.attributes:${imagesAttributesFilters.join(':')}`);
     }
   }
 
@@ -113,9 +96,7 @@ export function productWithQueryParameterValues(
       if (productWith.categories.properties === 'all') {
         // do nothing, all properties are included by default for legacy reasons
       } else if (typeof productWith.categories.properties === 'object') {
-        categoryFlags.push(
-          `properties(${productWith.categories.properties.withName.join('|')})`,
-        );
+        categoryFlags.push(`properties(${productWith.categories.properties.withName.join('|')})`);
       } else {
         // don't include any properties by default
         categoryFlags.push(`properties()`);
@@ -137,9 +118,7 @@ export function productWithQueryParameterValues(
 
     if (productWith.siblings && typeof productWith.siblings === 'object') {
       parameterValues.push(
-        ...productWithQueryParameterValues(productWith.siblings).map(
-          queryParameter => `siblings.${queryParameter}`,
-        ),
+        ...productWithQueryParameterValues(productWith.siblings).map(queryParameter => `siblings.${queryParameter}`),
       );
     }
   }
@@ -167,20 +146,13 @@ export function productWithQueryParameterValues(
   return parameterValues;
 }
 
-export function variantWithQueryParameterValues(
-  variantWith: VariantWith,
-): string[] {
+export function variantWithQueryParameterValues(variantWith: VariantWith): string[] {
   return [
     ...attributeIncludeParameters('attributes', variantWith.attributes),
-    ...attributeIncludeParameters(
-      'advancedAttributes',
-      variantWith.advancedAttributes,
-    ),
+    ...attributeIncludeParameters('advancedAttributes', variantWith.advancedAttributes),
     ...(variantWith.lowestPriorPrice ? ['lowestPriorPrice'] : []),
     ...(variantWith.stock ? ['stock'] : []),
-    ...(variantWith.stock &&
-    typeof variantWith.stock === 'object' &&
-    variantWith.stock.customData
+    ...(variantWith.stock && typeof variantWith.stock === 'object' && variantWith.stock.customData
       ? ['stock.customData']
       : []),
   ];

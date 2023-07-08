@@ -1,8 +1,7 @@
 import {createSearchSuggestionsEndpointRequest} from '../suggestions';
 
 it('Builds correct query', () => {
-  expect(createSearchSuggestionsEndpointRequest({term: 'term 1'}))
-    .toMatchInlineSnapshot(`
+  expect(createSearchSuggestionsEndpointRequest({term: 'term 1'})).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/search/suggestions",
   "method": "GET",

@@ -1,13 +1,13 @@
 import {Product, Variant} from './Product';
 
-export interface WishlistResponse {
+export type WishlistResponse = {
   key: string;
   items: WishlistItem[];
-}
+};
 
-export interface WishlistItem {
+export type WishlistItem = {
   key: string;
 
   product: Product;
   variant?: Variant;
-}
+};

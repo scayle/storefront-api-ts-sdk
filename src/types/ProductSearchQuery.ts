@@ -1,7 +1,4 @@
-import {
-  AttributeWithBooleanValueFilter,
-  AttributeWithValuesFilter,
-} from '../types/AttributeOrAttributeValueFilter';
+import {AttributeWithBooleanValueFilter, AttributeWithValuesFilter} from '../types/AttributeOrAttributeValueFilter';
 
 export interface ProductSearchQuery {
   categoryId?: number;
@@ -10,9 +7,7 @@ export interface ProductSearchQuery {
   maxPrice?: number;
   minReduction?: number;
   maxReduction?: number;
-  attributes?: Array<
-    AttributeWithValuesFilter | AttributeWithBooleanValueFilter
-  >;
+  attributes?: Array<AttributeWithValuesFilter | AttributeWithBooleanValueFilter>;
   containsSearch?: boolean;
   disableFuzziness?: boolean;
   hasCampaignReduction?: boolean;
@@ -30,8 +25,7 @@ export function queryParamsFromProductSearchQuery(
     ...(productSearchQuery.attributes || []).reduce((acc, attribute) => {
       switch (attribute.type) {
         case 'attributes':
-          acc[`filters[${attribute.key || attribute.id}]`] =
-            attribute.values.join(`,`);
+          acc[`filters[${attribute.key || attribute.id}]`] = attribute.values.join(`,`);
           break;
 
         case 'boolean':

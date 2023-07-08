@@ -1,9 +1,4 @@
-export {
-  StorefrontAPIClient,
-  StorefrontAPIAuth,
-  StorefrontAPIConfig,
-  ExistingItemHandling,
-} from './StorefrontAPIClient';
+export {StorefrontAPIClient, StorefrontAPIAuth, StorefrontAPIConfig, ExistingItemHandling} from './StorefrontAPIClient';
 
 // Basket
 export {BasketWith, GetBasketParameters} from './endpoints/basket/getBasket';
@@ -32,17 +27,14 @@ export {
 } from './endpoints/typeahead/typeahead';
 
 // Wishlist
-export {
-  WishlistWith,
-  GetWishlistParameters,
-} from './endpoints/wishlist/getWishlist';
+export {WishlistWith, GetWishlistParameters} from './endpoints/wishlist/getWishlist';
 export {DeleteWishlistParameters} from './endpoints/wishlist/deleteWishlistItem';
 export {AddWishlistItemParameters} from './endpoints/wishlist/addWishlistItem';
 
 // Campaigns
 export {
   CampaignSortOption,
-  CampaignsEndpointResponseData,
+  CampaignsEndpointResponse as CampaignsEndpointResponseData,
   CampaignsSortConfig,
   CampaignsEndpointRequestParameters,
 } from './endpoints/campaigns/campaigns';
@@ -55,14 +47,8 @@ export {
   ProductsSearchEndpointResponseData,
   ProductsSearchEndpointParameters,
 } from './endpoints/products/products';
-export {
-  ProductByIdEndpointParameters,
-  ProductByIdEndpointResponseData,
-} from './endpoints/products/productById';
-export {
-  ProductsByIdsEndpointParameters,
-  ProductsByIdsEndpointResponseData,
-} from './endpoints/products/productsByIds';
+export {ProductByIdEndpointParameters, ProductByIdEndpointResponseData} from './endpoints/products/productById';
+export {ProductsByIdsEndpointParameters, ProductsByIdsEndpointResponseData} from './endpoints/products/productsByIds';
 export {
   ProductsByReferenceKeyRequestData,
   ProductByReferenceKeyResponseData,
@@ -125,19 +111,13 @@ export {
 } from './types/AttributeOrAttributeValueFilter';
 
 // Category
-export {
-  Category as BapiCategory,
-  CategoryProperty as BapiCategoryProperty,
-} from './types/Category';
+export {Category as BapiCategory, CategoryProperty as BapiCategoryProperty} from './types/Category';
 export {RootCategoriesEndpointParameters} from './endpoints/categories/categories';
 export {
   CategoriesByIdsEndpointParameters,
   CategoriesByIdsEndpointResponseData,
 } from './endpoints/categories/categoriesByIds';
-export {
-  CategoryByIdEndpointParameters,
-  CategoryByIdEndpointResponseData,
-} from './endpoints/categories/categoryById';
+export {CategoryByIdEndpointParameters, CategoryByIdEndpointResponseData} from './endpoints/categories/categoryById';
 export {
   CategoryBySlugEndpointParameters,
   CategoryBySlugEndpointResponseData,
@@ -145,6 +125,6 @@ export {
 
 export {AttributeInclude} from './helpers/attributes';
 
-export {Campaign} from './types/campaign';
+export {Campaign} from './types/Campaign';
 
 export {ProductSearchQuery} from './types/ProductSearchQuery';

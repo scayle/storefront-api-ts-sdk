@@ -21,6 +21,4 @@ export interface AttributeWithBooleanValueFilter {
   value: boolean;
 }
 
-export type AttributeOrAttributeWithValuesFilter =
-  | AttributeFilter
-  | AttributeWithValuesFilter;
+export type AttributeOrAttributeWithValuesFilter = AttributeFilter | AttributeWithValuesFilter;

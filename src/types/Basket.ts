@@ -1,3 +1,4 @@
+import {CustomData} from './CustomData';
 import {BapiPrice, Product, Variant} from './Product';
 
 export type BasketItemPrice = Omit<BapiPrice, 'tax'>;
@@ -8,67 +9,48 @@ export type BasketKey = string & {
   readonly ____tagBasketKey: unique symbol;
 };
 
-export interface BasketResponse {
+export type BasketResponse = {
   key: BasketKey;
   cost: BasketTotalPrice;
-  currencyCode: string;
   items: BasketItem[];
 
   packages: BasketPackageInformation[];
-}
+};
 
-export interface ItemGroup {
+export type ItemGroup = {
   id: string;
   isMainItem: boolean;
   isRequired: boolean;
-}
+};
 
-export interface BasketItem {
+export type BasketItem = {
   key: string;
-  customData: Partial<Record<string, unknown>>;
+  customData: CustomData;
   packageId: number;
   price: {
     total: BasketItemPrice;
     unit: BasketItemPrice;
   };
   quantity: number;
-  availableQuantity?: number;
-  deliveryForecast?: {
-    deliverable?: {
-      quantity: number;
-      key: string;
-    };
-    subsequentDelivery?: {
-      quantity: number;
-      key: string;
-    };
-  };
+  availableQuantity: number;
   status: 'available' | 'unavailable' | 'deleted';
   product: Product;
   variant: Variant;
   displayData: BasketItemDisplayData;
   itemGroup?: ItemGroup;
-}
+};
 
-export interface BaskteItemDisplayDataItem {
+export type BaskteItemDisplayDataItem = {
   value: string;
   label: string;
   key: string;
-}
+};
 
-export type BasketItemDisplayDataKey =
-  | 'meta'
-  | 'name'
-  | 'identifier'
-  | 'attribute-1'
-  | 'attribute-2'
-  | 'attribute-3';
+export type BasketItemDisplayDataKey = 'meta' | 'name' | 'identifier' | 'attribute-1' | 'attribute-2' | 'attribute-3';
 
-export type BasketItemDisplayData = Partial<
-  Record<BasketItemDisplayDataKey, BaskteItemDisplayDataItem>
->;
+export type BasketItemDisplayData = Partial<Record<BasketItemDisplayDataKey, BaskteItemDisplayDataItem>>;
 
-export interface BasketPackageInformation {
+export type BasketPackageInformation = {
   id: number;
   carrierKey: string;
   deliveryDate: {
@@ -77,4 +59,4 @@ export interface BasketPackageInformation {
     // Date like '2018-02-02'
     min: string;
   };
-}
+};

@@ -1,8 +1,7 @@
 import {createrSearchMappingsEndpointRequest} from '../mappings';
 
 it('Builds correct query', () => {
-  expect(createrSearchMappingsEndpointRequest({term: 'term 1'}))
-    .toMatchInlineSnapshot(`
+  expect(createrSearchMappingsEndpointRequest({term: 'term 1'})).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/search/mappings",
   "method": "GET",

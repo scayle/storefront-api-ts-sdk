@@ -2,10 +2,7 @@
  * @jest-environment node
  */
 import {StorefrontAPIClient} from '../../StorefrontAPIClient';
-import {
-  nockWithBapiScope,
-  disableNetAndAllowBapiCors,
-} from '../../test-helpers/nock';
+import {nockWithBapiScope, disableNetAndAllowBapiCors} from '../../test-helpers/nock';
 import {CampaignSortOption} from '../../endpoints/campaigns/campaigns';
 import {APISortOrder} from '../../endpoints/products/products';
 

@@ -1,8 +1,5 @@
 import {StorefrontAPIClient} from '../../StorefrontAPIClient';
-import {
-  nockWithBapiScope,
-  disableNetAndAllowBapiCors,
-} from '../../test-helpers/nock';
+import {nockWithBapiScope, disableNetAndAllowBapiCors} from '../../test-helpers/nock';
 
 disableNetAndAllowBapiCors({shopIdHeader: true});
 
@@ -78,10 +75,7 @@ it.skip('Basket: Add same variant twice', async () => {
       'Content-Type': 'application/json',
     });
 
-  const firstAddToBasketResponse = await bapi.basket.addItem(
-    basketKey,
-    35149152,
-  );
+  const firstAddToBasketResponse = await bapi.basket.addItem(basketKey, 35149152);
 
   nockWithBapiScope({shopIdHeader: true})
     .defaultReplyHeaders({'access-control-allow-origin': '*'})
@@ -315,11 +309,7 @@ it.skip('Basket: Update item quantity', async () => {
       'Content-Type': 'application/json',
     });
 
-  const deleteItemResponse = await bapi.basket.updateItem(
-    'basket_1',
-    'item_1',
-    5,
-  );
+  const deleteItemResponse = await bapi.basket.updateItem('basket_1', 'item_1', 5);
 
   expect(deleteItemResponse.type).toBe('success');
   expect(deleteItemResponse.statusCode).toBe(200);
@@ -345,11 +335,7 @@ it.skip('Basket: Update item failure', async () => {
       },
     );
 
-  const deleteItemResponse = await bapi.basket.updateItem(
-    'basket_1',
-    'item_1',
-    5,
-  );
+  const deleteItemResponse = await bapi.basket.updateItem('basket_1', 'item_1', 5);
 
   expect(deleteItemResponse.type).toBe('failure');
   expect(deleteItemResponse.statusCode).toBe(500);

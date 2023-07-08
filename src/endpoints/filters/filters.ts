@@ -1,8 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {
-  ProductSearchQuery,
-  queryParamsFromProductSearchQuery,
-} from '../../types/ProductSearchQuery';
+import {ProductSearchQuery, queryParamsFromProductSearchQuery} from '../../types/ProductSearchQuery';
 import {CentAmount} from '../../types/Product';
 
 export interface FiltersEndpointParameters {
@@ -119,18 +116,10 @@ export function createFiltersEndpointRequest(
     endpoint: '/v1/filters',
     params: {
       with: parameters.with ? parameters.with.join(',') : 'values',
-      ...(parameters.including
-        ? {including: parameters.including.join(',')}
-        : undefined),
-      ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
-        : undefined),
-      ...(parameters.includeSoldOut
-        ? {includeSoldOut: parameters.includeSoldOut}
-        : undefined),
-      ...(parameters.includeSellableForFree
-        ? {includeSellableForFree: parameters.includeSellableForFree}
-        : undefined),
+      ...(parameters.including ? {including: parameters.including.join(',')} : undefined),
+      ...(parameters.campaignKey ? {campaignKey: parameters.campaignKey} : undefined),
+      ...(parameters.includeSoldOut ? {includeSoldOut: parameters.includeSoldOut} : undefined),
+      ...(parameters.includeSellableForFree ? {includeSellableForFree: parameters.includeSellableForFree} : undefined),
       ...queryParamsFromProductSearchQuery(parameters.where),
     },
   };

@@ -1,14 +1,6 @@
 import {BapiCall} from '../../helpers/execute';
-import {
-  ProductSearchQuery,
-  queryParamsFromProductSearchQuery,
-} from '../../types/ProductSearchQuery';
-import {
-  BooleanFilterValue,
-  RangeFilterValue,
-  AttributesFilterValue,
-  IdentifierFilterValue,
-} from './filters';
+import {ProductSearchQuery, queryParamsFromProductSearchQuery} from '../../types/ProductSearchQuery';
+import {BooleanFilterValue, RangeFilterValue, AttributesFilterValue, IdentifierFilterValue} from './filters';
 
 export interface FilterValuesEndpointParameters {
   groupName: string;
@@ -33,9 +25,7 @@ export function createFilterValuesEndpointRequest(
     params: {
       ...queryParamsFromProductSearchQuery(parameters.where),
 
-      ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
-        : undefined),
+      ...(parameters.campaignKey ? {campaignKey: parameters.campaignKey} : undefined),
     },
   };
 }

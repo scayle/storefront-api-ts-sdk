@@ -13,20 +13,14 @@ export interface DeleteWishlistParameters {
   pricePromotionKey?: string;
 }
 
-export function deleteWishlistEndpointRequest(
-  params: DeleteWishlistParameters,
-): BapiCall<WishlistResponse> {
+export function deleteWishlistEndpointRequest(params: DeleteWishlistParameters): BapiCall<WishlistResponse> {
   return {
     method: 'DELETE',
     endpoint: `/v1/wishlists/${params.wishlistKey}/items/${params.itemKey}`,
     params: {
-      ...(params.with
-        ? {with: basketWithQueryParameter(params.with).join(',')}
-        : undefined),
+      ...(params.with ? {with: basketWithQueryParameter(params.with).join(',')} : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
-      ...(params.pricePromotionKey
-        ? {pricePromotionKey: params.pricePromotionKey}
-        : undefined),
+      ...(params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
     },
   };
 }

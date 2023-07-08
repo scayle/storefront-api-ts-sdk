@@ -21,9 +21,7 @@ export function createBrandsEndpointRequest(
     method: 'GET',
     endpoint: '/v1/brands',
     params: {
-      ...(parameters.pagination && parameters.pagination.page
-        ? {page: parameters.pagination.page}
-        : undefined),
+      ...(parameters.pagination && parameters.pagination.page ? {page: parameters.pagination.page} : undefined),
       ...(parameters.pagination && parameters.pagination.perPage
         ? {perPage: parameters.pagination.perPage}
         : undefined),

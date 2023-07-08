@@ -1,8 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {
-  ProductWith,
-  productWithQueryParameterValues,
-} from '../../types/ProductWith';
+import {ProductWith, productWithQueryParameterValues} from '../../types/ProductWith';
 import {Product} from '../../types/Product';
 import {Category} from '../../types/Category';
 
@@ -36,22 +33,12 @@ export type SearchSuggestionsEndpointResponseData = {
 };
 
 function suggetionsWithQueryParameter(
-  suggestionsWith: Exclude<
-    SearchSuggestionsEndpointParameters['with'],
-    undefined
-  >,
+  suggestionsWith: Exclude<SearchSuggestionsEndpointParameters['with'], undefined>,
 ): string[] {
   const withParams = [];
 
-  if (
-    suggestionsWith.products &&
-    typeof suggestionsWith.products === 'object'
-  ) {
-    withParams.push(
-      ...productWithQueryParameterValues(suggestionsWith.products).map(
-        value => `products.${value}`,
-      ),
-    );
+  if (suggestionsWith.products && typeof suggestionsWith.products === 'object') {
+    withParams.push(...productWithQueryParameterValues(suggestionsWith.products).map(value => `products.${value}`));
   }
 
   return withParams;
@@ -82,16 +69,9 @@ export function createSearchSuggestionsEndpointRequest(
     params: {
       term: parameters.term,
 
-      ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
-        : undefined),
+      ...(parameters.campaignKey ? {campaignKey: parameters.campaignKey} : undefined),
 
-      with: [
-        topLevelIncludes,
-        ...(parameters.with
-          ? suggetionsWithQueryParameter(parameters.with)
-          : []),
-      ].join(`,`),
+      with: [topLevelIncludes, ...(parameters.with ? suggetionsWithQueryParameter(parameters.with) : [])].join(`,`),
     },
   };
 }

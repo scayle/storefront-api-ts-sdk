@@ -20,18 +20,12 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
 
   if (basketWith.items && basketWith.items.product) {
     withParams.push(
-      ...productWithQueryParameterValues(basketWith.items.product).map(
-        value => `items.product.${value}`,
-      ),
+      ...productWithQueryParameterValues(basketWith.items.product).map(value => `items.product.${value}`),
     );
   }
 
   if (basketWith.items && basketWith.items.variant) {
-    withParams.push(
-      ...prefixList(`items.variant.`)(
-        variantWithQueryParameterValues(basketWith.items.variant),
-      ),
-    );
+    withParams.push(...prefixList(`items.variant.`)(variantWithQueryParameterValues(basketWith.items.variant)));
   }
 
   return withParams;
@@ -48,24 +42,17 @@ export interface GetBasketParameters {
   includeItemsWithoutProductData?: boolean;
 }
 
-export function getBasketEndpointRequest(
-  params: GetBasketParameters,
-): BapiCall<BasketResponse> {
+export function getBasketEndpointRequest(params: GetBasketParameters): BapiCall<BasketResponse> {
   return {
     method: 'GET',
     endpoint: `/v1/baskets/${params.basketKey}`,
     params: {
-      ...(params.with
-        ? {with: basketWithQueryParameter(params.with).join(',')}
-        : undefined),
+      ...(params.with ? {with: basketWithQueryParameter(params.with).join(',')} : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
-      ...(params.skipAvailabilityCheck
-        ? {skipAvailabilityCheck: params.skipAvailabilityCheck}
-        : undefined),
+      ...(params.skipAvailabilityCheck ? {skipAvailabilityCheck: params.skipAvailabilityCheck} : undefined),
       ...(params.includeItemsWithoutProductData
         ? {
-            includeItemsWithoutProductData:
-              params.includeItemsWithoutProductData,
+            includeItemsWithoutProductData: params.includeItemsWithoutProductData,
           }
         : undefined),
     },

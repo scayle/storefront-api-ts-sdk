@@ -1,9 +1,6 @@
 import {BapiCall} from '../../helpers/execute';
 import {Variant} from '../../types/Product';
-import {
-  VariantWith,
-  variantWithQueryParameterValues,
-} from '../../types/ProductWith';
+import {VariantWith, variantWithQueryParameterValues} from '../../types/ProductWith';
 import {Pagination} from '../products/productsByIds';
 
 export interface VariantsByIdsEndpointParameters {
@@ -33,12 +30,8 @@ export function createVariantsByIdsEndpointRequest(
     endpoint: `/v1/variants`,
     params: {
       ids: parameters.variantIds.join(`,`),
-      ...(parameters.with
-        ? {with: variantWithQueryParameterValues(parameters.with).join(`,`)}
-        : undefined),
-      ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
-        : undefined),
+      ...(parameters.with ? {with: variantWithQueryParameterValues(parameters.with).join(`,`)} : undefined),
+      ...(parameters.campaignKey ? {campaignKey: parameters.campaignKey} : undefined),
       ...(parameters.pricePromotionKey
         ? {
             pricePromotionKey: parameters.pricePromotionKey,

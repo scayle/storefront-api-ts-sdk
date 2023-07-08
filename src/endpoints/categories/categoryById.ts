@@ -1,13 +1,9 @@
 import {BapiCall} from '../../helpers/execute';
 import {Category} from '../../types/Category';
-import {
-  CategoryEndpointsParameters,
-  parametersForCategoryEndpoint,
-} from './categoryEndpointsParameter';
+import {CategoryEndpointsParameters, parametersForCategoryEndpoint} from './categoryEndpointsParameter';
 import {CategoryPropertiesWith} from './CategoryPropertiesWith';
 
-export interface CategoryByIdEndpointParameters
-  extends CategoryEndpointsParameters {
+export interface CategoryByIdEndpointParameters extends CategoryEndpointsParameters {
   categoryId: number;
 
   with?: {

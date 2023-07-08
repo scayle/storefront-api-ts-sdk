@@ -1,43 +1,19 @@
-import {
-  CreateBasketItemParameters,
-  createBasketItemRequest,
-} from './endpoints/basket/createItem';
-import {
-  deleteBasketItemRequest,
-  DeleteItemParameters,
-} from './endpoints/basket/deleteItem';
-import {
-  getBasketEndpointRequest,
-  GetBasketParameters,
-} from './endpoints/basket/getBasket';
-import {
-  UpdateBasketItemQuantity,
-  updateBasketItemQuantityRequest,
-} from './endpoints/basket/updateItem';
-import {
-  createCategoriesEndpointRequest,
-  RootCategoriesEndpointParameters,
-} from './endpoints/categories/categories';
+import {CreateBasketItemParameters, createBasketItemRequest} from './endpoints/basket/createItem';
+import {deleteBasketItemRequest, DeleteItemParameters} from './endpoints/basket/deleteItem';
+import {getBasketEndpointRequest, GetBasketParameters} from './endpoints/basket/getBasket';
+import {UpdateBasketItemQuantity, updateBasketItemQuantityRequest} from './endpoints/basket/updateItem';
+import {createCategoriesEndpointRequest, RootCategoriesEndpointParameters} from './endpoints/categories/categories';
 import {
   CategoriesByIdsEndpointParameters,
   createCategoriesByIdsEndpointRequest,
 } from './endpoints/categories/categoriesByIds';
-import {
-  CategoryByIdEndpointParameters,
-  createCategoryByIdEndpointRequest,
-} from './endpoints/categories/categoryById';
+import {CategoryByIdEndpointParameters, createCategoryByIdEndpointRequest} from './endpoints/categories/categoryById';
 import {
   CategoryBySlugEndpointParameters,
   createCategoryBySlugEndpointRequest,
 } from './endpoints/categories/categoryBySlug';
-import {
-  createFiltersEndpointRequest,
-  FiltersEndpointParameters,
-} from './endpoints/filters/filters';
-import {
-  createProductByIdEndpointRequest,
-  ProductByIdEndpointParameters,
-} from './endpoints/products/productById';
+import {createFiltersEndpointRequest, FiltersEndpointParameters} from './endpoints/filters/filters';
+import {createProductByIdEndpointRequest, ProductByIdEndpointParameters} from './endpoints/products/productById';
 import {
   createProductsSearchEndpointRequest,
   ProductsSearchEndpointParameters,
@@ -48,23 +24,14 @@ import {
   createPostRedirectEndpointRequest,
   GetRedirectsEndpointParameters,
 } from './endpoints/redirects/redirects';
-import {
-  createProductsByIdsEndpointRequest,
-  ProductsByIdsEndpointParameters,
-} from './endpoints/products/productsByIds';
+import {createProductsByIdsEndpointRequest, ProductsByIdsEndpointParameters} from './endpoints/products/productsByIds';
 import {
   addWishlistItemEndpointRequest,
   AddWishlistItemParameters,
   WishlistItemCreationID,
 } from './endpoints/wishlist/addWishlistItem';
-import {
-  deleteWishlistEndpointRequest,
-  DeleteWishlistParameters,
-} from './endpoints/wishlist/deleteWishlistItem';
-import {
-  getWishlistEndpointRequest,
-  GetWishlistParameters,
-} from './endpoints/wishlist/getWishlist';
+import {deleteWishlistEndpointRequest, DeleteWishlistParameters} from './endpoints/wishlist/deleteWishlistItem';
+import {getWishlistEndpointRequest, GetWishlistParameters} from './endpoints/wishlist/getWishlist';
 import {execute, BapiCall} from './helpers/execute';
 import {Category} from './types/Category';
 import {Product} from './types/Product';
@@ -73,20 +40,14 @@ import {
   SearchSuggestionsEndpointResponseData,
   createSearchSuggestionsEndpointRequest,
 } from './endpoints/search/suggestions';
-import {
-  createrSearchMappingsEndpointRequest,
-  SearchMappingsEndpointResponseData,
-} from './endpoints/search/mappings';
+import {createrSearchMappingsEndpointRequest, SearchMappingsEndpointResponseData} from './endpoints/search/mappings';
 import axios, {AxiosInstance} from 'axios';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
   VariantDetail,
 } from './endpoints/variants/variantsByIds';
-import {
-  FilterValuesEndpointParameters,
-  createFilterValuesEndpointRequest,
-} from './endpoints/filters/filterValues';
+import {FilterValuesEndpointParameters, createFilterValuesEndpointRequest} from './endpoints/filters/filterValues';
 import {
   TypeaheadSuggestionsEndpointRequestParameters,
   createTypeaheadSuggestionsEndpointRequest,
@@ -99,26 +60,17 @@ import {
   createProductByReferenceKeyRequest,
   ProductsByReferenceKeyRequestData as ProductsByReferenceKeyEndpointParameters,
 } from './endpoints/products/productByReferenceKey';
-import {
-  createSearchResolveEndpointRequest,
-  SearchResolveEndpointResponseData,
-} from './endpoints/search/resolve';
+import {createSearchResolveEndpointRequest, SearchResolveEndpointResponseData} from './endpoints/search/resolve';
 import {
   BrandsEndpointRequestParameters,
   BrandsEndpointResponseData,
   createBrandsEndpointRequest,
 } from './endpoints/brands/brands';
-import {
-  BrandByIdEndpointResponseData,
-  createBrandByIdEndpointRequest,
-} from './endpoints/brands/brandById';
-import {
-  CampaignByIdEndpointResponseData,
-  createCampaignByIdEndpointRequest,
-} from './endpoints/campaigns/campaignById';
+import {BrandByIdEndpointResponse, createBrandByIdEndpointRequest} from './endpoints/brands/brandById';
+import {CampaignByIdEndpointResponse, createCampaignByIdEndpointRequest} from './endpoints/campaigns/campaignById';
 import {
   CampaignsEndpointRequestParameters,
-  CampaignsEndpointResponseData,
+  CampaignsEndpointResponse,
   createCampaignsEndpointRequest,
 } from './endpoints/campaigns/campaigns';
 import {
@@ -130,11 +82,7 @@ import {
   GetNavigationParameters,
   NavigationAllEndpointResponseData,
 } from './endpoints/navigation/navigation';
-import {
-  InferResponsePagination,
-  PagePaginationRequest,
-  RequestPagination,
-} from './types/Pagination';
+import {InferResponsePagination, PagePaginationRequest, RequestPagination} from './types/Pagination';
 import {WishlistResponse} from './types/Wishlist';
 import {BasketResponse} from './types/Basket';
 
@@ -230,9 +178,7 @@ export enum AddToWhistlistFailureKind {
   Unknown = 'Unknown',
 }
 
-function addToWhistListFailureKindFromStatusCode(
-  statusCode: number,
-): AddToWhistlistFailureKind {
+function addToWhistListFailureKindFromStatusCode(statusCode: number): AddToWhistlistFailureKind {
   switch (statusCode) {
     case 400:
       return AddToWhistlistFailureKind.OnlyOneParameterMustBeSet;
@@ -260,9 +206,7 @@ export enum AddToBasketFailureKind {
   Unknown = 'Unknown',
 }
 
-function addToBasketFailureKindFromStatusCode(
-  statusCode: number,
-): AddToBasketFailureKind {
+function addToBasketFailureKindFromStatusCode(statusCode: number): AddToBasketFailureKind {
   switch (statusCode) {
     case 409:
       return AddToBasketFailureKind.VariantAlreadyPresent;
@@ -291,9 +235,7 @@ export enum UpdateBasketItemFailureKind {
   Unknown = 'Unknown',
 }
 
-function updateBasketItemFailureKindFromStatusCode(
-  statusCode: number,
-): UpdateBasketItemFailureKind {
+function updateBasketItemFailureKindFromStatusCode(statusCode: number): UpdateBasketItemFailureKind {
   switch (statusCode) {
     case 206:
       return UpdateBasketItemFailureKind.ItemAddedWithReducedQuantity;
@@ -369,9 +311,7 @@ export class StorefrontAPIClient {
     this.axios = config.axios ?? axios;
   }
 
-  private async execute<SuccessResponseT>(
-    bapiCall: BapiCall<SuccessResponseT>,
-  ): Promise<SuccessResponseT> {
+  private async execute<SuccessResponseT>(bapiCall: BapiCall<SuccessResponseT>): Promise<SuccessResponseT> {
     const response = await execute(
       this.axios,
       this.host,
@@ -405,15 +345,11 @@ export class StorefrontAPIClient {
   }
 
   public readonly attributes = {
-    getByKey: (key: string) =>
-      this.execute(createAttributeByKeyEndpointRequest(key)),
+    getByKey: (key: string) => this.execute(createAttributeByKeyEndpointRequest(key)),
   };
 
   public readonly basket = {
-    get: async (
-      basketKey: string,
-      params: Omit<GetBasketParameters, 'basketKey'> = {},
-    ): Promise<GetBasketResponse> => {
+    get: async (basketKey: string, params: Omit<GetBasketParameters, 'basketKey'> = {}): Promise<GetBasketResponse> => {
       const response = await this.executeWithStatus(
         getBasketEndpointRequest({
           ...params,
@@ -439,10 +375,7 @@ export class StorefrontAPIClient {
       basketKey: string,
       variantId: number,
       quantity: number = 1,
-      params: Omit<
-        CreateBasketItemParameters,
-        'basketKey' | 'variantId' | 'quantity'
-      > = {},
+      params: Omit<CreateBasketItemParameters, 'basketKey' | 'variantId' | 'quantity'> = {},
     ): Promise<CreateBasketItemResponse> => {
       const response = await this.executeWithStatus(
         createBasketItemRequest({
@@ -491,33 +424,23 @@ export class StorefrontAPIClient {
         // defaults to 1
         quantity?: number;
         // defaults to {}
-        params?: Omit<
-          CreateBasketItemParameters,
-          'basketKey' | 'variantId' | 'quantity'
-        >;
+        params?: Omit<CreateBasketItemParameters, 'basketKey' | 'variantId' | 'quantity'>;
       }>,
       basketParams: Omit<GetBasketParameters, 'basketKey'> = {},
       options: {
         existingItemHandling: ExistingItemHandling;
         considerItemGroupForUniqueness?: boolean;
       } = {
-        existingItemHandling:
-          ExistingItemHandling.ReplaceExistingWithCombinedQuantity,
+        existingItemHandling: ExistingItemHandling.ReplaceExistingWithCombinedQuantity,
       },
     ): Promise<AddManyItemsBasketResponse> => {
-      const initialBasketResponse = await this.basket.get(
-        basketKey,
-        basketParams,
-      );
+      const initialBasketResponse = await this.basket.get(basketKey, basketParams);
 
       if (initialBasketResponse.type !== 'success') {
         throw Error('Failed to get initial basket');
       }
 
-      const client = new BasketMultiOperationsClient(
-        this,
-        initialBasketResponse.basket,
-      );
+      const client = new BasketMultiOperationsClient(this, initialBasketResponse.basket);
 
       for (const itemToAdd of items) {
         const existingBasketItem = client.latestBasket.items.find(item => {
@@ -542,25 +465,13 @@ export class StorefrontAPIClient {
                 continue;
 
               case ExistingItemHandling.ReplaceExisting:
-                await client.deleteItem(
-                  existingBasketItem.key,
-                  params,
-                  variantId,
-                );
+                await client.deleteItem(existingBasketItem.key, params, variantId);
                 break;
 
               case ExistingItemHandling.ReplaceExistingWithCombinedQuantity:
                 // Delete the existing item, and use the current parameters to create a new item with the existing quantity (as the quantity here was 0)
-                await client.deleteItem(
-                  existingBasketItem.key,
-                  params,
-                  variantId,
-                );
-                await client.addItem(
-                  variantId,
-                  existingBasketItem.quantity,
-                  params,
-                );
+                await client.deleteItem(existingBasketItem.key, params, variantId);
+                await client.addItem(variantId, existingBasketItem.quantity, params);
                 break;
             }
           } else {
@@ -584,11 +495,7 @@ export class StorefrontAPIClient {
 
               case ExistingItemHandling.ReplaceExisting:
                 // delete existing
-                await client.deleteItem(
-                  existingBasketItem.key,
-                  params,
-                  variantId,
-                );
+                await client.deleteItem(existingBasketItem.key, params, variantId);
 
                 // add new item as is
                 await client.addItem(variantId, quantity, params);
@@ -596,18 +503,10 @@ export class StorefrontAPIClient {
 
               case ExistingItemHandling.ReplaceExistingWithCombinedQuantity:
                 // delete existing
-                await client.deleteItem(
-                  existingBasketItem.key,
-                  params,
-                  variantId,
-                );
+                await client.deleteItem(existingBasketItem.key, params, variantId);
 
                 // add new item with combined quantity
-                await client.addItem(
-                  variantId,
-                  quantity + existingBasketItem.quantity,
-                  params,
-                );
+                await client.addItem(variantId, quantity + existingBasketItem.quantity, params);
                 break;
             }
           }
@@ -638,10 +537,7 @@ export class StorefrontAPIClient {
       basketKey: string,
       itemKey: string,
       quantity: number,
-      params: Omit<
-        UpdateBasketItemQuantity,
-        'basketKey' | 'itemKey' | 'quantity'
-      > = {},
+      params: Omit<UpdateBasketItemQuantity, 'basketKey' | 'itemKey' | 'quantity'> = {},
     ): Promise<UpdateBasketItemResponse> => {
       const response = await this.executeWithStatus(
         updateBasketItemQuantityRequest({
@@ -715,21 +611,15 @@ export class StorefrontAPIClient {
         }),
       );
     },
-    getRoots: (
-      parameters: RootCategoriesEndpointParameters = {},
-    ): Promise<Category[]> => {
+    getRoots: (parameters: RootCategoriesEndpointParameters = {}): Promise<Category[]> => {
       return this.execute(createCategoriesEndpointRequest(parameters));
     },
   };
 
   public readonly filters = {
-    get: (params: FiltersEndpointParameters) =>
-      this.execute(createFiltersEndpointRequest(params)),
+    get: (params: FiltersEndpointParameters) => this.execute(createFiltersEndpointRequest(params)),
 
-    getValues: (
-      groupName: string,
-      params: Omit<FilterValuesEndpointParameters, 'groupName'>,
-    ) =>
+    getValues: (groupName: string, params: Omit<FilterValuesEndpointParameters, 'groupName'>) =>
       this.execute(
         createFilterValuesEndpointRequest({
           groupName: groupName,
@@ -739,14 +629,11 @@ export class StorefrontAPIClient {
   };
 
   public readonly redirects = {
-    get: (params: GetRedirectsEndpointParameters = {}) =>
-      this.execute(createGetRedirectsEndpointRequest(params)),
+    get: (params: GetRedirectsEndpointParameters = {}) => this.execute(createGetRedirectsEndpointRequest(params)),
 
     post: async (url: string) => {
       try {
-        const response = await this.execute(
-          createPostRedirectEndpointRequest(url),
-        );
+        const response = await this.execute(createPostRedirectEndpointRequest(url));
         return response;
       } catch (e) {
         if (axios.isAxiosError(e) && e.response?.status === 404) {
@@ -759,10 +646,7 @@ export class StorefrontAPIClient {
   };
 
   public readonly products = {
-    getById: (
-      productId: number,
-      params: Omit<ProductByIdEndpointParameters, 'productId'> = {},
-    ): Promise<Product> =>
+    getById: (productId: number, params: Omit<ProductByIdEndpointParameters, 'productId'> = {}): Promise<Product> =>
       this.execute(createProductByIdEndpointRequest({...params, productId})),
     getByIds: async (
       productIds: number[],
@@ -772,72 +656,53 @@ export class StorefrontAPIClient {
         return [];
       }
 
-      const response = await this.execute(
-        createProductsByIdsEndpointRequest({...params, productIds}),
-      );
+      const response = await this.execute(createProductsByIdsEndpointRequest({...params, productIds}));
       return response.entities;
     },
     getByReferenceKeys: async (
       referenceKeys: string[],
-      params: Omit<
-        ProductsSearchEndpointParameters<PagePaginationRequest>,
-        'where'
-      > = {},
+      params: Omit<ProductsSearchEndpointParameters<PagePaginationRequest>, 'where'> = {},
     ): Promise<Product[]> => {
-      const paramsWithReferenceKeys: ProductsSearchEndpointParameters<PagePaginationRequest> =
-        {
-          ...params,
-          where: {
-            attributes: [
-              {
-                type: 'attributes',
-                key: 'referenceKey' as AttributeKey,
-                values: referenceKeys,
-              },
-            ],
-          },
-        };
+      const paramsWithReferenceKeys: ProductsSearchEndpointParameters<PagePaginationRequest> = {
+        ...params,
+        where: {
+          attributes: [
+            {
+              type: 'attributes',
+              key: 'referenceKey' as AttributeKey,
+              values: referenceKeys,
+            },
+          ],
+        },
+      };
 
-      const response = await this.execute(
-        createProductsSearchEndpointRequest(paramsWithReferenceKeys),
-      );
+      const response = await this.execute(createProductsSearchEndpointRequest(paramsWithReferenceKeys));
 
       return response.entities;
     },
     getByReferenceKey: async (
       referenceKey: string,
-      params: Omit<
-        ProductsByReferenceKeyEndpointParameters,
-        'referenceKey'
-      > = {},
+      params: Omit<ProductsByReferenceKeyEndpointParameters, 'referenceKey'> = {},
     ): Promise<Product | null> => {
-      const response = await this.execute(
-        createProductByReferenceKeyRequest({...params, referenceKey}),
-      );
+      const response = await this.execute(createProductByReferenceKeyRequest({...params, referenceKey}));
 
       // Reference keys are unique on BAPI, so we should only get 1 product (or none)
       if (response.entities.length === 1) {
         return response.entities[0];
       } else if (response.entities.length > 1) {
-        throw new Error(
-          `Got ${response.entities.length} products for a single referenceKey`,
-        );
+        throw new Error(`Got ${response.entities.length} products for a single referenceKey`);
       }
 
       return null;
     },
     query: <Pagination extends RequestPagination = PagePaginationRequest>(
       params: ProductsSearchEndpointParameters<Pagination> = {},
-    ): Promise<
-      ProductsSearchEndpointResponseData<InferResponsePagination<Pagination>>
-    > => this.execute(createProductsSearchEndpointRequest<Pagination>(params)),
+    ): Promise<ProductsSearchEndpointResponseData<InferResponsePagination<Pagination>>> =>
+      this.execute(createProductsSearchEndpointRequest<Pagination>(params)),
   };
 
   public readonly wishlist = {
-    get: (
-      wishlistKey: string,
-      params: Omit<GetWishlistParameters, 'wishlistKey'> = {},
-    ) =>
+    get: (wishlistKey: string, params: Omit<GetWishlistParameters, 'wishlistKey'> = {}) =>
       this.execute(
         getWishlistEndpointRequest({
           ...params,
@@ -891,9 +756,7 @@ export class StorefrontAPIClient {
       term: string,
       params: Omit<SearchSuggestionsEndpointParameters, 'term'> = {},
     ): Promise<SearchSuggestionsEndpointResponseData> => {
-      return this.execute(
-        createSearchSuggestionsEndpointRequest({...params, term}),
-      );
+      return this.execute(createSearchSuggestionsEndpointRequest({...params, term}));
     },
     mappings: (term: string): Promise<SearchMappingsEndpointResponseData> => {
       return this.execute(createrSearchMappingsEndpointRequest({term}));
@@ -908,9 +771,7 @@ export class StorefrontAPIClient {
       term: string,
       params: Omit<TypeaheadSuggestionsEndpointRequestParameters, 'term'> = {},
     ): Promise<TypeaheadSuggestionsEndpointResponseData> => {
-      return this.execute(
-        createTypeaheadSuggestionsEndpointRequest({...params, term}),
-      );
+      return this.execute(createTypeaheadSuggestionsEndpointRequest({...params, term}));
     },
   };
 
@@ -923,9 +784,7 @@ export class StorefrontAPIClient {
         return [];
       }
 
-      const response = await this.execute(
-        createVariantsByIdsEndpointRequest({...params, variantIds}),
-      );
+      const response = await this.execute(createVariantsByIdsEndpointRequest({...params, variantIds}));
 
       return response.entities;
     },
@@ -938,25 +797,19 @@ export class StorefrontAPIClient {
   };
 
   public readonly brands = {
-    getById: (brandId: number): Promise<BrandByIdEndpointResponseData> => {
+    getById: (brandId: number): Promise<BrandByIdEndpointResponse> => {
       return this.execute(createBrandByIdEndpointRequest(brandId));
     },
-    get: (
-      parameters: BrandsEndpointRequestParameters,
-    ): Promise<BrandsEndpointResponseData> => {
+    get: (parameters: BrandsEndpointRequestParameters): Promise<BrandsEndpointResponseData> => {
       return this.execute(createBrandsEndpointRequest(parameters));
     },
   };
 
   public readonly campaigns = {
-    getById: (
-      campaignId: number,
-    ): Promise<CampaignByIdEndpointResponseData> => {
+    getById: (campaignId: number): Promise<CampaignByIdEndpointResponse> => {
       return this.execute(createCampaignByIdEndpointRequest(campaignId));
     },
-    get: (
-      parameters: CampaignsEndpointRequestParameters = {},
-    ): Promise<CampaignsEndpointResponseData> => {
+    get: (parameters: CampaignsEndpointRequestParameters = {}): Promise<CampaignsEndpointResponse> => {
       return this.execute(createCampaignsEndpointRequest(parameters));
     },
   };
@@ -966,13 +819,9 @@ export class StorefrontAPIClient {
       navigationTreeId: number,
       parameters: GetNavigationParameters = {},
     ): Promise<NavigationByIdEndpointResponseData> => {
-      return this.execute(
-        createNavigationByIdEndpointRequest(navigationTreeId, parameters),
-      );
+      return this.execute(createNavigationByIdEndpointRequest(navigationTreeId, parameters));
     },
-    getAll: (
-      parameters: GetNavigationParameters = {},
-    ): Promise<NavigationAllEndpointResponseData> => {
+    getAll: (parameters: GetNavigationParameters = {}): Promise<NavigationAllEndpointResponseData> => {
       return this.execute(createNavigationAllEndpointRequest(parameters));
     },
   };
@@ -1001,11 +850,7 @@ class BasketMultiOperationsClient {
     debugVariantId: number,
   ): Promise<void> {
     try {
-      const response = await this._client.basket.deleteItem(
-        this.latestBasket.key,
-        itemKey,
-        params,
-      );
+      const response = await this._client.basket.deleteItem(this.latestBasket.key, itemKey, params);
 
       this.updateBasket(response);
     } catch (e) {
@@ -1021,18 +866,10 @@ class BasketMultiOperationsClient {
   async addItem(
     variantId: number,
     quantity: number = 1,
-    params: Omit<
-      CreateBasketItemParameters,
-      'basketKey' | 'variantId' | 'quantity'
-    > = {},
+    params: Omit<CreateBasketItemParameters, 'basketKey' | 'variantId' | 'quantity'> = {},
   ): Promise<void> {
     try {
-      const response = await this._client.basket.addItem(
-        this.latestBasket.key,
-        variantId,
-        quantity,
-        params,
-      );
+      const response = await this._client.basket.addItem(this.latestBasket.key, variantId, quantity, params);
 
       if (response.type === 'failure') {
         this.errors.push({
@@ -1056,19 +893,11 @@ class BasketMultiOperationsClient {
   async updateItem(
     itemKey: string,
     quantity: number,
-    params: Omit<
-      UpdateBasketItemQuantity,
-      'basketKey' | 'itemKey' | 'quantity'
-    > = {},
+    params: Omit<UpdateBasketItemQuantity, 'basketKey' | 'itemKey' | 'quantity'> = {},
     debugVariantId: number,
   ): Promise<void> {
     try {
-      const response = await this._client.basket.updateItem(
-        this.latestBasket.key,
-        itemKey,
-        quantity,
-        params,
-      );
+      const response = await this._client.basket.updateItem(this.latestBasket.key, itemKey, quantity, params);
 
       if (response.type === 'failure') {
         this.errors.push({
