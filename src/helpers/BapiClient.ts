@@ -192,12 +192,14 @@ export type AddOrUpdateItemError =
   | {
       readonly operation: 'add';
       readonly variantId: number;
+      readonly statusCode: number;
       readonly kind: AddToBasketFailureKind;
       readonly message?: string;
     }
   | {
       readonly operation: 'update';
       readonly basketItemKey: string;
+      readonly statusCode: number;
       readonly variantId?: number;
       readonly kind: UpdateBasketItemFailureKind;
       readonly message?: string;
@@ -1030,6 +1032,7 @@ class BasketMultiOperationsClient {
         this.errors.push({
           operation: 'add',
           kind: response.kind,
+          statusCode: response.statusCode,
           variantId: variantId,
         });
       }
@@ -1039,6 +1042,7 @@ class BasketMultiOperationsClient {
       this.errors.push({
         operation: 'add',
         kind: AddToBasketFailureKind.Unknown,
+        statusCode: -1,
         variantId: variantId,
         message: `${e}`,
       });
@@ -1066,6 +1070,7 @@ class BasketMultiOperationsClient {
         this.errors.push({
           operation: 'update',
           basketItemKey: itemKey,
+          statusCode: response.statusCode,
           kind: response.kind,
           variantId: debugVariantId,
         });
@@ -1076,6 +1081,7 @@ class BasketMultiOperationsClient {
       this.errors.push({
         operation: 'update',
         basketItemKey: itemKey,
+        statusCode: -1,
         kind: UpdateBasketItemFailureKind.Unknown,
         variantId: debugVariantId,
         message: `${e}`,

@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.6.0
+
+- Expose status codes in multi basket operations
+
 ### 15.4.0
 
 - Expose status codes in basket responses
