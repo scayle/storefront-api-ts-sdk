@@ -352,7 +352,7 @@ it('Builds correct query', () => {
     `"?orFiltersOperator=attributeGroup1%2CattributeGroup2%2CattributeGroup3"`,
   );
 
-  // Having only one `orFiltersOperator` parameter doesn't make sense and whould not have any effect
+  // Having only one `orFiltersOperator` parameter doesn't make sense and should not have any effect
   expect(
     getParamsString(
       createProductsSearchEndpointRequest({
