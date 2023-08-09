@@ -108,6 +108,7 @@ import {
 } from '../endpoints/products/productByReferenceKey';
 import {
   createSearchResolveEndpointRequest,
+  SearchResolveEndpointParameters,
   SearchResolveEndpointResponseData,
 } from '../endpoints/search/resolve';
 import {
@@ -875,8 +876,13 @@ export class BapiClient {
     mappings: (term: string): Promise<SearchMappingsEndpointResponseData> => {
       return this.execute(createrSearchMappingsEndpointRequest({term}));
     },
-    resolve: (term: string): Promise<SearchResolveEndpointResponseData> => {
-      return this.execute(createSearchResolveEndpointRequest({term}));
+    resolve: (
+      term: string,
+      params: Omit<SearchResolveEndpointParameters, 'term'> = {},
+    ): Promise<SearchResolveEndpointResponseData> => {
+      return this.execute(
+        createSearchResolveEndpointRequest({term, ...params}),
+      );
     },
   };
 

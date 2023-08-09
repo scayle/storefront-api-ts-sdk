@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.8.0
+
+- Add `categoryId` support for `/search/resolve`
+
 ### 15.7.0
 
 - Add support for `orFiltersOperator` on the `/filters` and `/products` endpoints
