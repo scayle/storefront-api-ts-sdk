@@ -1,3 +1,4 @@
+import {ArrayMinLength} from '../../types/ArrayMinLength';
 import {Pagination} from '../../endpoints/products/productsByIds';
 import {BapiCall} from '../../interfaces/BapiCall';
 import {BapiProduct} from '../../types/BapiProduct';
@@ -50,6 +51,8 @@ export interface ProductsSearchEndpointParameters {
   pricePromotionKey?: string;
 
   minProductId?: number;
+
+  orFiltersOperator?: ArrayMinLength<string, 2>;
 }
 
 export interface ProductsSearchEndpointResponseData {
@@ -113,6 +116,11 @@ export function createProductsSearchEndpointRequest(
 
       ...(parameters.minProductId
         ? {minProductId: parameters.minProductId}
+        : undefined),
+
+      ...(parameters.orFiltersOperator &&
+      parameters.orFiltersOperator.length > 1
+        ? {orFiltersOperator: parameters.orFiltersOperator.join(',')}
         : undefined),
     },
   };

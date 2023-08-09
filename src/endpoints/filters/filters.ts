@@ -4,9 +4,10 @@ import {
   queryParamsFromProductSearchQuery,
 } from '../../types/ProductSearchQuery';
 import {CentAmount} from '../../types/BapiProduct';
+import {ArrayMinLength} from '../../types/ArrayMinLength';
 
 export interface FiltersEndpointParameters {
-  where: ProductSearchQuery;
+  where?: ProductSearchQuery;
 
   campaignKey?: string;
 
@@ -25,6 +26,8 @@ export interface FiltersEndpointParameters {
   includeSoldOut?: boolean;
 
   includeSellableForFree?: boolean;
+
+  orFiltersOperator?: ArrayMinLength<string, 2>;
 }
 
 export interface AttributesFilterValue {
@@ -117,11 +120,13 @@ export type FiltersEndpointResponseData = FilterItemWithValues[];
 export function createFiltersEndpointRequest(
   parameters: FiltersEndpointParameters,
 ): BapiCall<FiltersEndpointResponseData> {
+  const withParam = parameters.with ? parameters.with.join(',') : 'values';
+
   return {
     method: 'GET',
     endpoint: 'filters',
     params: {
-      with: parameters.with ? parameters.with.join(',') : 'values',
+      ...(withParam ? {with: withParam} : undefined),
       ...(parameters.including
         ? {including: parameters.including.join(',')}
         : undefined),
@@ -135,6 +140,10 @@ export function createFiltersEndpointRequest(
         ? {includeSellableForFree: parameters.includeSellableForFree}
         : undefined),
       ...queryParamsFromProductSearchQuery(parameters.where),
+      ...(parameters.orFiltersOperator &&
+      parameters.orFiltersOperator.length > 1
+        ? {orFiltersOperator: parameters.orFiltersOperator.join(',')}
+        : undefined),
     },
   };
 }

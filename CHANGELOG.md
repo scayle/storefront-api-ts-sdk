@@ -1,5 +1,11 @@
 # Changelog
 
+### 15.7.0
+
+- Add support for `orFiltersOperator` on the `/filters` and `/products` endpoints
+- Remove empty `?with=` parameter on the `/filters` endpoint
+- Remove type restrictions on AttributeKey
+
 ### 15.6.0
 
 - Expose status codes in multi basket operations

@@ -1,4 +1,4 @@
-export type AttributeKey = string & {readonly ___attributeKey: unique symbol};
+export type AttributeKey = string;
 
 export type AttributeFilter = AttributeKey;
 export type AttributeWithValuesFilter =
