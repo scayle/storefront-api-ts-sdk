@@ -4,6 +4,7 @@ import {
   queryParamsFromProductSearchQuery,
 } from '../../types/ProductSearchQuery';
 import {CentAmount} from '../../types/BapiProduct';
+import {ArrayMinLength} from '../../types/ArrayMinLength';
 
 export interface FiltersEndpointParameters {
   where: ProductSearchQuery;
@@ -25,6 +26,8 @@ export interface FiltersEndpointParameters {
   includeSoldOut?: boolean;
 
   includeSellableForFree?: boolean;
+
+  orFiltersOperator?: ArrayMinLength<string, 2>;
 }
 
 export interface AttributesFilterValue {
@@ -135,6 +138,10 @@ export function createFiltersEndpointRequest(
         ? {includeSellableForFree: parameters.includeSellableForFree}
         : undefined),
       ...queryParamsFromProductSearchQuery(parameters.where),
+      ...(parameters.orFiltersOperator &&
+      parameters.orFiltersOperator.length > 1
+        ? {orFiltersOperator: parameters.orFiltersOperator.join(',')}
+        : undefined),
     },
   };
 }
