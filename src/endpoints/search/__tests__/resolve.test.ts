@@ -24,8 +24,8 @@ it('Builds correct query with categoryId', () => {
   "endpoint": "search/resolve",
   "method": "GET",
   "params": {
+    "categoryId": 20201,
     "term": "maxi rot",
-    "categoryId": 20201
   },
 }
 `);
