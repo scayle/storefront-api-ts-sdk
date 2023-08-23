@@ -36,6 +36,8 @@ export interface ProductWith {
 export interface ProductCategoryWith {
   properties?: ProductCategoryPropertyWith;
   includeHidden?: boolean;
+  countryLevelCustomData?: boolean;
+  shopLevelCustomData?: boolean;
 }
 
 export type ProductCategoryPropertyWith =
@@ -108,6 +110,14 @@ export function productWithQueryParameterValues(
 
       if (productWith.categories.includeHidden) {
         categoryFlags.push('hidden(true)');
+      }
+
+      if (productWith.categories.countryLevelCustomData) {
+        parameterValues.push('categories.countryLevelCustomData');
+      }
+
+      if (productWith.categories.shopLevelCustomData) {
+        parameterValues.push('categories.shopLevelCustomData');
       }
 
       if (productWith.categories.properties == 'all') {

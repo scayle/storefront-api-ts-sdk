@@ -89,4 +89,20 @@ it('Converts search query', () => {
   "filters[term]": "123",
 }
 `);
+
+  expect(
+    queryParamsFromProductSearchQuery({
+      attributes: [
+        {
+          type: 'attributes:not',
+          key: 'brand',
+          values: [550],
+        },
+      ],
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "filters:not[brand]": "550",
+}
+`);
 });

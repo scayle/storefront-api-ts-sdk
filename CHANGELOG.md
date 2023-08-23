@@ -1,5 +1,10 @@
 # Changelog
 
+### 15.9.0
+
+- Add `filters:not` support on products and filters endpoint
+- Add support for `categories.countryLevelCustomData` and `categories.shopLevelCustomData`
+
 ### 15.8.0
 
 - Add `categoryId` support for `/search/resolve`

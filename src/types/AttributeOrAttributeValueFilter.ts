@@ -13,6 +13,11 @@ export type AttributeWithValuesFilter =
       id: number;
       key?: undefined;
       values: Array<string | number>;
+    }
+  | {
+      type: 'attributes:not';
+      key: string;
+      values: Array<number>;
     };
 
 export interface AttributeWithBooleanValueFilter {
