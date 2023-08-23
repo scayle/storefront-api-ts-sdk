@@ -34,6 +34,7 @@ export interface AttributesFilterValue {
   name: string;
   id: number;
   productCount: number;
+  value: string;
 }
 
 export interface IdentifierFilterValue {
