@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.10.0
+
+- Add `name` field to `NavigationItem`
+
 ### 15.9.0
 
 - Add `filters:not` support on products and filters endpoint
