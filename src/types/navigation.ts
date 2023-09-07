@@ -3,6 +3,7 @@ import {BapiCategory} from './BapiCategory';
 
 export type NavigationItem = {
   id: number;
+  name: string;
   assets: {[key: string]: string};
   languages: {[key: string]: string};
   visibleFrom: RFC33339Date | null;
