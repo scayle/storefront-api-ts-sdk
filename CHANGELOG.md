@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.11.0
+
+- Don't include tests in NPM package
+
 ### 15.10.0
 
 - Add `name` field to `NavigationItem`
