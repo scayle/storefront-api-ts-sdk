@@ -65,4 +65,42 @@ it('Builds corrects query', () => {
   },
 }
 `);
+
+  expect(
+    updateBasketItemQuantityRequest({
+      basketKey: 'basket_1',
+      itemKey: 'item_5',
+      quantity: 10,
+      promotionId: null,
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "data": {
+    "promotionId": null,
+    "quantity": 10,
+  },
+  "endpoint": "baskets/basket_1/items/item_5",
+  "method": "PATCH",
+  "params": {},
+}
+`);
+
+  expect(
+    updateBasketItemQuantityRequest({
+      basketKey: 'basket_1',
+      itemKey: 'item_5',
+      quantity: 10,
+      promotionId: 'abc',
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "data": {
+    "promotionId": "abc",
+    "quantity": 10,
+  },
+  "endpoint": "baskets/basket_1/items/item_5",
+  "method": "PATCH",
+  "params": {},
+}
+`);
 });

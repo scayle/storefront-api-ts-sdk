@@ -20,6 +20,7 @@ export interface CreateBasketItemParameters {
   skipAvailabilityCheck?: boolean;
   includeItemsWithoutProductData?: boolean;
   itemGroup?: ItemGroup;
+  promotionId?: string;
 }
 
 export function createBasketItemRequest(
@@ -54,6 +55,7 @@ export function createBasketItemRequest(
       ...(params.childShopId ? {shopId: params.childShopId} : undefined),
       ...(params.displayData ? {displayData: params.displayData} : undefined),
       ...(params.itemGroup ? {itemGroup: params.itemGroup} : undefined),
+      ...(params.promotionId ? {promotionId: params.promotionId} : undefined),
     },
   };
 }

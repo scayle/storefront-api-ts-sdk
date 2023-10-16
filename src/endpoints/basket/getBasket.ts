@@ -56,6 +56,7 @@ export interface BasketItem<P = BapiProduct, V = Variant> {
   variant: V;
   displayData: BasketItemDisplayData;
   itemGroup?: ItemGroup;
+  promotionId?: string;
 }
 
 export interface BaskteItemDisplayDataItem {

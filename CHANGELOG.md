@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.12.0
+
+- Add support for Promotion IDs in Basket Endpoints
+
 ### 15.11.0
 
 - Don't include tests in NPM package

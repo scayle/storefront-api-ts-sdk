@@ -219,3 +219,25 @@ it('Builds correct query with skip availability', () => {
 }
 `);
 });
+
+it('Builds correct payload with promotion id', () => {
+  expect(
+    createBasketItemRequest({
+      basketKey: 'basket1',
+      variantId: 1235,
+      quantity: 1,
+      promotionId: 'abc',
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "data": {
+    "promotionId": "abc",
+    "quantity": 1,
+    "variantId": 1235,
+  },
+  "endpoint": "baskets/basket1/items",
+  "method": "POST",
+  "params": {},
+}
+`);
+});
