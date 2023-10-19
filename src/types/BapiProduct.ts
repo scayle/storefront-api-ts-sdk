@@ -187,7 +187,7 @@ export interface BapiPrice {
 }
 
 export interface AppliedReduction {
-  category: 'sale' | 'campaign' | 'promotion';
+  category: 'sale' | 'campaign' | 'promotion' | 'voucher';
   type: 'relative' | 'absolute';
   amount: {
     // 0-1

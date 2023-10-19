@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.12.1
+
+- Bring back the vouchers
+
 ### 15.12.0
 
 - Add support for Promotion IDs in Basket Endpoints
