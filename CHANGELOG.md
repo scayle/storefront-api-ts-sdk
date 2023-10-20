@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.13.0
+
+- Added new `/v1/promotions` endpoints
+
 ### 15.12.1
 
 - Bring back the vouchers
