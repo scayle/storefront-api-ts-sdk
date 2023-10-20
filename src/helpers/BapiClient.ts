@@ -141,7 +141,7 @@ import {
 import {
   PromotionsEndpointRequestParameters,
   createPromotionsEndpointRequest,
-} from 'endpoints/promotions/promotions';
+} from '../endpoints/promotions/promotions';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
