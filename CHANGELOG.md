@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.14.0
+
+- Add promotions integration for Basket Endpoints
+
 ### 15.13.0
 
 - Added new `/v1/promotions` endpoints

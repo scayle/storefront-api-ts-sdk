@@ -62,6 +62,20 @@ it('Builds corrects with query parameter', () => {
   "items.variant.advancedAttributes:type(design)",
 ]
 `);
+
+  expect(
+    basketWithQueryParameter({
+      items: {
+        promotion: true,
+      },
+      applicablePromotions: true,
+    }),
+  ).toMatchInlineSnapshot(`
+[
+  "items.promotion",
+  "applicablePromotions",
+]
+`);
 });
 
 it('Builds correct query', () => {
