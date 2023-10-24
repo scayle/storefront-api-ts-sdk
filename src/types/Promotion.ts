@@ -1,5 +1,9 @@
 import {RFC33339Date} from './BapiProduct';
 
+export interface PromotionCustomData {
+  [key: string]: unknown | undefined;
+}
+
 export interface PromotionCondition {
   level: 'item' | 'global';
   key: string;
@@ -32,5 +36,5 @@ export interface Promotion {
   isActive: boolean;
   effect: PromotionEffect;
   conditions: PromotionCondition[];
-  customData: {[key: string]: unknown | undefined};
+  customData: PromotionCustomData;
 }

@@ -11,6 +11,7 @@ export {
   BasketItemDisplayData,
   BasketPackageInformation,
   GetBasketParameters,
+  ApplicablePromotion,
 } from './endpoints/basket/getBasket';
 export {DeleteItemParameters} from './endpoints/basket/deleteItem';
 export {CreateBasketItemParameters} from './endpoints/basket/createItem';
@@ -148,3 +149,11 @@ export {
   getAttributeValues,
   getFirstAttributeValue,
 } from './helpers/bapiProduct';
+
+export {
+  Promotion,
+  PromotionCondition,
+  PromotionCustomData,
+  PromotionEffect,
+} from './types/Promotion';
+export {PromotionsEndpointResponseData} from './endpoints/promotions/promotions';

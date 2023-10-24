@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.14.1
+
+- Export types
+
 ### 15.14.0
 
 - Add promotions integration for Basket Endpoints
