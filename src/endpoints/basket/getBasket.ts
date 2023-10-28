@@ -1,3 +1,4 @@
+import {Promotion} from '../../types/Promotion';
 import {prefixList} from '../../helpers/attributes';
 import {BapiCall} from '../../helpers/execute';
 import {BasketResponse} from '../../types/Basket';
@@ -12,7 +13,9 @@ export interface BasketWith {
   items?: {
     product?: ProductWith;
     variant?: VariantWith;
+    promotion?: boolean;
   };
+  applicablePromotions?: boolean;
 }
 
 export function basketWithQueryParameter(basketWith: BasketWith): string[] {
@@ -26,6 +29,14 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
 
   if (basketWith.items && basketWith.items.variant) {
     withParams.push(...prefixList(`items.variant.`)(variantWithQueryParameterValues(basketWith.items.variant)));
+  }
+
+  if (basketWith.items?.promotion === true) {
+    withParams.push('items.promotion');
+  }
+
+  if (basketWith.applicablePromotions === true) {
+    withParams.push('applicablePromotions');
   }
 
   return withParams;

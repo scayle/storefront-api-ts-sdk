@@ -14,6 +14,7 @@ export interface CreateBasketItemParameters {
   skipAvailabilityCheck?: boolean;
   includeItemsWithoutProductData?: boolean;
   itemGroup?: ItemGroup;
+  promotionId?: string;
 }
 
 export function createBasketItemRequest(params: CreateBasketItemParameters): BapiCall<BasketResponse> {
@@ -40,6 +41,7 @@ export function createBasketItemRequest(params: CreateBasketItemParameters): Bap
       ...(customData !== undefined ? {customData} : undefined),
       ...(params.displayData ? {displayData: params.displayData} : undefined),
       ...(params.itemGroup ? {itemGroup: params.itemGroup} : undefined),
+      ...(params.promotionId ? {promotionId: params.promotionId} : undefined),
     },
   };
 }

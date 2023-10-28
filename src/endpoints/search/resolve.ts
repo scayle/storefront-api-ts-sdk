@@ -2,6 +2,7 @@ import {BapiCall} from '../../helpers/execute';
 
 export interface SearchResolveEndpointParameters {
   term: string;
+  categoryId?: number;
 }
 
 export type SearchResolveEndpointResponseData = {
@@ -31,6 +32,9 @@ export function createSearchResolveEndpointRequest(
     endpoint: `/v1/search/resolve`,
     params: {
       term: parameters.term,
+      ...(parameters.categoryId
+        ? {categoryId: parameters.categoryId}
+        : undefined),
     },
   };
 }

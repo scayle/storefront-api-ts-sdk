@@ -2,6 +2,18 @@ export {StorefrontAPIClient, StorefrontAPIAuth, StorefrontAPIConfig, ExistingIte
 
 // Basket
 export {BasketWith, GetBasketParameters} from './endpoints/basket/getBasket';
+export {
+  BasketItem,
+  BasketKey,
+  BasketWith,
+  BasketItemPrice,
+  BasketTotalPrice,
+  BasketResponseData,
+  BasketItemDisplayData,
+  BasketPackageInformation,
+  GetBasketParameters,
+  ApplicablePromotion,
+} from './endpoints/basket/getBasket';
 export {DeleteItemParameters} from './endpoints/basket/deleteItem';
 export {CreateBasketItemParameters} from './endpoints/basket/createItem';
 export {UpdateBasketItemQuantity} from './endpoints/basket/updateItem';
@@ -128,3 +140,8 @@ export {AttributeInclude} from './helpers/attributes';
 export {Campaign} from './types/Campaign';
 
 export {ProductSearchQuery} from './types/ProductSearchQuery';
+
+export {getAttributeValues, getFirstAttributeValue} from './helpers/bapiProduct';
+
+export {Promotion, PromotionCondition, PromotionCustomData, PromotionEffect} from './types/Promotion';
+export {PromotionsEndpointResponseData} from './endpoints/promotions/promotions';

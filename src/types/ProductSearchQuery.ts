@@ -28,6 +28,10 @@ export function queryParamsFromProductSearchQuery(
           acc[`filters[${attribute.key || attribute.id}]`] = attribute.values.join(`,`);
           break;
 
+        case 'attributes:not':
+          acc[`filters:not[${attribute.key}]`] = attribute.values.join(`,`);
+          break;
+
         case 'boolean':
           acc[`filters[${attribute.key}]`] = attribute.value ? 'true' : 'false';
           break;

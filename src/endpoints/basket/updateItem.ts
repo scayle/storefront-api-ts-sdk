@@ -16,6 +16,7 @@ export interface UpdateBasketItemQuantity {
   pricePromotionKey?: string;
   includeItemsWithoutProductData?: boolean;
   itemGroup?: ItemGroup;
+  promotionId?: string | null;
 }
 
 export function updateBasketItemQuantityRequest(params: UpdateBasketItemQuantity): BapiCall<BasketResponse> {
@@ -41,6 +42,9 @@ export function updateBasketItemQuantityRequest(params: UpdateBasketItemQuantity
       ...(customData !== undefined ? {customData} : undefined),
       ...(params.displayData ? {displayData: params.displayData} : undefined),
       ...(params.itemGroup ? {itemGroup: params.itemGroup} : undefined),
+      ...(params.promotionId !== undefined
+        ? {promotionId: params.promotionId}
+        : undefined),
     },
   };
 }

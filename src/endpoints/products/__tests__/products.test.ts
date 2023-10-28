@@ -331,4 +331,28 @@ it('Builds correct query', () => {
       }).params,
     ),
   ).toMatchInlineSnapshot(`"?campaignKey=px"`);
+
+  expect(
+    getParamsString(
+      createProductsSearchEndpointRequest({
+        orFiltersOperator: [
+          'attributeGroup1',
+          'attributeGroup2',
+          'attributeGroup3',
+        ],
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(
+    `"?orFiltersOperator=attributeGroup1%2CattributeGroup2%2CattributeGroup3"`,
+  );
+
+  // Having only one `orFiltersOperator` parameter doesn't make sense and should not have any effect
+  expect(
+    getParamsString(
+      createProductsSearchEndpointRequest({
+        // @ts-ignore
+        orFiltersOperator: ['attributeGroup1'],
+      }).params,
+    ),
+  ).toMatchInlineSnapshot(`""`);
 });

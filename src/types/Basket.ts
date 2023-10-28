@@ -15,7 +15,17 @@ export type BasketResponse = {
   items: BasketItem[];
 
   packages: BasketPackageInformation[];
+
+  applicablePromotions?: ApplicablePromotion[];
 };
+
+export interface ApplicablePromotion {
+  // The item ID on which the promotion is applicable for
+  //
+  // For buy_x_get_y effects where the free gift is not in the basket this key will not be defined.
+  itemId?: string;
+  promotion: Promotion;
+}
 
 export type ItemGroup = {
   id: string;

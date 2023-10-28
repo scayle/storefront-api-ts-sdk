@@ -62,6 +62,11 @@ import {
 } from './endpoints/products/productByReferenceKey';
 import {createSearchResolveEndpointRequest, SearchResolveEndpointResponseData} from './endpoints/search/resolve';
 import {
+  createSearchResolveEndpointRequest,
+  SearchResolveEndpointParameters,
+  SearchResolveEndpointResponseData,
+} from '../endpoints/search/resolve';
+import {
   BrandsEndpointRequestParameters,
   BrandsEndpointResponseData,
   createBrandsEndpointRequest,
@@ -85,6 +90,7 @@ import {
 import {InferResponsePagination, PagePaginationRequest, RequestPagination} from './types/Pagination';
 import {WishlistResponse} from './types/Wishlist';
 import {BasketResponse} from './types/Basket';
+import {PromotionsEndpointRequestParameters, createPromotionsEndpointRequest} from '../endpoints/promotions/promotions';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse =
@@ -140,12 +146,14 @@ export type AddOrUpdateItemError =
   | {
       readonly operation: 'add';
       readonly variantId: number;
+      readonly statusCode: number;
       readonly kind: AddToBasketFailureKind;
       readonly message?: string;
     }
   | {
       readonly operation: 'update';
       readonly basketItemKey: string;
+      readonly statusCode: number;
       readonly variantId?: number;
       readonly kind: UpdateBasketItemFailureKind;
       readonly message?: string;
@@ -761,8 +769,11 @@ export class StorefrontAPIClient {
     mappings: (term: string): Promise<SearchMappingsEndpointResponseData> => {
       return this.execute(createrSearchMappingsEndpointRequest({term}));
     },
-    resolve: (term: string): Promise<SearchResolveEndpointResponseData> => {
-      return this.execute(createSearchResolveEndpointRequest({term}));
+    resolve: (
+      term: string,
+      params: Omit<SearchResolveEndpointParameters, 'term'> = {},
+    ): Promise<SearchResolveEndpointResponseData> => {
+      return this.execute(createSearchResolveEndpointRequest({term, ...params}));
     },
   };
 
@@ -825,6 +836,19 @@ export class StorefrontAPIClient {
       return this.execute(createNavigationAllEndpointRequest(parameters));
     },
   };
+
+  public readonly promotions = {
+    get: (params: Omit<PromotionsEndpointRequestParameters, 'ids'> = {}) =>
+      this.execute(createPromotionsEndpointRequest(params)),
+
+    getByIds: async (ids: string[]) => {
+      return this.execute(
+        createPromotionsEndpointRequest({
+          ids: ids,
+        }),
+      );
+    },
+  };
 }
 
 // Client for basket operations which keeps track of the latest successfully received basket,
@@ -875,6 +899,7 @@ class BasketMultiOperationsClient {
         this.errors.push({
           operation: 'add',
           kind: response.kind,
+          statusCode: response.statusCode,
           variantId: variantId,
         });
       }
@@ -884,6 +909,7 @@ class BasketMultiOperationsClient {
       this.errors.push({
         operation: 'add',
         kind: AddToBasketFailureKind.Unknown,
+        statusCode: -1,
         variantId: variantId,
         message: `${e}`,
       });
@@ -903,6 +929,7 @@ class BasketMultiOperationsClient {
         this.errors.push({
           operation: 'update',
           basketItemKey: itemKey,
+          statusCode: response.statusCode,
           kind: response.kind,
           variantId: debugVariantId,
         });
@@ -913,6 +940,7 @@ class BasketMultiOperationsClient {
       this.errors.push({
         operation: 'update',
         basketItemKey: itemKey,
+        statusCode: -1,
         kind: UpdateBasketItemFailureKind.Unknown,
         variantId: debugVariantId,
         message: `${e}`,

@@ -1,9 +1,10 @@
-import {BapiCall} from '../../helpers/execute';
+import {BapiCall} from '../../interfaces/BapiCall';
 import {ProductSearchQuery, queryParamsFromProductSearchQuery} from '../../types/ProductSearchQuery';
-import {CentAmount} from '../../types/Product';
+import {CentAmount} from '../../types/BapiProduct';
+import {ArrayMinLength} from '../../types/ArrayMinLength';
 
 export interface FiltersEndpointParameters {
-  where: ProductSearchQuery;
+  where?: ProductSearchQuery;
 
   campaignKey?: string;
 
@@ -22,12 +23,15 @@ export interface FiltersEndpointParameters {
   includeSoldOut?: boolean;
 
   includeSellableForFree?: boolean;
+
+  orFiltersOperator?: ArrayMinLength<string, 2>;
 }
 
 export interface AttributesFilterValue {
   name: string;
   id: number;
   productCount: number;
+  value: string;
 }
 
 export interface IdentifierFilterValue {
@@ -121,6 +125,9 @@ export function createFiltersEndpointRequest(
       ...(parameters.includeSoldOut ? {includeSoldOut: parameters.includeSoldOut} : undefined),
       ...(parameters.includeSellableForFree ? {includeSellableForFree: parameters.includeSellableForFree} : undefined),
       ...queryParamsFromProductSearchQuery(parameters.where),
+      ...(parameters.orFiltersOperator && parameters.orFiltersOperator.length > 1
+        ? {orFiltersOperator: parameters.orFiltersOperator.join(',')}
+        : undefined),
     },
   };
 }

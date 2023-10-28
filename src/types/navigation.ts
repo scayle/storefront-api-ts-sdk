@@ -4,6 +4,7 @@ import {Category} from './Category';
 // TODO: Check types
 export type NavigationItem = {
   id: number;
+  name: string;
   assets: {[key: string]: string};
   languages: {[key: string]: string};
   visibleFrom: RFC33339Date | null;

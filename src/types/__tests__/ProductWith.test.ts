@@ -116,6 +116,17 @@ it('Converts category filters', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(`"images.attributes:legacy(false),categories:properties(foo|bar)"`);
+
+  expect(
+    productWithQueryParameterValues({
+      categories: {
+        shopLevelCustomData: true,
+        countryLevelCustomData: true,
+      },
+    }).join(','),
+  ).toMatchInlineSnapshot(
+    `"images.attributes:legacy(false),categories.countryLevelCustomData,categories.shopLevelCustomData,categories:properties()"`,
+  );
 });
 
 it('Converts sibling filters', () => {

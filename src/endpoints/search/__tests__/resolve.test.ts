@@ -12,6 +12,21 @@ it('Builds correct query', () => {
 `);
 });
 
+it('Builds correct query with categoryId', () => {
+  expect(
+    createSearchResolveEndpointRequest({term: 'maxi rot', categoryId: 20201}),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "search/resolve",
+  "method": "GET",
+  "params": {
+    "categoryId": 20201,
+    "term": "maxi rot",
+  },
+}
+`);
+});
+
 it('Maps response correctly', () => {
   const response: SearchResolveEndpointResponseData = {
     matches: [

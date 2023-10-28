@@ -1,5 +1,52 @@
 # Changelog
 
+### 15.14.1
+
+- Export types
+
+### 15.14.0
+
+- Add promotions integration for Basket Endpoints
+
+### 15.13.0
+
+- Added new `/v1/promotions` endpoints
+
+### 15.12.1
+
+- Bring back the vouchers
+
+### 15.12.0
+
+- Add support for Promotion IDs in Basket Endpoints
+
+### 15.11.0
+
+- Don't include tests in NPM package
+
+### 15.10.0
+
+- Add `name` field to `NavigationItem`
+
+### 15.9.0
+
+- Add `filters:not` support on products and filters endpoint
+- Add support for `categories.countryLevelCustomData` and `categories.shopLevelCustomData`
+
+### 15.8.0
+
+- Add `categoryId` support for `/search/resolve`
+
+### 15.7.0
+
+- Add support for `orFiltersOperator` on the `/filters` and `/products` endpoints
+- Remove empty `?with=` parameter on the `/filters` endpoint
+- Remove type restrictions on AttributeKey
+
+### 15.6.0
+
+- Expose status codes in multi basket operations
+
 ### 15.4.0
 
 - Expose status codes in basket responses

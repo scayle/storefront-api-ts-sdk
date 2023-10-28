@@ -32,6 +32,8 @@ export interface ProductWith {
 export interface ProductCategoryWith {
   properties?: ProductCategoryPropertyWith;
   includeHidden?: boolean;
+  countryLevelCustomData?: boolean;
+  shopLevelCustomData?: boolean;
 }
 
 export type ProductCategoryPropertyWith =
@@ -93,7 +95,15 @@ export function productWithQueryParameterValues(productWith: ProductWith): strin
         categoryFlags.push('hidden(true)');
       }
 
-      if (productWith.categories.properties === 'all') {
+      if (productWith.categories.countryLevelCustomData) {
+        parameterValues.push('categories.countryLevelCustomData');
+      }
+
+      if (productWith.categories.shopLevelCustomData) {
+        parameterValues.push('categories.shopLevelCustomData');
+      }
+
+      if (productWith.categories.properties == 'all') {
         // do nothing, all properties are included by default for legacy reasons
       } else if (typeof productWith.categories.properties === 'object') {
         categoryFlags.push(`properties(${productWith.categories.properties.withName.join('|')})`);
