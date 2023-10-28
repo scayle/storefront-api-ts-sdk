@@ -138,6 +138,10 @@ import {
   GetNavigationParameters,
   NavigationAllEndpointResponseData,
 } from '../endpoints/navigation/navigation';
+import {
+  PromotionsEndpointRequestParameters,
+  createPromotionsEndpointRequest,
+} from '../endpoints/promotions/promotions';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -957,6 +961,19 @@ export class BapiClient {
       parameters: GetNavigationParameters = {},
     ): Promise<NavigationAllEndpointResponseData> => {
       return this.execute(createNavigationAllEndpointRequest(parameters));
+    },
+  };
+
+  public readonly promotions = {
+    get: (params: Omit<PromotionsEndpointRequestParameters, 'ids'> = {}) =>
+      this.execute(createPromotionsEndpointRequest(params)),
+
+    getByIds: async (ids: string[]) => {
+      return this.execute(
+        createPromotionsEndpointRequest({
+          ids: ids,
+        }),
+      );
     },
   };
 }

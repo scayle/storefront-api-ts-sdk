@@ -1,3 +1,4 @@
+import {Promotion} from '../../types/Promotion';
 import {prefixList} from '../../helpers/attributes';
 import {BapiCall} from '../../interfaces/BapiCall';
 import {BapiPrice, BapiProduct, Variant} from '../../types/BapiProduct';
@@ -23,6 +24,16 @@ export interface BasketResponseData<P = BapiProduct, V = Variant> {
   items: BasketItem<P, V>[];
 
   packages: BasketPackageInformation[];
+
+  applicablePromotions?: ApplicablePromotion[];
+}
+
+export interface ApplicablePromotion {
+  // The item ID on which the promotion is applicable for
+  //
+  // For buy_x_get_y effects where the free gift is not in the basket this key will not be defined.
+  itemId?: string;
+  promotion: Promotion;
 }
 
 export interface ItemGroup {
@@ -57,6 +68,13 @@ export interface BasketItem<P = BapiProduct, V = Variant> {
   displayData: BasketItemDisplayData;
   itemGroup?: ItemGroup;
   promotionId?: string;
+  promotion?: Promotion & {
+    isValid: boolean;
+    failedConditions: Array<{
+      key: string;
+      level: 'item' | 'global';
+    }>;
+  };
 }
 
 export interface BaskteItemDisplayDataItem {
@@ -92,7 +110,9 @@ export interface BasketWith {
   items?: {
     product?: ProductWith;
     variant?: VariantWith;
+    promotion?: boolean;
   };
+  applicablePromotions?: boolean;
 }
 
 export function basketWithQueryParameter(basketWith: BasketWith): string[] {
@@ -112,6 +132,14 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
         variantWithQueryParameterValues(basketWith.items.variant),
       ),
     );
+  }
+
+  if (basketWith.items?.promotion === true) {
+    withParams.push('items.promotion');
+  }
+
+  if (basketWith.applicablePromotions === true) {
+    withParams.push('applicablePromotions');
   }
 
   return withParams;

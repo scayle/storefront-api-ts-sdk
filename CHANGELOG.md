@@ -1,5 +1,17 @@
 # Changelog
 
+### 15.14.1
+
+- Export types
+
+### 15.14.0
+
+- Add promotions integration for Basket Endpoints
+
+### 15.13.0
+
+- Added new `/v1/promotions` endpoints
+
 ### 15.12.1
 
 - Bring back the vouchers
