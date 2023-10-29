@@ -1,4 +1,3 @@
-import {basketWithQueryParameter} from '../../endpoints/basket/getBasket';
 import {WishlistResponse, WishlistWith, wishlistWithQueryParameter} from '../../endpoints/wishlist/getWishlist';
 import {BapiCall} from '../../helpers/execute';
 

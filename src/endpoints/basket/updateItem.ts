@@ -1,7 +1,6 @@
 import {BasketWith, basketWithQueryParameter} from './getBasket';
 import {BapiCall} from '../../helpers/execute';
-import {Basket, BasketItemDisplayData, ItemGroup} from '../../types/Basket';
-import {CustomData} from '../../types/CustomData';
+import {Basket, BasketItemCustomData, BasketItemDisplayData, ItemGroup} from '../../types/Basket';
 
 export interface UpdateBasketItemQuantity {
   basketKey: string;
@@ -11,7 +10,7 @@ export interface UpdateBasketItemQuantity {
   campaignKey?: string;
   skipAvailabilityCheck?: boolean;
   // Beware that specifying any of `customData`, `displayData`, `pricePromotionKey` will update the _entire_ `customData` for the basket item
-  customData?: CustomData;
+  customData?: BasketItemCustomData;
   displayData?: BasketItemDisplayData;
   pricePromotionKey?: string;
   includeItemsWithoutProductData?: boolean;

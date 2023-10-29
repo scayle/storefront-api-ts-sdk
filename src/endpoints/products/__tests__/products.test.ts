@@ -1,7 +1,8 @@
-import {createProductsSearchEndpointRequest, APISortOption, APISortOrder} from '../products';
+import {createProductsSearchEndpointRequest} from '../products';
 import {AttributeKey} from '../../../types/AttributeOrAttributeValueFilter';
 import {getParamsString} from '../../../helpers/execute';
 import {queryParamsFromProductSearchQuery} from '../../../types/ProductSearchQuery';
+import {ProductSortOption, SortOrder} from '../../../types/sorting';
 
 it('Builds correct query', () => {
   expect(
@@ -41,9 +42,9 @@ it('Builds correct query', () => {
   expect(
     createProductsSearchEndpointRequest({
       sort: {
-        by: APISortOption.DateAdded,
+        by: ProductSortOption.DateAdded,
         channel: 'size',
-        direction: APISortOrder.Descending,
+        direction: SortOrder.Descending,
         score: 'category_scores',
       },
       campaignKey: 'px',

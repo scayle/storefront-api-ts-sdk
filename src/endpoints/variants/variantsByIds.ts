@@ -1,7 +1,7 @@
 import {BapiCall} from '../../helpers/execute';
+import {PagePaginationResponse} from '../../types/Pagination';
 import {Variant} from '../../types/Product';
 import {VariantWith, variantWithQueryParameterValues} from '../../types/ProductWith';
-import {Pagination} from '../products/productsByIds';
 
 export interface VariantsByIdsEndpointParameters {
   variantIds: number[];
@@ -10,17 +10,16 @@ export interface VariantsByIdsEndpointParameters {
   pricePromotionKey?: string;
 }
 
-export interface VariantsByIdsEndpointResponseData {
-  entities: VariantDetail[];
-  pagination: Pagination;
+export interface VariantsByIdsEndpointResponse {
+  entities: Array<VariantWithProductID>;
+  pagination: PagePaginationResponse;
 }
 
-// Variant as returned by the `/variants` endpoint
-export type VariantDetail = Variant & {productId: number};
+export type VariantWithProductID = Variant & {productId: number};
 
 export function createVariantsByIdsEndpointRequest(
   parameters: VariantsByIdsEndpointParameters,
-): BapiCall<VariantsByIdsEndpointResponseData> {
+): BapiCall<VariantsByIdsEndpointResponse> {
   return {
     method: 'GET',
     endpoint: `/v1/variants`,

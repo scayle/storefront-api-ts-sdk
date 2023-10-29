@@ -233,41 +233,15 @@ it('Includes price range field', () => {
 it('Can request stock and custom on variants', () => {
   expect(
     productWithQueryParameterValues({
-      variants: {
-        stock: {
-          customData: true,
-        },
-      },
-    }).join(','),
-  ).toMatchInlineSnapshot(`"variants,variants.stock,variants.stock.customData,images.attributes:legacy(false)"`);
-
-  expect(
-    productWithQueryParameterValues({
       variants: {},
     }).join(','),
-  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"variants,variants.stock,variants.stock.customData,images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({
       variants: 'all',
     }).join(','),
   ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`);
-
-  expect(
-    productWithQueryParameterValues({
-      variants: {
-        stock: 'all',
-      },
-    }).join(','),
-  ).toMatchInlineSnapshot(`"variants,variants.stock,images.attributes:legacy(false)"`);
-
-  expect(
-    productWithQueryParameterValues({
-      variants: {
-        stock: {},
-      },
-    }).join(','),
-  ).toMatchInlineSnapshot(`"variants,variants.stock,images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({

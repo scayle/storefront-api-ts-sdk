@@ -27,7 +27,7 @@ it.skip('Gets product by ID', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    countryId: 139,
+    shopId: 139,
   });
 
   const response = await bapi.shopConfiguration.get();

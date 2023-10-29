@@ -1,5 +1,5 @@
-import {CampaignSortOption, createCampaignsEndpointRequest} from '../campaigns';
-import {APISortOrder} from '../../../endpoints/products/products';
+import {CampaignSortOption, SortOrder} from '../../../types/sorting';
+import {createCampaignsEndpointRequest} from '../campaigns';
 
 it('builds correct endpoint request with no arguments', () => {
   expect(createCampaignsEndpointRequest()).toMatchInlineSnapshot(`
@@ -34,7 +34,7 @@ it('builds correct endpoint request with sort options', () => {
     createCampaignsEndpointRequest({
       sort: {
         by: CampaignSortOption.Id,
-        direction: APISortOrder.Ascending,
+        direction: SortOrder.Ascending,
       },
     }),
   ).toMatchInlineSnapshot(`
@@ -74,7 +74,7 @@ it('builds correct endpoint request with sort options and pagination', () => {
     createCampaignsEndpointRequest({
       sort: {
         by: CampaignSortOption.Id,
-        direction: APISortOrder.Ascending,
+        direction: SortOrder.Ascending,
       },
       pagination: {
         page: 6,

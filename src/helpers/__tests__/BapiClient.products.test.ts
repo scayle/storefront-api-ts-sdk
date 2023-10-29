@@ -15,7 +15,7 @@ it.skip('Gets product by ID', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    countryId: 139,
+    shopId: 139,
   });
 
   const response = await bapi.products.getById(4001039);
@@ -41,7 +41,7 @@ it.skip('Gets products by IDs', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    countryId: 139,
+    shopId: 139,
   });
 
   const response = await bapi.products.getByIds([4001039, 4001029]);
@@ -59,7 +59,7 @@ it.skip('Gets products by Reference Key', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    countryId: 139,
+    shopId: 139,
   });
 
   const response = await bapi.products.getByReferenceKeys(['GN4305-pc', 'GN4304-pc']);
@@ -77,7 +77,7 @@ it.skip('Queries products', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    countryId: 139,
+    shopId: 139,
   });
 
   const response = await bapi.products.query({
@@ -105,7 +105,7 @@ it.skip('Queries products with price range', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    countryId: 139,
+    shopId: 139,
   });
 
   const response = await bapi.products.getById(3849870, {

@@ -3,8 +3,7 @@
  */
 import {StorefrontAPIClient} from '../../StorefrontAPIClient';
 import {nockWithBapiScope, disableNetAndAllowBapiCors} from '../../test-helpers/nock';
-import {CampaignSortOption} from '../../endpoints/campaigns/campaigns';
-import {APISortOrder} from '../../endpoints/products/products';
+import {CampaignSortOption, SortOrder} from '../../types/sorting';
 
 disableNetAndAllowBapiCors();
 
@@ -18,7 +17,7 @@ it.skip('Gets single campaign by id', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    countryId: 139,
+    shopId: 139,
   });
 
   const campaign = await bapi.campaigns.getById(350);
@@ -36,13 +35,13 @@ it.skip('Gets multiple campaigns', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    countryId: 139,
+    shopId: 139,
   });
 
   const campaignsResponse = await bapi.campaigns.get({
     sort: {
       by: CampaignSortOption.Id,
-      direction: APISortOrder.Ascending,
+      direction: SortOrder.Ascending,
     },
   });
 

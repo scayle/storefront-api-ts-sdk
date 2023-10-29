@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {Basket, BasketItemDisplayData, ItemGroup} from '../../types/Basket';
+import {Basket, BasketItemCustomData, BasketItemDisplayData, ItemGroup} from '../../types/Basket';
 import {BasketWith, basketWithQueryParameter} from './getBasket';
 
 export interface CreateBasketItemParameters {
@@ -7,7 +7,7 @@ export interface CreateBasketItemParameters {
   variantId: number;
   quantity: number;
   with?: BasketWith;
-  customData?: Record<string, unknown>;
+  customData?: BasketItemCustomData;
   displayData?: BasketItemDisplayData;
   pricePromotionKey?: string;
   campaignKey?: string;

@@ -107,7 +107,7 @@ it('Builds correct query', () => {
       basketKey: 'basket1',
       with: {
         items: {
-          variant: {stock: {customData: true}},
+          variant: {},
         },
       },
     }),
@@ -116,7 +116,7 @@ it('Builds correct query', () => {
   "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
-    "with": "items.variant.stock,items.variant.stock.customData",
+    "with": "items.variant",
   },
 }
 `);

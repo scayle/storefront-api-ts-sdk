@@ -14,7 +14,7 @@ it.skip('Gets variants by ID', async () => {
 
   const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
-    countryId: 139,
+    shopId: 139,
   });
 
   const response = await bapi.variants.getByIds([33815815, 33815816]);

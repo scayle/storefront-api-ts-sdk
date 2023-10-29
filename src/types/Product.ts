@@ -6,7 +6,7 @@ export interface ProductCustomData {
   [key: string]: unknown | undefined;
 }
 
-export interface Product {
+export type Product = {
   id: number;
   isActive: boolean;
   isSoldOut: boolean;
@@ -36,26 +36,26 @@ export interface Product {
   searchCategoryIds?: number[];
 
   customData: ProductCustomData;
-}
+};
 
-export interface LowestPriorPrice {
+export type LowestPriorPrice = {
   withTax: number | null;
   relativeDifferenceToPrice: number | null;
-}
+};
 
-export interface BaseCategory {
+export type BaseCategory = {
   categoryId: number;
   categoryName: string;
   categoryParentId: number;
   categoryPath: string;
-}
+};
 
-export interface PriceRange {
+export type PriceRange = {
   min: VariantPrice;
   max: VariantPrice;
-}
+};
 
-export interface ProductCategory {
+export type ProductCategory = {
   categoryId: number;
   categoryName: string;
   categoryUrl: string;
@@ -64,26 +64,26 @@ export interface ProductCategory {
   categoryProperties: CategoryProperty[];
   countryLevelCustomData?: CategoryCountryCustomData;
   shopLevelCustomData?: CategoryShopCustomData;
-}
+};
 
-export interface ProductImage {
+export type ProductImage = {
   hash: string;
 
   attributes?: Attributes;
-}
+};
 
-export interface Stock {
+export type Stock = {
   supplierId: number;
   warehouseId: number;
   quantity: number;
   isSellableWithoutStock: boolean;
-}
+};
 
-export interface VariantCustomData {
+export type VariantCustomData = {
   [key: string]: unknown | undefined;
-}
+};
 
-export interface Variant {
+export type Variant = {
   id: number;
   referenceKey: string;
   createdAt: RFC33339Date;
@@ -96,9 +96,9 @@ export interface Variant {
   advancedAttributes?: AdvancedAttributes;
   lowestPriorPrice?: LowestPriorPrice;
   customData: VariantCustomData;
-}
+};
 
-export interface VariantPrice {
+export type VariantPrice = {
   withTax: CentAmount;
   withoutTax: CentAmount;
   recommendedRetailPrice: number | null;
@@ -115,15 +115,15 @@ export interface VariantPrice {
     size: number;
     unit: string;
   } | null;
-}
+};
 
-export interface AppliedReduction {
+export type AppliedReduction = {
   category: 'sale' | 'campaign' | 'promotion' | 'voucher';
   type: 'relative' | 'absolute';
   amount: {
     relative: number;
     absoluteWithTax: CentAmount;
   };
-}
+};
 
 export type CentAmount = number & {readonly ____tagCentAmount: unique symbol};

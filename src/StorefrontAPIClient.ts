@@ -45,7 +45,7 @@ import axios, {AxiosInstance} from 'axios';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
-  VariantDetail,
+  VariantWithProductID,
 } from './endpoints/variants/variantsByIds';
 import {FilterValuesEndpointParameters, createFilterValuesEndpointRequest} from './endpoints/filters/filterValues';
 import {
@@ -65,17 +65,12 @@ import {
   SearchResolveEndpointParameters,
   SearchResolveEndpointResponseData,
 } from './endpoints/search/resolve';
-// import {
-//   createSearchResolveEndpointRequest,
-//   SearchResolveEndpointParameters,
-//   SearchResolveEndpointResponseData,
-// } from './endpoints/search/resolve';
 import {
   BrandsEndpointRequestParameters,
   BrandsEndpointResponse,
   createBrandsEndpointRequest,
 } from './endpoints/brands/brands';
-import {BrandByIdEndpointResponse, createBrandByIdEndpointRequest} from './endpoints/brands/brandById';
+import {createBrandByIdEndpointRequest} from './endpoints/brands/brandById';
 import {CampaignByIdEndpointResponse, createCampaignByIdEndpointRequest} from './endpoints/campaigns/campaignById';
 import {
   CampaignsEndpointRequestParameters,
@@ -767,7 +762,7 @@ export class StorefrontAPIClient {
     getByIds: async (
       variantIds: number[],
       params: Omit<VariantsByIdsEndpointParameters, 'variantIds'> = {},
-    ): Promise<VariantDetail[]> => {
+    ): Promise<VariantWithProductID[]> => {
       if (variantIds.length === 0) {
         return [];
       }
@@ -779,16 +774,16 @@ export class StorefrontAPIClient {
   };
 
   public readonly shopConfiguration = {
-    get: () => {
-      return this.execute(createShopConfigurationRequest());
-    },
+    get: () => this.execute(createShopConfigurationRequest()),
   };
 
   public readonly brands = {
-    getById: (brandId: number): Promise<BrandByIdEndpointResponse> => {
+    getById: (brandId: number) => {
       return this.execute(createBrandByIdEndpointRequest(brandId));
     },
-    get: (parameters: BrandsEndpointRequestParameters): Promise<BrandsEndpointResponse> => {
+    get: <Pagination extends RequestPagination>(
+      parameters: BrandsEndpointRequestParameters<Pagination>,
+    ): Promise<BrandsEndpointResponse<Pagination>> => {
       return this.execute(createBrandsEndpointRequest(parameters));
     },
   };
@@ -797,7 +792,9 @@ export class StorefrontAPIClient {
     getById: (campaignId: number): Promise<CampaignByIdEndpointResponse> => {
       return this.execute(createCampaignByIdEndpointRequest(campaignId));
     },
-    get: (parameters: CampaignsEndpointRequestParameters = {}): Promise<CampaignsEndpointResponse> => {
+    get: <Pagination extends RequestPagination>(
+      parameters: CampaignsEndpointRequestParameters<Pagination> = {},
+    ): Promise<CampaignsEndpointResponse<Pagination>> => {
       return this.execute(createCampaignsEndpointRequest(parameters));
     },
   };
@@ -815,8 +812,9 @@ export class StorefrontAPIClient {
   };
 
   public readonly promotions = {
-    get: (params: Omit<PromotionsEndpointRequestParameters, 'ids'> = {}) =>
-      this.execute(createPromotionsEndpointRequest(params)),
+    get: (params: Omit<PromotionsEndpointRequestParameters, 'ids'> = {}) => {
+      return this.execute(createPromotionsEndpointRequest(params));
+    },
 
     getByIds: async (ids: string[]) => {
       return this.execute(
