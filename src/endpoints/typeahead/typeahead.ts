@@ -2,7 +2,6 @@ import {BapiCall} from '../../helpers/execute';
 import {ProductWith, productWithQueryParameterValues} from '../../types/ProductWith';
 import {Product} from '../../types/Product';
 import {Category} from '../../types/Category';
-import {prefixList} from '../../helpers/attributes';
 
 export interface TypeaheadSuggestionsEndpointRequestParameters {
   term: string;
@@ -125,7 +124,7 @@ export function createTypeaheadSuggestionsEndpointRequest(
 
       with: [
         ...(parameters.with?.products
-          ? prefixList('product.')(productWithQueryParameterValues(parameters.with?.products))
+          ? productWithQueryParameterValues(parameters.with?.products).map(value => `product.${value}`)
           : []),
         ...(parameters.with?.categories?.parents === 'all' ? ['category.parents'] : []),
 

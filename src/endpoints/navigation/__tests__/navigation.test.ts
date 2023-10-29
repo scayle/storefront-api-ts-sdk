@@ -1,7 +1,7 @@
-import {createNavigationAllEndpointRequest} from '../../../endpoints/navigation/navigation';
+import {createNavigationTreesEndpointRequest} from '../../../endpoints/navigation/navigation';
 
 it('builds correct endpoint request', () => {
-  expect(createNavigationAllEndpointRequest({})).toMatchInlineSnapshot(`
+  expect(createNavigationTreesEndpointRequest({})).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/navigation/trees",
   "method": "GET",

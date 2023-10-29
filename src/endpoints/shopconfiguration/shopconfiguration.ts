@@ -1,7 +1,9 @@
 import {BapiCall} from '../../helpers/execute';
-import {ShopConfigurationResponse} from '../../types/ShopConfiguration';
+import {ShopConfiguration} from '../../types/ShopConfiguration';
 
-export function createShopConfigurationRequest(): BapiCall<ShopConfigurationResponse> {
+export type ShopConfigurationResponse = ShopConfiguration;
+
+export function createShopConfigurationRequest(): BapiCall<ShopConfiguration> {
   return {
     method: 'GET',
     endpoint: '/v1/shop-configuration',

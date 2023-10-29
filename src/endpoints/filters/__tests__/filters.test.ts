@@ -161,9 +161,7 @@ describe('Filters request', () => {
           },
         }).params,
       ),
-    ).toMatchInlineSnapshot(
-      `"?with=values&campaignKey=foo&filters%5BhasCampaignReduction%5D=false"`,
-    );
+    ).toMatchInlineSnapshot(`"?with=values&campaignKey=foo&filters%5BhasCampaignReduction%5D=false"`);
 
     expect(
       getParamsString(
@@ -174,13 +172,11 @@ describe('Filters request', () => {
           },
         }).params,
       ),
-    ).toMatchInlineSnapshot(
-      `"?with=values&campaignKey=92&filters%5BhasCampaignReduction%5D=true"`,
-    );
+    ).toMatchInlineSnapshot(`"?with=values&campaignKey=92&filters%5BhasCampaignReduction%5D=true"`);
 
-    expect(
-      getParamsString(createFiltersEndpointRequest({campaignKey: '92'}).params),
-    ).toMatchInlineSnapshot(`"?with=values&campaignKey=92"`);
+    expect(getParamsString(createFiltersEndpointRequest({campaignKey: '92'}).params)).toMatchInlineSnapshot(
+      `"?with=values&campaignKey=92"`,
+    );
 
     /** END; from 'src/__tests__/filters.test.ts' */
 
@@ -244,15 +240,9 @@ describe('Filters request', () => {
     expect(
       getParamsString(
         createFiltersEndpointRequest({
-          orFiltersOperator: [
-            'attributeGroup1',
-            'attributeGroup2',
-            'attributeGroup3',
-          ],
+          orFiltersOperator: ['attributeGroup1', 'attributeGroup2', 'attributeGroup3'],
         }).params,
       ),
-    ).toMatchInlineSnapshot(
-      `"?with=values&orFiltersOperator=attributeGroup1%2CattributeGroup2%2CattributeGroup3"`,
-    );
+    ).toMatchInlineSnapshot(`"?with=values&orFiltersOperator=attributeGroup1%2CattributeGroup2%2CattributeGroup3"`);
   });
 });

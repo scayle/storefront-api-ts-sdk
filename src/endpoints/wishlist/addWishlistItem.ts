@@ -1,7 +1,6 @@
 import {basketWithQueryParameter} from '../../endpoints/basket/getBasket';
-import {WishlistWith} from '../../endpoints/wishlist/getWishlist';
+import {WishlistResponse, WishlistWith, wishlistWithQueryParameter} from '../../endpoints/wishlist/getWishlist';
 import {BapiCall} from '../../helpers/execute';
-import {WishlistResponse} from '../../types/Wishlist';
 
 export type WishlistItemCreationID =
   | {
@@ -18,10 +17,7 @@ export interface AddWishlistItemParameters {
 
   with?: WishlistWith;
   campaignKey?: string;
-
   pricePromotionKey?: string;
-
-  skipAvailabilityCheck?: boolean;
 }
 
 export function addWishlistItemEndpointRequest(params: AddWishlistItemParameters): BapiCall<WishlistResponse> {
@@ -31,12 +27,11 @@ export function addWishlistItemEndpointRequest(params: AddWishlistItemParameters
     params: {
       ...(params.with
         ? {
-            with: basketWithQueryParameter(params.with).join(','),
+            with: wishlistWithQueryParameter(params.with),
           }
         : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
       ...(params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
-      ...(params.skipAvailabilityCheck ? {skipAvailabilityCheck: params.skipAvailabilityCheck} : undefined),
     },
     data: {
       ...params.item,

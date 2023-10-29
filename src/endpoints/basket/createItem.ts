@@ -1,5 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
-import {BasketResponse, BasketItemDisplayData, ItemGroup} from '../../types/Basket';
+import {Basket, BasketItemDisplayData, ItemGroup} from '../../types/Basket';
 import {BasketWith, basketWithQueryParameter} from './getBasket';
 
 export interface CreateBasketItemParameters {
@@ -17,7 +17,7 @@ export interface CreateBasketItemParameters {
   promotionId?: string;
 }
 
-export function createBasketItemRequest(params: CreateBasketItemParameters): BapiCall<BasketResponse> {
+export function createBasketItemRequest(params: CreateBasketItemParameters): BapiCall<Basket> {
   const customData = params.pricePromotionKey
     ? {...params.customData, pricePromotionKey: params.pricePromotionKey}
     : params.customData;

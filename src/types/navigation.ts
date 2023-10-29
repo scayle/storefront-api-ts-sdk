@@ -1,12 +1,10 @@
-import {RFC33339Date} from './Product';
+import {RFC33339Date} from './Date';
 import {Category} from './Category';
 
-// TODO: Check types
 export type NavigationItem = {
   id: number;
   name: string;
   assets: {[key: string]: string};
-  languages: {[key: string]: string};
   visibleFrom: RFC33339Date | null;
   visibleTo: RFC33339Date | null;
   children: NavigationItems;
@@ -16,7 +14,7 @@ export type NavigationItemExternal = NavigationItem & {
   type: 'external';
   options: {
     url: string;
-    isOpenInNewWindows: boolean;
+    isOpenInNewWindow: boolean;
   };
 };
 

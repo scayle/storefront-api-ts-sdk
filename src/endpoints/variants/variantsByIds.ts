@@ -21,10 +21,6 @@ export type VariantDetail = Variant & {productId: number};
 export function createVariantsByIdsEndpointRequest(
   parameters: VariantsByIdsEndpointParameters,
 ): BapiCall<VariantsByIdsEndpointResponseData> {
-  if (parameters.variantIds.length === 0) {
-    throw new Error(`"variantIds" parameter must not be an empty array.`);
-  }
-
   return {
     method: 'GET',
     endpoint: `/v1/variants`,

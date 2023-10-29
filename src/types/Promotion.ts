@@ -1,14 +1,14 @@
-import {RFC33339Date} from './BapiProduct';
+import {RFC33339Date} from './Date';
 
 export interface PromotionCustomData {
   [key: string]: unknown | undefined;
 }
 
-export interface PromotionCondition {
+export type PromotionCondition = {
   level: 'item' | 'global';
   key: string;
   condition: string;
-}
+};
 
 export type PromotionEffect =
   | {
@@ -26,7 +26,7 @@ export type PromotionEffect =
       };
     };
 
-export interface Promotion {
+export type Promotion = {
   id: string;
   name: string;
   schedule: {
@@ -37,4 +37,4 @@ export interface Promotion {
   effect: PromotionEffect;
   conditions: PromotionCondition[];
   customData: PromotionCustomData;
-}
+};

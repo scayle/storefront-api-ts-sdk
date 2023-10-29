@@ -1,8 +1,38 @@
-import {BasketWith, basketWithQueryParameter} from '../../endpoints/basket/getBasket';
 import {BapiCall} from '../../helpers/execute';
-import {WishlistResponse} from '../../types/Wishlist';
+import {
+  ProductWith,
+  VariantWith,
+  productWithQueryParameterValues,
+  variantWithQueryParameterValues,
+} from '../../types/ProductWith';
+import {Wishlist} from '../../types/Wishlist';
 
-export type WishlistWith = BasketWith;
+export type WishlistWith = {
+  items?: {
+    product?: ProductWith;
+    variant?: VariantWith;
+  };
+};
+
+export function wishlistWithQueryParameter(wishlistWith: WishlistWith): string {
+  const withParams = [];
+
+  if (wishlistWith.items && wishlistWith.items.product) {
+    withParams.push(
+      ...productWithQueryParameterValues(wishlistWith.items.product).map(value => `items.product.${value}`),
+    );
+  }
+
+  if (wishlistWith.items && wishlistWith.items.variant) {
+    withParams.push(
+      ...variantWithQueryParameterValues(wishlistWith.items.variant).map(value => `items.variant.${value}`),
+    );
+  }
+
+  return withParams.join(',');
+}
+
+export type WishlistResponse = Wishlist;
 
 export interface GetWishlistParameters {
   wishlistKey: string;
@@ -18,7 +48,7 @@ export function getWishlistEndpointRequest(params: GetWishlistParameters): BapiC
     method: 'GET',
     endpoint: `/v1/wishlists/${params.wishlistKey}`,
     params: {
-      ...(params.with ? {with: basketWithQueryParameter(params.with).join(',')} : undefined),
+      ...(params.with ? {with: wishlistWithQueryParameter(params.with)} : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
       ...(params.pricePromotionKey ? {pricePromotionKey: params.pricePromotionKey} : undefined),
     },

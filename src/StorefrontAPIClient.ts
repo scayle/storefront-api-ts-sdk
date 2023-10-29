@@ -31,7 +31,7 @@ import {
   WishlistItemCreationID,
 } from './endpoints/wishlist/addWishlistItem';
 import {deleteWishlistEndpointRequest, DeleteWishlistParameters} from './endpoints/wishlist/deleteWishlistItem';
-import {getWishlistEndpointRequest, GetWishlistParameters} from './endpoints/wishlist/getWishlist';
+import {getWishlistEndpointRequest, GetWishlistParameters, WishlistResponse} from './endpoints/wishlist/getWishlist';
 import {execute, BapiCall} from './helpers/execute';
 import {Category} from './types/Category';
 import {Product} from './types/Product';
@@ -60,15 +60,19 @@ import {
   createProductByReferenceKeyRequest,
   ProductsByReferenceKeyRequestData as ProductsByReferenceKeyEndpointParameters,
 } from './endpoints/products/productByReferenceKey';
-import {createSearchResolveEndpointRequest, SearchResolveEndpointResponseData} from './endpoints/search/resolve';
 import {
   createSearchResolveEndpointRequest,
   SearchResolveEndpointParameters,
   SearchResolveEndpointResponseData,
-} from '../endpoints/search/resolve';
+} from './endpoints/search/resolve';
+// import {
+//   createSearchResolveEndpointRequest,
+//   SearchResolveEndpointParameters,
+//   SearchResolveEndpointResponseData,
+// } from './endpoints/search/resolve';
 import {
   BrandsEndpointRequestParameters,
-  BrandsEndpointResponseData,
+  BrandsEndpointResponse,
   createBrandsEndpointRequest,
 } from './endpoints/brands/brands';
 import {BrandByIdEndpointResponse, createBrandByIdEndpointRequest} from './endpoints/brands/brandById';
@@ -79,66 +83,65 @@ import {
   createCampaignsEndpointRequest,
 } from './endpoints/campaigns/campaigns';
 import {
-  createNavigationByIdEndpointRequest,
-  NavigationByIdEndpointResponseData,
+  createNavigationTreeEndpointRequest,
+  NavigationTreeEndpointResponse,
 } from './endpoints/navigation/navigationById';
 import {
-  createNavigationAllEndpointRequest,
-  GetNavigationParameters,
-  NavigationAllEndpointResponseData,
+  createNavigationTreesEndpointRequest,
+  GetNavigationTreesParameters,
+  NavigationTreesEndpointResponse,
 } from './endpoints/navigation/navigation';
 import {InferResponsePagination, PagePaginationRequest, RequestPagination} from './types/Pagination';
-import {WishlistResponse} from './types/Wishlist';
-import {BasketResponse} from './types/Basket';
-import {PromotionsEndpointRequestParameters, createPromotionsEndpointRequest} from '../endpoints/promotions/promotions';
+import {Basket} from './types/Basket';
+import {PromotionsEndpointRequestParameters, createPromotionsEndpointRequest} from './endpoints/promotions/promotions';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse =
   | {
       type: 'success'; // operationStatus: succeeded / partially / not-at-all
       statusCode: number;
-      basket: BasketResponse;
+      basket: Basket;
     }
   | {
       type: 'failure';
       statusCode: number;
       kind: AddToBasketFailureKind;
-      basket: BasketResponse;
+      basket: Basket;
     };
 
 type UpdateBasketItemResponse =
   | {
       type: 'success'; // operationStatus: succeeded / partially / not-at-all
       statusCode: number;
-      basket: BasketResponse;
+      basket: Basket;
     }
   | {
       type: 'failure';
       statusCode: number;
       kind: UpdateBasketItemFailureKind;
-      basket: BasketResponse;
+      basket: Basket;
     };
 
 export type GetBasketResponse =
   | {
       type: 'success';
       statusCode: number;
-      basket: BasketResponse;
+      basket: Basket;
     }
   | {
       type: 'failure';
       statusCode: number;
-      basket: BasketResponse;
+      basket: Basket;
     };
 
 export type AddManyItemsBasketResponse =
   | {
       readonly type: 'success';
-      readonly basket: BasketResponse;
+      readonly basket: Basket;
     }
   | {
       readonly type: 'failure';
-      readonly basket: BasketResponse;
+      readonly basket: Basket;
       readonly errors: AddOrUpdateItemError[];
     };
 
@@ -276,21 +279,14 @@ export enum ExistingItemHandling {
   ReplaceExistingWithCombinedQuantity,
 }
 
-export type StorefrontAPIAuth =
-  | {
-      type: 'basic';
-      username: string;
-      password: string;
-    }
-  | {
-      type: 'token';
-      token: string;
-    };
+export type StorefrontAPIAuth = {
+  type: 'token';
+  token: string;
+};
 
 export interface StorefrontAPIConfig {
   host: string;
-  countryId: number;
-  countryIdPlacement?: 'header' | 'query';
+  shopId: number;
   auth?: StorefrontAPIAuth;
   axios?: AxiosInstance;
 }
@@ -301,11 +297,9 @@ export interface StorefrontAPIConfig {
  * Constructor returns a preconfigured client which has the `host` and `appId` set for all requests
  */
 export class StorefrontAPIClient {
-  private readonly countryIdPlacement: 'header' | 'query';
-
   private readonly host: string;
 
-  private readonly countryId: number;
+  private readonly shopId: number;
 
   private readonly axios: AxiosInstance;
 
@@ -313,22 +307,13 @@ export class StorefrontAPIClient {
 
   public constructor(config: StorefrontAPIConfig) {
     this.host = config.host;
-    this.countryId = config.countryId;
-    this.countryIdPlacement = config.countryIdPlacement ?? 'query';
+    this.shopId = config.shopId;
     this.auth = config.auth;
     this.axios = config.axios ?? axios;
   }
 
   private async execute<SuccessResponseT>(bapiCall: BapiCall<SuccessResponseT>): Promise<SuccessResponseT> {
-    const response = await execute(
-      this.axios,
-      this.host,
-      this.countryId,
-      bapiCall,
-      false,
-      this.countryIdPlacement,
-      this.auth,
-    );
+    const response = await execute(this.axios, this.host, this.shopId, bapiCall, false, this.auth);
 
     return response.data;
   }
@@ -336,15 +321,7 @@ export class StorefrontAPIClient {
   private async executeWithStatus<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<{data: SuccessResponseT; statusCode: number}> {
-    const response = await execute(
-      this.axios,
-      this.host,
-      this.countryId,
-      bapiCall,
-      true,
-      this.countryIdPlacement,
-      this.auth,
-    );
+    const response = await execute(this.axios, this.host, this.shopId, bapiCall, true, this.auth);
 
     return {
       data: response.data,
@@ -575,7 +552,7 @@ export class StorefrontAPIClient {
       basketKey: string,
       itemKey: string,
       params: Omit<DeleteItemParameters, 'basketKey' | 'itemKey'> = {},
-    ): Promise<BasketResponse> =>
+    ): Promise<Basket> =>
       this.execute(
         deleteBasketItemRequest({
           ...params,
@@ -811,7 +788,7 @@ export class StorefrontAPIClient {
     getById: (brandId: number): Promise<BrandByIdEndpointResponse> => {
       return this.execute(createBrandByIdEndpointRequest(brandId));
     },
-    get: (parameters: BrandsEndpointRequestParameters): Promise<BrandsEndpointResponseData> => {
+    get: (parameters: BrandsEndpointRequestParameters): Promise<BrandsEndpointResponse> => {
       return this.execute(createBrandsEndpointRequest(parameters));
     },
   };
@@ -828,12 +805,12 @@ export class StorefrontAPIClient {
   public readonly navigation = {
     getById: (
       navigationTreeId: number,
-      parameters: GetNavigationParameters = {},
-    ): Promise<NavigationByIdEndpointResponseData> => {
-      return this.execute(createNavigationByIdEndpointRequest(navigationTreeId, parameters));
+      parameters: GetNavigationTreesParameters = {},
+    ): Promise<NavigationTreeEndpointResponse> => {
+      return this.execute(createNavigationTreeEndpointRequest(navigationTreeId, parameters));
     },
-    getAll: (parameters: GetNavigationParameters = {}): Promise<NavigationAllEndpointResponseData> => {
-      return this.execute(createNavigationAllEndpointRequest(parameters));
+    getAll: (parameters: GetNavigationTreesParameters = {}): Promise<NavigationTreesEndpointResponse> => {
+      return this.execute(createNavigationTreesEndpointRequest(parameters));
     },
   };
 
@@ -856,13 +833,13 @@ export class StorefrontAPIClient {
 //
 // Does not fail on the first error encountered, which makes it useful for cases where partial operations are desired.
 class BasketMultiOperationsClient {
-  public latestBasket: BasketResponse;
+  public latestBasket: Basket;
 
   private _client: StorefrontAPIClient;
 
   public errors: AddOrUpdateItemError[];
 
-  constructor(client: StorefrontAPIClient, latestBasket: BasketResponse) {
+  constructor(client: StorefrontAPIClient, latestBasket: Basket) {
     this.latestBasket = latestBasket;
     this.errors = [];
     this._client = client;
@@ -948,7 +925,7 @@ class BasketMultiOperationsClient {
     }
   }
 
-  private updateBasket(basket?: BasketResponse) {
+  private updateBasket(basket?: Basket) {
     // Small sanity check that we really got a valid basket, else keep the previous
     if (basket && basket?.key === this.latestBasket.key) {
       this.latestBasket = basket;

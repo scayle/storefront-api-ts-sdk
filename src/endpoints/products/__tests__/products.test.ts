@@ -335,16 +335,10 @@ it('Builds correct query', () => {
   expect(
     getParamsString(
       createProductsSearchEndpointRequest({
-        orFiltersOperator: [
-          'attributeGroup1',
-          'attributeGroup2',
-          'attributeGroup3',
-        ],
+        orFiltersOperator: ['attributeGroup1', 'attributeGroup2', 'attributeGroup3'],
       }).params,
     ),
-  ).toMatchInlineSnapshot(
-    `"?orFiltersOperator=attributeGroup1%2CattributeGroup2%2CattributeGroup3"`,
-  );
+  ).toMatchInlineSnapshot(`"?orFiltersOperator=attributeGroup1%2CattributeGroup2%2CattributeGroup3"`);
 
   // Having only one `orFiltersOperator` parameter doesn't make sense and should not have any effect
   expect(

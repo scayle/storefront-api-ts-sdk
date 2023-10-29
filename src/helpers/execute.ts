@@ -57,15 +57,12 @@ export interface BapiResponse<T> {
 export async function execute<SuccessResponseT>(
   axios: AxiosInstance,
   host: string,
-  countryId: number,
+  shopId: number,
   bapiCall: BapiCall<SuccessResponseT>,
   acceptAllResponseCodes: boolean = false,
-  countryIdPlacement: 'header' | 'query',
   auth?: StorefrontAPIAuth,
 ): Promise<BapiResponse<SuccessResponseT>> {
-  const params = countryIdPlacement === 'query' ? {...bapiCall.params, countryId: countryId} : bapiCall.params;
-
-  const url = `https://${host}${bapiCall.endpoint}${getParamsString(params)}`;
+  const url = `https://${host}${bapiCall.endpoint}${getParamsString({...bapiCall.params, shopId: shopId})}`;
 
   const response: AxiosResponse<SuccessResponseT> = await axios.request({
     method: bapiCall.method,
@@ -74,18 +71,10 @@ export async function execute<SuccessResponseT>(
       Accept: 'application/json',
       'Content-Type': 'application/json',
       ...(typeof window === 'undefined' ? {'accept-encoding': 'gzip, deflate'} : {}),
-      ...(countryIdPlacement === 'header' ? {'X-Country-Id': `${countryId}`} : {}),
       ...(auth?.type === 'token' ? {'X-Access-Token': auth.token} : {}),
     },
     data: bapiCall.method === 'POST' || bapiCall.method === 'PATCH' ? bapiCall.data : undefined,
     validateStatus: acceptAllResponseCodes ? () => true : statusCode => statusCode >= 200 && statusCode <= 299,
-    auth:
-      auth?.type === 'basic'
-        ? {
-            username: auth.username,
-            password: auth.password,
-          }
-        : undefined,
   } as AxiosRequestConfig);
 
   if (bapiCall.responseValidator && !bapiCall.responseValidator(response.data)) {

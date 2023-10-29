@@ -8,7 +8,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=18"
   },
   "dependencies": {
     "axios": "^1.4.0"
@@ -16,12 +16,14 @@
   "devDependencies": {
     "@types/jest": "^29.5.2",
     "@types/nock": "^9.3.0",
-    "esbuild": "^0.18.11",
+    "@types/node": "^20.8.9",
     "jest": "^29.5.0",
     "nock": "10.0.6",
     "prettier": "^2.8.8",
     "ts-jest": "^29.1.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vite-plugin-dts": "^3.6.2"
   },
   "repository": {
     "type": "git",
@@ -29,10 +31,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "prepublish": "yarn test && yarn build",
-    "build": "rm -rf dist/ && yarn build:ts && yarn build:types",
-    "build:ts": "esbuild --bundle src/index.ts --outdir=dist --sourcemap --packages=external --format=esm --target=esnext",
-    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "build": "vite build",
     "format": "prettier -w \"src/**/*.ts\"",
     "lint": "prettier -l \"src/**/*.ts\" && tsc --noEmit",
     "test": "yarn lint && yarn jest"

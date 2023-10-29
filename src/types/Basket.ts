@@ -1,15 +1,15 @@
-import {CustomData} from './CustomData';
-import {BapiPrice, Product, Variant} from './Product';
+import {VariantPrice, Product, Variant} from './Product';
+import {Promotion} from './Promotion';
 
-export type BasketItemPrice = Omit<BapiPrice, 'tax'>;
+export type BasketItemPrice = Omit<VariantPrice, 'tax'>;
 
-export type BasketTotalPrice = Omit<BapiPrice, 'tax' | 'reference'>;
+export type BasketTotalPrice = Omit<VariantPrice, 'tax' | 'reference'>;
 
 export type BasketKey = string & {
   readonly ____tagBasketKey: unique symbol;
 };
 
-export type BasketResponse = {
+export type Basket = {
   key: BasketKey;
   cost: BasketTotalPrice;
   items: BasketItem[];
@@ -33,9 +33,13 @@ export type ItemGroup = {
   isRequired: boolean;
 };
 
+export interface BasketItemCustomData {
+  [key: string]: unknown | undefined;
+}
+
 export type BasketItem = {
   key: string;
-  customData: CustomData;
+  customData: BasketItemCustomData;
   packageId: number;
   price: {
     total: BasketItemPrice;
@@ -43,11 +47,13 @@ export type BasketItem = {
   };
   quantity: number;
   availableQuantity: number;
-  status: 'available' | 'unavailable' | 'deleted';
+  status: 'available' | 'unavailable';
   product: Product;
   variant: Variant;
   displayData: BasketItemDisplayData;
   itemGroup?: ItemGroup;
+  promotionId?: string;
+  promotion?: Promotion;
 };
 
 export type BaskteItemDisplayDataItem = {
@@ -56,7 +62,14 @@ export type BaskteItemDisplayDataItem = {
   key: string;
 };
 
-export type BasketItemDisplayDataKey = 'meta' | 'name' | 'identifier' | 'attribute-1' | 'attribute-2' | 'attribute-3';
+export type BasketItemDisplayDataKey =
+  | 'meta'
+  | 'name'
+  | 'identifier'
+  | 'attribute-1'
+  | 'attribute-2'
+  | 'attribute-3'
+  | 'attribute-4';
 
 export type BasketItemDisplayData = Partial<Record<BasketItemDisplayDataKey, BaskteItemDisplayDataItem>>;
 

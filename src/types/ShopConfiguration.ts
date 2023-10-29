@@ -1,13 +1,19 @@
-import {CustomData} from './CustomData';
+export interface ShopCustomData {
+  [key: string]: unknown | undefined;
+}
 
-export type ShopConfigurationResponse = {
+export interface TenantCustomData {
+  [key: string]: unknown | undefined;
+}
+
+export type ShopConfiguration = {
   shopId: number;
   name: string;
   properties: Array<{
     key: string;
     value: string;
   }>;
-  customData: CustomData;
-  shopCustomData: CustomData;
+  customData: TenantCustomData;
+  shopCustomData: ShopCustomData;
   country: string;
 };

@@ -1,4 +1,5 @@
 import {BapiCall} from '../../helpers/execute';
+import {Redirect} from '../../types/Redirect';
 import {Pagination} from '../products/productsByIds';
 
 export interface GetRedirectsEndpointParameters {
@@ -8,21 +9,14 @@ export interface GetRedirectsEndpointParameters {
   };
 }
 
-export type Redirect = {
-  id: number;
-  source: string;
-  target: string;
-  statusCode: number;
-};
-
-export type RedirectsResponseData = {
+export type RedirectsResponse = {
   entities: Redirect[];
   pagination: Pagination;
 };
 
 export function createGetRedirectsEndpointRequest(
   parameters: GetRedirectsEndpointParameters,
-): BapiCall<RedirectsResponseData> {
+): BapiCall<RedirectsResponse> {
   return {
     method: 'GET',
     endpoint: `/v1/redirects`,

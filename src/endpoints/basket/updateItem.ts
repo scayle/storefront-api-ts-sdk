@@ -1,6 +1,6 @@
 import {BasketWith, basketWithQueryParameter} from './getBasket';
 import {BapiCall} from '../../helpers/execute';
-import {BasketResponse, BasketItemDisplayData, ItemGroup} from '../../types/Basket';
+import {Basket, BasketItemDisplayData, ItemGroup} from '../../types/Basket';
 import {CustomData} from '../../types/CustomData';
 
 export interface UpdateBasketItemQuantity {
@@ -19,7 +19,7 @@ export interface UpdateBasketItemQuantity {
   promotionId?: string | null;
 }
 
-export function updateBasketItemQuantityRequest(params: UpdateBasketItemQuantity): BapiCall<BasketResponse> {
+export function updateBasketItemQuantityRequest(params: UpdateBasketItemQuantity): BapiCall<Basket> {
   const customData = params.pricePromotionKey
     ? {...params.customData, pricePromotionKey: params.pricePromotionKey}
     : params.customData;
@@ -42,9 +42,7 @@ export function updateBasketItemQuantityRequest(params: UpdateBasketItemQuantity
       ...(customData !== undefined ? {customData} : undefined),
       ...(params.displayData ? {displayData: params.displayData} : undefined),
       ...(params.itemGroup ? {itemGroup: params.itemGroup} : undefined),
-      ...(params.promotionId !== undefined
-        ? {promotionId: params.promotionId}
-        : undefined),
+      ...(params.promotionId !== undefined ? {promotionId: params.promotionId} : undefined),
     },
   };
 }

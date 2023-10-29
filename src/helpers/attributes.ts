@@ -43,7 +43,3 @@ export function attributeIncludeParameters(
 
   return parameterValues;
 }
-
-export function prefixList(prefix: string): (list: string[]) => string[] {
-  return list => list.map(value => `${prefix}${value}`);
-}

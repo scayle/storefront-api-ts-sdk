@@ -1,4 +1,4 @@
-import {AttributeInclude, attributeIncludeParameters, prefixList} from '../helpers/attributes';
+import {AttributeInclude, attributeIncludeParameters} from '../helpers/attributes';
 
 export type ProductImageWith =
   | 'all'
@@ -46,11 +46,6 @@ export interface VariantWith {
   attributes?: AttributeInclude;
   advancedAttributes?: AttributeInclude;
   lowestPriorPrice?: boolean;
-  stock?:
-    | 'all'
-    | {
-        customData?: boolean;
-      };
 }
 
 export function productWithQueryParameterValues(productWith: ProductWith): string[] {
@@ -65,7 +60,7 @@ export function productWithQueryParameterValues(productWith: ProductWith): strin
     parameterValues.push('variants'); // always add, if any variants data requested
 
     if (productWith.variants && typeof productWith.variants === 'object') {
-      parameterValues.push(...prefixList('variants.')(variantWithQueryParameterValues(productWith.variants)));
+      parameterValues.push(...variantWithQueryParameterValues(productWith.variants).map(value => `variants.${value}`));
     }
   }
 
@@ -161,9 +156,5 @@ export function variantWithQueryParameterValues(variantWith: VariantWith): strin
     ...attributeIncludeParameters('attributes', variantWith.attributes),
     ...attributeIncludeParameters('advancedAttributes', variantWith.advancedAttributes),
     ...(variantWith.lowestPriorPrice ? ['lowestPriorPrice'] : []),
-    ...(variantWith.stock ? ['stock'] : []),
-    ...(variantWith.stock && typeof variantWith.stock === 'object' && variantWith.stock.customData
-      ? ['stock.customData']
-      : []),
   ];
 }

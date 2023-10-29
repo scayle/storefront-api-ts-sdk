@@ -1,5 +1,8 @@
-import {CustomData} from './CustomData';
-import {RFC33339Date} from './Product';
+import {RFC33339Date} from './Date';
+
+export interface CampaignCustomData {
+  [key: string]: unknown | undefined;
+}
 
 export type Campaign = {
   id: number;
@@ -7,7 +10,7 @@ export type Campaign = {
   name: string;
   description: string;
   reduction: number;
-  start_at: RFC33339Date | null;
-  end_at: RFC33339Date | null;
-  customData: CustomData;
+  start_at: RFC33339Date;
+  end_at: RFC33339Date;
+  customData: CampaignCustomData;
 };

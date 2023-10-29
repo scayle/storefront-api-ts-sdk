@@ -1,35 +1,27 @@
-import {RFC33339Date} from 'types/BapiProduct';
-import {BapiCall} from '../../interfaces/BapiCall';
-import {Pagination} from '../products/productsByIds';
-import {Promotion} from 'types/Promotion';
+import {RFC33339Date} from '../../types/Date';
+import {BapiCall} from '../../helpers/execute';
+import {Promotion} from '../../types/Promotion';
+import {PagePaginationRequest, PagePaginationResponse, buildRequestPaginationParameters} from '../../types/Pagination';
 
-export interface PromotionsEndpointResponseData {
-  pagination: Pagination;
+export interface PromotionsEndpointResponse {
+  pagination: PagePaginationResponse;
   entities: Promotion[];
 }
 
 export interface PromotionsEndpointRequestParameters {
   ids?: string[];
   activeAt?: RFC33339Date;
-  pagination?: {
-    page?: number;
-    perPage?: number;
-  };
+  pagination?: PagePaginationRequest;
 }
 
 export function createPromotionsEndpointRequest(
   parameters: PromotionsEndpointRequestParameters = {},
-): BapiCall<PromotionsEndpointResponseData> {
+): BapiCall<PromotionsEndpointResponse> {
   return {
     method: 'GET',
-    endpoint: 'promotions',
+    endpoint: '/v1/promotions',
     params: {
-      ...(parameters.pagination && parameters.pagination.page
-        ? {page: parameters.pagination.page}
-        : undefined),
-      ...(parameters.pagination && parameters.pagination.perPage
-        ? {perPage: parameters.pagination.perPage}
-        : undefined),
+      ...buildRequestPaginationParameters(parameters.pagination),
       ...(parameters.ids ? {ids: parameters.ids.join(',')} : undefined),
       ...(parameters.activeAt ? {activeAt: parameters.activeAt} : undefined),
     },

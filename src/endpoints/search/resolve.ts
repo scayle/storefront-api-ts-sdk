@@ -32,9 +32,7 @@ export function createSearchResolveEndpointRequest(
     endpoint: `/v1/search/resolve`,
     params: {
       term: parameters.term,
-      ...(parameters.categoryId
-        ? {categoryId: parameters.categoryId}
-        : undefined),
+      ...(parameters.categoryId ? {categoryId: parameters.categoryId} : undefined),
     },
   };
 }

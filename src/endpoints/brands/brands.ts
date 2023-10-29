@@ -1,30 +1,24 @@
 import {BapiCall} from '../../helpers/execute';
-import {Pagination} from '../products/productsByIds';
 import {Brand} from '../../types/Brand';
+import {InferResponsePagination, RequestPagination, buildRequestPaginationParameters} from '../../types/Pagination';
 
-export interface BrandsEndpointResponseData {
-  pagination: Pagination;
+export type BrandsEndpointResponse<Pagination extends RequestPagination> = {
+  pagination: InferResponsePagination<Pagination>;
   entities: Brand[];
-}
+};
 
-export interface BrandsEndpointRequestParameters {
-  pagination?: {
-    page?: number;
-    perPage?: number;
-  };
-}
+export type BrandsEndpointRequestParameters<Pagination extends RequestPagination> = {
+  pagination?: Pagination;
+};
 
-export function createBrandsEndpointRequest(
-  parameters: BrandsEndpointRequestParameters = {},
-): BapiCall<BrandsEndpointResponseData> {
+export function createBrandsEndpointRequest<Pagination extends RequestPagination>(
+  parameters: BrandsEndpointRequestParameters<Pagination> = {},
+): BapiCall<BrandsEndpointResponse<Pagination>> {
   return {
     method: 'GET',
     endpoint: '/v1/brands',
     params: {
-      ...(parameters.pagination && parameters.pagination.page ? {page: parameters.pagination.page} : undefined),
-      ...(parameters.pagination && parameters.pagination.perPage
-        ? {perPage: parameters.pagination.perPage}
-        : undefined),
+      ...buildRequestPaginationParameters(parameters.pagination),
     },
   };
 }

@@ -1,7 +1,4 @@
 import {ArrayMinLength} from '../../types/ArrayMinLength';
-import {Pagination} from '../../endpoints/products/productsByIds';
-import {BapiCall} from '../../interfaces/BapiCall';
-import {BapiProduct} from '../../types/BapiProduct';
 import {
   InferResponsePagination,
   RequestPagination,
@@ -11,21 +8,12 @@ import {
 import {Product} from '../../types/Product';
 import {ProductSearchQuery, queryParamsFromProductSearchQuery} from '../../types/ProductSearchQuery';
 import {ProductWith, productWithQueryParameterValues} from '../../types/ProductWith';
-
-export enum APISortOption {
-  Price = 'price',
-  DateAdded = 'new',
-  Reduction = 'reduction',
-}
-
-export enum APISortOrder {
-  Ascending = 'asc',
-  Descending = 'desc',
-}
+import {BapiCall} from '../../helpers/execute';
+import {SortOrder, ProductSortOption} from '../../types/sorting';
 
 export interface ProductSortConfig {
-  by?: APISortOption;
-  direction?: APISortOrder;
+  by?: ProductSortOption;
+  direction?: SortOrder;
   score?: 'category_scores' | 'brand_scores';
   channel?: string;
   sortingKey?: string;

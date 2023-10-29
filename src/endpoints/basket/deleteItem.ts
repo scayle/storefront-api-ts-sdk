@@ -1,6 +1,6 @@
 import {BasketWith, basketWithQueryParameter} from './getBasket';
 import {BapiCall} from '../../helpers/execute';
-import {BasketResponse} from '../../types/Basket';
+import {Basket} from '../../types/Basket';
 
 export interface DeleteItemParameters {
   basketKey: string;
@@ -13,7 +13,7 @@ export interface DeleteItemParameters {
   includeItemsWithoutProductData?: boolean;
 }
 
-export function deleteBasketItemRequest(params: DeleteItemParameters): BapiCall<BasketResponse> {
+export function deleteBasketItemRequest(params: DeleteItemParameters): BapiCall<Basket> {
   return {
     method: 'DELETE',
     endpoint: `/v1/baskets/${params.basketKey}/items/${params.itemKey}`,
