@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createProductsSearchEndpointRequest} from '../products';
 import {AttributeKey} from '../../../types/AttributeOrAttributeValueFilter';
 import {getParamsString} from '../../../helpers/execute';

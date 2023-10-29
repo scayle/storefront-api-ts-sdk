@@ -16,16 +16,18 @@ export interface BasketWith {
   applicablePromotions?: boolean;
 }
 
-export function basketWithQueryParameter(basketWith: BasketWith): string[] {
+export function basketWithQueryParameter(basketWith: BasketWith): string {
   const withParams = [];
 
   if (basketWith.items && basketWith.items.product) {
+    withParams.push(`items.product`);
     withParams.push(
       ...productWithQueryParameterValues(basketWith.items.product).map(value => `items.product.${value}`),
     );
   }
 
   if (basketWith.items && basketWith.items.variant) {
+    withParams.push(`items.variant`);
     withParams.push(
       ...variantWithQueryParameterValues(basketWith.items.variant).map(value => `items.variant.${value}`),
     );
@@ -39,7 +41,7 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
     withParams.push('applicablePromotions');
   }
 
-  return withParams;
+  return withParams.join(',');
 }
 
 export interface GetBasketParameters {
@@ -58,7 +60,7 @@ export function getBasketEndpointRequest(params: GetBasketParameters): BapiCall<
     method: 'GET',
     endpoint: `/v1/baskets/${params.basketKey}`,
     params: {
-      ...(params.with ? {with: basketWithQueryParameter(params.with).join(',')} : undefined),
+      ...(params.with ? {with: basketWithQueryParameter(params.with)} : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
       ...(params.skipAvailabilityCheck ? {skipAvailabilityCheck: params.skipAvailabilityCheck} : undefined),
       ...(params.includeItemsWithoutProductData

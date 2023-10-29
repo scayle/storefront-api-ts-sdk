@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {AttributeKey} from '../../types/AttributeOrAttributeValueFilter';
 import {queryParamsFromProductSearchQuery} from '../../types/ProductSearchQuery';
 

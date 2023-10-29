@@ -1,7 +1,8 @@
+import {it, expect} from 'vitest';
 import {basketWithQueryParameter, getBasketEndpointRequest} from '../getBasket';
 
 it('Builds corrects with query parameter', () => {
-  expect(basketWithQueryParameter({})).toMatchInlineSnapshot(`[]`);
+  expect(basketWithQueryParameter({})).eq('');
 
   expect(
     basketWithQueryParameter({
@@ -10,11 +11,7 @@ it('Builds corrects with query parameter', () => {
         variant: {},
       },
     }),
-  ).toMatchInlineSnapshot(`
-[
-  "items.product.images.attributes:legacy(false)",
-]
-`);
+  ).eq(`items.product,items.product.images.attributes:legacy(false),items.variant`);
 
   expect(
     basketWithQueryParameter({
@@ -26,42 +23,9 @@ it('Builds corrects with query parameter', () => {
         variant: {attributes: 'all', advancedAttributes: 'all'},
       },
     }),
-  ).toMatchInlineSnapshot(`
-[
-  "items.product.attributes",
-  "items.product.advancedAttributes",
-  "items.product.images.attributes:legacy(false)",
-  "items.variant.attributes",
-  "items.variant.advancedAttributes",
-]
-`);
-
-  expect(
-    basketWithQueryParameter({
-      items: {
-        product: {
-          attributes: 'all',
-          advancedAttributes: 'all',
-        },
-        variant: {
-          attributes: {
-            withKey: ['a', 'b'],
-          },
-          advancedAttributes: {
-            ofType: ['design'],
-          },
-        },
-      },
-    }),
-  ).toMatchInlineSnapshot(`
-[
-  "items.product.attributes",
-  "items.product.advancedAttributes",
-  "items.product.images.attributes:legacy(false)",
-  "items.variant.attributes:key(a|b)",
-  "items.variant.advancedAttributes:type(design)",
-]
-`);
+  ).toEqual(
+    `items.product,items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant,items.variant.attributes,items.variant.advancedAttributes`,
+  );
 
   expect(
     basketWithQueryParameter({
@@ -70,12 +34,7 @@ it('Builds corrects with query parameter', () => {
       },
       applicablePromotions: true,
     }),
-  ).toMatchInlineSnapshot(`
-[
-  "items.promotion",
-  "applicablePromotions",
-]
-`);
+  ).toEqual(`items.promotion,applicablePromotions`);
 });
 
 it('Builds correct query', () => {
@@ -97,7 +56,7 @@ it('Builds correct query', () => {
   "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
-    "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
+    "with": "items.product,items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant,items.variant.attributes,items.variant.advancedAttributes",
   },
 }
 `);

@@ -1,10 +1,11 @@
+import {it, expect} from 'vitest';
 import {RFC33339Date} from '../../..';
 import {createPromotionsEndpointRequest} from '../promotions';
 
 it('Builds correct query', () => {
   expect(createPromotionsEndpointRequest({})).toMatchInlineSnapshot(`
 {
-  "endpoint": "promotions",
+  "endpoint": "/v1/promotions",
   "method": "GET",
   "params": {},
 }
@@ -19,7 +20,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "promotions",
+  "endpoint": "/v1/promotions",
   "method": "GET",
   "params": {
     "page": 1,
@@ -34,7 +35,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "promotions",
+  "endpoint": "/v1/promotions",
   "method": "GET",
   "params": {
     "ids": "abc,def",
@@ -48,7 +49,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "promotions",
+  "endpoint": "/v1/promotions",
   "method": "GET",
   "params": {
     "activeAt": "2023-10-22T19:54:02Z",

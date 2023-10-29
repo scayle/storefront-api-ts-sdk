@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createCategoryBySlugEndpointRequest} from '../categoryBySlug';
 
 it('Builds correct query', () => {

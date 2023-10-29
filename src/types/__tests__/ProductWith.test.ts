@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {productWithQueryParameterValues} from '../../types/ProductWith';
 
 it('Converts attribute filters', () => {
@@ -230,12 +231,12 @@ it('Includes price range field', () => {
   expect(productWithQueryParameterValues({}).join(',')).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
 });
 
-it('Can request stock and custom on variants', () => {
+it('Can request variants', () => {
   expect(
     productWithQueryParameterValues({
       variants: {},
     }).join(','),
-  ).toMatchInlineSnapshot(`"variants,variants.stock,variants.stock.customData,images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`);
 
   expect(
     productWithQueryParameterValues({

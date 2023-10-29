@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createProductsByIdsEndpointRequest} from '../productsByIds';
 
 it('Builds correct query', () => {

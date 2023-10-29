@@ -18,7 +18,7 @@ export function deleteBasketItemRequest(params: DeleteItemParameters): BapiCall<
     method: 'DELETE',
     endpoint: `/v1/baskets/${params.basketKey}/items/${params.itemKey}`,
     params: {
-      ...(params.with ? {with: basketWithQueryParameter(params.with).join(',')} : undefined),
+      ...(params.with ? {with: basketWithQueryParameter(params.with)} : undefined),
       ...(params.campaignKey ? {campaignKey: params.campaignKey} : undefined),
       ...(params.skipAvailabilityCheck ? {skipAvailabilityCheck: params.skipAvailabilityCheck} : undefined),
       ...(params.includeItemsWithoutProductData

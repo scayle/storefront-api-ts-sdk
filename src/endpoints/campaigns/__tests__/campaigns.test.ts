@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {CampaignSortOption, SortOrder} from '../../../types/sorting';
 import {createCampaignsEndpointRequest} from '../campaigns';
 

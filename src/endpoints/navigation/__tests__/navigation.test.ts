@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createNavigationTreesEndpointRequest} from '../../../endpoints/navigation/navigation';
 
 it('builds correct endpoint request', () => {

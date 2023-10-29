@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createBasketItemRequest} from '../createItem';
 
 it('Builds correct query', () => {
@@ -35,7 +36,7 @@ it('Builds correct query', () => {
   "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {
-    "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
+    "with": "items.product,items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant,items.variant.attributes,items.variant.advancedAttributes",
   },
 }
 `);
@@ -213,7 +214,7 @@ it('Builds correct payload with promotion id', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
 }

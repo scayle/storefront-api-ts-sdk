@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createCampaignByIdEndpointRequest} from '../campaignById';
 
 it('builds correct endpoint request', () => {

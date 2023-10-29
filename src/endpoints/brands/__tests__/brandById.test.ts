@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createBrandByIdEndpointRequest} from '../brandById';
 
 it('builds correct endpoint request', () => {

@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {getWishlistEndpointRequest} from '../getWishlist';
 
 it('Builds correct query', () => {

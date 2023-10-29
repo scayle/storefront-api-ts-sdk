@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createFilterValuesEndpointRequest} from '../filterValues';
 
 it('builds correct endpoint request', () => {

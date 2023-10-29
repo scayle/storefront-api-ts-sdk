@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createCategoryByIdEndpointRequest} from '../categoryById';
 
 it('Builds correct query', () => {

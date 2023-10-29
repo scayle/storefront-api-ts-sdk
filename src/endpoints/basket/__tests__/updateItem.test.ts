@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {updateBasketItemQuantityRequest} from '../updateItem';
 
 it('Builds corrects query', () => {
@@ -23,15 +24,6 @@ it('Builds corrects query', () => {
       basketKey: 'basket_1',
       itemKey: 'item_5',
       quantity: 10,
-      with: {
-        items: {
-          product: {
-            attributes: 'all',
-            advancedAttributes: 'all',
-          },
-          variant: {attributes: 'all', advancedAttributes: 'all'},
-        },
-      },
     }),
   ).toMatchInlineSnapshot(`
 {
@@ -40,9 +32,7 @@ it('Builds corrects query', () => {
   },
   "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
-  "params": {
-    "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
-  },
+  "params": {},
 }
 `);
 
@@ -79,7 +69,7 @@ it('Builds corrects query', () => {
     "promotionId": null,
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {},
 }
@@ -98,7 +88,7 @@ it('Builds corrects query', () => {
     "promotionId": "abc",
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {},
 }

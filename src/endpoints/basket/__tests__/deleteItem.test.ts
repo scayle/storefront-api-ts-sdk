@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {deleteBasketItemRequest} from '../deleteItem';
 
 it('Builds corrects parameter', () => {
@@ -33,7 +34,7 @@ it('Builds corrects parameter', () => {
   "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "DELETE",
   "params": {
-    "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
+    "with": "items.product,items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant,items.variant.attributes,items.variant.advancedAttributes",
   },
 }
 `);

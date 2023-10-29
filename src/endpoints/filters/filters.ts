@@ -9,13 +9,6 @@ export interface FiltersEndpointParameters {
   campaignKey?: string;
 
   /**
-   * `with` includes
-   *
-   * Defaults to `values`
-   */
-  with?: ('values' | 'category_ids')[];
-
-  /**
    * Specifies which optional filters to include
    */
   including?: string[];
@@ -119,7 +112,7 @@ export function createFiltersEndpointRequest(
     method: 'GET',
     endpoint: '/v1/filters',
     params: {
-      with: parameters.with ? parameters.with.join(',') : 'values',
+      with: 'values',
       ...(parameters.including ? {including: parameters.including.join(',')} : undefined),
       ...(parameters.campaignKey ? {campaignKey: parameters.campaignKey} : undefined),
       ...(parameters.includeSoldOut ? {includeSoldOut: parameters.includeSoldOut} : undefined),

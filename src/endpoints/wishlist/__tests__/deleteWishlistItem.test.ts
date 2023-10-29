@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {deleteWishlistEndpointRequest} from '../deleteWishlistItem';
 
 it('Builds correct query', () => {

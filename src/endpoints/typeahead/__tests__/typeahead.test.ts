@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createTypeaheadSuggestionsEndpointRequest} from '../typeahead';
 
 it('Builds correct query', () => {

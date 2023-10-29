@@ -1,3 +1,4 @@
+import {it, expect} from 'vitest';
 import {createProductByReferenceKeyRequest} from '../productByReferenceKey';
 
 it('Builds correct query', () => {
