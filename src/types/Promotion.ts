@@ -10,21 +10,23 @@ export interface PromotionCondition {
   condition: string;
 }
 
-export type PromotionEffect =
-  | {
-      type: 'automatic_discount';
-      additionalData: {
-        type: 'absolute' | 'relative';
-        value: number;
-      };
-    }
-  | {
-      type: 'buy_x_get_y';
-      additionalData: {
-        maxCount: number;
-        variantIds: number[];
-      };
-    };
+export type AutomaticDiscountEffect = {
+  type: 'automatic_discount';
+  additionalData: {
+    type: 'absolute' | 'relative';
+    value: number;
+  };
+};
+
+export type BuyXGetYEffect = {
+  type: 'buy_x_get_y';
+  additionalData: {
+    maxCount: number;
+    variantIds: number[];
+  };
+};
+
+export type PromotionEffect = AutomaticDiscountEffect | BuyXGetYEffect;
 
 export interface Promotion {
   id: string;
