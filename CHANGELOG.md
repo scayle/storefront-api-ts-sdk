@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.14.2
+
+- Export Promotion Condition types
+
 ### 15.14.1
 
 - Export types
