@@ -81,7 +81,6 @@ import {
   createrSearchMappingsEndpointRequest,
   SearchMappingsEndpointResponseData,
 } from '../endpoints/search/mappings';
-import axios, {AxiosAdapter} from 'axios';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
@@ -341,7 +340,6 @@ export class BapiClient {
       shopId: number;
       shopIdPlacement?: 'header' | 'query';
       auth?: BapiAuthentication;
-      axiosAdapter?: AxiosAdapter;
     },
   ) {
     this.shopIdPlacement = env.shopIdPlacement || 'query';
@@ -365,7 +363,6 @@ export class BapiClient {
       this.shopIdPlacement,
       this.env.auth,
       undefined,
-      this.env.axiosAdapter,
     );
 
     return response.data;
@@ -382,7 +379,6 @@ export class BapiClient {
       this.shopIdPlacement,
       this.env.auth,
       undefined,
-      this.env.axiosAdapter,
     );
 
     return {
@@ -730,18 +726,9 @@ export class BapiClient {
       this.execute(createGetRedirectsEndpointRequest(params)),
 
     post: async (url: string) => {
-      try {
-        const response = await this.execute(
-          createPostRedirectEndpointRequest(url),
-        );
-        return response;
-      } catch (e) {
-        if (axios.isAxiosError(e) && e.response?.status === 404) {
-          return undefined;
-        }
-
-        throw e;
-      }
+      return await this.execute(
+        createPostRedirectEndpointRequest(url),
+      );
     },
   };
 

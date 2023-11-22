@@ -4,7 +4,6 @@ import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
 } from '../test-helpers/nock';
-import {AxiosError} from 'axios';
 
 disableNetAndAllowBapiCors();
 
@@ -27,7 +26,8 @@ describe('Throw error with status code', () => {
           }),
         );
       } catch (e) {
-        expect((e as AxiosError).response!.status).toBe(statusCode);
+        // @ts-ignore
+        expect(e.response!.status).toBe(statusCode);
 
         return;
       }
