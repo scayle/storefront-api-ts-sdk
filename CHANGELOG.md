@@ -1,5 +1,9 @@
 # Changelog
 
+### 15.14.3
+
+- Add `priority` field to promotion response
+
 ### 15.14.2
 
 - Export Promotion Condition types
