@@ -141,6 +141,7 @@ import {
   PromotionsEndpointRequestParameters,
   createPromotionsEndpointRequest,
 } from '../endpoints/promotions/promotions';
+import {FetchError} from './FetchError';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -726,9 +727,15 @@ export class BapiClient {
       this.execute(createGetRedirectsEndpointRequest(params)),
 
     post: async (url: string) => {
-      return await this.execute(
-        createPostRedirectEndpointRequest(url),
-      );
+      try {
+        return await this.execute(createPostRedirectEndpointRequest(url));
+      } catch (e) {
+        if (e instanceof FetchError && e.response.status === 404) {
+          return undefined;
+        }
+
+        throw e;
+      }
     },
   };
 

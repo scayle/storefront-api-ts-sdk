@@ -2,6 +2,7 @@ import {BapiCall} from '../interfaces/BapiCall';
 import {ObjectMap} from '../types/ObjectMap';
 import * as queryString from 'query-string';
 import {BapiAuthentication} from './BapiClient';
+import {FetchError} from './FetchError';
 
 export const getParamsString = (params?: Partial<Record<string, any>>) => {
   if (!params) {
@@ -73,6 +74,14 @@ export async function execute<SuccessResponseT>(
         ? bapiCall.data
         : undefined,
   });
+
+  const validateStatus = acceptAllResponseCodes
+    ? () => true
+    : (statusCode: number) => statusCode >= 200 && statusCode <= 299;
+
+  if (!response.ok || !validateStatus(response.status)) {
+    throw new FetchError(response);
+  }
 
   const data = await response.json();
 
