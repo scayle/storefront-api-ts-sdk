@@ -39,4 +39,5 @@ export interface Promotion {
   effect: PromotionEffect;
   conditions: PromotionCondition[];
   customData: PromotionCustomData;
+  priority: number;
 }
