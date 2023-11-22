@@ -67,6 +67,7 @@ export async function execute<SuccessResponseT>(
       ...shopIdHeader,
       ...additionalHeaders,
       ...(auth && auth.type === 'token' ? {'X-Access-Token': auth.token} : {}),
+      ...(auth && auth.type === 'basic' ? { 'Authorization': 'Basic ' + btoa(auth.username + ":" + auth.password) } : {})
     },
     method: bapiCall.method,
     body:
