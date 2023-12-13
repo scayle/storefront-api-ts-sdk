@@ -72,15 +72,11 @@ export async function execute<SuccessResponseT>(
     method: bapiCall.method,
     body:
       bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
-        ? bapiCall.data
+        ? JSON.stringify(bapiCall.data)
         : undefined,
   });
 
-  const validateStatus = acceptAllResponseCodes
-    ? () => true
-    : (statusCode: number) => statusCode >= 200 && statusCode <= 299;
-
-  if (!response.ok || !validateStatus(response.status)) {
+  if (!response.ok || !acceptAllResponseCodes) {
     throw new FetchError(response);
   }
 
