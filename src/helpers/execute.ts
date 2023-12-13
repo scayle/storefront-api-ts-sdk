@@ -72,15 +72,15 @@ export async function execute<SuccessResponseT>(
     method: bapiCall.method,
     body:
       bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
-        ? JSON.stringify(bapiCall.data)
+        ? bapiCall.data ? JSON.stringify(bapiCall.data) : undefined
         : undefined,
   });
 
-  if (!response.ok || !acceptAllResponseCodes) {
+  if (!response.ok && !acceptAllResponseCodes) {
     throw new FetchError(response);
   }
 
-  const data = await response.json();
+  const data = await response.json()
 
   if (bapiCall.responseValidator && !bapiCall.responseValidator(data)) {
     throw new Error(`Invalid response data`);
