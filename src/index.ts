@@ -157,3 +157,5 @@ export {
   PromotionEffect,
 } from './types/Promotion';
 export {PromotionsEndpointResponseData} from './endpoints/promotions/promotions';
+
+export { FetchError } from './helpers/FetchError'
