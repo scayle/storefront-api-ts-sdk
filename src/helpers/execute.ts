@@ -72,7 +72,7 @@ export async function execute<SuccessResponseT>(
     method: bapiCall.method,
     body:
       bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
-        ? bapiCall.data ? JSON.stringify(bapiCall.data) : undefined
+        ? JSON.stringify(bapiCall.data)
         : undefined,
   });
 
