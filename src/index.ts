@@ -158,4 +158,4 @@ export {
 } from './types/Promotion';
 export {PromotionsEndpointResponseData} from './endpoints/promotions/promotions';
 
-export { FetchError } from './helpers/FetchError'
+export {FetchError} from './helpers/FetchError';

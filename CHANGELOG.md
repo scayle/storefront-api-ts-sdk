@@ -1,5 +1,9 @@
 # Changelog
 
+### 16.0.0
+
+- Switch from axios to fetch
+
 ### 15.14.3
 
 - Add `priority` field to promotion response
