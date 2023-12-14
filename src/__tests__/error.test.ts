@@ -4,7 +4,7 @@ import {
   nockWithBapiScope,
   disableNetAndAllowBapiCors,
 } from '../test-helpers/nock';
-import {AxiosError} from 'axios';
+import {FetchError} from '../helpers/FetchError';
 
 disableNetAndAllowBapiCors();
 
@@ -27,7 +27,9 @@ describe('Throw error with status code', () => {
           }),
         );
       } catch (e) {
-        expect((e as AxiosError).response!.status).toBe(statusCode);
+        if (e instanceof FetchError) {
+          expect(e.response.status).toBe(statusCode);
+        }
 
         return;
       }

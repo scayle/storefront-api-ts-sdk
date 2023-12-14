@@ -18,7 +18,6 @@ test.skip('Integration: Requests GZip by default', async () => {
     .matchHeader('accept-encoding', 'gzip, deflate')
     .matchHeader('accept', 'application/json')
     .matchHeader('content-type', 'application/json')
-    .matchHeader('user-agent', 'axios/0.26.1')
     .get(`/v1/filters?with=values&filters%5Bcategory%5D=20201&shopId=139`)
 
     .reply(200, zlib.gzipSync('[]'), {

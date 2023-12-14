@@ -81,7 +81,6 @@ import {
   createrSearchMappingsEndpointRequest,
   SearchMappingsEndpointResponseData,
 } from '../endpoints/search/mappings';
-import axios, {AxiosAdapter} from 'axios';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
@@ -142,6 +141,7 @@ import {
   PromotionsEndpointRequestParameters,
   createPromotionsEndpointRequest,
 } from '../endpoints/promotions/promotions';
+import {FetchError} from './FetchError';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -341,7 +341,6 @@ export class BapiClient {
       shopId: number;
       shopIdPlacement?: 'header' | 'query';
       auth?: BapiAuthentication;
-      axiosAdapter?: AxiosAdapter;
     },
   ) {
     this.shopIdPlacement = env.shopIdPlacement || 'query';
@@ -365,7 +364,6 @@ export class BapiClient {
       this.shopIdPlacement,
       this.env.auth,
       undefined,
-      this.env.axiosAdapter,
     );
 
     return response.data;
@@ -382,7 +380,6 @@ export class BapiClient {
       this.shopIdPlacement,
       this.env.auth,
       undefined,
-      this.env.axiosAdapter,
     );
 
     return {
@@ -731,12 +728,9 @@ export class BapiClient {
 
     post: async (url: string) => {
       try {
-        const response = await this.execute(
-          createPostRedirectEndpointRequest(url),
-        );
-        return response;
+        return await this.execute(createPostRedirectEndpointRequest(url));
       } catch (e) {
-        if (axios.isAxiosError(e) && e.response?.status === 404) {
+        if (e instanceof FetchError && e.response.status === 404) {
           return undefined;
         }
 

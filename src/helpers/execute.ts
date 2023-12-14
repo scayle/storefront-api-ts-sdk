@@ -1,8 +1,8 @@
-import axios, {AxiosAdapter, AxiosRequestConfig, AxiosResponse} from 'axios';
 import {BapiCall} from '../interfaces/BapiCall';
 import {ObjectMap} from '../types/ObjectMap';
 import * as queryString from 'query-string';
 import {BapiAuthentication} from './BapiClient';
+import {FetchError} from './FetchError';
 
 export const getParamsString = (params?: Partial<Record<string, any>>) => {
   if (!params) {
@@ -46,7 +46,6 @@ export async function execute<SuccessResponseT>(
   shopIdPlacement: 'header' | 'query' = 'query',
   auth?: BapiAuthentication,
   additionalHeaders?: ObjectMap<string>,
-  axiosAdapter?: AxiosAdapter,
 ): Promise<BapiResponse<SuccessResponseT>> {
   const params =
     shopIdPlacement === 'query'
@@ -58,7 +57,7 @@ export async function execute<SuccessResponseT>(
   const shopIdHeader =
     shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : undefined;
 
-  const fetchOptions: AxiosRequestConfig = {
+  const response = await fetch(url, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -67,43 +66,33 @@ export async function execute<SuccessResponseT>(
         : undefined),
       ...shopIdHeader,
       ...additionalHeaders,
+      ...(auth && auth.type === 'token' ? {'X-Access-Token': auth.token} : {}),
+      ...(auth && auth.type === 'basic' ? { 'Authorization': 'Basic ' + btoa(auth.username + ":" + auth.password) } : {})
     },
-    url,
     method: bapiCall.method,
-    data:
+    body:
       bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
-        ? bapiCall.data
+        ? JSON.stringify(bapiCall.data)
         : undefined,
-    validateStatus: acceptAllResponseCodes
-      ? () => true
-      : statusCode => statusCode >= 200 && statusCode <= 299,
-    adapter: axiosAdapter,
-  };
+  });
 
-  if (auth) {
-    if (auth.type === 'token') {
-      fetchOptions.headers!['X-Access-Token'] = auth.token;
-    } else {
-      fetchOptions.auth = {
-        username: auth.username,
-        password: auth.password,
-      };
-    }
+  if (!response.ok && !acceptAllResponseCodes) {
+    throw new FetchError(response);
   }
 
-  const response: AxiosResponse<SuccessResponseT> = await axios(fetchOptions);
+  const data = await response.json()
 
-  if (
-    bapiCall.responseValidator &&
-    !bapiCall.responseValidator(response.data)
-  ) {
+  if (bapiCall.responseValidator && !bapiCall.responseValidator(data)) {
     throw new Error(`Invalid response data`);
   }
 
+  const headers: {[key: string]: string | undefined} = {};
+  response.headers.forEach((val, key) => (headers[key] = val));
+
   return {
-    data: response.data,
+    data,
     statusCode: response.status,
-    url: response.config.url || url,
-    headers: response.headers,
+    url: response.url || url,
+    headers,
   };
 }
