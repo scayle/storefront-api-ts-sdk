@@ -17,3 +17,5 @@ src/coverage
 # test reports
 jenkins/reports/*
 test-report.html
+
+.idea

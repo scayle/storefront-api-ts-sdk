@@ -158,4 +158,6 @@ export {
   type PromotionCustomData,
   type PromotionEffect,
 } from './types/Promotion';
-export {type PromotionsEndpointResponse as PromotionsEndpointResponse} from './endpoints/promotions/promotions';
+export {type PromotionsEndpointResponse} from './endpoints/promotions/promotions';
+
+export {FetchError} from './helpers/FetchError';

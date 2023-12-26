@@ -1,5 +1,5 @@
-import {AxiosInstance, AxiosResponse, AxiosRequestConfig} from 'axios';
 import {StorefrontAPIAuth} from '../StorefrontAPIClient';
+import {FetchError} from './FetchError';
 
 export const getParamsString = (params?: Partial<Record<string, string | number | boolean>>) => {
   if (!params) {
@@ -49,42 +49,57 @@ export type BapiCall<SuccessResponseT> =
 
 export interface BapiResponse<T> {
   statusCode: number;
-  headers: AxiosResponse['headers'];
+  headers: {[key: string]: string | undefined};
   url: string;
   data: T;
 }
 
 export async function execute<SuccessResponseT>(
-  axios: AxiosInstance,
   host: string,
   shopId: number,
   bapiCall: BapiCall<SuccessResponseT>,
   acceptAllResponseCodes: boolean = false,
   auth?: StorefrontAPIAuth,
+  additionalHeaders?: {[key: string]: string | undefined},
 ): Promise<BapiResponse<SuccessResponseT>> {
   const url = `https://${host}${bapiCall.endpoint}${getParamsString({...bapiCall.params, shopId: shopId})}`;
 
-  const response: AxiosResponse<SuccessResponseT> = await axios.request({
-    method: bapiCall.method,
-    url,
+
+  const response = await fetch(url, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      ...(typeof window === 'undefined' ? {'accept-encoding': 'gzip, deflate'} : {}),
-      ...(auth?.type === 'token' ? {'X-Access-Token': auth.token} : {}),
+      ...(typeof window === 'undefined'
+        ? {'accept-encoding': 'gzip, deflate'}
+        : undefined),
+      ...additionalHeaders,
+      ...(auth && auth.type === 'token' ? {'X-Access-Token': auth.token} : {}),
+   
     },
-    data: bapiCall.method === 'POST' || bapiCall.method === 'PATCH' ? bapiCall.data : undefined,
-    validateStatus: acceptAllResponseCodes ? () => true : statusCode => statusCode >= 200 && statusCode <= 299,
-  } as AxiosRequestConfig);
+    method: bapiCall.method,
+    body:
+      bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
+        ? JSON.stringify(bapiCall.data)
+        : undefined,
+  });
 
-  if (bapiCall.responseValidator && !bapiCall.responseValidator(response.data)) {
+  if (!response.ok && !acceptAllResponseCodes) {
+    throw new FetchError(response);
+  }
+
+  const data = await response.json();
+
+  if (bapiCall.responseValidator && !bapiCall.responseValidator(data)) {
     throw new Error(`Invalid response data`);
   }
 
+  const headers: {[key: string]: string | undefined} = {};
+  response.headers.forEach((val, key) => (headers[key] = val));
+
   return {
-    data: response.data,
+    data,
     statusCode: response.status,
-    url: response.config.url || url,
-    headers: response.headers,
+    url: response.url || url,
+    headers,
   };
 }

@@ -40,8 +40,10 @@ import {
   SearchSuggestionsEndpointResponseData,
   createSearchSuggestionsEndpointRequest,
 } from './endpoints/search/suggestions';
-import {createrSearchMappingsEndpointRequest, SearchMappingsEndpointResponseData} from './endpoints/search/mappings';
-import axios, {AxiosInstance} from 'axios';
+import {
+  createrSearchMappingsEndpointRequest,
+  SearchMappingsEndpointResponseData,
+} from '../endpoints/search/mappings';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
@@ -88,7 +90,11 @@ import {
 } from './endpoints/navigation/navigation';
 import {InferResponsePagination, PagePaginationRequest, RequestPagination} from './types/Pagination';
 import {Basket} from './types/Basket';
-import {PromotionsEndpointRequestParameters, createPromotionsEndpointRequest} from './endpoints/promotions/promotions';
+import {
+  PromotionsEndpointRequestParameters,
+  createPromotionsEndpointRequest,
+} from '../endpoints/promotions/promotions';
+import {FetchError} from './FetchError';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse =
@@ -283,7 +289,6 @@ export interface StorefrontAPIConfig {
   host: string;
   shopId: number;
   auth?: StorefrontAPIAuth;
-  axios?: AxiosInstance;
 }
 
 /**
@@ -296,7 +301,6 @@ export class StorefrontAPIClient {
 
   private readonly shopId: number;
 
-  private readonly axios: AxiosInstance;
 
   private readonly auth: StorefrontAPIAuth | undefined;
 
@@ -304,11 +308,22 @@ export class StorefrontAPIClient {
     this.host = config.host;
     this.shopId = config.shopId;
     this.auth = config.auth;
-    this.axios = config.axios ?? axios;
   }
 
-  private async execute<SuccessResponseT>(bapiCall: BapiCall<SuccessResponseT>): Promise<SuccessResponseT> {
-    const response = await execute(this.axios, this.host, this.shopId, bapiCall, false, this.auth);
+
+
+
+  private async execute<SuccessResponseT>(
+    bapiCall: BapiCall<SuccessResponseT>,
+  ): Promise<SuccessResponseT> {
+    const response = await execute(
+      this.host,
+      this.shopId,
+      bapiCall,
+      undefined,
+      this.auth,
+      undefined,
+    );
 
     return response.data;
   }
@@ -316,7 +331,14 @@ export class StorefrontAPIClient {
   private async executeWithStatus<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<{data: SuccessResponseT; statusCode: number}> {
-    const response = await execute(this.axios, this.host, this.shopId, bapiCall, true, this.auth);
+    const response = await execute(
+      this.host,
+      this.shopId,
+      bapiCall,
+      true,
+      this.auth,
+      undefined,
+    );
 
     return {
       data: response.data,
@@ -613,10 +635,9 @@ export class StorefrontAPIClient {
 
     post: async (url: string) => {
       try {
-        const response = await this.execute(createPostRedirectEndpointRequest(url));
-        return response;
+        return await this.execute(createPostRedirectEndpointRequest(url));
       } catch (e) {
-        if (axios.isAxiosError(e) && e.response?.status === 404) {
+        if (e instanceof FetchError && e.response.status === 404) {
           return undefined;
         }
 
