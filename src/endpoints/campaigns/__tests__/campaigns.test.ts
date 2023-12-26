@@ -1,5 +1,5 @@
 import {it, expect} from 'vitest';
-import {CampaignSortOption, SortOrder} from '../../../types/sorting';
+import {CampaignSortOption, SortOrder} from '../../../types/Sorting';
 import {createCampaignsEndpointRequest} from '../campaigns';
 
 it('builds correct endpoint request with no arguments', () => {

@@ -40,10 +40,7 @@ import {
   SearchSuggestionsEndpointResponseData,
   createSearchSuggestionsEndpointRequest,
 } from './endpoints/search/suggestions';
-import {
-  createrSearchMappingsEndpointRequest,
-  SearchMappingsEndpointResponseData,
-} from '../endpoints/search/mappings';
+import {createrSearchMappingsEndpointRequest, SearchMappingsEndpointResponseData} from './endpoints/search/mappings';
 import {
   VariantsByIdsEndpointParameters,
   createVariantsByIdsEndpointRequest,
@@ -90,11 +87,8 @@ import {
 } from './endpoints/navigation/navigation';
 import {InferResponsePagination, PagePaginationRequest, RequestPagination} from './types/Pagination';
 import {Basket} from './types/Basket';
-import {
-  PromotionsEndpointRequestParameters,
-  createPromotionsEndpointRequest,
-} from '../endpoints/promotions/promotions';
-import {FetchError} from './FetchError';
+import {PromotionsEndpointRequestParameters, createPromotionsEndpointRequest} from './endpoints/promotions/promotions';
+import {FetchError} from './helpers/FetchError';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse =
@@ -301,7 +295,6 @@ export class StorefrontAPIClient {
 
   private readonly shopId: number;
 
-
   private readonly auth: StorefrontAPIAuth | undefined;
 
   public constructor(config: StorefrontAPIConfig) {
@@ -310,20 +303,8 @@ export class StorefrontAPIClient {
     this.auth = config.auth;
   }
 
-
-
-
-  private async execute<SuccessResponseT>(
-    bapiCall: BapiCall<SuccessResponseT>,
-  ): Promise<SuccessResponseT> {
-    const response = await execute(
-      this.host,
-      this.shopId,
-      bapiCall,
-      undefined,
-      this.auth,
-      undefined,
-    );
+  private async execute<SuccessResponseT>(bapiCall: BapiCall<SuccessResponseT>): Promise<SuccessResponseT> {
+    const response = await execute(this.host, this.shopId, bapiCall, undefined, this.auth, undefined);
 
     return response.data;
   }
@@ -331,14 +312,7 @@ export class StorefrontAPIClient {
   private async executeWithStatus<SuccessResponseT>(
     bapiCall: BapiCall<SuccessResponseT>,
   ): Promise<{data: SuccessResponseT; statusCode: number}> {
-    const response = await execute(
-      this.host,
-      this.shopId,
-      bapiCall,
-      true,
-      this.auth,
-      undefined,
-    );
+    const response = await execute(this.host, this.shopId, bapiCall, true, this.auth, undefined);
 
     return {
       data: response.data,

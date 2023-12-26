@@ -6,7 +6,7 @@ export {
 } from './StorefrontAPIClient';
 
 // Sorting Exports
-export {SortOrder} from './types/sorting';
+export {SortOrder} from './types/Sorting';
 
 // Date Exports
 export {type RFC33339Date} from './types/Date';
@@ -51,7 +51,7 @@ export {
   type CampaignsEndpointRequestParameters,
 } from './endpoints/campaigns/campaigns';
 export {type CampaignByIdEndpointResponse} from './endpoints/campaigns/campaignById';
-export {CampaignSortOption} from './types/sorting';
+export {CampaignSortOption} from './types/Sorting';
 
 // Attributes
 export {

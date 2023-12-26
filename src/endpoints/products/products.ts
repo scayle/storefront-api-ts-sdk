@@ -9,7 +9,7 @@ import {Product} from '../../types/Product';
 import {ProductSearchQuery, queryParamsFromProductSearchQuery} from '../../types/ProductSearchQuery';
 import {ProductWith, productWithQueryParameterValues} from '../../types/ProductWith';
 import {BapiCall} from '../../helpers/execute';
-import {SortOrder, ProductSortOption} from '../../types/sorting';
+import {SortOrder, ProductSortOption} from '../../types/Sorting';
 
 export interface ProductSortConfig {
   by?: ProductSortOption;

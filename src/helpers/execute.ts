@@ -64,23 +64,16 @@ export async function execute<SuccessResponseT>(
 ): Promise<BapiResponse<SuccessResponseT>> {
   const url = `https://${host}${bapiCall.endpoint}${getParamsString({...bapiCall.params, shopId: shopId})}`;
 
-
   const response = await fetch(url, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      ...(typeof window === 'undefined'
-        ? {'accept-encoding': 'gzip, deflate'}
-        : undefined),
+      ...(typeof window === 'undefined' ? {'accept-encoding': 'gzip, deflate'} : undefined),
       ...additionalHeaders,
       ...(auth && auth.type === 'token' ? {'X-Access-Token': auth.token} : {}),
-   
     },
     method: bapiCall.method,
-    body:
-      bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
-        ? JSON.stringify(bapiCall.data)
-        : undefined,
+    body: bapiCall.method === 'POST' || bapiCall.method === 'PATCH' ? JSON.stringify(bapiCall.data) : undefined,
   });
 
   if (!response.ok && !acceptAllResponseCodes) {

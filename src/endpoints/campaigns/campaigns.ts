@@ -1,7 +1,7 @@
 import {BapiCall} from '../../helpers/execute';
 import {Campaign} from '../../types/Campaign';
 import {InferResponsePagination, RequestPagination, buildRequestPaginationParameters} from '../../types/Pagination';
-import {SortOrder, CampaignSortOption} from '../../types/sorting';
+import {SortOrder, CampaignSortOption} from '../../types/Sorting';
 
 export type CampaignsEndpointResponse<Pagination extends RequestPagination> = {
   pagination: InferResponsePagination<Pagination>;

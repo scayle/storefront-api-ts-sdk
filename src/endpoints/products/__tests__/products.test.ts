@@ -3,7 +3,7 @@ import {createProductsSearchEndpointRequest} from '../products';
 import {AttributeKey} from '../../../types/AttributeOrAttributeValueFilter';
 import {getParamsString} from '../../../helpers/execute';
 import {queryParamsFromProductSearchQuery} from '../../../types/ProductSearchQuery';
-import {ProductSortOption, SortOrder} from '../../../types/sorting';
+import {ProductSortOption, SortOrder} from '../../../types/Sorting';
 
 it('Builds correct query', () => {
   expect(

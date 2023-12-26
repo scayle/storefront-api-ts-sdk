@@ -40,4 +40,4 @@ export type Promotion = {
   conditions: PromotionCondition[];
   customData: PromotionCustomData;
   priority: number;
-}
+};
