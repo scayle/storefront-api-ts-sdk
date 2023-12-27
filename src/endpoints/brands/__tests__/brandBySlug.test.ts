@@ -5,6 +5,18 @@ it('builds correct endpoint request', () => {
 {
   "endpoint": "brands/nike",
   "method": "GET",
+  "params": {
+    "forceSlug": true,
+  },
+}
+`);
+  expect(createBrandBySlugEndpointRequest('20')).toMatchInlineSnapshot(`
+{
+  "endpoint": "brands/20",
+  "method": "GET",
+  "params": {
+    "forceSlug": true,
+  },
 }
 `);
 });

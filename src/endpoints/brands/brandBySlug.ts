@@ -9,5 +9,8 @@ export function createBrandBySlugEndpointRequest(
   return {
     method: 'GET',
     endpoint: `brands/${slug}`,
+    params: {
+      forceSlug: true,
+    },
   };
 }
