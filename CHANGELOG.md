@@ -1,5 +1,9 @@
 # Changelog
 
+### 16.0.2
+
+- Fixed a bug when brands.getBySlug method was returning brand by id if numeric value was given
+
 ### 16.0.0
 
 - Switch from axios to fetch
