@@ -1,7 +1,7 @@
-import {RFC33339Date} from 'types/BapiProduct';
+import {RFC33339Date} from '../../types/BapiProduct';
 import {BapiCall} from '../../interfaces/BapiCall';
 import {Pagination} from '../products/productsByIds';
-import {Promotion} from 'types/Promotion';
+import {Promotion} from '../../types/Promotion';
 
 export interface PromotionsEndpointResponseData {
   pagination: Pagination;
