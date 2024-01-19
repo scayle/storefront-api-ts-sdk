@@ -25,10 +25,14 @@ export const getParamsString = (params?: Partial<Record<string, any>>) => {
 };
 
 function prepareUrl(
+  apiBase: string,
   endpoint: string,
   params: Partial<Record<string, string>> | undefined,
 ) {
-  return endpoint + getParamsString(params);
+  if (endpoint.includes('/v2/')) {
+    return apiBase.replace('/v1/', '') + endpoint + getParamsString(params);
+  }
+  return apiBase + endpoint + getParamsString(params);
 }
 
 export interface BapiResponse<T> {
@@ -52,7 +56,7 @@ export async function execute<SuccessResponseT>(
       ? {...bapiCall.params, shopId: shopId}
       : bapiCall.params;
 
-  const url = apiLocation + prepareUrl(bapiCall.endpoint, params);
+  const url = prepareUrl(apiLocation, bapiCall.endpoint, params);
 
   const shopIdHeader =
     shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : undefined;
@@ -82,14 +86,24 @@ export async function execute<SuccessResponseT>(
     throw new FetchError(response);
   }
 
+  const headers: {[key: string]: string | undefined} = {};
+  response.headers.forEach((val, key) => (headers[key] = val));
+
+  // Hack for 204 responses
+  if (response.status === 204) {
+    return {
+      data: undefined as SuccessResponseT,
+      statusCode: response.status,
+      url: response.url || url,
+      headers,
+    };
+  }
+
   const data = await response.json();
 
   if (bapiCall.responseValidator && !bapiCall.responseValidator(data)) {
     throw new Error(`Invalid response data`);
   }
-
-  const headers: {[key: string]: string | undefined} = {};
-  response.headers.forEach((val, key) => (headers[key] = val));
 
   return {
     data,

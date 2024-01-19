@@ -1,4 +1,4 @@
-import {RFC33339Date} from 'types/BapiProduct';
+import {RFC33339Date} from '../../../types/BapiProduct';
 import {createPromotionsEndpointRequest} from '../promotions';
 
 it('Builds correct query', () => {

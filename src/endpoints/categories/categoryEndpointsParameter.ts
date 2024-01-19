@@ -33,7 +33,7 @@ export function parametersForCategoryEndpoint(
   };
 }
 
-function categoryWithQueryParameters(
+export function categoryWithQueryParameters(
   categoryWith?: CategoryEndpointsParameters['with'],
 ): {with?: string; depth?: number; showHidden?: 'true'} {
   if (!categoryWith) {

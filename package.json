@@ -1,6 +1,6 @@
 {
     "name": "@aboutyou/backbone",
-    "version": "16.0.2",
+    "version": "16.1.0",
     "dependencies": {
         "query-string": "^6.2.0"
     },
@@ -21,6 +21,7 @@
     "license": "MIT",
     "main": "index.js",
     "type": "commonjs",
+    "types": "index.d.ts",
     "scripts": {
         "build": "tsc",
         "check-format": "prettier -l \"src/**/*.ts\"",

@@ -142,6 +142,16 @@ import {
   createPromotionsEndpointRequest,
 } from '../endpoints/promotions/promotions';
 import {FetchError} from './FetchError';
+import {
+  SearchV2SuggestionsEndpointParameters,
+  SearchV2SuggestionsEndpointResponseData,
+  createSearchV2SuggestionsEndpointRequest,
+} from '../endpoints/searchv2/suggestions';
+import {
+  SearchV2ResolveEndpointParameters,
+  SearchV2ResolveEndpointResponseData,
+  createSearchV2ResolveEndpointRequest,
+} from '../endpoints/searchv2/resolve';
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = BapiProduct, V = Variant> =
@@ -880,6 +890,26 @@ export class BapiClient {
     ): Promise<SearchResolveEndpointResponseData> => {
       return this.execute(
         createSearchResolveEndpointRequest({term, ...params}),
+      );
+    },
+  };
+
+  public readonly searchv2 = {
+    suggestions: (
+      term: string,
+      params: Omit<SearchV2SuggestionsEndpointParameters, 'term'> = {},
+    ): Promise<SearchV2SuggestionsEndpointResponseData> => {
+      return this.execute(
+        createSearchV2SuggestionsEndpointRequest({...params, term}),
+      );
+    },
+
+    resolve: (
+      term: string,
+      params: Omit<SearchV2ResolveEndpointParameters, 'term'> = {},
+    ): Promise<SearchV2ResolveEndpointResponseData | undefined> => {
+      return this.execute(
+        createSearchV2ResolveEndpointRequest({term, ...params}),
       );
     },
   };
