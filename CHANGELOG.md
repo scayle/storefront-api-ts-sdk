@@ -1,5 +1,9 @@
 # Changelog
 
+### 16.1.0
+
+- Add support for Search V2 Endpoints
+
 ### 16.0.2
 
 - Fixed a bug when brands.getBySlug method was returning brand by id if numeric value was given

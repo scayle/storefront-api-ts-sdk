@@ -23,7 +23,6 @@
     "strictNullChecks": true,
     "noEmitOnError": true,
     "declaration": true,
-    "baseUrl": "./src",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "removeComments": true,
