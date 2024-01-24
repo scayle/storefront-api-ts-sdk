@@ -1,0 +1,62 @@
+{
+    "pagination": {
+        "current": 2,
+        "total": 2,
+        "perPage": 100,
+        "page": 1,
+        "first": 1,
+        "prev": 1,
+        "next": 1,
+        "last": 1
+    },
+    "entities": [
+        {
+            "id": 33815815,
+            "referenceKey": "NOI1106002000010",
+            "createdAt": "2017-07-21T09:27:15+02:00",
+            "updatedAt": "2020-03-26T01:56:16+01:00",
+            "price": {
+                "currencyCode": "EUR",
+                "withTax": 3990,
+                "withoutTax": 3353,
+                "appliedReductions": [],
+                "tax": {
+                    "vat": {
+                        "amount": 637,
+                        "rate": 0.19
+                    }
+                }
+            },
+            "stock": {
+                "supplierId": 130,
+                "quantity": 52,
+                "isSellableWithoutStock": false
+            },
+            "productId": 3668973
+        },
+        {
+            "id": 33815816,
+            "referenceKey": "NOI1106002000011",
+            "createdAt": "2017-07-21T09:27:15+02:00",
+            "updatedAt": "2020-03-26T01:56:16+01:00",
+            "price": {
+                "currencyCode": "EUR",
+                "withTax": 3990,
+                "withoutTax": 3353,
+                "appliedReductions": [],
+                "tax": {
+                    "vat": {
+                        "amount": 637,
+                        "rate": 0.19
+                    }
+                }
+            },
+            "stock": {
+                "supplierId": 130,
+                "quantity": 37,
+                "isSellableWithoutStock": false
+            },
+            "productId": 3668973
+        }
+    ]
+}

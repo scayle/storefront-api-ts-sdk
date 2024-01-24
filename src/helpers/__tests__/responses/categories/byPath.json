@@ -1,0 +1,47 @@
+{
+  "id": 20204,
+  "path": "/frauen/bekleidung",
+  "name": "Bekleidung",
+  "slug": "bekleidung",
+  "description": "",
+  "parentId": 20201,
+  "rootlineIds": [20201, 20204],
+  "childrenIds": [
+    78044,
+    20236,
+    20258,
+    20284,
+    20250,
+    22822,
+    20257,
+    22798,
+    20255,
+    20238,
+    20259,
+    20285,
+    101234,
+    132786,
+    22853,
+    77925,
+    158750,
+    22833,
+    22847,
+    153802,
+    235736,
+    324578,
+    100212,
+    227522,
+    140090,
+    22830
+  ],
+  "properties": [
+    {"name": "legacy_category_id", "value": 20204},
+    {"name": "category_context", "value": "bekleidung_female"},
+    {"name": "reference_id", "value": "ed9d595fa9d87d6455277c2dabe716ef"},
+    {
+      "name": "attributes",
+      "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"clothing\":[\"Bekleidung\"],\"gender_female\":[\"Frauen\"]}"
+    }
+  ],
+  "isHidden": false
+}

@@ -1,0 +1,69 @@
+[
+  {
+    "slug": "categoryShopFilterSizes",
+    "name": "Gr\u00f6\u00dfe",
+    "type": "attributes",
+    "values": [
+      {"name": "M", "id": 41157, "productCount": 21409},
+      {"name": "L", "id": 41169, "productCount": 21093},
+      {"name": "S", "id": 41193, "productCount": 20479},
+      {"name": "XL", "id": 41181, "productCount": 20134},
+      {"name": "XXL", "id": 41145, "productCount": 15702}
+    ]
+  },
+  {
+    "slug": "color",
+    "name": "Suchfarbe",
+    "type": "attributes",
+    "values": [
+      {"name": "blau", "id": 38920, "productCount": 14099},
+      {"name": "schwarz", "id": 38932, "productCount": 11358},
+      {"name": "grau", "id": 38925, "productCount": 8418},
+      {"name": "gr\u00fcn", "id": 38926, "productCount": 4171},
+      {"name": "wei\u00df", "id": 38935, "productCount": 4114},
+      {"name": "braun", "id": 38921, "productCount": 3225},
+      {"name": "rot", "id": 38931, "productCount": 3057},
+      {"name": "beige", "id": 38919, "productCount": 1024},
+      {"name": "gelb", "id": 38923, "productCount": 588},
+      {"name": "pink", "id": 38930, "productCount": 553},
+      {"name": "mischfarben", "id": 38928, "productCount": 522},
+      {"name": "silber", "id": 38933, "productCount": 503},
+      {"name": "orange", "id": 38929, "productCount": 494},
+      {"name": "lila", "id": 38927, "productCount": 370},
+      {"name": "gold", "id": 38924, "productCount": 124},
+      {"name": "bronze", "id": 38922, "productCount": 30},
+      {"name": "transparent", "id": 38934, "productCount": 30}
+    ]
+  },
+  {
+    "slug": "brand",
+    "name": "Marke",
+    "type": "attributes",
+    "values": [
+      {"name": "A", "id": 1122, "productCount": 3029},
+      {"name": "B", "id": 221, "productCount": 1951},
+      {"name": "C", "id": 50, "productCount": 1821}
+    ]
+  },
+  {
+    "slug": "prices",
+    "name": "Prices",
+    "type": "range",
+    "values": [{"min": 90, "max": 159500, "productCount": 50362}]
+  },
+  {
+    "slug": "sale",
+    "name": "Sale",
+    "type": "boolean",
+    "values": [
+      {"name": false, "productCount": 35135},
+      {"name": true, "productCount": 15227}
+    ]
+  },
+  {
+    "slug": "max_savings_percentage",
+    "name": "Savings",
+    "type": "range",
+    "values": [{"min": 0, "max": 80, "productCount": 50362}]
+  }
+]

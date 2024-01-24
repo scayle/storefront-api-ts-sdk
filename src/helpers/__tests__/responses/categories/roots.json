@@ -1,0 +1,62 @@
+[
+  {
+    "id": 20201,
+    "path": "/frauen",
+    "name": "Frauen",
+    "slug": "frauen",
+    "description": "",
+    "parentId": 0,
+    "rootlineIds": [20201],
+    "childrenIds": [20204, 20207, 20203, 144187, 78100, 32543],
+    "properties": [
+      {"name": "legacy_category_id", "value": 20201},
+      {"name": "category_context", "value": "female"},
+      {"name": "reference_id", "value": "a72ebf5c0174a1681eb0d496158143dd"},
+      {
+        "name": "attributes",
+        "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"gender_female\":[\"Frauen\"]}"
+      }
+    ],
+    "isHidden": false,
+    "children": []
+  },
+  {
+    "id": 20202,
+    "path": "/maenner",
+    "name": "M\u00e4nner",
+    "slug": "maenner",
+    "description": "",
+    "parentId": 0,
+    "rootlineIds": [20202],
+    "childrenIds": [20290, 20215, 20211, 144267, 78101, 32544],
+    "properties": [
+      {"name": "legacy_category_id", "value": 20202},
+      {"name": "category_context", "value": "male"},
+      {"name": "reference_id", "value": "7d165c442380ed76d8dade399074ec9f"},
+      {
+        "name": "attributes",
+        "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"gender_male\":[\"M\u00e4nner\"]}"
+      }
+    ],
+    "isHidden": false,
+    "children": []
+  },
+  {
+    "id": 138113,
+    "path": "/kinder",
+    "name": "Kinder",
+    "slug": "kinder",
+    "description": "",
+    "parentId": 0,
+    "rootlineIds": [138113],
+    "childrenIds": [138114, 138115, 179141],
+    "properties": [
+      {"name": "legacy_category_id", "value": 138113},
+      {"name": "category_context", "value": "kids"},
+      {"name": "reference_id", "value": "0ba79ae135ac1adde77062093b6655a7"},
+      {"name": "attributes", "value": "{\"gender_children\":[\"Kinder\"]}"}
+    ],
+    "isHidden": false,
+    "children": []
+  }
+]
