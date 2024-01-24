@@ -2,16 +2,7 @@
 
 set -eux
 
-
-rm -rf compiled/
-rm -rf dist/
-yarn test
-yarn build
+rm -rf compiled/ endpoints/ helpers/ interfaces/ test-helpers/ types/
+yarn tsc
 find compiled -name '__tests__' -type d -exec rm -rf "{}" +
-cp -r compiled/ dist/
-cp package.json dist/
-cp LICENSE dist/
-cp README.md dist/
-cp CHANGELOG.md dist/
-cd dist/
-npm pack
+cp -r compiled/* ./

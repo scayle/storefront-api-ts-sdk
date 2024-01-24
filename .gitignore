@@ -10,7 +10,14 @@ node_modules/
 yarn-error.log
 /coverage
 .env
-compiled/
+/compiled/
+/endpoints/
+/helpers/
+/interfaces/
+/test-helpers/
+/types/
+/index.js
+/index.d.ts
 .cache-loader/
 src/coverage
 

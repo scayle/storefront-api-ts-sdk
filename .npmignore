@@ -2,6 +2,8 @@
 .vscode/
 src/
 coverage/
+compiled/
+buildPackage.sh
 yarn.lock
 .editorconfig
 .prettierignore
