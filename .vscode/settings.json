@@ -1,5 +1,0 @@
-{
-    "editor.formatOnSave": true,
-    "jest.enableSnapshotUpdateMessages": false,
-    "typescript.tsdk": "node_modules/typescript/lib"
-}
