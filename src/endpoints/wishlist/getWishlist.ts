@@ -15,7 +15,12 @@ export interface WishlistResponseData {
 export interface WishlistItem {
   key: string;
   product: BapiProduct;
+  productId: number;
   variant?: Variant;
+  variantId: number | null;
+  status: string;
+  packageId: number;
+  quantity: number;
 }
 
 export interface GetWishlistParameters {
