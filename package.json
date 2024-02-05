@@ -1,6 +1,6 @@
 {
     "name": "@aboutyou/backbone",
-    "version": "16.1.0",
+    "version": "16.1.1",
     "dependencies": {
         "query-string": "^6.2.0"
     },
