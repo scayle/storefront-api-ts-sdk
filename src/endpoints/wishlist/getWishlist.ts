@@ -18,9 +18,6 @@ export interface WishlistItem {
   productId: number;
   variant?: Variant;
   variantId: number | null;
-  status: string;
-  packageId: number;
-  quantity: number;
 }
 
 export interface GetWishlistParameters {
