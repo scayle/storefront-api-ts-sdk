@@ -1,0 +1,9 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["compiled/**", "endpoints/**", "helpers/**", "interfaces/**", "test-helpers/**", "types/**", "index.js", "index.d.ts"]
+    }
+  }
+}
