@@ -1,5 +1,11 @@
 # @aboutyou/backbone
 
+## 16.1.2
+
+### Patch Changes
+
+- remove inline sourcemaps
+
 ### 16.1.0
 
 - Add support for Search V2 Endpoints
