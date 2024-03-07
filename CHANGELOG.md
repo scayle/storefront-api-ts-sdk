@@ -1,5 +1,11 @@
 # @aboutyou/backbone
 
+## 16.2.0
+
+### Minor Changes
+
+- Add filters to CategorySearchSuggestion
+
 ## 16.1.2
 
 ### Patch Changes
