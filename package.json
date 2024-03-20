@@ -18,7 +18,7 @@
         "nock": "10.0.6",
         "prettier": "2.8.8",
         "ts-jest": "29.1.2",
-        "typescript": "5.4.2"
+        "typescript": "5.4.3"
     },
     "main": "index.js",
     "type": "commonjs",
