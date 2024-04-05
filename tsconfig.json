@@ -16,7 +16,7 @@
     "noUnusedLocals": true,
     "preserveConstEnums": true,
     "pretty": true,
-    "target": "es5",
+    "target": "es2015",
     "inlineSourceMap": false,
     "inlineSources": false,
     "skipLibCheck": true,
