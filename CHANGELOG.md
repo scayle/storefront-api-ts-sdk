@@ -1,5 +1,13 @@
 # @aboutyou/backbone
 
+## 16.2.1
+
+### Patch Changes
+
+- Resolved an issue where the `instanceof` check for `FetchError` always incorrectly returned `false`, by upgrading the compilation target from ES5 to ES2015.
+
+  This resulted in `404` errors on the redirects endpoint being treated as errors.
+
 ## 16.2.0
 
 ### Minor Changes
