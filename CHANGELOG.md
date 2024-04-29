@@ -1,5 +1,11 @@
 # @aboutyou/backbone
 
+## 16.2.2
+
+### Patch Changes
+
+- Add orFiltersOperator support to filter values endpoint
+
 ## 16.2.1
 
 ### Patch Changes
