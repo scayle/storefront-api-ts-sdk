@@ -1,4 +1,5 @@
 import {BapiCall} from '../../interfaces/BapiCall';
+import {ArrayMinLength} from '../../types/ArrayMinLength';
 import {
   ProductSearchQuery,
   queryParamsFromProductSearchQuery,
@@ -16,6 +17,8 @@ export interface FilterValuesEndpointParameters {
   where?: ProductSearchQuery;
 
   campaignKey?: string;
+
+  orFiltersOperator?: ArrayMinLength<string, 2>;
 }
 
 type FilterValuesResponseData =
@@ -35,6 +38,11 @@ export function createFilterValuesEndpointRequest(
 
       ...(parameters.campaignKey
         ? {campaignKey: parameters.campaignKey}
+        : undefined),
+
+      ...(parameters.orFiltersOperator &&
+      parameters.orFiltersOperator.length > 1
+        ? {orFiltersOperator: parameters.orFiltersOperator.join(',')}
         : undefined),
     },
   };

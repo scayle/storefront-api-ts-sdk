@@ -49,3 +49,20 @@ it('adds any product filter query param to the request', () => {
 }
 `);
 });
+
+it('adds orFiltersOperator', () => {
+  expect(
+    createFilterValuesEndpointRequest({
+      groupName: 'categoryids',
+      orFiltersOperator: ['sizeA', 'sizeB'],
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "filters/categoryids/values",
+  "method": "GET",
+  "params": {
+    "orFiltersOperator": "sizeA,sizeB",
+  },
+}
+`);
+});
