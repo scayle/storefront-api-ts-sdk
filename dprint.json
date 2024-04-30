@@ -1,0 +1,7 @@
+{
+  "extends": "../../dprint.json",
+  "excludes": ["**/node_modules", "**/*-lock.json"],
+  "includes": [
+    "./*.{json,md}"
+  ]
+}

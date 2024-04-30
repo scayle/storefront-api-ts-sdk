@@ -23,6 +23,7 @@ Visit the [Quickstart Guide](https://scayle.dev/en/dev/storefront-api/sdk-setup)
 Visit the [Docs](https://scayle.dev) to learn more about our system requirements.
 
 ## Installation
+
 ```php
 # Install the SDK with NPM
 npm i @aboutyou/backbone
@@ -37,9 +38,7 @@ yarn add @aboutyou/backbone
 
 Learn more about [Scayles’s architecture](https://scayle.dev/en/dev/getting-started/introduction) and [commerce modules](https://scayle.dev/en/dev/getting-started/introduction) in the Docs.
 
-
-
-##  Community
+## Community
 
 The community and core teams are available in [GitHub Discussions](https://github.com/scayle/storefront-api-ts-sdk/discussions), where you can ask for support, discuss roadmap, and share ideas.
 
@@ -51,4 +50,5 @@ The community and core teams are available in [GitHub Discussions](https://githu
 - [AboutYou Tech Blog](https://aboutyou.tech/)
 
 ## License
+
 Licensed under the [MIT](https://opensource.org/license/mit/)
