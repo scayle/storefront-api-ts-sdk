@@ -1,17 +1,19 @@
-import {BapiCall} from '../../interfaces/BapiCall';
+import type { StorefrontAPICall } from '../../helpers/execute'
 
 export interface ShopConfigurationResponseData {
-  shopId: number;
-  name: string;
+  shopId: number
+  name: string
   properties: Array<{
-    key: string;
-    value: string;
-  }>;
+    key: string
+    value: string
+  }>
 }
 
-export function createShopConfigurationRequest(): BapiCall<ShopConfigurationResponseData> {
+export function createShopConfigurationRequest(): StorefrontAPICall<
+  ShopConfigurationResponseData
+> {
   return {
     method: 'GET',
-    endpoint: 'shop-configuration',
-  };
+    endpoint: '/v1/shop-configuration',
+  }
 }

@@ -1,14 +1,14 @@
-import {RFC33339Date} from '../../../types/BapiProduct';
-import {createPromotionsEndpointRequest} from '../promotions';
+import type { RFC33339Date } from '../../../types/Product'
+import { createPromotionsEndpointRequest } from '../promotions'
 
-it('Builds correct query', () => {
+it('builds correct query', () => {
   expect(createPromotionsEndpointRequest({})).toMatchInlineSnapshot(`
 {
-  "endpoint": "promotions",
+  "endpoint": "/v1/promotions",
   "method": "GET",
   "params": {},
 }
-`);
+`)
 
   expect(
     createPromotionsEndpointRequest({
@@ -19,14 +19,14 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "promotions",
+  "endpoint": "/v1/promotions",
   "method": "GET",
   "params": {
     "page": 1,
     "perPage": 50,
   },
 }
-`);
+`)
 
   expect(
     createPromotionsEndpointRequest({
@@ -34,13 +34,13 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "promotions",
+  "endpoint": "/v1/promotions",
   "method": "GET",
   "params": {
     "ids": "abc,def",
   },
 }
-`);
+`)
 
   expect(
     createPromotionsEndpointRequest({
@@ -48,11 +48,11 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "promotions",
+  "endpoint": "/v1/promotions",
   "method": "GET",
   "params": {
     "activeAt": "2023-10-22T19:54:02Z",
   },
 }
-`);
-});
+`)
+})

@@ -1,16 +1,16 @@
-import {createCategoriesEndpointRequest} from '../categories';
+import { createCategoriesEndpointRequest } from '../categories'
 
-it('Builds correct query for root categories', () => {
+it('builds correct query for root categories', () => {
   expect(createCategoriesEndpointRequest({})).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 1,
     "with": "properties:name()",
   },
 }
-`);
+`)
 
   expect(
     createCategoriesEndpointRequest({
@@ -21,7 +21,7 @@ it('Builds correct query for root categories', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 3,
@@ -29,22 +29,22 @@ it('Builds correct query for root categories', () => {
     "with": "properties:name(),descendants",
   },
 }
-`);
+`)
 
   expect(
     createCategoriesEndpointRequest({
       with: {
-        properties: {withName: ['category_context']},
+        properties: { withName: ['category_context'] },
       },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 1,
     "with": "properties:name(category_context)",
   },
 }
-`);
-});
+`)
+})

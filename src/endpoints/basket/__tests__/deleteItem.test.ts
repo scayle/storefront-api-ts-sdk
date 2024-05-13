@@ -1,6 +1,6 @@
-import {deleteBasketItemRequest} from '../deleteItem';
+import { deleteBasketItemRequest } from '../deleteItem'
 
-it('Builds corrects parameter', () => {
+it('builds corrects parameter', () => {
   expect(
     deleteBasketItemRequest({
       basketKey: 'basket_1',
@@ -8,11 +8,11 @@ it('Builds corrects parameter', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "DELETE",
   "params": {},
 }
-`);
+`)
 
   expect(
     deleteBasketItemRequest({
@@ -24,19 +24,19 @@ it('Builds corrects parameter', () => {
             attributes: 'all',
             advancedAttributes: 'all',
           },
-          variant: {attributes: 'all', advancedAttributes: 'all'},
+          variant: { attributes: 'all', advancedAttributes: 'all' },
         },
       },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "DELETE",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
   },
 }
-`);
+`)
 
   expect(
     deleteBasketItemRequest({
@@ -46,11 +46,11 @@ it('Builds corrects parameter', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "DELETE",
   "params": {
     "campaignKey": "px",
   },
 }
-`);
-});
+`)
+})

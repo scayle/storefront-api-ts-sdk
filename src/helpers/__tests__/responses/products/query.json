@@ -27,14 +27,14 @@
               "label": "Bild Typ",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66480, "label": "B\u00fcste", "value": "bust"}
+              "values": { "id": 66480, "label": "B\u00fcste", "value": "bust" }
             },
             "imageFocus": {
               "key": "imageFocus",
               "label": "Bild Fokus",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66484, "label": "Produkt", "value": "product"}
+              "values": { "id": 66484, "label": "Produkt", "value": "product" }
             },
             "imageView": {
               "key": "imageView",
@@ -52,7 +52,7 @@
               "label": "Bild Detaillevel",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66496, "label": "40", "value": "40"}
+              "values": { "id": 66496, "label": "40", "value": "40" }
             },
             "imageBackground": {
               "key": "imageBackground",
@@ -70,7 +70,7 @@
               "label": "Bild Geschlecht",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66508, "label": "female", "value": "female"}
+              "values": { "id": 66508, "label": "female", "value": "female" }
             }
           }
         },
@@ -82,14 +82,14 @@
               "label": "Bild Typ",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66481, "label": "Model", "value": "model"}
+              "values": { "id": 66481, "label": "Model", "value": "model" }
             },
             "imageFocus": {
               "key": "imageFocus",
               "label": "Bild Fokus",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66484, "label": "Produkt", "value": "product"}
+              "values": { "id": 66484, "label": "Produkt", "value": "product" }
             },
             "imageView": {
               "key": "imageView",
@@ -107,21 +107,21 @@
               "label": "Bild Detaillevel",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66498, "label": "30", "value": "30"}
+              "values": { "id": 66498, "label": "30", "value": "30" }
             },
             "imageBackground": {
               "key": "imageBackground",
               "label": "Bild Hintergrund",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66504, "label": "wei\u00df", "value": "white"}
+              "values": { "id": 66504, "label": "wei\u00df", "value": "white" }
             },
             "imageGender": {
               "key": "imageGender",
               "label": "Bild Geschlecht",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66508, "label": "female", "value": "female"}
+              "values": { "id": 66508, "label": "female", "value": "female" }
             }
           }
         },
@@ -133,14 +133,14 @@
               "label": "Bild Typ",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66481, "label": "Model", "value": "model"}
+              "values": { "id": 66481, "label": "Model", "value": "model" }
             },
             "imageFocus": {
               "key": "imageFocus",
               "label": "Bild Fokus",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66484, "label": "Produkt", "value": "product"}
+              "values": { "id": 66484, "label": "Produkt", "value": "product" }
             },
             "imageView": {
               "key": "imageView",
@@ -158,21 +158,21 @@
               "label": "Bild Detaillevel",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66498, "label": "30", "value": "30"}
+              "values": { "id": 66498, "label": "30", "value": "30" }
             },
             "imageBackground": {
               "key": "imageBackground",
               "label": "Bild Hintergrund",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66504, "label": "wei\u00df", "value": "white"}
+              "values": { "id": 66504, "label": "wei\u00df", "value": "white" }
             },
             "imageGender": {
               "key": "imageGender",
               "label": "Bild Geschlecht",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66508, "label": "female", "value": "female"}
+              "values": { "id": 66508, "label": "female", "value": "female" }
             }
           }
         },
@@ -184,35 +184,39 @@
               "label": "Bild Typ",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66481, "label": "Model", "value": "model"}
+              "values": { "id": 66481, "label": "Model", "value": "model" }
             },
             "imageFocus": {
               "key": "imageFocus",
               "label": "Bild Fokus",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66485, "label": "Outfit", "value": "combination"}
+              "values": {
+                "id": 66485,
+                "label": "Outfit",
+                "value": "combination"
+              }
             },
             "imageNextDetailLevel": {
               "key": "imageNextDetailLevel",
               "label": "Bild Detaillevel",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66499, "label": "10", "value": "10"}
+              "values": { "id": 66499, "label": "10", "value": "10" }
             },
             "imageBackground": {
               "key": "imageBackground",
               "label": "Bild Hintergrund",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66504, "label": "wei\u00df", "value": "white"}
+              "values": { "id": 66504, "label": "wei\u00df", "value": "white" }
             },
             "imageGender": {
               "key": "imageGender",
               "label": "Bild Geschlecht",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66508, "label": "female", "value": "female"}
+              "values": { "id": 66508, "label": "female", "value": "female" }
             }
           }
         },
@@ -224,35 +228,35 @@
               "label": "Bild Typ",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66481, "label": "Model", "value": "model"}
+              "values": { "id": 66481, "label": "Model", "value": "model" }
             },
             "imageFocus": {
               "key": "imageFocus",
               "label": "Bild Fokus",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66483, "label": "Detail", "value": "detail"}
+              "values": { "id": 66483, "label": "Detail", "value": "detail" }
             },
             "imageNextDetailLevel": {
               "key": "imageNextDetailLevel",
               "label": "Bild Detaillevel",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66500, "label": "50", "value": "50"}
+              "values": { "id": 66500, "label": "50", "value": "50" }
             },
             "imageBackground": {
               "key": "imageBackground",
               "label": "Bild Hintergrund",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66504, "label": "wei\u00df", "value": "white"}
+              "values": { "id": 66504, "label": "wei\u00df", "value": "white" }
             },
             "imageGender": {
               "key": "imageGender",
               "label": "Bild Geschlecht",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66508, "label": "female", "value": "female"}
+              "values": { "id": 66508, "label": "female", "value": "female" }
             }
           }
         }
@@ -284,7 +288,7 @@
               "label": "Nicht hei\u00df b\u00fcgeln",
               "value": "iron_low"
             },
-            {"id": 27984, "label": "Nicht bleichen", "value": "do_not_bleach"}
+            { "id": 27984, "label": "Nicht bleichen", "value": "do_not_bleach" }
           ]
         },
         "quantityPerPack": {
@@ -292,7 +296,7 @@
           "label": "Pack",
           "type": "extras",
           "multiSelect": false,
-          "values": {"id": 28224, "label": "1er Pack", "value": "1"}
+          "values": { "id": 28224, "label": "1er Pack", "value": "1" }
         },
         "packsColorway": {
           "key": "packsColorway",
@@ -310,14 +314,14 @@
           "label": "Plus Size",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 35002, "label": "nein"}
+          "values": { "id": 35002, "label": "nein" }
         },
         "maternity": {
           "key": "maternity",
           "label": "Umstandsmode",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 35004, "label": "nein"}
+          "values": { "id": 35004, "label": "nein" }
         },
         "materialStyle": {
           "key": "materialStyle",
@@ -325,8 +329,8 @@
           "type": "design",
           "multiSelect": true,
           "values": [
-            {"id": 35023, "label": "Sweatstoff", "value": "sweat_knit"},
-            {"id": 35459, "label": "Baumwolle", "value": "cotton_woven"}
+            { "id": 35023, "label": "Sweatstoff", "value": "sweat_knit" },
+            { "id": 35459, "label": "Baumwolle", "value": "cotton_woven" }
           ]
         },
         "sleeveLength": {
@@ -334,7 +338,7 @@
           "label": "\u00c4rmell\u00e4nge",
           "type": "fit_size",
           "multiSelect": false,
-          "values": {"id": 35033, "label": "Langarm", "value": "1"}
+          "values": { "id": 35033, "label": "Langarm", "value": "1" }
         },
         "upperLength": {
           "key": "upperLength",
@@ -364,8 +368,8 @@
           "type": "",
           "multiSelect": true,
           "values": [
-            {"id": 35328, "label": "Urban", "value": "urban"},
-            {"id": 35331, "label": "Streetwear", "value": "streetwear"}
+            { "id": 35328, "label": "Urban", "value": "urban" },
+            { "id": 35331, "label": "Streetwear", "value": "streetwear" }
           ]
         },
         "details": {
@@ -374,7 +378,7 @@
           "type": "extras",
           "multiSelect": true,
           "values": [
-            {"id": 35337, "label": "Plain/ohne Details", "value": "without"}
+            { "id": 35337, "label": "Plain/ohne Details", "value": "without" }
           ]
         },
         "colorDetail": {
@@ -382,14 +386,14 @@
           "label": "Detailfarbe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 38819, "label": "gr\u00fcn", "value": "gruen"}
+          "values": { "id": 38819, "label": "gr\u00fcn", "value": "gruen" }
         },
         "color": {
           "key": "color",
           "label": "Suchfarbe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 38926, "label": "gr\u00fcn", "value": "gruen"}
+          "values": { "id": 38926, "label": "gr\u00fcn", "value": "gruen" }
         },
         "fitting": {
           "key": "fitting",
@@ -420,7 +424,7 @@
           "label": "Basic",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 57113, "label": "nein", "value": "nein"}
+          "values": { "id": 57113, "label": "nein", "value": "nein" }
         },
         "elasticity": {
           "key": "elasticity",
@@ -438,7 +442,7 @@
           "label": "Saison",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 66049, "label": "HW 18", "value": "hw_18"}
+          "values": { "id": 66049, "label": "HW 18", "value": "hw_18" }
         },
         "extras": {
           "key": "extras",
@@ -458,14 +462,14 @@
           "label": "Marke",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 4433, "label": "N\u00dcMPH", "value": "nuemph"}
+          "values": { "id": 4433, "label": "N\u00dcMPH", "value": "nuemph" }
         },
         "genderage": {
           "key": "genderage",
           "label": "Zielgruppe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 25467, "label": "Female", "value": "female"}
+          "values": { "id": 25467, "label": "Female", "value": "female" }
         },
         "fashionFactor": {
           "key": "fashionFactor",
@@ -483,7 +487,7 @@
           "label": "Verkaufskanal",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 27782, "label": "Mary-Paul", "value": "marypaul"}
+          "values": { "id": 27782, "label": "Mary-Paul", "value": "marypaul" }
         },
         "vendorSizeRun": {
           "key": "vendorSizeRun",
@@ -501,7 +505,7 @@
           "label": "Muster",
           "type": "design",
           "multiSelect": false,
-          "values": {"id": 35005, "label": "Unifarben", "value": "plain"}
+          "values": { "id": 35005, "label": "Unifarben", "value": "plain" }
         },
         "shopSizeRun": {
           "key": "shopSizeRun",
@@ -519,14 +523,14 @@
           "label": "",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 61593, "label": "4"}
+          "values": { "id": 61593, "label": "4" }
         },
         "name": {
           "key": "name",
           "label": "Name",
           "type": null,
           "multiSelect": false,
-          "values": {"label": "Sweatshirt 'NICOLA'"}
+          "values": { "label": "Sweatshirt 'NICOLA'" }
         },
         "description": {
           "key": "description",
@@ -556,14 +560,14 @@
               "label": "Bild Typ",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66480, "label": "B\u00fcste", "value": "bust"}
+              "values": { "id": 66480, "label": "B\u00fcste", "value": "bust" }
             },
             "imageFocus": {
               "key": "imageFocus",
               "label": "Bild Fokus",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66484, "label": "Produkt", "value": "product"}
+              "values": { "id": 66484, "label": "Produkt", "value": "product" }
             },
             "imageView": {
               "key": "imageView",
@@ -581,7 +585,7 @@
               "label": "Bild Hintergrund",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66506, "label": "grau", "value": "grey"}
+              "values": { "id": 66506, "label": "grau", "value": "grey" }
             }
           }
         },
@@ -593,21 +597,21 @@
               "label": "Bild Typ",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66480, "label": "B\u00fcste", "value": "bust"}
+              "values": { "id": 66480, "label": "B\u00fcste", "value": "bust" }
             },
             "imageFocus": {
               "key": "imageFocus",
               "label": "Bild Fokus",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66484, "label": "Produkt", "value": "product"}
+              "values": { "id": 66484, "label": "Produkt", "value": "product" }
             },
             "imageBackground": {
               "key": "imageBackground",
               "label": "Bild Hintergrund",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66506, "label": "grau", "value": "grey"}
+              "values": { "id": 66506, "label": "grau", "value": "grey" }
             }
           }
         }
@@ -618,14 +622,14 @@
           "label": "Detailfarbe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 38866, "label": "pink", "value": "pink"}
+          "values": { "id": 38866, "label": "pink", "value": "pink" }
         },
         "color": {
           "key": "color",
           "label": "Suchfarbe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 38930, "label": "pink", "value": "pink"}
+          "values": { "id": 38930, "label": "pink", "value": "pink" }
         },
         "giftCardsManual": {
           "key": "giftCardsManual",
@@ -655,28 +659,28 @@
           "label": "isGiftCard",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 70638, "label": "true", "value": "true"}
+          "values": { "id": 70638, "label": "true", "value": "true" }
         },
         "countryApprovalGiftcards": {
           "key": "countryApprovalGiftcards",
           "label": "CountryApprovalGiftCards",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 70639, "label": "de", "value": "de"}
+          "values": { "id": 70639, "label": "de", "value": "de" }
         },
         "brand": {
           "key": "brand",
           "label": "Marke",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 60555, "label": "ABOUT YOU", "value": "about_you"}
+          "values": { "id": 60555, "label": "ABOUT YOU", "value": "about_you" }
         },
         "genderage": {
           "key": "genderage",
           "label": "Zielgruppe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 25528, "label": "Unisex", "value": "unisex"}
+          "values": { "id": 25528, "label": "Unisex", "value": "unisex" }
         },
         "vendorSizeRun": {
           "key": "vendorSizeRun",
@@ -705,14 +709,14 @@
           "label": "Name",
           "type": null,
           "multiSelect": false,
-          "values": {"label": "Geschenkkarte 'Universal'"}
+          "values": { "label": "Geschenkkarte 'Universal'" }
         },
         "description": {
           "key": "description",
           "label": "Description",
           "type": null,
           "multiSelect": false,
-          "values": {"label": "-"}
+          "values": { "label": "-" }
         }
       }
     },
@@ -733,14 +737,14 @@
               "label": "Bild Typ",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66480, "label": "B\u00fcste", "value": "bust"}
+              "values": { "id": 66480, "label": "B\u00fcste", "value": "bust" }
             },
             "imageFocus": {
               "key": "imageFocus",
               "label": "Bild Fokus",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66484, "label": "Produkt", "value": "product"}
+              "values": { "id": 66484, "label": "Produkt", "value": "product" }
             },
             "imageView": {
               "key": "imageView",
@@ -758,7 +762,7 @@
               "label": "Bild Hintergrund",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66506, "label": "grau", "value": "grey"}
+              "values": { "id": 66506, "label": "grau", "value": "grey" }
             }
           }
         },
@@ -770,21 +774,21 @@
               "label": "Bild Typ",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66480, "label": "B\u00fcste", "value": "bust"}
+              "values": { "id": 66480, "label": "B\u00fcste", "value": "bust" }
             },
             "imageFocus": {
               "key": "imageFocus",
               "label": "Bild Fokus",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66484, "label": "Produkt", "value": "product"}
+              "values": { "id": 66484, "label": "Produkt", "value": "product" }
             },
             "imageBackground": {
               "key": "imageBackground",
               "label": "Bild Hintergrund",
               "type": "",
               "multiSelect": false,
-              "values": {"id": 66506, "label": "grau", "value": "grey"}
+              "values": { "id": 66506, "label": "grau", "value": "grey" }
             }
           }
         }
@@ -795,14 +799,14 @@
           "label": "Detailfarbe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 38905, "label": "schwarz", "value": "schwarz"}
+          "values": { "id": 38905, "label": "schwarz", "value": "schwarz" }
         },
         "color": {
           "key": "color",
           "label": "Suchfarbe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 38932, "label": "schwarz", "value": "schwarz"}
+          "values": { "id": 38932, "label": "schwarz", "value": "schwarz" }
         },
         "giftCardsManual": {
           "key": "giftCardsManual",
@@ -832,28 +836,28 @@
           "label": "isGiftCard",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 70638, "label": "true", "value": "true"}
+          "values": { "id": 70638, "label": "true", "value": "true" }
         },
         "countryApprovalGiftcards": {
           "key": "countryApprovalGiftcards",
           "label": "CountryApprovalGiftCards",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 70639, "label": "de", "value": "de"}
+          "values": { "id": 70639, "label": "de", "value": "de" }
         },
         "brand": {
           "key": "brand",
           "label": "Marke",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 60555, "label": "ABOUT YOU", "value": "about_you"}
+          "values": { "id": 60555, "label": "ABOUT YOU", "value": "about_you" }
         },
         "genderage": {
           "key": "genderage",
           "label": "Zielgruppe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 25528, "label": "Unisex", "value": "unisex"}
+          "values": { "id": 25528, "label": "Unisex", "value": "unisex" }
         },
         "vendorSizeRun": {
           "key": "vendorSizeRun",
@@ -882,14 +886,14 @@
           "label": "Name",
           "type": null,
           "multiSelect": false,
-          "values": {"label": "Geschenkkarte 'Thank You'"}
+          "values": { "label": "Geschenkkarte 'Thank You'" }
         },
         "description": {
           "key": "description",
           "label": "Description",
           "type": null,
           "multiSelect": false,
-          "values": {"label": "-"}
+          "values": { "label": "-" }
         }
       }
     }

@@ -1,28 +1,28 @@
-import {BapiCall} from '../../interfaces/BapiCall';
+import type { StorefrontAPICall } from '../../helpers/execute'
 
 export interface SearchMappingsEndpointParameters {
-  term: string;
+  term: string
 }
 
-export type SearchMappingsEndpointResponseData = {
+export interface SearchMappingsEndpointResponseData {
   matches: Array<
     | {
-        type: 'attribute';
-        attributeGroup: {id: number; slug: string};
-        attributeIds: number[];
-      }
-    | {type: 'category'; name: string; id: number}
-  >;
-};
+      type: 'attribute'
+      attributeGroup: { id: number; slug: string }
+      attributeIds: number[]
+    }
+    | { type: 'category'; name: string; id: number }
+  >
+}
 
 export function createrSearchMappingsEndpointRequest(
   parameters: SearchMappingsEndpointParameters,
-): BapiCall<SearchMappingsEndpointResponseData> {
+): StorefrontAPICall<SearchMappingsEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `search/mappings`,
+    endpoint: `/v1/search/mappings`,
     params: {
       term: parameters.term,
     },
-  };
+  }
 }

@@ -1,20 +1,20 @@
-import {createSearchSuggestionsEndpointRequest} from '../suggestions';
+import { createSearchSuggestionsEndpointRequest } from '../suggestions'
 
-it('Builds correct query', () => {
-  expect(createSearchSuggestionsEndpointRequest({term: 'term 1'}))
+it('builds correct query', () => {
+  expect(createSearchSuggestionsEndpointRequest({ term: 'term 1' }))
     .toMatchInlineSnapshot(`
 {
-  "endpoint": "search/suggestions",
+  "endpoint": "/v1/search/suggestions",
   "method": "GET",
   "params": {
     "term": "term 1",
     "with": "",
   },
 }
-`);
-});
+`)
+})
 
-it('Builds correct query', () => {
+it('builds correct query with includes', () => {
   expect(
     createSearchSuggestionsEndpointRequest({
       term: 'term 1',
@@ -26,31 +26,31 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "search/suggestions",
+  "endpoint": "/v1/search/suggestions",
   "method": "GET",
   "params": {
     "term": "term 1",
     "with": "brands,categories,productNames",
   },
 }
-`);
-});
+`)
+})
 
-it('Builds correct query', () => {
+it('builds correct query with campaign key', () => {
   expect(
     createSearchSuggestionsEndpointRequest({
       term: 'term 1',
       campaignKey: 'px',
       with: {
         products: {
-          attributes: {withKey: ['name']},
+          attributes: { withKey: ['name'] },
           variants: 'all',
         },
       },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "search/suggestions",
+  "endpoint": "/v1/search/suggestions",
   "method": "GET",
   "params": {
     "campaignKey": "px",
@@ -58,5 +58,5 @@ it('Builds correct query', () => {
     "with": "products,products.attributes:key(name),products.variants,products.images.attributes:legacy(false)",
   },
 }
-`);
-});
+`)
+})

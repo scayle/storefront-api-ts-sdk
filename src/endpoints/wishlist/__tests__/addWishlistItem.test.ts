@@ -1,6 +1,6 @@
-import {addWishlistItemEndpointRequest} from '../addWishlistItem';
+import { addWishlistItemEndpointRequest } from '../addWishlistItem'
 
-it('Builds correct query', () => {
+it('builds correct query', () => {
   expect(
     addWishlistItemEndpointRequest({
       wishlistKey: 'wishlist_1',
@@ -13,11 +13,17 @@ it('Builds correct query', () => {
   "data": {
     "masterKey": "master_1",
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    409,
+    412,
+    413,
+  ],
 }
-`);
+`)
 
   expect(
     addWishlistItemEndpointRequest({
@@ -31,11 +37,17 @@ it('Builds correct query', () => {
   "data": {
     "productId": 123,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    409,
+    412,
+    413,
+  ],
 }
-`);
+`)
 
   expect(
     addWishlistItemEndpointRequest({
@@ -49,11 +61,17 @@ it('Builds correct query', () => {
   "data": {
     "variantId": 789,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    409,
+    412,
+    413,
+  ],
 }
-`);
+`)
 
   expect(
     addWishlistItemEndpointRequest({
@@ -74,13 +92,19 @@ it('Builds correct query', () => {
   "data": {
     "productId": 1,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {
     "with": "items.product.attributes,items.product.images.attributes:legacy(false)",
   },
+  "successfulResponseCodes": [
+    201,
+    409,
+    412,
+    413,
+  ],
 }
-`);
+`)
 
   expect(
     addWishlistItemEndpointRequest({
@@ -95,13 +119,19 @@ it('Builds correct query', () => {
   "data": {
     "productId": 1,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {
     "campaignKey": "px",
   },
+  "successfulResponseCodes": [
+    201,
+    409,
+    412,
+    413,
+  ],
 }
-`);
+`)
 
   expect(
     addWishlistItemEndpointRequest({
@@ -117,11 +147,17 @@ it('Builds correct query', () => {
     "productId": 1,
     "shopId": 456,
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    409,
+    412,
+    413,
+  ],
 }
-`);
+`)
 
   expect(
     addWishlistItemEndpointRequest({
@@ -136,11 +172,17 @@ it('Builds correct query', () => {
   "data": {
     "masterKey": "master_1",
   },
-  "endpoint": "wishlists/wishlist_1/items",
+  "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
   "params": {
     "pricePromotionKey": "test",
   },
+  "successfulResponseCodes": [
+    201,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})

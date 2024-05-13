@@ -1,15 +1,13 @@
-import {ArrayMinLength} from '../../types/ArrayMinLength';
-import {Pagination} from '../../endpoints/products/productsByIds';
-import {BapiCall} from '../../interfaces/BapiCall';
-import {BapiProduct} from '../../types/BapiProduct';
+import type { ArrayMinLength } from '../../types/ArrayMinLength'
+import type { Pagination } from '../../endpoints/products/productsByIds'
+import type { Product } from '../../types/Product'
+import type { ProductSearchQuery } from '../../types/ProductSearchQuery'
 import {
-  ProductSearchQuery,
   queryParamsFromProductSearchQuery,
-} from '../../types/ProductSearchQuery';
-import {
-  ProductWith,
-  productWithQueryParameterValues,
-} from '../../types/ProductWith';
+} from '../../types/ProductSearchQuery'
+import type { ProductWith } from '../../types/ProductWith'
+import { productWithQueryParameterValues } from '../../types/ProductWith'
+import type { StorefrontAPICall } from '../../helpers/execute'
 
 export enum APISortOption {
   Price = 'price',
@@ -23,105 +21,105 @@ export enum APISortOrder {
 }
 
 export interface ProductSortConfig {
-  by?: APISortOption;
-  direction?: APISortOrder;
-  score?: 'category_scores' | 'brand_scores';
-  channel?: string;
-  sortingKey?: string;
+  by?: APISortOption
+  direction?: APISortOrder
+  score?: 'category_scores' | 'brand_scores'
+  channel?: string
+  sortingKey?: string
 }
 
 export interface ProductsSearchEndpointParameters {
-  where?: ProductSearchQuery;
+  where?: ProductSearchQuery
 
-  sort?: ProductSortConfig;
+  sort?: ProductSortConfig
 
-  campaignKey?: string;
+  campaignKey?: string
 
-  with?: ProductWith;
+  with?: ProductWith
 
   pagination?: {
-    page?: number;
-    perPage?: number;
-  };
+    page?: number
+    perPage?: number
+  }
 
-  includeSellableForFree?: boolean;
+  includeSellableForFree?: boolean
 
-  includeSoldOut?: boolean;
+  includeSoldOut?: boolean
 
-  pricePromotionKey?: string;
+  pricePromotionKey?: string
 
-  minProductId?: number;
+  minProductId?: number
 
-  orFiltersOperator?: ArrayMinLength<string, 2>;
+  orFiltersOperator?: ArrayMinLength<string, 2>
 }
 
 export interface ProductsSearchEndpointResponseData {
-  entities: BapiProduct[];
-  pagination: Pagination;
+  entities: Product[]
+  pagination: Pagination
 }
 
 export function createProductsSearchEndpointRequest(
   parameters: ProductsSearchEndpointParameters,
-): BapiCall<ProductsSearchEndpointResponseData> {
+): StorefrontAPICall<ProductsSearchEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: 'products',
+    endpoint: '/v1/products',
     params: {
       ...(parameters.with
-        ? {with: productWithQueryParameterValues(parameters.with).join(`,`)}
+        ? { with: productWithQueryParameterValues(parameters.with).join(`,`) }
         : undefined),
 
       ...queryParamsFromProductSearchQuery(parameters.where),
 
       ...(parameters.pricePromotionKey
         ? {
-            pricePromotionKey: parameters.pricePromotionKey,
-          }
+          pricePromotionKey: parameters.pricePromotionKey,
+        }
         : undefined),
 
       ...(parameters.sort && parameters.sort.by
-        ? {sort: parameters.sort.by}
+        ? { sort: parameters.sort.by }
         : undefined),
       ...(parameters.sort && parameters.sort.direction
-        ? {sortDir: parameters.sort.direction}
+        ? { sortDir: parameters.sort.direction }
         : undefined),
       ...(parameters.sort && parameters.sort.score
-        ? {sortScore: parameters.sort.score}
+        ? { sortScore: parameters.sort.score }
         : undefined),
       ...(parameters.sort && parameters.sort.channel
-        ? {sortChannel: parameters.sort.channel}
+        ? { sortChannel: parameters.sort.channel }
         : undefined),
       ...(parameters.sort && parameters.sort.sortingKey
-        ? {sortingKey: parameters.sort.sortingKey}
+        ? { sortingKey: parameters.sort.sortingKey }
         : undefined),
 
       ...(parameters.pagination && parameters.pagination.page
-        ? {page: parameters.pagination.page}
+        ? { page: parameters.pagination.page }
         : undefined),
       ...(parameters.pagination && parameters.pagination.perPage
-        ? {perPage: parameters.pagination.perPage}
+        ? { perPage: parameters.pagination.perPage }
         : undefined),
 
       ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
+        ? { campaignKey: parameters.campaignKey }
         : undefined),
 
       ...(parameters.includeSellableForFree
-        ? {includeSellableForFree: parameters.includeSellableForFree}
+        ? { includeSellableForFree: parameters.includeSellableForFree }
         : undefined),
 
       ...(parameters.includeSoldOut
-        ? {includeSoldOut: parameters.includeSoldOut}
+        ? { includeSoldOut: parameters.includeSoldOut }
         : undefined),
 
       ...(parameters.minProductId
-        ? {minProductId: parameters.minProductId}
+        ? { minProductId: parameters.minProductId }
         : undefined),
 
       ...(parameters.orFiltersOperator &&
-      parameters.orFiltersOperator.length > 1
-        ? {orFiltersOperator: parameters.orFiltersOperator.join(',')}
+          parameters.orFiltersOperator.length > 1
+        ? { orFiltersOperator: parameters.orFiltersOperator.join(',') }
         : undefined),
     },
-  };
+  }
 }

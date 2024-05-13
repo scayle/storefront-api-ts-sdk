@@ -1,6 +1,6 @@
-import {createBasketItemRequest} from '../createItem';
+import { createBasketItemRequest } from '../createItem'
 
-it('Builds correct query', () => {
+it('builds correct query', () => {
   expect(
     createBasketItemRequest({
       basketKey: 'basket1',
@@ -12,7 +12,7 @@ it('Builds correct query', () => {
             attributes: 'all',
             advancedAttributes: 'all',
           },
-          variant: {attributes: 'all', advancedAttributes: 'all'},
+          variant: { attributes: 'all', advancedAttributes: 'all' },
         },
       },
       itemGroup: {
@@ -32,16 +32,23 @@ it('Builds correct query', () => {
     "quantity": 2,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
   },
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})
 
-it('Builds correct query with custom data', () => {
+it('builds correct query with custom data', () => {
   expect(
     createBasketItemRequest({
       basketKey: 'basket1',
@@ -60,14 +67,21 @@ it('Builds correct query with custom data', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})
 
-it('Support sending a child shop ID', () => {
+it('support sending a child shop ID', () => {
   expect(
     createBasketItemRequest({
       basketKey: 'basket1',
@@ -82,14 +96,21 @@ it('Support sending a child shop ID', () => {
     "shopId": 456,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})
 
-it('Builds correct query with price promotion key', () => {
+it('builds correct query with price promotion key', () => {
   expect(
     createBasketItemRequest({
       basketKey: 'basket1',
@@ -106,14 +127,21 @@ it('Builds correct query with price promotion key', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})
 
-it('Builds correct query with price promotion key and custom data', () => {
+it('builds correct query with price promotion key and custom data', () => {
   expect(
     createBasketItemRequest({
       basketKey: 'basket1',
@@ -133,14 +161,21 @@ it('Builds correct query with price promotion key and custom data', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})
 
-it('Builds correct query with campaign key', () => {
+it('builds correct query with campaign key', () => {
   expect(
     createBasketItemRequest({
       basketKey: 'basket1',
@@ -154,16 +189,23 @@ it('Builds correct query with campaign key', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {
     "campaignKey": "px",
   },
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})
 
-it('Builds correct query with display data', () => {
+it('builds correct query with display data', () => {
   expect(
     createBasketItemRequest({
       basketKey: 'basket1',
@@ -190,14 +232,21 @@ it('Builds correct query with display data', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})
 
-it('Builds correct query with skip availability', () => {
+it('builds correct query with skip availability', () => {
   expect(
     createBasketItemRequest({
       basketKey: 'basket1',
@@ -211,16 +260,23 @@ it('Builds correct query with skip availability', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {
     "skipAvailabilityCheck": true,
   },
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})
 
-it('Builds correct payload with promotion id', () => {
+it('builds correct payload with promotion id', () => {
   expect(
     createBasketItemRequest({
       basketKey: 'basket1',
@@ -235,9 +291,16 @@ it('Builds correct payload with promotion id', () => {
     "quantity": 1,
     "variantId": 1235,
   },
-  "endpoint": "baskets/basket1/items",
+  "endpoint": "/v1/baskets/basket1/items",
   "method": "POST",
   "params": {},
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
 }
-`);
-});
+`)
+})

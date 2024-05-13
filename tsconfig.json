@@ -1,40 +1,9 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "esnext",
-      "esnext.asynciterable"
-    ],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "types": [
-      "jest"
-    ],
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "preserveConstEnums": true,
-    "pretty": true,
-    "target": "es2015",
-    "inlineSourceMap": false,
-    "inlineSources": false,
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "noEmitOnError": true,
-    "declaration": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "removeComments": true,
-    "noErrorTruncation": true,
-    "outDir": "./compiled",
-    "rootDir": "./src"
+    "types": ["vitest/globals"],
+    "strict": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts"
-  ],
-  "exclude": [
-    "compiled/**"
-  ]
+  "include": ["src/**/*.ts", "@types/*.d.ts"],
+  "exclude": ["node_modules", "src/**/*.test.ts", "dist", "./*.d.ts"]
 }

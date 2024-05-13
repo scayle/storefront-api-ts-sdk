@@ -1,19 +1,19 @@
-import {createProductsByIdsEndpointRequest} from '../productsByIds';
+import { createProductsByIdsEndpointRequest } from '../productsByIds'
 
-it('Builds correct query', () => {
+it('builds correct query', () => {
   expect(
     createProductsByIdsEndpointRequest({
       productIds: [1, 2],
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "ids": "1,2",
   },
 }
-`);
+`)
 
   expect(
     createProductsByIdsEndpointRequest({
@@ -30,14 +30,14 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "ids": "1,2",
     "with": "attributes,variants,variants.attributes:key(name),images.attributes:legacy(false)",
   },
 }
-`);
+`)
 
   expect(
     createProductsByIdsEndpointRequest({
@@ -46,20 +46,20 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "ids": "10",
     "includeSellableForFree": true,
   },
 }
-`);
+`)
 
   expect(() =>
     createProductsByIdsEndpointRequest({
       productIds: [],
-    }),
-  ).toThrow(`"productIds" parameter must not be an empty array.`);
+    })
+  ).toThrow(`"productIds" parameter must not be an empty array.`)
 
   expect(
     createProductsByIdsEndpointRequest({
@@ -68,12 +68,12 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "ids": "1",
     "pricePromotionKey": "abc123",
   },
 }
-`);
-});
+`)
+})

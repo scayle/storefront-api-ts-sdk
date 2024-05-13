@@ -117,7 +117,7 @@
       "label": "articleVisibility",
       "type": "",
       "multiSelect": false,
-      "values": {"id": 29309, "label": "true", "value": "true"}
+      "values": { "id": 29309, "label": "true", "value": "true" }
     },
     "shopSizeRun": {
       "key": "shopSizeRun",
@@ -135,14 +135,14 @@
       "label": "Pack",
       "type": "extras",
       "multiSelect": false,
-      "values": {"id": 28224, "label": "1er Pack", "value": "1"}
+      "values": { "id": 28224, "label": "1er Pack", "value": "1" }
     },
     "season": {
       "key": "season",
       "label": "Saison",
       "type": "",
       "multiSelect": false,
-      "values": {"id": 28394, "label": "FS 17", "value": "fs17"}
+      "values": { "id": 28394, "label": "FS 17", "value": "fs17" }
     },
     "packsColorway": {
       "key": "packsColorway",
@@ -160,28 +160,28 @@
       "label": "Detailfarbe",
       "type": "",
       "multiSelect": false,
-      "values": {"id": 38736, "label": "nude", "value": "nude"}
+      "values": { "id": 38736, "label": "nude", "value": "nude" }
     },
     "color": {
       "key": "color",
       "label": "Suchfarbe",
       "type": "",
       "multiSelect": false,
-      "values": {"id": 38919, "label": "beige", "value": "beige"}
+      "values": { "id": 38919, "label": "beige", "value": "beige" }
     },
     "extras": {
       "key": "extras",
       "label": "Extras",
       "type": "extras",
       "multiSelect": true,
-      "values": [{"id": 57236, "label": "Label Print", "value": "labelprint"}]
+      "values": [{ "id": 57236, "label": "Label Print", "value": "labelprint" }]
     },
     "genderage": {
       "key": "genderage",
       "label": "Zielgruppe",
       "type": "",
       "multiSelect": false,
-      "values": {"id": 25467, "label": "Female", "value": "female"}
+      "values": { "id": 25467, "label": "Female", "value": "female" }
     },
     "vendorSizeRun": {
       "key": "vendorSizeRun",
@@ -199,14 +199,14 @@
       "label": "Marke",
       "type": "",
       "multiSelect": false,
-      "values": {"id": 1571, "label": "PRADA", "value": "prada"}
+      "values": { "id": 1571, "label": "PRADA", "value": "prada" }
     },
     "name": {
       "key": "name",
       "label": "Name",
       "type": null,
       "multiSelect": false,
-      "values": {"label": "'Candy Kiss' Eau de Parfum"}
+      "values": { "label": "'Candy Kiss' Eau de Parfum" }
     },
     "description": {
       "key": "description",
@@ -224,13 +224,13 @@
       "referenceKey": "581373620",
       "createdAt": "2017-01-11T17:33:54+01:00",
       "updatedAt": "2018-09-13T23:26:28+02:00",
-      "stock": {"supplierId": 1, "quantity": 1000},
+      "stock": { "supplierId": 1, "quantity": 1000 },
       "price": {
         "withTax": 6599,
         "withoutTax": 5545,
-        "tax": {"vat": {"amount": 1054, "rate": 0.19}},
+        "tax": { "vat": { "amount": 1054, "rate": 0.19 } },
         "appliedReductions": [],
-        "reference": {"withTax": 21996, "size": "100", "unit": "ml"}
+        "reference": { "withTax": 21996, "size": "100", "unit": "ml" }
       },
       "attributes": {
         "beautyUnisexMengeMl": {
@@ -238,42 +238,42 @@
           "label": "Beauty - Unisex Menge (ml)",
           "type": "general_size_run",
           "multiSelect": false,
-          "values": {"id": 59148, "label": "30 ml", "value": "30_ml"}
+          "values": { "id": 59148, "label": "30 ml", "value": "30_ml" }
         },
         "vendorSize": {
           "key": "vendorSize",
           "label": "Gr\u00f6\u00dfe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 58773, "label": "30 ml"}
+          "values": { "id": 58773, "label": "30 ml" }
         },
         "biSize": {
           "key": "biSize",
           "label": "Gr\u00f6\u00dfe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 59593, "label": "30 ml", "value": "30_ml"}
+          "values": { "id": 59593, "label": "30 ml", "value": "30_ml" }
         },
         "shopSize": {
           "key": "shopSize",
           "label": "Gr\u00f6\u00dfe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 59594, "label": "30 ml", "value": "30_ml"}
+          "values": { "id": 59594, "label": "30 ml", "value": "30_ml" }
         },
         "categoryShopFilterSizes": {
           "key": "categoryShopFilterSizes",
           "label": "Gr\u00f6\u00dfe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 59595, "label": "30 ml", "value": "30_ml"}
+          "values": { "id": 59595, "label": "30 ml", "value": "30_ml" }
         },
         "sort": {
           "key": "sort",
           "label": "Sortierung",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 41073, "label": "300", "value": "300"}
+          "values": { "id": 41073, "label": "300", "value": "300" }
         },
         "sizeTranslationType": {
           "key": "sizeTranslationType",
@@ -291,7 +291,7 @@
           "label": "Model Geschlecht",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 69762, "label": "female", "value": "female"}
+          "values": { "id": 69762, "label": "female", "value": "female" }
         }
       }
     },
@@ -300,13 +300,13 @@
       "referenceKey": "581374068",
       "createdAt": "2017-07-03T10:11:59+02:00",
       "updatedAt": "2018-09-13T23:25:52+02:00",
-      "stock": {"supplierId": 1, "quantity": 1000},
+      "stock": { "supplierId": 1, "quantity": 1000 },
       "price": {
         "withTax": 8599,
         "withoutTax": 7226,
-        "tax": {"vat": {"amount": 1373, "rate": 0.19}},
+        "tax": { "vat": { "amount": 1373, "rate": 0.19 } },
         "appliedReductions": [],
-        "reference": {"withTax": 17198, "size": "100", "unit": "ml"}
+        "reference": { "withTax": 17198, "size": "100", "unit": "ml" }
       },
       "attributes": {
         "beautyUnisexMengeMl": {
@@ -314,42 +314,42 @@
           "label": "Beauty - Unisex Menge (ml)",
           "type": "general_size_run",
           "multiSelect": false,
-          "values": {"id": 59149, "label": "50 ml", "value": "50_ml"}
+          "values": { "id": 59149, "label": "50 ml", "value": "50_ml" }
         },
         "vendorSize": {
           "key": "vendorSize",
           "label": "Gr\u00f6\u00dfe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 58771, "label": "50 ml"}
+          "values": { "id": 58771, "label": "50 ml" }
         },
         "biSize": {
           "key": "biSize",
           "label": "Gr\u00f6\u00dfe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 59583, "label": "50 ml", "value": "50_ml"}
+          "values": { "id": 59583, "label": "50 ml", "value": "50_ml" }
         },
         "shopSize": {
           "key": "shopSize",
           "label": "Gr\u00f6\u00dfe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 59584, "label": "50 ml", "value": "50_ml"}
+          "values": { "id": 59584, "label": "50 ml", "value": "50_ml" }
         },
         "categoryShopFilterSizes": {
           "key": "categoryShopFilterSizes",
           "label": "Gr\u00f6\u00dfe",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 59585, "label": "50 ml", "value": "50_ml"}
+          "values": { "id": 59585, "label": "50 ml", "value": "50_ml" }
         },
         "sort": {
           "key": "sort",
           "label": "Sortierung",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 41172, "label": "550", "value": "550"}
+          "values": { "id": 41172, "label": "550", "value": "550" }
         },
         "sizeTranslationType": {
           "key": "sizeTranslationType",
@@ -367,7 +367,7 @@
           "label": "Model Geschlecht",
           "type": "",
           "multiSelect": false,
-          "values": {"id": 69762, "label": "female", "value": "female"}
+          "values": { "id": 69762, "label": "female", "value": "female" }
         }
       }
     }
@@ -665,7 +665,7 @@
       "type": "",
       "values": [
         {
-          "fieldSet": [[{"value": "'Candy Kiss' Eau de Parfum"}]],
+          "fieldSet": [[{ "value": "'Candy Kiss' Eau de Parfum" }]],
           "groupSet": []
         }
       ]

@@ -1,22 +1,22 @@
-import {createBrandBySlugEndpointRequest} from '../brandBySlug';
+import { createBrandBySlugEndpointRequest } from '../brandBySlug'
 
 it('builds correct endpoint request', () => {
   expect(createBrandBySlugEndpointRequest('nike')).toMatchInlineSnapshot(`
 {
-  "endpoint": "brands/nike",
+  "endpoint": "/v1/brands/nike",
   "method": "GET",
   "params": {
     "forceSlug": true,
   },
 }
-`);
+`)
   expect(createBrandBySlugEndpointRequest('20')).toMatchInlineSnapshot(`
 {
-  "endpoint": "brands/20",
+  "endpoint": "/v1/brands/20",
   "method": "GET",
   "params": {
     "forceSlug": true,
   },
 }
-`);
-});
+`)
+})

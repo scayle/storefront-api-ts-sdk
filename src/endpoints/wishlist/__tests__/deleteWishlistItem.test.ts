@@ -1,6 +1,6 @@
-import {deleteWishlistEndpointRequest} from '../deleteWishlistItem';
+import { deleteWishlistEndpointRequest } from '../deleteWishlistItem'
 
-it('Builds correct query', () => {
+it('builds correct query', () => {
   expect(
     deleteWishlistEndpointRequest({
       wishlistKey: 'wishlist_1',
@@ -8,11 +8,11 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1/items/item_1",
+  "endpoint": "/v1/wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
   "params": {},
 }
-`);
+`)
 
   expect(
     deleteWishlistEndpointRequest({
@@ -28,13 +28,13 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1/items/item_1",
+  "endpoint": "/v1/wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
   "params": {
     "with": "items.product.attributes,items.product.images.attributes:legacy(false)",
   },
 }
-`);
+`)
 
   expect(
     deleteWishlistEndpointRequest({
@@ -44,13 +44,13 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1/items/item_1",
+  "endpoint": "/v1/wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
   "params": {
     "campaignKey": "px",
   },
 }
-`);
+`)
 
   expect(
     deleteWishlistEndpointRequest({
@@ -61,12 +61,12 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "wishlists/wishlist_1/items/item_1",
+  "endpoint": "/v1/wishlists/wishlist_1/items/item_1",
   "method": "DELETE",
   "params": {
     "campaignKey": "px",
     "pricePromotionKey": "test",
   },
 }
-`);
-});
+`)
+})

@@ -1,6 +1,6 @@
-import {updateBasketItemQuantityRequest} from '../updateItem';
+import { updateBasketItemQuantityRequest } from '../updateItem'
 
-it('Builds corrects query', () => {
+it('builds corrects query', () => {
   expect(
     updateBasketItemQuantityRequest({
       basketKey: 'basket_1',
@@ -12,11 +12,11 @@ it('Builds corrects query', () => {
   "data": {
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {},
 }
-`);
+`)
 
   expect(
     updateBasketItemQuantityRequest({
@@ -29,7 +29,7 @@ it('Builds corrects query', () => {
             attributes: 'all',
             advancedAttributes: 'all',
           },
-          variant: {attributes: 'all', advancedAttributes: 'all'},
+          variant: { attributes: 'all', advancedAttributes: 'all' },
         },
       },
     }),
@@ -38,13 +38,13 @@ it('Builds corrects query', () => {
   "data": {
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
   },
 }
-`);
+`)
 
   expect(
     updateBasketItemQuantityRequest({
@@ -58,13 +58,13 @@ it('Builds corrects query', () => {
   "data": {
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {
     "campaignKey": "px",
   },
 }
-`);
+`)
 
   expect(
     updateBasketItemQuantityRequest({
@@ -79,11 +79,11 @@ it('Builds corrects query', () => {
     "promotionId": null,
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {},
 }
-`);
+`)
 
   expect(
     updateBasketItemQuantityRequest({
@@ -98,9 +98,9 @@ it('Builds corrects query', () => {
     "promotionId": "abc",
     "quantity": 10,
   },
-  "endpoint": "baskets/basket_1/items/item_5",
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
   "method": "PATCH",
   "params": {},
 }
-`);
-});
+`)
+})

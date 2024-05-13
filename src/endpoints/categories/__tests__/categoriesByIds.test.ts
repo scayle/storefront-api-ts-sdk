@@ -1,13 +1,13 @@
-import {createCategoriesByIdsEndpointRequest} from '../categoriesByIds';
+import { createCategoriesByIdsEndpointRequest } from '../categoriesByIds'
 
-it('Builds correct query', () => {
+it('builds correct query', () => {
   expect(
     createCategoriesByIdsEndpointRequest({
       categoryIds: [1, 2],
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 1,
@@ -15,16 +15,16 @@ it('Builds correct query', () => {
     "with": "properties:name()",
   },
 }
-`);
+`)
 
   expect(
     createCategoriesByIdsEndpointRequest({
       categoryIds: [1, 2],
-      with: {absoluteDepth: 0},
+      with: { children: 0 },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 1,
@@ -32,16 +32,16 @@ it('Builds correct query', () => {
     "with": "properties:name()",
   },
 }
-`);
+`)
 
   expect(
     createCategoriesByIdsEndpointRequest({
       categoryIds: [1, 2],
-      with: {absoluteDepth: 2},
+      with: { children: 1 },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories",
+  "endpoint": "/v1/categories",
   "method": "GET",
   "params": {
     "depth": 2,
@@ -49,5 +49,5 @@ it('Builds correct query', () => {
     "with": "properties:name(),descendants",
   },
 }
-`);
-});
+`)
+})

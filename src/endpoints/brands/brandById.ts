@@ -1,13 +1,13 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {Brand} from '../../types/Brand';
+import type { StorefrontAPICall } from '../../helpers/execute'
+import type { Brand } from '../../types/Brand'
 
-export type BrandByIdEndpointResponseData = Brand;
+export type BrandByIdEndpointResponseData = Brand
 
 export function createBrandByIdEndpointRequest(
   brandId: number,
-): BapiCall<BrandByIdEndpointResponseData> {
+): StorefrontAPICall<BrandByIdEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `brands/${brandId}`,
-  };
+    endpoint: `/v1/brands/${brandId}`,
+  }
 }

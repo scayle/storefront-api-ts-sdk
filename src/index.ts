@@ -1,7 +1,17 @@
-export {BapiClient, ExistingItemHandling} from './helpers/BapiClient';
+// Main Client
+export {
+  StorefrontAPIClient,
+  ExistingItemHandling,
+} from './StorefrontAPIClient'
+export type {
+  StorefrontAPIAuth,
+  StorefrontAPIConfig,
+  AddOrUpdateItemError,
+  AddManyItemsBasketResponse,
+} from './StorefrontAPIClient'
 
 // Basket
-export {
+export type {
   BasketItem,
   BasketKey,
   BasketWith,
@@ -12,13 +22,33 @@ export {
   BasketPackageInformation,
   GetBasketParameters,
   ApplicablePromotion,
-} from './endpoints/basket/getBasket';
-export {DeleteItemParameters} from './endpoints/basket/deleteItem';
-export {CreateBasketItemParameters} from './endpoints/basket/createItem';
-export {UpdateBasketItemQuantity} from './endpoints/basket/updateItem';
+  BasketItemDisplayDataKey,
+  BaskteItemDisplayDataItem,
+  ItemGroup,
+} from './endpoints/basket/getBasket'
+export type { BasketResponse } from './StorefrontAPIClient'
+export type { DeleteItemParameters } from './endpoints/basket/deleteItem'
+export type { CreateBasketItemParameters } from './endpoints/basket/createItem'
+export type { UpdateBasketItemQuantity } from './endpoints/basket/updateItem'
+
+// Brand
+export type { Brand, BrandCustomData } from './types/Brand'
+export type {
+  BrandsEndpointRequestParameters,
+  BrandsEndpointResponseData,
+} from './endpoints/brands/brands'
+export type {
+  BrandByIdEndpointResponseData,
+} from './endpoints/brands/brandById'
+export type {
+  BrandBySlugEndpointResponseData,
+} from './endpoints/brands/brandBySlug'
+
+// Shop Configuration
+export type { ShopConfigurationResponseData } from './endpoints/shopconfiguration/shopconfiguration'
 
 // Typeahead
-export {
+export type {
   ProductSuggestion,
   TypeaheadProductSuggestion,
   TypeaheadSuggestion,
@@ -26,136 +56,166 @@ export {
   TypeaheadBrandOrCategorySuggestion,
   TypeaheadSuggestionsEndpointRequestParameters,
   TypeaheadSuggestionsEndpointResponseData,
-} from './endpoints/typeahead/typeahead';
+} from './endpoints/typeahead/typeahead'
 
 // Wishlist
-export {
+export type {
   WishlistItem,
   WishlistResponseData,
   WishlistWith,
   GetWishlistParameters,
-} from './endpoints/wishlist/getWishlist';
-export {DeleteWishlistParameters} from './endpoints/wishlist/deleteWishlistItem';
-export {AddWishlistItemParameters} from './endpoints/wishlist/addWishlistItem';
+} from './endpoints/wishlist/getWishlist'
+export type { DeleteWishlistParameters } from './endpoints/wishlist/deleteWishlistItem'
+export type { AddWishlistItemParameters } from './endpoints/wishlist/addWishlistItem'
 
 // Campaigns
-export {
-  CampaignSortOption,
+export { CampaignSortOption } from './endpoints/campaigns/campaigns'
+export type {
   CampaignsEndpointResponseData,
   CampaignsSortConfig,
   CampaignsEndpointRequestParameters,
-} from './endpoints/campaigns/campaigns';
+} from './endpoints/campaigns/campaigns'
 
 // Products
-export {
-  APISortOption,
-  APISortOrder,
+export { APISortOption, APISortOrder } from './endpoints/products/products'
+export type {
   ProductSortConfig,
   ProductsSearchEndpointResponseData,
   ProductsSearchEndpointParameters,
-} from './endpoints/products/products';
-export {
+} from './endpoints/products/products'
+export type {
   ProductByIdEndpointParameters,
   ProductByIdEndpointResponseData,
-} from './endpoints/products/productById';
-export {
+} from './endpoints/products/productById'
+export type {
   ProductsByIdsEndpointParameters,
   ProductsByIdsEndpointResponseData,
-} from './endpoints/products/productsByIds';
-export {
+} from './endpoints/products/productsByIds'
+export type {
   ProductsByReferenceKeyRequestData,
   ProductByReferenceKeyResponseData,
-} from './endpoints/products/productByReferenceKey';
-export {
+} from './endpoints/products/productByReferenceKey'
+export type {
   Attributes,
   AttributeGroup,
   ImageAttributes,
-  BapiProductCategory,
+  ProductCategory,
   LowestPriorPrice,
   AppliedReduction,
   CentAmount,
   RFC33339Date,
-  BapiPrice,
-  BapiProduct,
+  VariantPrice,
+  Product,
   ProductImage,
   Value,
   Variant,
   AdvancedAttribute,
   AdvancedAttributes,
   Stock,
-} from './types/BapiProduct';
-export {
+  AttributeGroupMulti,
+  AttributeGroupSingle,
+} from './types/Product'
+export type {
   VariantWith,
   ProductWith,
   ProductImageWith,
   ProductCategoryWith,
   ProductCategoryPropertyWith,
-} from './types/ProductWith';
+} from './types/ProductWith'
 
 // Navigation
-export {NavigationAllEndpointResponseData} from './endpoints/navigation/navigation';
-export {NavigationByIdEndpointResponseData} from './endpoints/navigation/navigationById';
-export {
+export type {
+  NavigationAllEndpointResponseData,
+  GetNavigationParameters,
+} from './endpoints/navigation/navigation'
+export type { NavigationByIdEndpointResponseData } from './endpoints/navigation/navigationById'
+export type {
   NavigationTree,
   NavigationItem,
   NavigationItemCategory,
   NavigationItems,
   NavigationItemPage,
   NavigationItemExternal,
-} from './types/navigation';
+} from './types/navigation'
 
 // Filters
-export {
+export { FilterTypes } from './endpoints/filters/filters'
+export type {
   FiltersEndpointResponseData,
   FiltersEndpointParameters,
   IdentifierFilterValue,
   AttributesFilterValue,
   FilterItemWithValues,
-  FilterTypes,
-} from './endpoints/filters/filters';
+  AttributesFilterItemWithValues,
+} from './endpoints/filters/filters'
 
 // Attributes
-export {
+export type {
   AttributeFilter,
   AttributeKey,
   AttributeOrAttributeWithValuesFilter,
   AttributeWithBooleanValueFilter,
   AttributeWithValuesFilter,
-} from './types/AttributeOrAttributeValueFilter';
+} from './types/AttributeOrAttributeValueFilter'
 
 // Category
-export {BapiCategory, BapiCategoryProperty} from './types/BapiCategory';
-export {RootCategoriesEndpointParameters} from './endpoints/categories/categories';
-export {
+export type { Category, CategoryProperty } from './types/Category'
+export type { RootCategoriesEndpointParameters } from './endpoints/categories/categories'
+export type {
   CategoriesByIdsEndpointParameters,
-  CategoriesByIdsEndpointResponseData,
-} from './endpoints/categories/categoriesByIds';
-export {
+} from './endpoints/categories/categoriesByIds'
+export type {
   CategoryByIdEndpointParameters,
-  CategoryByIdEndpointResponseData,
-} from './endpoints/categories/categoryById';
-export {
+} from './endpoints/categories/categoryById'
+export type {
   CategoryBySlugEndpointParameters,
-  CategoryBySlugEndpointResponseData,
-} from './endpoints/categories/categoryBySlug';
+} from './endpoints/categories/categoryBySlug'
 
-export {AttributeInclude} from './helpers/attributes';
+export type { AttributeInclude } from './helpers/attributes'
 
-export {Campaign} from './types/campaign';
+export type { Campaign } from './types/campaign'
 
-export {ProductSearchQuery} from './types/ProductSearchQuery';
+export type { ProductSearchQuery } from './types/ProductSearchQuery'
 
 export {
   getAttributeValues,
   getFirstAttributeValue,
-} from './helpers/bapiProduct';
+} from './helpers/bapiProduct'
 
-export {
+export type { Redirect } from './endpoints/redirects/redirects'
+
+export type {
+  VariantDetail,
+  VariantsByIdsEndpointParameters,
+  VariantsByIdsEndpointResponseData,
+} from './endpoints/variants/variantsByIds'
+
+export { PromotionEffectType } from './types/Promotion'
+export type {
   Promotion,
   PromotionCondition,
   PromotionCustomData,
   PromotionEffect,
-} from './types/Promotion';
-export {PromotionsEndpointResponseData} from './endpoints/promotions/promotions';
+} from './types/Promotion'
+export type {
+  PromotionsEndpointResponseData,
+  PromotionsEndpointRequestParameters,
+} from './endpoints/promotions/promotions'
 
-export {FetchError} from './helpers/FetchError';
+export { FetchError } from './helpers/FetchError'
+
+// Search
+export type {
+  SearchEntity,
+  ProductSearchSuggestion,
+  CategorySearchSuggestion,
+} from './types/Search'
+export type { SearchV2With } from './endpoints/searchv2/includes'
+export type {
+  SearchV2ResolveEndpointParameters,
+  SearchV2ResolveEndpointResponseData,
+} from './endpoints/searchv2/resolve'
+export type {
+  SearchV2SuggestionsEndpointParameters,
+  SearchV2SuggestionsEndpointResponseData,
+} from './endpoints/searchv2/suggestions'

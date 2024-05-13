@@ -1,11 +1,11 @@
-import {createBrandsEndpointRequest} from '../brands';
+import { createBrandsEndpointRequest } from '../brands'
 
 it('builds correct endpoint request', () => {
   expect(createBrandsEndpointRequest()).toMatchInlineSnapshot(`
 {
-  "endpoint": "brands",
+  "endpoint": "/v1/brands",
   "method": "GET",
   "params": {},
 }
-`);
-});
+`)
+})

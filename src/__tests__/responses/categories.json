@@ -9,9 +9,9 @@
     "rootlineIds": [20201],
     "childrenIds": [20204, 20207, 20203, 144187, 78100, 32543],
     "properties": [
-      {"name": "legacy_category_id", "value": 20201},
-      {"name": "category_context", "value": "female"},
-      {"name": "reference_id", "value": "a72ebf5c0174a1681eb0d496158143dd"},
+      { "name": "legacy_category_id", "value": 20201 },
+      { "name": "category_context", "value": "female" },
+      { "name": "reference_id", "value": "a72ebf5c0174a1681eb0d496158143dd" },
       {
         "name": "attributes",
         "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"gender_female\":[\"Frauen\"]}"
@@ -56,9 +56,12 @@
           22830
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 20204},
-          {"name": "category_context", "value": "bekleidung_female"},
-          {"name": "reference_id", "value": "ed9d595fa9d87d6455277c2dabe716ef"},
+          { "name": "legacy_category_id", "value": 20204 },
+          { "name": "category_context", "value": "bekleidung_female" },
+          {
+            "name": "reference_id",
+            "value": "ed9d595fa9d87d6455277c2dabe716ef"
+          },
           {
             "name": "attributes",
             "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"clothing\":[\"Bekleidung\"],\"gender_female\":[\"Frauen\"]}"
@@ -90,9 +93,12 @@
           324594
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 20207},
-          {"name": "category_context", "value": "schuhe_female"},
-          {"name": "reference_id", "value": "01d37368b15cd263b449636619cca873"},
+          { "name": "legacy_category_id", "value": 20207 },
+          { "name": "category_context", "value": "schuhe_female" },
+          {
+            "name": "reference_id",
+            "value": "01d37368b15cd263b449636619cca873"
+          },
           {
             "name": "attributes",
             "value": "{\"gender_female\":[\"Frauen\"],\"shoe\":[\"Schuhe\"],\"age_group_adult\":[\"M\u00e4nner,Frauen\"]}"
@@ -127,9 +133,12 @@
           324599
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 20203},
-          {"name": "category_context", "value": "accessoires_female"},
-          {"name": "reference_id", "value": "4453dd5adabb6c18cd1afaab60b784af"},
+          { "name": "legacy_category_id", "value": 20203 },
+          { "name": "category_context", "value": "accessoires_female" },
+          {
+            "name": "reference_id",
+            "value": "4453dd5adabb6c18cd1afaab60b784af"
+          },
           {
             "name": "attributes",
             "value": "{\"gender_female\":[\"Frauen\"],\"accessories\":[\"Accessoires\"],\"age_group_adult\":[\"M\u00e4nner,Frauen\"]}"
@@ -165,9 +174,12 @@
           144203
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 144187},
-          {"name": "category_context", "value": "premium_female"},
-          {"name": "reference_id", "value": "7981363688a6f1a68ca2fca8acff91aa"},
+          { "name": "legacy_category_id", "value": 144187 },
+          { "name": "category_context", "value": "premium_female" },
+          {
+            "name": "reference_id",
+            "value": "7981363688a6f1a68ca2fca8acff91aa"
+          },
           {
             "name": "attributes",
             "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"gender_female\":[\"Frauen\"],\"premium\":[\"Premium\"],\"masterfeed_excluded\":[\"Anl\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"]}"
@@ -186,9 +198,12 @@
         "rootlineIds": [20201, 78100],
         "childrenIds": [194780, 195790, 195830, 195837, 201894],
         "properties": [
-          {"name": "legacy_category_id", "value": 78100},
-          {"name": "category_context", "value": "sport_female"},
-          {"name": "reference_id", "value": "839d5712688a131f48916be67f42db38"},
+          { "name": "legacy_category_id", "value": 78100 },
+          { "name": "category_context", "value": "sport_female" },
+          {
+            "name": "reference_id",
+            "value": "839d5712688a131f48916be67f42db38"
+          },
           {
             "name": "attributes",
             "value": "{\"sport\":[\"Sport\"],\"gender_female\":[\"Frauen\"],\"age_group_adult\":[\"M\u00e4nner,Frauen\"]}"
@@ -235,9 +250,12 @@
           92533
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 32543},
-          {"name": "category_context", "value": "sale_female"},
-          {"name": "reference_id", "value": "a9e433715a72070af5f599f4470f0a93"},
+          { "name": "legacy_category_id", "value": 32543 },
+          { "name": "category_context", "value": "sale_female" },
+          {
+            "name": "reference_id",
+            "value": "a9e433715a72070af5f599f4470f0a93"
+          },
           {
             "name": "attributes",
             "value": "{\"gender_female\":[\"Frauen\"],\"sale\":[\"Sale\"],\"masterfeed_excluded\":[\"Anl\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"],\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"minor_campaigns_female\":[\"SALE\"],\"minor_campaigns_male\":[\"SALE\"]}"
@@ -258,9 +276,9 @@
     "rootlineIds": [20202],
     "childrenIds": [20290, 20215, 20211, 144267, 78101, 32544],
     "properties": [
-      {"name": "legacy_category_id", "value": 20202},
-      {"name": "category_context", "value": "male"},
-      {"name": "reference_id", "value": "7d165c442380ed76d8dade399074ec9f"},
+      { "name": "legacy_category_id", "value": 20202 },
+      { "name": "category_context", "value": "male" },
+      { "name": "reference_id", "value": "7d165c442380ed76d8dade399074ec9f" },
       {
         "name": "attributes",
         "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"gender_male\":[\"M\u00e4nner\"]}"
@@ -296,9 +314,12 @@
           153825
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 20290},
-          {"name": "category_context", "value": "bekleidung_male"},
-          {"name": "reference_id", "value": "1368877e6356e3c05c407cf17c6be1ff"},
+          { "name": "legacy_category_id", "value": 20290 },
+          { "name": "category_context", "value": "bekleidung_male" },
+          {
+            "name": "reference_id",
+            "value": "1368877e6356e3c05c407cf17c6be1ff"
+          },
           {
             "name": "attributes",
             "value": "{\"clothing\":[\"Bekleidung\"],\"gender_male\":[\"M\u00e4nner\"],\"age_group_adult\":[\"M\u00e4nner,Frauen\"]}"
@@ -317,9 +338,12 @@
         "rootlineIds": [20202, 20215],
         "childrenIds": [92949, 20345, 20342, 20335, 20341],
         "properties": [
-          {"name": "legacy_category_id", "value": 20215},
-          {"name": "category_context", "value": "schuhe_male"},
-          {"name": "reference_id", "value": "42d0f3996c3c85cd22763063fdd6e85c"},
+          { "name": "legacy_category_id", "value": 20215 },
+          { "name": "category_context", "value": "schuhe_male" },
+          {
+            "name": "reference_id",
+            "value": "42d0f3996c3c85cd22763063fdd6e85c"
+          },
           {
             "name": "attributes",
             "value": "{\"gender_male\":[\"M\u00e4nner\"],\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"shoe\":[\"Schuhe\"]}"
@@ -352,9 +376,12 @@
           101464
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 20211},
-          {"name": "category_context", "value": "accessoires_male"},
-          {"name": "reference_id", "value": "9395995f1e980405eeb5e83e68f44f3e"},
+          { "name": "legacy_category_id", "value": 20211 },
+          { "name": "category_context", "value": "accessoires_male" },
+          {
+            "name": "reference_id",
+            "value": "9395995f1e980405eeb5e83e68f44f3e"
+          },
           {
             "name": "attributes",
             "value": "{\"accessories\":[\"Accessoires\"],\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"gender_male\":[\"M\u00e4nner\"]}"
@@ -385,9 +412,12 @@
           144275
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 144267},
-          {"name": "category_context", "value": "premium_male"},
-          {"name": "reference_id", "value": "8c0138f6a4cf2097d8e6629722dc28f9"},
+          { "name": "legacy_category_id", "value": 144267 },
+          { "name": "category_context", "value": "premium_male" },
+          {
+            "name": "reference_id",
+            "value": "8c0138f6a4cf2097d8e6629722dc28f9"
+          },
           {
             "name": "attributes",
             "value": "{\"gender_male\":[\"M\u00e4nner\"],\"masterfeed_excluded\":[\"Anl\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"],\"premium\":[\"Premium\"],\"age_group_adult\":[\"M\u00e4nner,Frauen\"]}"
@@ -406,9 +436,12 @@
         "rootlineIds": [20202, 78101],
         "childrenIds": [323873, 194956, 195863, 195847, 195854, 201897],
         "properties": [
-          {"name": "legacy_category_id", "value": 78101},
-          {"name": "category_context", "value": "sport_male"},
-          {"name": "reference_id", "value": "5934942b21101c862a7353b7dbeb627b"},
+          { "name": "legacy_category_id", "value": 78101 },
+          { "name": "category_context", "value": "sport_male" },
+          {
+            "name": "reference_id",
+            "value": "5934942b21101c862a7353b7dbeb627b"
+          },
           {
             "name": "attributes",
             "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"gender_male\":[\"M\u00e4nner\"],\"sport\":[\"Sport\"]}"
@@ -447,9 +480,12 @@
           92303
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 32544},
-          {"name": "category_context", "value": "sale_male"},
-          {"name": "reference_id", "value": "ee85541e03109927a107510419a5dce4"},
+          { "name": "legacy_category_id", "value": 32544 },
+          { "name": "category_context", "value": "sale_male" },
+          {
+            "name": "reference_id",
+            "value": "ee85541e03109927a107510419a5dce4"
+          },
           {
             "name": "attributes",
             "value": "{\"minor_campaigns_male\":[\"SALE\"],\"sale\":[\"Sale\"],\"gender_male\":[\"M\u00e4nner\"],\"masterfeed_excluded\":[\"Anl\u00e4sse,Konfirmation,Silvester,Valentinstag,Weihnachten,Neu,Sale,Basics,Premium,Festliche Mode,Neu im Sale,Stories\"],\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"minor_campaigns_female\":[\"SALE\"]}"
@@ -470,10 +506,10 @@
     "rootlineIds": [138113],
     "childrenIds": [138114, 138115, 179141],
     "properties": [
-      {"name": "legacy_category_id", "value": 138113},
-      {"name": "category_context", "value": "kids"},
-      {"name": "reference_id", "value": "0ba79ae135ac1adde77062093b6655a7"},
-      {"name": "attributes", "value": "{\"gender_children\":[\"Kinder\"]}"}
+      { "name": "legacy_category_id", "value": 138113 },
+      { "name": "category_context", "value": "kids" },
+      { "name": "reference_id", "value": "0ba79ae135ac1adde77062093b6655a7" },
+      { "name": "attributes", "value": "{\"gender_children\":[\"Kinder\"]}" }
     ],
     "isHidden": false,
     "children": [
@@ -487,9 +523,12 @@
         "rootlineIds": [138113, 138114],
         "childrenIds": [189741, 189784, 189840],
         "properties": [
-          {"name": "legacy_category_id", "value": 138114},
-          {"name": "category_context", "value": "maedchen_kids"},
-          {"name": "reference_id", "value": "5eb0c587ea03e498935f7f5df6bd8762"},
+          { "name": "legacy_category_id", "value": 138114 },
+          { "name": "category_context", "value": "maedchen_kids" },
+          {
+            "name": "reference_id",
+            "value": "5eb0c587ea03e498935f7f5df6bd8762"
+          },
           {
             "name": "attributes",
             "value": "{\"gender_children\":[\"Kinder\"],\"gender_girl\":[\"M\u00e4dchen\"]}"
@@ -508,9 +547,12 @@
         "rootlineIds": [138113, 138115],
         "childrenIds": [189897, 189938, 189989],
         "properties": [
-          {"name": "legacy_category_id", "value": 138115},
-          {"name": "category_context", "value": "jungen_kids"},
-          {"name": "reference_id", "value": "e50fc92c3f6b5ef788c83c82701843c5"},
+          { "name": "legacy_category_id", "value": 138115 },
+          { "name": "category_context", "value": "jungen_kids" },
+          {
+            "name": "reference_id",
+            "value": "e50fc92c3f6b5ef788c83c82701843c5"
+          },
           {
             "name": "attributes",
             "value": "{\"gender_boy\":[\"Jungen\"],\"gender_children\":[\"Kinder\"]}"
@@ -539,9 +581,12 @@
           187109
         ],
         "properties": [
-          {"name": "legacy_category_id", "value": 179141},
-          {"name": "category_context", "value": "umstandsmode_kids"},
-          {"name": "reference_id", "value": "1eeaedacc8457eb4697ada3854d3bd1d"},
+          { "name": "legacy_category_id", "value": 179141 },
+          { "name": "category_context", "value": "umstandsmode_kids" },
+          {
+            "name": "reference_id",
+            "value": "1eeaedacc8457eb4697ada3854d3bd1d"
+          },
           {
             "name": "attributes",
             "value": "{\"pregnant_fashion\":[\"Umstandsmode\"],\"gender_children\":[\"Kinder\"]}"

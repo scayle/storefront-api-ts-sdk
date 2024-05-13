@@ -1,13 +1,13 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {AttributeGroupMulti} from '../../types/BapiProduct';
+import type { StorefrontAPICall } from '../../helpers/execute'
+import type { AttributeGroupMulti } from '../../types/Product'
 
-export type AttributeByKeyEndpointResponseData = AttributeGroupMulti;
+export type AttributeByKeyEndpointResponseData = AttributeGroupMulti
 
 export function createAttributeByKeyEndpointRequest(
   key: string,
-): BapiCall<AttributeByKeyEndpointResponseData> {
+): StorefrontAPICall<AttributeByKeyEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `attributes/${key}`,
-  };
+    endpoint: `/v1/attributes/${key}`,
+  }
 }

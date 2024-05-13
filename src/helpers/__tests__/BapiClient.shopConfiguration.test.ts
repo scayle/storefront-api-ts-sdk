@@ -1,16 +1,16 @@
-import {BapiClient} from '../../helpers/BapiClient';
+import { StorefrontAPIClient } from '../../StorefrontAPIClient'
 import {
-  nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from '../../test-helpers/nock';
+  nockWithBapiScope,
+} from '../../test-helpers/nock'
 
-disableNetAndAllowBapiCors();
+disableNetAndAllowBapiCors()
 
-it.skip('Gets product by ID', async () => {
+it.skip('gets product by ID', async () => {
   nockWithBapiScope()
-    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
     .get('/v1/shop-configuration')
-    .query({shopId: 139})
+    .query({ shopId: 139 })
     .reply(
       200,
       {
@@ -26,15 +26,15 @@ it.skip('Gets product by ID', async () => {
       {
         'Content-Type': 'application/json',
       },
-    );
+    )
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-  });
+  })
 
-  const response = await bapi.shopConfiguration.get();
+  const response = await bapi.shopConfiguration.get()
 
-  expect(response.properties[0].key).toBe('foo');
-  expect(response.properties[0].value).toBe('bar');
-});
+  expect(response.properties[0].key).toBe('foo')
+  expect(response.properties[0].value).toBe('bar')
+})

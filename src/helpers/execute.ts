@@ -1,114 +1,102 @@
-import {BapiCall} from '../interfaces/BapiCall';
-import {ObjectMap} from '../types/ObjectMap';
-import * as queryString from 'query-string';
-import {BapiAuthentication} from './BapiClient';
-import {FetchError} from './FetchError';
+import type { StorefrontAPIAuth } from '../StorefrontAPIClient'
+import { FetchError } from './FetchError'
 
-export const getParamsString = (params?: Partial<Record<string, any>>) => {
-  if (!params) {
-    return '';
+export const getParamsString = (
+  params: Partial<Record<string, string | number | boolean>>,
+) => {
+  let query = ''
+  for (const [key, value] of Object.entries(params)) {
+    if (!value) {
+      continue
+    }
+
+    if (query.length > 0) {
+      query += '&'
+    }
+
+    query += `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
   }
-
-  const query = queryString.stringify(
-    params as object,
-    {
-      arrayFormat: 'bracket',
-      sort: false,
-    } as any,
-  );
 
   if (query) {
-    return '?' + query;
+    return `?${query}`
   }
 
-  return '';
-};
+  return ''
+}
 
-function prepareUrl(
-  apiBase: string,
-  endpoint: string,
-  params: Partial<Record<string, string>> | undefined,
-) {
-  if (endpoint.includes('/v2/')) {
-    return apiBase.replace('/v1/', '') + endpoint + getParamsString(params);
+export type StorefrontAPICall<Response> =
+  | {
+    method: 'GET' | 'DELETE'
+    endpoint: `/v1/${string}` | `/v2/${string}`
+    params?: {
+      [key: string]: string | boolean | number | undefined
+    }
+    // Status Codes which should be considered successful and parse and return the body data
+    successfulResponseCodes?: number[]
+
+    // This is needed to infer the types properly but it will never be used/set
+    __res?: Response
   }
-  return apiBase + endpoint + getParamsString(params);
+  | {
+    method: 'POST' | 'PATCH'
+    endpoint: `/v1/${string}` | `/v2/${string}`
+    params?: {
+      [key: string]: string | boolean | number | undefined
+    }
+    data?: any
+    // Status Codes which should be considered successful and parse and return the body data
+    successfulResponseCodes?: number[]
+
+    // This is needed to infer the types properly but it will never be used/set
+    __res?: Response
+  }
+
+export interface StorefrontAPIResponse<Response> {
+  statusCode: number
+  data: Response
 }
 
-export interface BapiResponse<T> {
-  statusCode: number;
-  headers: {[key: string]: string | undefined};
-  url: string;
-  data: T;
-}
-
-export async function execute<SuccessResponseT>(
-  apiLocation: string,
+export async function execute<Response>(
+  host: string,
   shopId: number,
-  bapiCall: BapiCall<SuccessResponseT>,
-  acceptAllResponseCodes = false,
-  shopIdPlacement: 'header' | 'query' = 'query',
-  auth?: BapiAuthentication,
-  additionalHeaders?: ObjectMap<string>,
-): Promise<BapiResponse<SuccessResponseT>> {
-  const params =
-    shopIdPlacement === 'query'
-      ? {...bapiCall.params, shopId: shopId}
-      : bapiCall.params;
-
-  const url = prepareUrl(apiLocation, bapiCall.endpoint, params);
-
-  const shopIdHeader =
-    shopIdPlacement === 'header' ? {'X-Shop-Id': `${shopId}`} : undefined;
+  bapiCall: StorefrontAPICall<Response>,
+  auth?: StorefrontAPIAuth,
+): Promise<StorefrontAPIResponse<Response>> {
+  const url = `https://${host}${bapiCall.endpoint}${
+    getParamsString({
+      ...bapiCall.params,
+      shopId,
+    })
+  }`
 
   const response = await fetch(url, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       ...(typeof window === 'undefined'
-        ? {'accept-encoding': 'gzip, deflate'}
+        ? { 'accept-encoding': 'gzip, deflate' }
         : undefined),
-      ...shopIdHeader,
-      ...additionalHeaders,
-      ...(auth && auth.type === 'token' ? {'X-Access-Token': auth.token} : {}),
-      ...(auth && auth.type === 'basic'
-        ? {Authorization: 'Basic ' + btoa(auth.username + ':' + auth.password)}
+      ...(auth && auth.type === 'token'
+        ? { 'X-Access-Token': auth.token }
         : {}),
     },
     method: bapiCall.method,
-    body:
-      bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
-        ? JSON.stringify(bapiCall.data)
-        : undefined,
-  });
+    body: bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
+      ? JSON.stringify(bapiCall.data)
+      : undefined,
+  })
 
-  if (!response.ok && !acceptAllResponseCodes) {
-    throw new FetchError(response);
+  if (bapiCall.successfulResponseCodes) {
+    if (!bapiCall.successfulResponseCodes.includes(response.status)) {
+      throw new FetchError(response)
+    }
+  } else if (!response.ok) {
+    throw new FetchError(response)
   }
 
-  const headers: {[key: string]: string | undefined} = {};
-  response.headers.forEach((val, key) => (headers[key] = val));
-
-  // Hack for 204 responses
-  if (response.status === 204) {
-    return {
-      data: undefined as SuccessResponseT,
-      statusCode: response.status,
-      url: response.url || url,
-      headers,
-    };
-  }
-
-  const data = await response.json();
-
-  if (bapiCall.responseValidator && !bapiCall.responseValidator(data)) {
-    throw new Error(`Invalid response data`);
-  }
-
+  const data = await response.json()
   return {
     data,
     statusCode: response.status,
-    url: response.url || url,
-    headers,
-  };
+  }
 }

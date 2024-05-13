@@ -1,9 +1,11 @@
-import * as nock from 'nock';
+import nock from 'nock'
 
-type Config = {shopIdHeader?: true};
+interface Config {
+  shopIdHeader?: true
+}
 
 export function disableNetAndAllowBapiCors(config?: Config) {
-  nock.disableNetConnect();
+  nock.disableNetConnect()
 
   if (config && config.shopIdHeader) {
     nock('https://api-cloud.example.com/', {
@@ -16,17 +18,16 @@ export function disableNetAndAllowBapiCors(config?: Config) {
         'access-control-allow-origin': '*',
         'access-control-allow-headers': 'X-Shop-Id',
       })
-      .persist();
+      .persist()
   }
 }
 
 export function nockWithBapiScope(config?: Config) {
   return nock('https://api-cloud.example.com/', {
-    reqheaders:
-      config && config.shopIdHeader
-        ? {
-            'X-Shop-Id': '139',
-          }
-        : undefined,
-  });
+    reqheaders: config && config.shopIdHeader
+      ? {
+        'X-Shop-Id': '139',
+      }
+      : undefined,
+  })
 }

@@ -1,7 +1,12 @@
 {
   "extends": "../../dprint.json",
-  "excludes": ["**/node_modules", "**/*-lock.json"],
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json"
+  ],
   "includes": [
-    "./*.{json,md}"
+    "src/**/*.{ts,js,json}",
+    "testing/**/*.{ts,js,json}",
+    "./*.{ts,js,mjs,cjs,json,md}"
   ]
 }

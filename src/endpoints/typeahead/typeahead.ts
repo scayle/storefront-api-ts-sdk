@@ -1,65 +1,63 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {
-  ProductWith,
-  productWithQueryParameterValues,
-} from '../../types/ProductWith';
-import {BapiProduct} from '../../types/BapiProduct';
-import {BapiCategory} from '../../types/BapiCategory';
-import {prefixList} from '../../helpers/attributes';
+import type { ProductWith } from '../../types/ProductWith'
+import { productWithQueryParameterValues } from '../../types/ProductWith'
+import type { Product } from '../../types/Product'
+import type { Category } from '../../types/Category'
+import { prefixList } from '../../helpers/attributes'
+import type { StorefrontAPICall } from '../../helpers/execute'
 
 export interface TypeaheadSuggestionsEndpointRequestParameters {
-  term: string;
+  term: string
 
   // Not enabled on BAPI side yet
   // campaignKey?: string;
 
   with?: {
     // The `with` includes used for all returned products
-    products?: ProductWith;
+    products?: ProductWith
     // The `with` includes used for all returned categories
     categories?: {
-      parents?: 'all';
+      parents?: 'all'
 
       // How many levels of children to load
       //
       // 0 means no children, 1 means 1 level of children, etc.
-      children?: number;
-    };
-  };
+      children?: number
+    }
+  }
 
   // Category ID under which to search
-  categoryId?: number;
+  categoryId?: number
 
   // Maximum number of products to be returned
-  productLimit?: number;
+  productLimit?: number
 }
 
-export type TypeaheadSuggestionsEndpointResponseData = {
-  topMatch?: TypeaheadSuggestion;
+export interface TypeaheadSuggestionsEndpointResponseData {
+  topMatch?: TypeaheadSuggestion
 
-  suggestions: Array<TypeaheadSuggestion>;
-};
+  suggestions: Array<TypeaheadSuggestion>
+}
 
 export type TypeaheadSuggestion =
   | TypeaheadProductSuggestion
-  | TypeaheadBrandOrCategorySuggestion;
+  | TypeaheadBrandOrCategorySuggestion
 
 export interface TypeaheadProductSuggestion {
-  type: 'product';
-  score: number; // NOTE: Only comparable amongst product suggestions
-  productSuggestion: ProductSuggestion;
+  type: 'product'
+  score: number // NOTE: Only comparable amongst product suggestions
+  productSuggestion: ProductSuggestion
 }
 
 export interface TypeaheadBrandOrCategorySuggestion {
-  type: 'brandOrCategory';
-  score: number; // NOTE: Only comparable amongst brandOrCategory suggestions
-  brandOrCategorySuggestion: BrandOrCategorySuggestion;
+  type: 'brandOrCategory'
+  score: number // NOTE: Only comparable amongst brandOrCategory suggestions
+  brandOrCategorySuggestion: BrandOrCategorySuggestion
 }
 
 export interface ProductSuggestion {
-  suggestion: string;
+  suggestion: string
 
-  product: BapiProduct;
+  product: Product
 }
 
 export interface BrandOrCategorySuggestion {
@@ -70,14 +68,14 @@ export interface BrandOrCategorySuggestion {
    * Input: "Nike Sn"
    * Output: "<em>Nike</em> in <em>Sn</em>eakers in 40"
    */
-  suggestion: string;
+  suggestion: string
 
   /**
    * Which entity had the first (leftmost) token match.
    *
    * E.g. "Nike Sneaker" -> "brand", "Sneaker Nike" -> "category"
    */
-  primaryMatch: 'brand' | 'category';
+  primaryMatch: 'brand' | 'category'
 
   /**
    * The category
@@ -85,15 +83,15 @@ export interface BrandOrCategorySuggestion {
    * Either from the matched or suggested category,
    * or if none was applicable use the input category
    */
-  category: BapiCategory;
+  category: Category
 
   /**
    * Brand information if one was matched for the input
    */
   brand?: {
-    id: number;
-    name: string;
-  };
+    id: number
+    name: string
+  }
 
   /**
    * Additional attribute filters to apply to the BAPI calls to get the matching products
@@ -102,25 +100,25 @@ export interface BrandOrCategorySuggestion {
    * and other attribute filters in the future (e.g. `color`)
    */
   attributeFilters: Array<{
-    slug: string;
+    slug: string
     // available for all non-fake attributes
-    id?: number;
-    name: string;
-    values: number[];
-  }>;
+    id?: number
+    name: string
+    values: number[]
+  }>
 
   /**
    * The total number of products matching the suggested filters
    */
-  productCount: number;
+  productCount: number
 }
 
 export function createTypeaheadSuggestionsEndpointRequest(
   parameters: TypeaheadSuggestionsEndpointRequestParameters,
-): BapiCall<TypeaheadSuggestionsEndpointResponseData> {
+): StorefrontAPICall<TypeaheadSuggestionsEndpointResponseData> {
   return {
     method: 'POST',
-    endpoint: `typeahead`,
+    endpoint: `/v1/typeahead`,
     params: {
       term: parameters.term,
 
@@ -131,10 +129,10 @@ export function createTypeaheadSuggestionsEndpointRequest(
       with: [
         ...(parameters.with?.products
           ? prefixList('product.')(
-              productWithQueryParameterValues(parameters.with?.products),
-            )
+            productWithQueryParameterValues(parameters.with?.products),
+          )
           : []),
-        ...(parameters.with?.categories?.parents == 'all'
+        ...(parameters.with?.categories?.parents === 'all'
           ? ['category.parents']
           : []),
 
@@ -142,16 +140,16 @@ export function createTypeaheadSuggestionsEndpointRequest(
       ].join(`,`),
 
       ...(parameters.with?.categories?.children
-        ? {categoryDepth: parameters.with?.categories?.children + 1}
+        ? { categoryDepth: parameters.with?.categories?.children + 1 }
         : undefined),
     },
     data: {
       ...(parameters.categoryId
-        ? {categoryId: parameters.categoryId}
+        ? { categoryId: parameters.categoryId }
         : undefined),
       ...(parameters.productLimit != null
-        ? {limit: parameters.productLimit}
+        ? { limit: parameters.productLimit }
         : undefined),
     },
-  };
+  }
 }

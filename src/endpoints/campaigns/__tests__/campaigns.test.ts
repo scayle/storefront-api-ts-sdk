@@ -1,15 +1,18 @@
-import {CampaignSortOption, createCampaignsEndpointRequest} from '../campaigns';
-import {APISortOrder} from '../../../endpoints/products/products';
+import {
+  CampaignSortOption,
+  createCampaignsEndpointRequest,
+} from '../campaigns'
+import { APISortOrder } from '../../../endpoints/products/products'
 
 it('builds correct endpoint request with no arguments', () => {
   expect(createCampaignsEndpointRequest()).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {},
 }
-`);
-});
+`)
+})
 
 it('builds correct endpoint request with single sort option', () => {
   expect(
@@ -20,14 +23,14 @@ it('builds correct endpoint request with single sort option', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {
     "sort": "end_at",
   },
 }
-`);
-});
+`)
+})
 
 it('builds correct endpoint request with sort options', () => {
   expect(
@@ -39,15 +42,15 @@ it('builds correct endpoint request with sort options', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {
     "sort": "id",
     "sortDir": "asc",
   },
 }
-`);
-});
+`)
+})
 
 it('builds correct endpoint request with pagination', () => {
   expect(
@@ -59,15 +62,15 @@ it('builds correct endpoint request with pagination', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {
     "page": 3,
     "perPage": 5,
   },
 }
-`);
-});
+`)
+})
 
 it('builds correct endpoint request with sort options and pagination', () => {
   expect(
@@ -83,7 +86,7 @@ it('builds correct endpoint request with sort options and pagination', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "campaigns",
+  "endpoint": "/v1/campaigns",
   "method": "GET",
   "params": {
     "page": 6,
@@ -92,5 +95,5 @@ it('builds correct endpoint request with sort options and pagination', () => {
     "sortDir": "asc",
   },
 }
-`);
-});
+`)
+})

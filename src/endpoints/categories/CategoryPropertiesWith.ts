@@ -1,1 +1,1 @@
-export type CategoryPropertiesWith = 'all' | {withName: string[]};
+export type CategoryPropertiesWith = 'all' | { withName: string[] }

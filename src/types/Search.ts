@@ -1,42 +1,42 @@
-import {BapiCategory} from './BapiCategory';
-import {BapiProduct} from './BapiProduct';
+import type { Category } from './Category'
+import type { Product } from './Product'
 
 export type SearchEntity =
   | CategorySearchSuggestion
   | ProductSearchSuggestion
-  | {type: undefined};
+  | { type: undefined }
 
-export type CategorySearchSuggestion = {
-  type: 'category';
+export interface CategorySearchSuggestion {
+  type: 'category'
   categorySuggestion: {
-    category: BapiCategory;
-    filters: CategoryFilter[];
-  };
-};
+    category: Category
+    filters: CategoryFilter[]
+  }
+}
 
-type CategoryFilter = CategoryAttributeFilter | {type: undefined};
+type CategoryFilter = CategoryAttributeFilter | { type: undefined }
 
-type CategoryAttributeFilter = {
-  type: 'attribute';
+interface CategoryAttributeFilter {
+  type: 'attribute'
   attributeFilter: {
     group: {
-      id: number;
-      key: string;
-      label: string;
-      type: string;
-      multiSelect: boolean;
-    };
+      id: number
+      key: string
+      label: string
+      type: string
+      multiSelect: boolean
+    }
     values: Array<{
-      id: number;
-      value: string;
-      label: string;
-    }>;
-  };
-};
+      id: number
+      value: string
+      label: string
+    }>
+  }
+}
 
-export type ProductSearchSuggestion = {
-  type: 'product';
+export interface ProductSearchSuggestion {
+  type: 'product'
   productSuggestion: {
-    product: BapiProduct;
-  };
-};
+    product: Product
+  }
+}

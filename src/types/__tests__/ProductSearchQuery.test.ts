@@ -1,18 +1,18 @@
-import {AttributeKey} from '../../types/AttributeOrAttributeValueFilter';
-import {queryParamsFromProductSearchQuery} from '../../types/ProductSearchQuery';
+import type { AttributeKey } from '../../types/AttributeOrAttributeValueFilter'
+import { queryParamsFromProductSearchQuery } from '../../types/ProductSearchQuery'
 
-it('Converts search query', () => {
-  expect(queryParamsFromProductSearchQuery(undefined)).toEqual(undefined);
+it('converts search query', () => {
+  expect(queryParamsFromProductSearchQuery(undefined)).toEqual(undefined)
 
-  expect(queryParamsFromProductSearchQuery({})).toMatchInlineSnapshot(`{}`);
+  expect(queryParamsFromProductSearchQuery({})).toMatchInlineSnapshot(`{}`)
 
   // Leave some but not all values blank
-  expect(queryParamsFromProductSearchQuery({categoryId: 1234}))
+  expect(queryParamsFromProductSearchQuery({ categoryId: 1234 }))
     .toMatchInlineSnapshot(`
 {
   "filters[category]": 1234,
 }
-`);
+`)
 
   expect(
     queryParamsFromProductSearchQuery({
@@ -60,7 +60,7 @@ it('Converts search query', () => {
   "filters[singleValue]": "1",
   "filters[term]": "search term",
 }
-`);
+`)
 
   expect(
     queryParamsFromProductSearchQuery({
@@ -74,7 +74,7 @@ it('Converts search query', () => {
   "filters[category]": 1235,
   "filters[term]": "123",
 }
-`);
+`)
 
   expect(
     queryParamsFromProductSearchQuery({
@@ -88,7 +88,7 @@ it('Converts search query', () => {
   "filters[category]": 1235,
   "filters[term]": "123",
 }
-`);
+`)
 
   expect(
     queryParamsFromProductSearchQuery({
@@ -104,5 +104,5 @@ it('Converts search query', () => {
 {
   "filters:not[brand]": "550",
 }
-`);
-});
+`)
+})

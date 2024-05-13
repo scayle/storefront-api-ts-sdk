@@ -1,6 +1,6 @@
-import {createCategoryByIdEndpointRequest} from '../categoryById';
+import { createCategoryByIdEndpointRequest } from '../categoryById'
 
-it('Builds correct query', () => {
+it('builds correct query', () => {
   expect(
     createCategoryByIdEndpointRequest({
       categoryId: 1234,
@@ -11,7 +11,7 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 3,
@@ -19,7 +19,7 @@ it('Builds correct query', () => {
     "with": "properties:name(),descendants",
   },
 }
-`);
+`)
 
   expect(
     createCategoryByIdEndpointRequest({
@@ -30,66 +30,66 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 1,
     "with": "properties",
   },
 }
-`);
+`)
 
   expect(
     createCategoryByIdEndpointRequest({
       categoryId: 1234,
       with: {
-        properties: {withName: []},
+        properties: { withName: [] },
       },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 1,
     "with": "properties:name()",
   },
 }
-`);
+`)
 
   expect(
     createCategoryByIdEndpointRequest({
       categoryId: 1234,
       with: {
-        properties: {withName: ['category_context']},
+        properties: { withName: ['category_context'] },
       },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 1,
     "with": "properties:name(category_context)",
   },
 }
-`);
+`)
 
   expect(
     createCategoryByIdEndpointRequest({
       categoryId: 1234,
       with: {
-        properties: {withName: ['category_context', 'reference_id']},
+        properties: { withName: ['category_context', 'reference_id'] },
       },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "categories/1234",
+  "endpoint": "/v1/categories/1234",
   "method": "GET",
   "params": {
     "depth": 1,
     "with": "properties:name(category_context|reference_id)",
   },
 }
-`);
-});
+`)
+})

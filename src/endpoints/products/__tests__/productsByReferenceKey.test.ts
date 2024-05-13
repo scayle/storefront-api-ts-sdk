@@ -1,19 +1,19 @@
-import {createProductByReferenceKeyRequest} from '../productByReferenceKey';
+import { createProductByReferenceKeyRequest } from '../productByReferenceKey'
 
-it('Builds correct query', () => {
+it('builds correct query', () => {
   expect(
     createProductByReferenceKeyRequest({
       referenceKey: '122222051352_990',
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "referenceKey": "122222051352_990",
   },
 }
-`);
+`)
 
   expect(
     createProductByReferenceKeyRequest({
@@ -30,14 +30,14 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "referenceKey": "122222051352_990",
     "with": "attributes,variants,variants.attributes:key(name),images.attributes:legacy(false)",
   },
 }
-`);
+`)
 
   expect(
     createProductByReferenceKeyRequest({
@@ -46,20 +46,20 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "includeSellableForFree": true,
     "referenceKey": "122222051352_990",
   },
 }
-`);
+`)
 
   expect(() =>
     createProductByReferenceKeyRequest({
       referenceKey: '',
-    }),
-  ).toThrow(`"referenceKey" must not be an empty string.`);
+    })
+  ).toThrow(`"referenceKey" must not be an empty string.`)
 
   expect(
     createProductByReferenceKeyRequest({
@@ -68,12 +68,12 @@ it('Builds correct query', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "pricePromotionKey": "abc123",
     "referenceKey": "122222051352_990",
   },
 }
-`);
-});
+`)
+})
