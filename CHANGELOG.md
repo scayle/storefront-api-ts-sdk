@@ -1,5 +1,25 @@
 # @aboutyou/backbone
 
+## 17.0.0
+
+### Major Changes
+
+-
+  - Rename `BapiClient` to `StorefrontAPIClient`
+  - Rename `BapiAuthentication` to `StorefrontAPIAuth`
+  - Drop support for basic authentication
+  - Drop support for header shop id placement
+    We recommend sticking with basic query parameters, which are usually safer and easier to use. In the past, we have seen issues with headers and caching layers, which need to be specifically instrumented to consider the header.
+  - The `host` parameter provided to the StorefrontAPIClient should now be the URL host (example: `{{tenant-space}}.storefront.api.scayle.cloud`)
+    The old format of `https://{{tenant-space}}.storefront.api.scayle.clou/v1/` is still supported
+  - Removed all `Bapi` namings from types
+    These include: `BapiPrice`, `BapiProduct`, `BapiProductCategory` and `BapiCategory`
+  - Drop the `ModeledBapiClient`
+  - Updated the build system
+    The package is now bundled into a single file, disallowing import from internally compiled files.
+    All imports must import the main module from `@scayle/storefront-api`.
+    We have also increased the build target to ES2018.
+
 ## 16.3.0
 
 ### Minor Changes
