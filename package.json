@@ -38,7 +38,7 @@
     "eslint-formatter-gitlab": "5.1.0",
     "nock": "10.0.6",
     "publint": "0.2.7",
-    "rimraf": "5.0.5",
+    "rimraf": "5.0.7",
     "typescript": "5.4.5",
     "unbuild": "2.0.0",
     "vitest": "1.3.0"
