@@ -1,22 +1,22 @@
-import {createProductsSearchEndpointRequest} from '../endpoints/products/products';
-import {execute} from '../helpers/execute';
+import { createProductsSearchEndpointRequest } from '../endpoints/products/products'
+import { execute } from '../helpers/execute'
 import {
-  nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from '../test-helpers/nock';
-import {createProductByIdEndpointRequest} from '../endpoints/products/productById';
+  nockWithBapiScope,
+} from '../test-helpers/nock'
+import { createProductByIdEndpointRequest } from '../endpoints/products/productById'
 
-disableNetAndAllowBapiCors();
+disableNetAndAllowBapiCors()
 
-test.skip('Fetch category products', async () => {
+it.skip('fetch category products', async () => {
   nockWithBapiScope()
-    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
     .get(
       `/v1/products?filters%5Bcategory%5D=20201&sortScore=category_scores&sortChannel=etkp&perPage=2&shopId=139`,
     )
-    .replyWithFile(200, __dirname + '/responses/products.json', {
+    .replyWithFile(200, `${__dirname}/responses/products.json`, {
       'Content-Type': 'application/json',
-    });
+    })
 
   const result = await execute(
     'https://api-cloud.example.com/v1/',
@@ -33,20 +33,20 @@ test.skip('Fetch category products', async () => {
         channel: 'etkp',
       },
     }),
-  );
+  )
 
-  expect(result.data.entities.length).toBe(2);
+  expect(result.data.entities.length).toBe(2)
 
-  return true;
-});
+  return true
+})
 
-test.skip('Fetch unavailable product', async () => {
+it.skip('fetch unavailable product', async () => {
   nockWithBapiScope()
-    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
     .get(`/v1/products/123?shopId=139`)
-    .replyWithFile(404, __dirname + '/responses/product-not-found.json', {
+    .replyWithFile(404, `${__dirname}/responses/product-not-found.json`, {
       'Content-Type': 'application/json',
-    });
+    })
 
   try {
     await execute(
@@ -55,16 +55,16 @@ test.skip('Fetch unavailable product', async () => {
       createProductByIdEndpointRequest({
         productId: 123,
       }),
-    );
+    )
   } catch (e) {
-    expect((e as any).message).toBe(`Request failed with status code 404`);
-    return;
+    expect((e as any).message).toBe(`Request failed with status code 404`)
+    return
   }
 
-  fail('Expected exception');
-});
+  fail('Expected exception')
+})
 
-test('Product by ID request', async () => {
+it('product by ID request', () => {
   expect(
     createProductByIdEndpointRequest({
       productId: 123,
@@ -74,16 +74,16 @@ test('Product by ID request', async () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products/123",
+  "endpoint": "/v1/products/123",
   "method": "GET",
   "params": {
     "with": "attributes,images.attributes:legacy(false)",
   },
 }
-`);
-});
+`)
+})
 
-test('Product by ID request with price promotion key', async () => {
+it('product by ID request with price promotion key', () => {
   expect(
     createProductByIdEndpointRequest({
       productId: 123,
@@ -91,16 +91,16 @@ test('Product by ID request with price promotion key', async () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products/123",
+  "endpoint": "/v1/products/123",
   "method": "GET",
   "params": {
     "pricePromotionKey": "abc123",
   },
 }
-`);
-});
+`)
+})
 
-test('Product by ID with categories', async () => {
+it('product by ID with categories', () => {
   expect(
     createProductByIdEndpointRequest({
       productId: 123,
@@ -112,13 +112,13 @@ test('Product by ID with categories', async () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products/123",
+  "endpoint": "/v1/products/123",
   "method": "GET",
   "params": {
     "with": "images.attributes:legacy(false),categories",
   },
 }
-`);
+`)
 
   expect(
     createProductByIdEndpointRequest({
@@ -129,16 +129,16 @@ test('Product by ID with categories', async () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products/123",
+  "endpoint": "/v1/products/123",
   "method": "GET",
   "params": {
     "with": "images.attributes:legacy(false),categories:properties()",
   },
 }
-`);
-});
+`)
+})
 
-test('sellable for free parameter', () => {
+it('sellable for free parameter', () => {
   expect(
     createProductByIdEndpointRequest({
       productId: 123,
@@ -146,13 +146,13 @@ test('sellable for free parameter', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products/123",
+  "endpoint": "/v1/products/123",
   "method": "GET",
   "params": {
     "includeSellableForFree": true,
   },
 }
-`);
+`)
 
   expect(
     createProductsSearchEndpointRequest({
@@ -163,12 +163,12 @@ test('sellable for free parameter', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "products",
+  "endpoint": "/v1/products",
   "method": "GET",
   "params": {
     "filters[category]": 20201,
     "includeSellableForFree": true,
   },
 }
-`);
-});
+`)
+})

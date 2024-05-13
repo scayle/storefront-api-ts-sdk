@@ -1,16 +1,16 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {Brand} from '../../types/Brand';
+import type { StorefrontAPICall } from '../../helpers/execute'
+import type { Brand } from '../../types/Brand'
 
-export type BrandBySlugEndpointResponseData = Brand;
+export type BrandBySlugEndpointResponseData = Brand
 
 export function createBrandBySlugEndpointRequest(
   slug: string,
-): BapiCall<BrandBySlugEndpointResponseData> {
+): StorefrontAPICall<BrandBySlugEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `brands/${slug}`,
+    endpoint: `/v1/brands/${slug}`,
     params: {
       forceSlug: true,
     },
-  };
+  }
 }

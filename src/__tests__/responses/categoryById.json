@@ -8,8 +8,8 @@
   "rootlineIds": [20202],
   "childrenIds": [20290, 20215, 20211, 144267, 78101, 32544],
   "properties": [
-    {"name": "legacy_category_id", "value": 20202},
-    {"name": "category_context", "value": "male"}
+    { "name": "legacy_category_id", "value": 20202 },
+    { "name": "category_context", "value": "male" }
   ],
   "supportedFilter": ["mainMaterial"],
   "isHidden": false

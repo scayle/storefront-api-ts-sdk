@@ -1,21 +1,5 @@
-integration-test.js
-*.tgz
 dist/
 node_modules/
-/client/development
-/server/development
-/client/production
-/server/production
 .DS_Store
-yarn-error.log
 /coverage
-.env
-compiled/
-.cache-loader/
-src/coverage
-
-# test reports
-jenkins/reports/*
-test-report.html
-
-.idea
+.turbo

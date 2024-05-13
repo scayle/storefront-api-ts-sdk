@@ -1,11 +1,11 @@
-import {RFC33339Date} from '../types/BapiProduct';
+import type { RFC33339Date } from '../types/Product'
 
-export type Campaign = {
-  id: number;
-  key: string;
-  name: string;
-  description: string;
-  reduction: number;
-  start_at: RFC33339Date | null;
-  end_at: RFC33339Date | null;
-};
+export interface Campaign {
+  id: number
+  key: string
+  name: string
+  description: string
+  reduction: number
+  start_at: RFC33339Date | null
+  end_at: RFC33339Date | null
+}

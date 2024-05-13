@@ -1,41 +1,49 @@
-import {BapiCall} from '../../interfaces/BapiCall';
+import type { StorefrontAPICall } from '../../helpers/execute'
+import type { ArrayMinLength } from '../../types/ArrayMinLength'
+import type { ProductSearchQuery } from '../../types/ProductSearchQuery'
 import {
-  ProductSearchQuery,
   queryParamsFromProductSearchQuery,
-} from '../../types/ProductSearchQuery';
-import {
-  BooleanFilterValue,
-  RangeFilterValue,
+} from '../../types/ProductSearchQuery'
+import type {
   AttributesFilterValue,
+  BooleanFilterValue,
   IdentifierFilterValue,
-} from './filters';
+  RangeFilterValue,
+} from './filters'
 
 export interface FilterValuesEndpointParameters {
-  groupName: string;
+  groupName: string
 
-  where?: ProductSearchQuery;
+  where?: ProductSearchQuery
 
-  campaignKey?: string;
+  campaignKey?: string
+
+  orFiltersOperator?: ArrayMinLength<string, 2>
 }
 
 type FilterValuesResponseData =
   | BooleanFilterValue
   | RangeFilterValue
   | AttributesFilterValue[]
-  | IdentifierFilterValue[];
+  | IdentifierFilterValue[]
 
 export function createFilterValuesEndpointRequest(
   parameters: FilterValuesEndpointParameters,
-): BapiCall<FilterValuesResponseData> {
+): StorefrontAPICall<FilterValuesResponseData> {
   return {
     method: 'GET',
-    endpoint: `filters/${parameters.groupName}/values`,
+    endpoint: `/v1/filters/${parameters.groupName}/values`,
     params: {
       ...queryParamsFromProductSearchQuery(parameters.where),
 
       ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
+        ? { campaignKey: parameters.campaignKey }
+        : undefined),
+
+      ...(parameters.orFiltersOperator &&
+          parameters.orFiltersOperator.length > 1
+        ? { orFiltersOperator: parameters.orFiltersOperator.join(',') }
         : undefined),
     },
-  };
+  }
 }

@@ -1,40 +1,22 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "esnext",
-      "esnext.asynciterable"
-    ],
+    "baseUrl": ".",
+    "types": [ "node", "vitest/globals"],
+    "lib": ["ES2022", "dom", "dom.iterable", "scripthost"],
     "module": "commonjs",
-    "moduleResolution": "node",
-    "types": [
-      "jest"
-    ],
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "preserveConstEnums": true,
-    "pretty": true,
-    "target": "es5",
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "noEmitOnError": true,
+    "target": "es2018",
+    "sourceMap": true,
     "declaration": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "removeComments": true,
-    "noErrorTruncation": true,
-    "outDir": "./compiled",
-    "rootDir": "./src"
+    "declarationMap": true,
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "noEmit": true,
+    "strict": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts"
-  ],
-  "exclude": [
-    "compiled/**"
-  ]
+  "include": ["src/**/*.ts", "@types/*.d.ts"],
+  "exclude": [ "dist", "node_modules", "src/**/*.test.ts", "dist", "./*.d.ts"]
 }

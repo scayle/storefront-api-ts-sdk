@@ -1,11 +1,11 @@
-import {productWithQueryParameterValues} from '../../types/ProductWith';
+import { productWithQueryParameterValues } from '../../types/ProductWith'
 
-it('Converts attribute filters', () => {
+it('converts attribute filters', () => {
   expect(
     productWithQueryParameterValues({
       attributes: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"attributes,images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"attributes,images.attributes:legacy(false)"`)
 
   expect(
     productWithQueryParameterValues({
@@ -15,7 +15,7 @@ it('Converts attribute filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"attributes:key(singleKey),images.attributes:legacy(false)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -25,7 +25,7 @@ it('Converts attribute filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"attributes:key(keyA|keyB),images.attributes:legacy(false)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -35,16 +35,16 @@ it('Converts attribute filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"attributes:type(type1|type2),images.attributes:legacy(false)"`,
-  );
-});
+  )
+})
 
-it('Converts image filters', () => {
+it('converts image filters', () => {
   // empty, because images are included by default
   expect(
     productWithQueryParameterValues({
       images: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`)
 
   expect(
     productWithQueryParameterValues({
@@ -52,7 +52,7 @@ it('Converts image filters', () => {
         attributes: {},
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`)
 
   expect(
     productWithQueryParameterValues({
@@ -62,7 +62,7 @@ it('Converts image filters', () => {
         },
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false):key(singleKey)"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false):key(singleKey)"`)
 
   expect(
     productWithQueryParameterValues({
@@ -72,17 +72,17 @@ it('Converts image filters', () => {
         },
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false):key(keyA|keyB)"`);
-});
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false):key(keyA|keyB)"`)
+})
 
-it('Converts category filters', () => {
+it('converts category filters', () => {
   expect(
     productWithQueryParameterValues({
       categories: 'all',
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:properties()"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -90,7 +90,7 @@ it('Converts category filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:properties()"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -100,7 +100,7 @@ it('Converts category filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:hidden(true):properties()"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -111,29 +111,29 @@ it('Converts category filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:hidden(true)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
       categories: {
         includeHidden: true,
-        properties: {withName: ['foo', 'bar']},
+        properties: { withName: ['foo', 'bar'] },
       },
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:hidden(true):properties(foo|bar)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
       categories: {
         includeHidden: false,
-        properties: {withName: ['foo', 'bar']},
+        properties: { withName: ['foo', 'bar'] },
       },
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:properties(foo|bar)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -144,15 +144,15 @@ it('Converts category filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories.countryLevelCustomData,categories.shopLevelCustomData,categories:properties()"`,
-  );
-});
+  )
+})
 
-it('Converts sibling filters', () => {
+it('converts sibling filters', () => {
   expect(
     productWithQueryParameterValues({
       siblings: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),siblings"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),siblings"`)
 
   expect(
     productWithQueryParameterValues({
@@ -163,15 +163,15 @@ it('Converts sibling filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),siblings,siblings.attributes,siblings.images.attributes:legacy(false),siblings.categories:properties()"`,
-  );
-});
+  )
+})
 
-it('Converts variant filters', () => {
+it('converts variant filters', () => {
   expect(
     productWithQueryParameterValues({
       variants: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`)
 
   expect(
     productWithQueryParameterValues({
@@ -181,7 +181,7 @@ it('Converts variant filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"variants,variants.attributes,images.attributes:legacy(false)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -193,10 +193,10 @@ it('Converts variant filters', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"variants,variants.attributes:key(keyA),images.attributes:legacy(false)"`,
-  );
-});
+  )
+})
 
-it('Images attributes', () => {
+it('images attributes', () => {
   expect(
     productWithQueryParameterValues({
       images: {
@@ -205,7 +205,7 @@ it('Images attributes', () => {
         },
       },
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false):key(a)"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false):key(a)"`)
 
   expect(
     productWithQueryParameterValues({
@@ -217,7 +217,7 @@ it('Images attributes', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"variants,variants.attributes,images.attributes:legacy(false),categories:properties(),siblings"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -227,34 +227,34 @@ it('Images attributes', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),siblings,siblings.advancedAttributes,siblings.images.attributes:legacy(false)"`,
-  );
-});
+  )
+})
 
-it('Includes price range field', () => {
+it('includes price range field', () => {
   expect(
     productWithQueryParameterValues({
       priceRange: true,
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),priceRange"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false),priceRange"`)
 
   expect(
     productWithQueryParameterValues({
       priceRange: false,
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`)
 
   expect(
     productWithQueryParameterValues({
       priceRange: undefined,
     }).join(','),
-  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"images.attributes:legacy(false)"`)
 
   expect(productWithQueryParameterValues({}).join(',')).toMatchInlineSnapshot(
     `"images.attributes:legacy(false)"`,
-  );
-});
+  )
+})
 
-it('Can request stock and custom on variants', () => {
+it('can request stock and custom on variants', () => {
   expect(
     productWithQueryParameterValues({
       variants: {
@@ -265,19 +265,19 @@ it('Can request stock and custom on variants', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"variants,variants.stock,variants.stock.customData,images.attributes:legacy(false)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
       variants: {},
     }).join(','),
-  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`)
 
   expect(
     productWithQueryParameterValues({
       variants: 'all',
     }).join(','),
-  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`);
+  ).toMatchInlineSnapshot(`"variants,images.attributes:legacy(false)"`)
 
   expect(
     productWithQueryParameterValues({
@@ -287,7 +287,7 @@ it('Can request stock and custom on variants', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"variants,variants.stock,images.attributes:legacy(false)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -297,7 +297,7 @@ it('Can request stock and custom on variants', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"variants,variants.stock,images.attributes:legacy(false)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -307,7 +307,7 @@ it('Can request stock and custom on variants', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:hidden(true):properties()"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -318,17 +318,17 @@ it('Can request stock and custom on variants', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:hidden(true)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
       categories: {
-        properties: {withName: ['category_context', 'reference_id']},
+        properties: { withName: ['category_context', 'reference_id'] },
       },
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),categories:properties(category_context|reference_id)"`,
-  );
+  )
 
   expect(
     productWithQueryParameterValues({
@@ -336,5 +336,5 @@ it('Can request stock and custom on variants', () => {
     }).join(','),
   ).toMatchInlineSnapshot(
     `"images.attributes:legacy(false),searchCategoryIds"`,
-  );
-});
+  )
+})

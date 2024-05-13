@@ -1,4 +1,56 @@
-# Changelog
+# @aboutyou/backbone
+
+## 17.0.0
+
+### Major Changes
+
+-
+  - Rename `BapiClient` to `StorefrontAPIClient`
+  - Rename `BapiAuthentication` to `StorefrontAPIAuth`
+  - Drop support for basic authentication
+  - Drop support for header shop id placement
+    We recommend sticking with basic query parameters, which are usually safer and easier to use. In the past, we have seen issues with headers and caching layers, which need to be specifically instrumented to consider the header.
+  - The `host` parameter provided to the StorefrontAPIClient should now be the URL host (example: `{{tenant-space}}.storefront.api.scayle.cloud`)
+    The old format of `https://{{tenant-space}}.storefront.api.scayle.clou/v1/` is still supported
+  - Removed all `Bapi` namings from types
+    These include: `BapiPrice`, `BapiProduct`, `BapiProductCategory` and `BapiCategory`
+  - Drop the `ModeledBapiClient`
+  - Updated the build system
+    The package is now bundled into a single file, disallowing import from internally compiled files.
+    All imports must import the main module from `@scayle/storefront-api`.
+    We have also increased the build target to ES2018.
+
+## 16.3.0
+
+### Minor Changes
+
+- Add orFiltersOperator support to filter values endpoint
+
+## 16.2.2
+
+### Patch Changes
+
+- Add orFiltersOperator support to filter values endpoint
+
+## 16.2.1
+
+### Patch Changes
+
+- Resolved an issue where the `instanceof` check for `FetchError` always incorrectly returned `false`, by upgrading the compilation target from ES5 to ES2015.
+
+  This resulted in `404` errors on the redirects endpoint being treated as errors.
+
+## 16.2.0
+
+### Minor Changes
+
+- Add filters to CategorySearchSuggestion
+
+## 16.1.2
+
+### Patch Changes
+
+- remove inline sourcemaps
 
 ### 16.1.0
 

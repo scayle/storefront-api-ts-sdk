@@ -1,33 +1,33 @@
-import {BapiClient} from '../../helpers/BapiClient';
+import { StorefrontAPIClient } from '../../StorefrontAPIClient'
 import {
-  nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from '../../test-helpers/nock';
-import {BaseCategory} from '../../types/BapiProduct';
+  nockWithBapiScope,
+} from '../../test-helpers/nock'
+import type { BaseCategory } from '../../types/Product'
 
-disableNetAndAllowBapiCors();
+disableNetAndAllowBapiCors()
 
-it.skip('Gets product by ID', async () => {
+it.skip('gets product by ID', async () => {
   nockWithBapiScope()
-    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
     .get('/v1/products/4001039')
-    .query({shopId: 139})
+    .query({ shopId: 139 })
     .replyWithFile(
       200,
-      __dirname + '/responses/products/single.json' /* TODO */,
+      `${__dirname}/responses/products/single.json`, /* TODO */
       {
         'Content-Type': 'application/json',
       },
-    );
+    )
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-  });
+  })
 
-  const response = await bapi.products.getById(4001039);
+  const response = await bapi.products.getById(4001039)
 
-  expect(response.id).toBe(4001039);
+  expect(response.id).toBe(4001039)
   expect(response.baseCategories).toEqual([
     {
       categoryId: 3951,
@@ -35,103 +35,103 @@ it.skip('Gets product by ID', async () => {
       categoryParentId: 3947,
       categoryPath: 'SecondHand|Fashion|Männer|Schuhe|Turnschuhe & Sneaker',
     },
-  ] as BaseCategory[]);
-});
+  ] as BaseCategory[])
+})
 
-it.skip('Gets products by IDs', async () => {
+it.skip('gets products by IDs', async () => {
   nockWithBapiScope()
-    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
     .get('/v1/products?ids=4001039%2C4001029&shopId=139')
-    .replyWithFile(200, __dirname + '/responses/products/byIds.json', {
+    .replyWithFile(200, `${__dirname}/responses/products/byIds.json`, {
       'Content-Type': 'application/json',
-    });
+    })
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-  });
+  })
 
-  const response = await bapi.products.getByIds([4001039, 4001029]);
+  const response = await bapi.products.getByIds([4001039, 4001029])
 
-  expect(response.length).toBe(2);
-});
+  expect(response.length).toBe(2)
+})
 
-it.skip('Gets products by Reference Key', async () => {
+it.skip('gets products by Reference Key', async () => {
   nockWithBapiScope()
-    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
     .get(
       '/v1/products?filters%5BreferenceKey%5D=GN4305-pc%2CGN4304-pc&shopId=139',
     )
-    .replyWithFile(200, __dirname + '/responses/products/byIds.json', {
+    .replyWithFile(200, `${__dirname}/responses/products/byIds.json`, {
       'Content-Type': 'application/json',
-    });
+    })
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-  });
+  })
 
   const response = await bapi.products.getByReferenceKeys([
     'GN4305-pc',
     'GN4304-pc',
-  ]);
+  ])
 
-  expect(response.length).toBe(2);
-});
+  expect(response.length).toBe(2)
+})
 
-it.skip('Queries products', async () => {
+it.skip('queries products', async () => {
   nockWithBapiScope()
-    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
     .get(
       '/v1/products?with=attributes%2Cimages.attributes%3Alegacy%28false%29&perPage=3&shopId=139',
     )
-    .replyWithFile(200, __dirname + '/responses/products/query.json', {
+    .replyWithFile(200, `${__dirname}/responses/products/query.json`, {
       'Content-Type': 'application/json',
-    });
+    })
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-  });
+  })
 
   const response = await bapi.products.query({
-    with: {attributes: 'all'},
-    pagination: {perPage: 3},
-  });
+    with: { attributes: 'all' },
+    pagination: { perPage: 3 },
+  })
 
-  expect(response.entities.length).toBe(3);
-});
+  expect(response.entities.length).toBe(3)
+})
 
-it.skip('Queries products with price range', async () => {
+it.skip('queries products with price range', async () => {
   nockWithBapiScope()
-    .defaultReplyHeaders({'access-control-allow-origin': '*'})
+    .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
     .get(
       '/v1/products/3849870?with=images.attributes%3Alegacy%28false%29%2CpriceRange&shopId=139',
     )
     .replyWithFile(
       200,
-      __dirname + '/responses/products/productWithPriceRange.json',
+      `${__dirname}/responses/products/productWithPriceRange.json`,
       {
         'Content-Type': 'application/json',
       },
-    );
+    )
 
-  const bapi = new BapiClient({
+  const bapi = new StorefrontAPIClient({
     host: 'https://api-cloud.example.com/v1/',
     shopId: 139,
-  });
+  })
 
   const response = await bapi.products.getById(3849870, {
-    with: {priceRange: true},
-  });
+    with: { priceRange: true },
+  })
 
-  expect(response.id).toBe(3849870);
+  expect(response.id).toBe(3849870)
 
   if (!response.priceRange) {
-    fail('Expected price range on response');
-    return;
+    fail('Expected price range on response')
+    return
   }
 
-  expect(response.priceRange.min.withTax).toBe(4990);
-  expect(response.priceRange.max.withTax).toBe(7999);
-});
+  expect(response.priceRange.min.withTax).toBe(4990)
+  expect(response.priceRange.max.withTax).toBe(7999)
+})

@@ -1,46 +1,43 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {BapiCategory} from '../../types/BapiCategory';
-import {
-  CategoryEndpointsParameters,
-  parametersForCategoryEndpoint,
-} from './categoryEndpointsParameter';
-import {CategoryPropertiesWith} from './CategoryPropertiesWith';
+import type { StorefrontAPICall } from '../../helpers/execute'
+import type { Category } from '../../types/Category'
+import type { CategoryEndpointsParameters } from './categoryEndpointsParameter'
+import { parametersForCategoryEndpoint } from './categoryEndpointsParameter'
+import type { CategoryPropertiesWith } from './CategoryPropertiesWith'
 
 export interface CategoryByIdEndpointParameters
-  extends CategoryEndpointsParameters {
-  categoryId: number;
+  extends CategoryEndpointsParameters
+{
+  categoryId: number
 
   with?: {
     // Whether or not to include the parents (up to the root node)
-    parents?: 'all';
+    parents?: 'all'
 
     // How many levels of children to load
     //
     // 0 means no children, 1 means 1 level of children, etc.
-    children?: number;
+    children?: number
 
     // The properties to be included
     //
     // By default no properties will be included
-    properties?: CategoryPropertiesWith;
-  };
+    properties?: CategoryPropertiesWith
+  }
 
   // If `true`, hidden categories will be returned
   //
   // This is needed even if the hidden category is requested by ID or slug directly
-  includeHidden?: true;
+  includeHidden?: true
 }
-
-export type CategoryByIdEndpointResponseData = BapiCategory;
 
 export function createCategoryByIdEndpointRequest(
   params: CategoryByIdEndpointParameters,
-): BapiCall<CategoryByIdEndpointResponseData> {
+): StorefrontAPICall<Category> {
   return {
     method: 'GET',
-    endpoint: `categories/${params.categoryId}`,
+    endpoint: `/v1/categories/${params.categoryId}`,
     params: {
       ...parametersForCategoryEndpoint(params),
     },
-  };
+  }
 }

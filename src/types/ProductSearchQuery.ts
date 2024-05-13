@@ -1,29 +1,29 @@
-import {
+import type {
   AttributeWithBooleanValueFilter,
   AttributeWithValuesFilter,
-} from '../types/AttributeOrAttributeValueFilter';
-import {ObjectMap} from './ObjectMap';
+} from '../types/AttributeOrAttributeValueFilter'
+import type { ObjectMap } from './ObjectMap'
 
 export interface ProductSearchQuery {
-  categoryId?: number;
-  term?: string;
-  minPrice?: number;
-  maxPrice?: number;
-  minReduction?: number;
-  maxReduction?: number;
+  categoryId?: number
+  term?: string
+  minPrice?: number
+  maxPrice?: number
+  minReduction?: number
+  maxReduction?: number
   attributes?: Array<
     AttributeWithValuesFilter | AttributeWithBooleanValueFilter
-  >;
-  containsSearch?: boolean;
-  disableFuzziness?: boolean;
-  hasCampaignReduction?: boolean;
+  >
+  containsSearch?: boolean
+  disableFuzziness?: boolean
+  hasCampaignReduction?: boolean
 }
 
 export function queryParamsFromProductSearchQuery(
   productSearchQuery: ProductSearchQuery | undefined,
 ): ObjectMap<string | number> | undefined {
   if (!productSearchQuery) {
-    return undefined;
+    return undefined
   }
 
   const filters = {
@@ -31,24 +31,24 @@ export function queryParamsFromProductSearchQuery(
     ...(productSearchQuery.attributes || []).reduce((acc, attribute) => {
       switch (attribute.type) {
         case 'attributes':
-          acc[`filters[${attribute.key || attribute.id}]`] =
-            attribute.values.join(`,`);
-          break;
+          acc[`filters[${attribute.key || attribute.id}]`] = attribute.values
+            .join(`,`)
+          break
 
         case 'attributes:not':
-          acc[`filters:not[${attribute.key}]`] = attribute.values.join(`,`);
-          break;
+          acc[`filters:not[${attribute.key}]`] = attribute.values.join(`,`)
+          break
 
         case 'boolean':
-          acc[`filters[${attribute.key}]`] = attribute.value ? 'true' : 'false';
-          break;
+          acc[`filters[${attribute.key}]`] = attribute.value ? 'true' : 'false'
+          break
 
         /* istanbul ignore next */
         default:
-          console.error(`Unsupported filter type`, attribute);
+          console.error(`Unsupported filter type`, attribute)
       }
 
-      return acc;
+      return acc
     }, {} as ObjectMap<string>),
     'filters[term]': productSearchQuery.term,
     'filters[minPrice]': productSearchQuery.minPrice,
@@ -61,15 +61,15 @@ export function queryParamsFromProductSearchQuery(
         : productSearchQuery.hasCampaignReduction.toString(),
     containsSearch: productSearchQuery.containsSearch ? 'true' : undefined,
     disableFuzziness: productSearchQuery.disableFuzziness ? 'true' : undefined,
-  };
+  }
 
-  const definedFilters: ObjectMap<string | number> = {};
+  const definedFilters: ObjectMap<string | number> = {}
 
   for (const [key, value] of Object.entries(filters)) {
     if (value !== undefined && value !== null) {
-      definedFilters[key] = value;
+      definedFilters[key] = value
     }
   }
 
-  return definedFilters;
+  return definedFilters
 }

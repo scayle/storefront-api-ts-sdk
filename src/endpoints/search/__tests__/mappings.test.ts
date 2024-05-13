@@ -1,14 +1,14 @@
-import {createrSearchMappingsEndpointRequest} from '../mappings';
+import { createrSearchMappingsEndpointRequest } from '../mappings'
 
-it('Builds correct query', () => {
-  expect(createrSearchMappingsEndpointRequest({term: 'term 1'}))
+it('builds correct query', () => {
+  expect(createrSearchMappingsEndpointRequest({ term: 'term 1' }))
     .toMatchInlineSnapshot(`
 {
-  "endpoint": "search/mappings",
+  "endpoint": "/v1/search/mappings",
   "method": "GET",
   "params": {
     "term": "term 1",
   },
 }
-`);
-});
+`)
+})

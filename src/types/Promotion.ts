@@ -1,43 +1,48 @@
-import {RFC33339Date} from './BapiProduct';
+import type { RFC33339Date } from './Product'
 
 export interface PromotionCustomData {
-  [key: string]: unknown | undefined;
+  [key: string]: unknown | undefined
 }
 
 export interface PromotionCondition {
-  level: 'item' | 'global';
-  key: string;
-  condition: string;
+  level: 'item' | 'global'
+  key: string
+  condition: string
 }
 
-export type AutomaticDiscountEffect = {
-  type: 'automatic_discount';
-  additionalData: {
-    type: 'absolute' | 'relative';
-    value: number;
-  };
-};
+export enum PromotionEffectType {
+  AutomaticDiscount = 'automatic_discount',
+  BuyXGetY = 'buy_x_get_y',
+}
 
-export type BuyXGetYEffect = {
-  type: 'buy_x_get_y';
+export interface AutomaticDiscountEffect {
+  type: PromotionEffectType.AutomaticDiscount
   additionalData: {
-    maxCount: number;
-    variantIds: number[];
-  };
-};
+    type: 'absolute' | 'relative'
+    value: number
+  }
+}
 
-export type PromotionEffect = AutomaticDiscountEffect | BuyXGetYEffect;
+export interface BuyXGetYEffect {
+  type: PromotionEffectType.BuyXGetY
+  additionalData: {
+    maxCount: number
+    variantIds: number[]
+  }
+}
+
+export type PromotionEffect = AutomaticDiscountEffect | BuyXGetYEffect
 
 export interface Promotion {
-  id: string;
-  name: string;
+  id: string
+  name: string
   schedule: {
-    from: RFC33339Date;
-    to: RFC33339Date;
-  };
-  isActive: boolean;
-  effect: PromotionEffect;
-  conditions: PromotionCondition[];
-  customData: PromotionCustomData;
-  priority: number;
+    from: RFC33339Date
+    to: RFC33339Date
+  }
+  isActive: boolean
+  effect: PromotionEffect
+  conditions: PromotionCondition[]
+  customData: PromotionCustomData
+  priority: number
 }

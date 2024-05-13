@@ -1,39 +1,37 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {
-  ProductWith,
-  productWithQueryParameterValues,
-} from '../../types/ProductWith';
-import {BapiProduct} from '../../types/BapiProduct';
-import {BapiCategory} from '../../types/BapiCategory';
+import type { ProductWith } from '../../types/ProductWith'
+import { productWithQueryParameterValues } from '../../types/ProductWith'
+import type { Product } from '../../types/Product'
+import type { Category } from '../../types/Category'
+import type { StorefrontAPICall } from '../../helpers/execute'
 
 export interface SearchSuggestionsEndpointParameters {
-  term: string;
+  term: string
 
-  campaignKey?: string;
+  campaignKey?: string
 
   with?: {
-    brands?: 'all';
-    categories?: 'all';
-    productNames?: 'all';
-    products?: 'all' | ProductWith;
-  };
+    brands?: 'all'
+    categories?: 'all'
+    productNames?: 'all'
+    products?: 'all' | ProductWith
+  }
 }
 
-export type SearchSuggestionsEndpointResponseData = {
+export interface SearchSuggestionsEndpointResponseData {
   brands: Array<{
-    id: number;
-    label: string;
-    value: string;
-  }>;
+    id: number
+    label: string
+    value: string
+  }>
 
-  categories: Array<BapiCategory>;
+  categories: Array<Category>
 
   productNames: Array<{
-    term: string;
-  }>;
+    term: string
+  }>
 
-  products: Array<BapiProduct>;
-};
+  products: Array<Product>
+}
 
 function suggetionsWithQueryParameter(
   suggestionsWith: Exclude<
@@ -41,7 +39,7 @@ function suggetionsWithQueryParameter(
     undefined
   >,
 ): string[] {
-  const withParams = [];
+  const withParams = []
 
   if (
     suggestionsWith.products &&
@@ -51,39 +49,39 @@ function suggetionsWithQueryParameter(
       ...productWithQueryParameterValues(suggestionsWith.products).map(
         value => `products.${value}`,
       ),
-    );
+    )
   }
 
-  return withParams;
+  return withParams
 }
 
 export function createSearchSuggestionsEndpointRequest(
   parameters: SearchSuggestionsEndpointParameters,
-): BapiCall<SearchSuggestionsEndpointResponseData> {
-  const topLevelIncludes: string[] = [];
+): StorefrontAPICall<SearchSuggestionsEndpointResponseData> {
+  const topLevelIncludes: string[] = []
   if (parameters.with) {
     if (parameters.with.brands) {
-      topLevelIncludes.push('brands');
+      topLevelIncludes.push('brands')
     }
     if (parameters.with.categories) {
-      topLevelIncludes.push('categories');
+      topLevelIncludes.push('categories')
     }
     if (parameters.with.productNames) {
-      topLevelIncludes.push('productNames');
+      topLevelIncludes.push('productNames')
     }
     if (parameters.with.products) {
-      topLevelIncludes.push('products');
+      topLevelIncludes.push('products')
     }
   }
 
   return {
     method: 'GET',
-    endpoint: `search/suggestions`,
+    endpoint: `/v1/search/suggestions`,
     params: {
       term: parameters.term,
 
       ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
+        ? { campaignKey: parameters.campaignKey }
         : undefined),
 
       with: [
@@ -93,5 +91,5 @@ export function createSearchSuggestionsEndpointRequest(
           : []),
       ].join(`,`),
     },
-  };
+  }
 }

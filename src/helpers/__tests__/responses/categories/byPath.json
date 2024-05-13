@@ -35,9 +35,9 @@
     22830
   ],
   "properties": [
-    {"name": "legacy_category_id", "value": 20204},
-    {"name": "category_context", "value": "bekleidung_female"},
-    {"name": "reference_id", "value": "ed9d595fa9d87d6455277c2dabe716ef"},
+    { "name": "legacy_category_id", "value": 20204 },
+    { "name": "category_context", "value": "bekleidung_female" },
+    { "name": "reference_id", "value": "ed9d595fa9d87d6455277c2dabe716ef" },
     {
       "name": "attributes",
       "value": "{\"age_group_adult\":[\"M\u00e4nner,Frauen\"],\"clothing\":[\"Bekleidung\"],\"gender_female\":[\"Frauen\"]}"

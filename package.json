@@ -1,33 +1,59 @@
 {
-    "name": "@aboutyou/backbone",
-    "version": "16.1.1",
-    "dependencies": {
-        "query-string": "^6.2.0"
-    },
-    "devDependencies": {
-        "@types/jest": "^29.5.2",
-        "@types/nock": "^9.3.0",
-        "@types/query-string": "^6.1.0",
-        "jest": "^29.5.0",
-        "nock": "10.0.6",
-        "prettier": "^2.8.8",
-        "ts-jest": "^29.1.1",
-        "typescript": "^5.1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/scayle/storefront-api-ts-sdk.git"
-    },
-    "license": "MIT",
-    "main": "index.js",
-    "type": "commonjs",
-    "types": "index.d.ts",
-    "scripts": {
-        "build": "tsc",
-        "check-format": "prettier -l \"src/**/*.ts\"",
-        "lint": "prettier --write \"src/**/*.ts\"",
-        "test": "npm run lint && npm run test:unit",
-        "test:unit": "jest",
-        "ts-check": "tsc --noEmit -w"
+  "name": "@scayle/storefront-api",
+  "version": "17.0.0",
+  "description": "TypeScript and JavaScript SDK source for the SCAYLE Storefront API",
+  "author": "SCAYLE Commerce Engine",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "dist"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.cjs"
     }
+  },
+  "engines": {
+    "node": ">= 18.15.0"
+  },
+  "devDependencies": {
+    "@scayle/eslint-config-storefront": "4.1.0",
+    "@types/nock": "9.3.1",
+    "@types/node": "20.12.11",
+    "@vitest/coverage-v8": "1.6.0",
+    "dprint": "0.45.1",
+    "eslint": "9.2.0",
+    "eslint-formatter-gitlab": "5.1.0",
+    "nock": "10.0.6",
+    "publint": "0.2.7",
+    "rimraf": "5.0.7",
+    "typescript": "5.4.5",
+    "unbuild": "2.0.0",
+    "vitest": "1.6.0"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "unbuild",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "format": "dprint check",
+    "format:fix": "dprint fmt",
+    "lint": "eslint . --format gitlab",
+    "lint:fix": "eslint . --fix",
+    "package:lint": "publint",
+    "test:watch": "vitest --passWithNoTests",
+    "test": "vitest --run --passWithNoTests",
+    "test:ci": "vitest --run --passWithNoTests --coverage --reporter=default --reporter=junit"
+  }
 }

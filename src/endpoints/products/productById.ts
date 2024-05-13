@@ -1,44 +1,42 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {BapiProduct} from '../../types/BapiProduct';
-import {
-  ProductWith,
-  productWithQueryParameterValues,
-} from '../../types/ProductWith';
+import type { StorefrontAPICall } from '../../helpers/execute'
+import type { Product } from '../../types/Product'
+import type { ProductWith } from '../../types/ProductWith'
+import { productWithQueryParameterValues } from '../../types/ProductWith'
 
 export interface ProductByIdEndpointParameters {
-  productId: number;
-  with?: ProductWith;
-  campaignKey?: string;
-  pricePromotionKey?: string;
-  includeSellableForFree?: boolean;
+  productId: number
+  with?: ProductWith
+  campaignKey?: string
+  pricePromotionKey?: string
+  includeSellableForFree?: boolean
 }
 
-export type ProductByIdEndpointResponseData = BapiProduct;
+export type ProductByIdEndpointResponseData = Product
 
 /**
  * Required as single product call is the only one that can return `siblings`
  */
 export function createProductByIdEndpointRequest(
   parameters: ProductByIdEndpointParameters,
-): BapiCall<ProductByIdEndpointResponseData> {
+): StorefrontAPICall<ProductByIdEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `products/${parameters.productId}`,
+    endpoint: `/v1/products/${parameters.productId}`,
     params: {
       ...(parameters.with
-        ? {with: productWithQueryParameterValues(parameters.with).join(`,`)}
+        ? { with: productWithQueryParameterValues(parameters.with).join(`,`) }
         : undefined),
       ...(parameters.campaignKey
-        ? {campaignKey: parameters.campaignKey}
+        ? { campaignKey: parameters.campaignKey }
         : undefined),
       ...(parameters.pricePromotionKey
         ? {
-            pricePromotionKey: parameters.pricePromotionKey,
-          }
+          pricePromotionKey: parameters.pricePromotionKey,
+        }
         : undefined),
       ...(parameters.includeSellableForFree
-        ? {includeSellableForFree: parameters.includeSellableForFree}
+        ? { includeSellableForFree: parameters.includeSellableForFree }
         : undefined),
     },
-  };
+  }
 }

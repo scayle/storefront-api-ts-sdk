@@ -1,13 +1,13 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {Campaign} from '../../types/campaign';
+import type { StorefrontAPICall } from '../../helpers/execute'
+import type { Campaign } from '../../types/campaign'
 
-export type CampaignByIdEndpointResponseData = Campaign;
+export type CampaignByIdEndpointResponseData = Campaign
 
 export function createCampaignByIdEndpointRequest(
   campaignId: number,
-): BapiCall<CampaignByIdEndpointResponseData> {
+): StorefrontAPICall<CampaignByIdEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `campaigns/${campaignId}`,
-  };
+    endpoint: `/v1/campaigns/${campaignId}`,
+  }
 }

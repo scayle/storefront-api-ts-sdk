@@ -1,7 +1,10 @@
-import {basketWithQueryParameter, getBasketEndpointRequest} from '../getBasket';
+import {
+  basketWithQueryParameter,
+  getBasketEndpointRequest,
+} from '../getBasket'
 
-it('Builds corrects with query parameter', () => {
-  expect(basketWithQueryParameter({})).toMatchInlineSnapshot(`[]`);
+it('builds corrects with query parameter', () => {
+  expect(basketWithQueryParameter({})).toMatchInlineSnapshot(`[]`)
 
   expect(
     basketWithQueryParameter({
@@ -14,7 +17,7 @@ it('Builds corrects with query parameter', () => {
 [
   "items.product.images.attributes:legacy(false)",
 ]
-`);
+`)
 
   expect(
     basketWithQueryParameter({
@@ -23,7 +26,7 @@ it('Builds corrects with query parameter', () => {
           attributes: 'all',
           advancedAttributes: 'all',
         },
-        variant: {attributes: 'all', advancedAttributes: 'all'},
+        variant: { attributes: 'all', advancedAttributes: 'all' },
       },
     }),
   ).toMatchInlineSnapshot(`
@@ -34,7 +37,7 @@ it('Builds corrects with query parameter', () => {
   "items.variant.attributes",
   "items.variant.advancedAttributes",
 ]
-`);
+`)
 
   expect(
     basketWithQueryParameter({
@@ -61,7 +64,7 @@ it('Builds corrects with query parameter', () => {
   "items.variant.attributes:key(a|b)",
   "items.variant.advancedAttributes:type(design)",
 ]
-`);
+`)
 
   expect(
     basketWithQueryParameter({
@@ -75,10 +78,10 @@ it('Builds corrects with query parameter', () => {
   "items.promotion",
   "applicablePromotions",
 ]
-`);
-});
+`)
+})
 
-it('Builds correct query', () => {
+it('builds correct query', () => {
   expect(
     getBasketEndpointRequest({
       basketKey: 'basket1',
@@ -88,41 +91,41 @@ it('Builds correct query', () => {
             attributes: 'all',
             advancedAttributes: 'all',
           },
-          variant: {attributes: 'all', advancedAttributes: 'all'},
+          variant: { attributes: 'all', advancedAttributes: 'all' },
         },
       },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket1",
+  "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
   },
 }
-`);
+`)
 
   expect(
     getBasketEndpointRequest({
       basketKey: 'basket1',
       with: {
         items: {
-          variant: {stock: {customData: true}},
+          variant: { stock: { customData: true } },
         },
       },
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket1",
+  "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
     "with": "items.variant.stock,items.variant.stock.customData",
   },
 }
-`);
-});
+`)
+})
 
-it('Builds correct query with campaign key', () => {
+it('builds correct query with campaign key', () => {
   expect(
     getBasketEndpointRequest({
       basketKey: 'basket1',
@@ -130,16 +133,16 @@ it('Builds correct query with campaign key', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket1",
+  "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
     "campaignKey": "px",
   },
 }
-`);
-});
+`)
+})
 
-it('Builds correct query with checkoutShopId', () => {
+it('builds correct query with checkoutShopId', () => {
   expect(
     getBasketEndpointRequest({
       basketKey: 'basket1',
@@ -147,11 +150,11 @@ it('Builds correct query with checkoutShopId', () => {
     }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "baskets/basket1",
+  "endpoint": "/v1/baskets/basket1",
   "method": "GET",
   "params": {
     "checkoutShopId": 589,
   },
 }
-`);
-});
+`)
+})

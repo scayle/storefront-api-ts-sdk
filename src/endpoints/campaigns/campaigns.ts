@@ -1,12 +1,12 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {APISortOrder} from '../../endpoints/products/products';
-import {Pagination} from '../../endpoints/products/productsByIds';
-import {Campaign} from '../../types/campaign';
+import type { APISortOrder } from '../../endpoints/products/products'
+import type { Pagination } from '../../endpoints/products/productsByIds'
+import type { StorefrontAPICall } from '../../helpers/execute'
+import type { Campaign } from '../../types/campaign'
 
-export type CampaignsEndpointResponseData = {
-  pagination: Pagination;
-  entities: Campaign[];
-};
+export interface CampaignsEndpointResponseData {
+  pagination: Pagination
+  entities: Campaign[]
+}
 
 export enum CampaignSortOption {
   Id = 'id',
@@ -16,38 +16,38 @@ export enum CampaignSortOption {
 }
 
 export interface CampaignsSortConfig {
-  by?: CampaignSortOption;
-  direction?: APISortOrder;
+  by?: CampaignSortOption
+  direction?: APISortOrder
 }
 
 export interface CampaignsEndpointRequestParameters {
-  sort?: CampaignsSortConfig;
+  sort?: CampaignsSortConfig
   pagination?: {
-    page?: number;
-    perPage?: number;
-  };
+    page?: number
+    perPage?: number
+  }
 }
 
 export function createCampaignsEndpointRequest(
   parameters: CampaignsEndpointRequestParameters = {},
-): BapiCall<CampaignsEndpointResponseData> {
+): StorefrontAPICall<CampaignsEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: 'campaigns',
+    endpoint: '/v1/campaigns',
     params: {
       ...(parameters.sort && parameters.sort.by
-        ? {sort: parameters.sort.by}
+        ? { sort: parameters.sort.by }
         : undefined),
       ...(parameters.sort && parameters.sort.direction
-        ? {sortDir: parameters.sort.direction}
+        ? { sortDir: parameters.sort.direction }
         : undefined),
 
       ...(parameters.pagination && parameters.pagination.page
-        ? {page: parameters.pagination.page}
+        ? { page: parameters.pagination.page }
         : undefined),
       ...(parameters.pagination && parameters.pagination.perPage
-        ? {perPage: parameters.pagination.perPage}
+        ? { perPage: parameters.pagination.perPage }
         : undefined),
     },
-  };
+  }
 }

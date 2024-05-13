@@ -1,20 +1,20 @@
-import {createFiltersEndpointRequest} from '../endpoints/filters/filters';
-import {execute} from '../helpers/execute';
+import { createFiltersEndpointRequest } from '../endpoints/filters/filters'
+import { execute } from '../helpers/execute'
 import {
-  nockWithBapiScope,
   disableNetAndAllowBapiCors,
-} from '../test-helpers/nock';
-import {FetchError} from '../helpers/FetchError';
+  nockWithBapiScope,
+} from '../test-helpers/nock'
+import { FetchError } from '../helpers/FetchError'
 
-disableNetAndAllowBapiCors();
+disableNetAndAllowBapiCors()
 
-describe('Throw error with status code', () => {
+describe('throw error with status code', () => {
   for (const statusCode of [404, 500]) {
-    test.skip(`${statusCode}`, async () => {
+    it.skip(`${statusCode}`, async () => {
       nockWithBapiScope()
-        .defaultReplyHeaders({'access-control-allow-origin': '*'})
+        .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
         .get(`/v1/filters?with=values&filters%5Bcategory%5D=20201&shopId=139`)
-        .reply(statusCode, {});
+        .reply(statusCode, {})
 
       try {
         await execute(
@@ -25,16 +25,16 @@ describe('Throw error with status code', () => {
               categoryId: 20201,
             },
           }),
-        );
+        )
       } catch (e) {
         if (e instanceof FetchError) {
-          expect(e.response.status).toBe(statusCode);
+          expect(e.response.status).toBe(statusCode)
         }
 
-        return;
+        return
       }
 
-      fail('Should not be reached, expect exception');
-    });
+      fail('Should not be reached, expect exception')
+    })
   }
-});
+})

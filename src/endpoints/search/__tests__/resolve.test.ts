@@ -1,37 +1,35 @@
-import {
-  createSearchResolveEndpointRequest,
-  SearchResolveEndpointResponseData,
-} from '../resolve';
+import type { SearchResolveEndpointResponseData } from '../resolve'
+import { createSearchResolveEndpointRequest } from '../resolve'
 
-it('Builds correct query', () => {
-  expect(createSearchResolveEndpointRequest({term: 'maxi rot'}))
+it('builds correct query', () => {
+  expect(createSearchResolveEndpointRequest({ term: 'maxi rot' }))
     .toMatchInlineSnapshot(`
 {
-  "endpoint": "search/resolve",
+  "endpoint": "/v1/search/resolve",
   "method": "GET",
   "params": {
     "term": "maxi rot",
   },
 }
-`);
-});
+`)
+})
 
-it('Builds correct query with categoryId', () => {
+it('builds correct query with categoryId', () => {
   expect(
-    createSearchResolveEndpointRequest({term: 'maxi rot', categoryId: 20201}),
+    createSearchResolveEndpointRequest({ term: 'maxi rot', categoryId: 20201 }),
   ).toMatchInlineSnapshot(`
 {
-  "endpoint": "search/resolve",
+  "endpoint": "/v1/search/resolve",
   "method": "GET",
   "params": {
     "categoryId": 20201,
     "term": "maxi rot",
   },
 }
-`);
-});
+`)
+})
 
-it('Maps response correctly', () => {
+it('maps response correctly', () => {
   const response: SearchResolveEndpointResponseData = {
     matches: [
       {
@@ -58,7 +56,7 @@ it('Maps response correctly', () => {
         ],
       },
     ],
-  };
+  }
 
-  expect(response).toBeTruthy();
-});
+  expect(response).toBeTruthy()
+})

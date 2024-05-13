@@ -1,19 +1,19 @@
-import {BapiCall} from '../../interfaces/BapiCall';
-import {NavigationTree} from '../../types/navigation';
-import {GetNavigationParameters} from './navigation';
+import type { StorefrontAPICall } from '../../helpers/execute'
+import type { NavigationTree } from '../../types/navigation'
+import type { GetNavigationParameters } from './navigation'
 
-export type NavigationByIdEndpointResponseData = NavigationTree;
+export type NavigationByIdEndpointResponseData = NavigationTree
 
 export function createNavigationByIdEndpointRequest(
   navigationTreeId: number,
   parameters: GetNavigationParameters,
-): BapiCall<NavigationByIdEndpointResponseData> {
+): StorefrontAPICall<NavigationByIdEndpointResponseData> {
   return {
     method: 'GET',
-    endpoint: `navigation/trees/${navigationTreeId}`,
+    endpoint: `/v1/navigation/trees/${navigationTreeId}`,
     params: {
-      ...(parameters.locale ? {locale: parameters.locale} : {}),
-      ...(parameters?.with?.category ? {with: 'category'} : {}),
+      ...(parameters.locale ? { locale: parameters.locale } : {}),
+      ...(parameters?.with?.category ? { with: 'category' } : {}),
     },
-  };
+  }
 }

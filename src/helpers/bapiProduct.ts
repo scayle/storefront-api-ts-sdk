@@ -1,4 +1,4 @@
-import {Attributes, Value} from '../types/BapiProduct';
+import type { Attributes, Value } from '../types/Product'
 
 /**
  * Returns the first value of an attribute.
@@ -12,17 +12,17 @@ export const getFirstAttributeValue = (
   attributes: Attributes | undefined,
   attributeName: string,
 ): Value | undefined => {
-  const attribute = attributes && attributes[attributeName];
+  const attribute = attributes && attributes[attributeName]
   if (!attribute || !attribute.values) {
-    return;
+    return
   }
 
   if (attribute.multiSelect) {
-    return attribute.values.length > 0 ? attribute.values[0] : undefined;
+    return attribute.values.length > 0 ? attribute.values[0] : undefined
   }
 
-  return attribute.values;
-};
+  return attribute.values
+}
 
 /**
  * This function always returns a list.
@@ -37,14 +37,14 @@ export const getAttributeValues = (
   attributes: Attributes | undefined,
   attributeName: string,
 ): Value[] => {
-  const attribute = attributes && attributes[attributeName];
+  const attribute = attributes && attributes[attributeName]
   if (!attribute || !attribute.values) {
-    return [];
+    return []
   }
 
   if (attribute.multiSelect) {
-    return attribute.values;
+    return attribute.values
   }
 
-  return [attribute.values];
-};
+  return [attribute.values]
+}
