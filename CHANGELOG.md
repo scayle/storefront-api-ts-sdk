@@ -1,4 +1,4 @@
-# @aboutyou/backbone
+# @scayle/storefront-api
 
 ## 17.0.0
 
