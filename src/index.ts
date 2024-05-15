@@ -196,6 +196,8 @@ export type {
   PromotionCondition,
   PromotionCustomData,
   PromotionEffect,
+  BuyXGetYEffect,
+  AutomaticDiscountEffect,
 } from './types/Promotion'
 export type {
   PromotionsEndpointResponseData,
