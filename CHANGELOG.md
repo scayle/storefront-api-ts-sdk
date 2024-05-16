@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.0.1
+
+### Patch Changes
+
+- Add missing `BuyXGetYEffect` and `AutomaticDiscountEffect` exports
+
 ## 17.0.0
 
 ### Major Changes
