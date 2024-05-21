@@ -122,12 +122,6 @@ import {
 import type { AttributeKey } from './types/AttributeOrAttributeValueFilter'
 import { createAttributeByKeyEndpointRequest } from './endpoints/attributes/attributeByKey'
 import type {
-  ShopConfigurationResponseData,
-} from './endpoints/shopconfiguration/shopconfiguration'
-import {
-  createShopConfigurationRequest,
-} from './endpoints/shopconfiguration/shopconfiguration'
-import type {
   ProductsByReferenceKeyRequestData as ProductsByReferenceKeyEndpointParameters,
 } from './endpoints/products/productByReferenceKey'
 import {
@@ -193,6 +187,7 @@ import {
   createSearchV2ResolveEndpointRequest,
 } from './endpoints/searchv2/resolve'
 import { parseHost } from './helpers/host'
+import type { ShopConfiguration } from './types/ShopConfiguration'
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = Product, V = Variant> =
@@ -978,8 +973,11 @@ export class StorefrontAPIClient {
   }
 
   public readonly shopConfiguration = {
-    get: (): Promise<ShopConfigurationResponseData> => {
-      return this.execute(createShopConfigurationRequest())
+    get: () => {
+      return this.execute<ShopConfiguration>({
+        method: 'GET',
+        endpoint: '/v1/shop-configuration',
+      })
     },
   }
 

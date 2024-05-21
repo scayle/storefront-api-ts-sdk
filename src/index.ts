@@ -45,7 +45,13 @@ export type {
 } from './endpoints/brands/brandBySlug'
 
 // Shop Configuration
-export type { ShopConfigurationResponseData } from './endpoints/shopconfiguration/shopconfiguration'
+export type {
+  ShopConfiguration,
+  ShopCountryCustomData,
+  ShopCustomData,
+  // @deprecated - will be removed in the next major version
+  ShopConfiguration as ShopConfigurationResponseData,
+} from './types/ShopConfiguration'
 
 // Typeahead
 export type {
