@@ -1,5 +1,21 @@
 # @scayle/storefront-api
 
+## 17.1.0
+
+### Minor Changes
+
+- Improve ShopConfiguration endpoint and typings
+
+  We now also export a `ShopCustomData` and `ShopCountryCustomData` type that can be used to define your custom data by augmenting the TypeScript type definition of `@scayle/storefront-api` like follows:
+
+  ```ts
+  declare module '@scayle/storefront-api' {
+    interface ShopCountryCustomData {
+      isEnabled: boolean
+    }
+  }
+  ```
+
 ## 17.0.1
 
 ### Patch Changes
