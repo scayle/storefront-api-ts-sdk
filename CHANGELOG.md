@@ -1,5 +1,40 @@
 # @scayle/storefront-api
 
+## 17.2.0
+
+### Minor Changes
+
+- Adds support for boolean filters in the Search V2 endpoints
+
+  Example (shortened for readability):
+
+  ```json
+  {
+    "type": "category",
+    "categorySuggestion": {
+      "category": {
+        "id": 1,
+        "path": "/women/jackets",
+        "name": "Jacke"
+      },
+      "filters": [
+        {
+          "type": "boolean",
+          "booleanFilter": {
+            "slug": "sale",
+            "value": true,
+            "label": "sale"
+          }
+        }
+      ]
+    }
+  }
+  ```
+
+- Removes the `considerItemGroupForUniqueness` option from the `StorefrontAPIClient.addOrUpdateItems`.
+
+  This behavior is now enabled by default that we consider the item group when checking for existing basket items.
+
 ## 17.1.0
 
 ### Minor Changes
