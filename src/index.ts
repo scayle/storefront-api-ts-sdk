@@ -49,7 +49,9 @@ export type {
   ShopConfiguration,
   ShopCountryCustomData,
   ShopCustomData,
-  // @deprecated - will be removed in the next major version
+  /**
+   * @deprecated - will be removed in the next major version. Please switch to ShopConfiguration.
+   */
   ShopConfiguration as ShopConfigurationResponseData,
 } from './types/ShopConfiguration'
 
@@ -66,13 +68,23 @@ export type {
 
 // Wishlist
 export type {
+  Wishlist,
   WishlistItem,
-  WishlistResponseData,
+  WishlistItemGroup,
+  WishlistItemCustomData,
   WishlistWith,
-  GetWishlistParameters,
-} from './endpoints/wishlist/getWishlist'
+  /**
+   * @deprecated - will be removed in the next major version. Please switch to Wishlist.
+   */
+  Wishlist as WishlistResponseData,
+} from './types/Wishlist'
+export type { GetWishlistParameters } from './endpoints/wishlist/getWishlist'
+
 export type { DeleteWishlistParameters } from './endpoints/wishlist/deleteWishlistItem'
-export type { AddWishlistItemParameters } from './endpoints/wishlist/addWishlistItem'
+export type {
+  AddWishlistItemParameters,
+  AddToWishlistFailureKind,
+} from './endpoints/wishlist/addWishlistItem'
 
 // Campaigns
 export { CampaignSortOption } from './endpoints/campaigns/campaigns'

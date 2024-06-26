@@ -5,30 +5,6 @@ it('builds correct query', () => {
     addWishlistItemEndpointRequest({
       wishlistKey: 'wishlist_1',
       item: {
-        masterKey: 'master_1',
-      },
-    }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "masterKey": "master_1",
-  },
-  "endpoint": "/v1/wishlists/wishlist_1/items",
-  "method": "POST",
-  "params": {},
-  "successfulResponseCodes": [
-    201,
-    409,
-    412,
-    413,
-  ],
-}
-`)
-
-  expect(
-    addWishlistItemEndpointRequest({
-      wishlistKey: 'wishlist_1',
-      item: {
         productId: 123,
       },
     }),
@@ -136,20 +112,21 @@ it('builds correct query', () => {
   expect(
     addWishlistItemEndpointRequest({
       wishlistKey: 'wishlist_1',
+      pricePromotionKey: 'test',
       item: {
-        productId: 1,
+        productId: 123,
       },
-      childShopId: 456,
     }),
   ).toMatchInlineSnapshot(`
 {
   "data": {
-    "productId": 1,
-    "shopId": 456,
+    "productId": 123,
   },
   "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
-  "params": {},
+  "params": {
+    "pricePromotionKey": "test",
+  },
   "successfulResponseCodes": [
     201,
     409,
@@ -162,21 +139,28 @@ it('builds correct query', () => {
   expect(
     addWishlistItemEndpointRequest({
       wishlistKey: 'wishlist_1',
-      pricePromotionKey: 'test',
       item: {
-        masterKey: 'master_1',
+        productId: 123,
+      },
+      itemGroup: {
+        id: 'abcdefgh',
+        isMainItem: true,
+        isRequired: true,
       },
     }),
   ).toMatchInlineSnapshot(`
 {
   "data": {
-    "masterKey": "master_1",
+    "itemGroup": {
+      "id": "abcdefgh",
+      "isMainItem": true,
+      "isRequired": true,
+    },
+    "productId": 123,
   },
   "endpoint": "/v1/wishlists/wishlist_1/items",
   "method": "POST",
-  "params": {
-    "pricePromotionKey": "test",
-  },
+  "params": {},
   "successfulResponseCodes": [
     201,
     409,

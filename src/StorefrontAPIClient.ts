@@ -62,10 +62,12 @@ import {
   createProductsByIdsEndpointRequest,
 } from './endpoints/products/productsByIds'
 import type {
+  AddToWishlistFailureKind,
   AddWishlistItemParameters,
   WishlistItemCreationID,
 } from './endpoints/wishlist/addWishlistItem'
 import {
+  addToWishlistFailureKindFromStatusCode,
   addWishlistItemEndpointRequest,
 } from './endpoints/wishlist/addWishlistItem'
 import type {
@@ -74,10 +76,7 @@ import type {
 import {
   deleteWishlistEndpointRequest,
 } from './endpoints/wishlist/deleteWishlistItem'
-import type {
-  GetWishlistParameters,
-  WishlistResponseData,
-} from './endpoints/wishlist/getWishlist'
+import type { GetWishlistParameters } from './endpoints/wishlist/getWishlist'
 import { getWishlistEndpointRequest } from './endpoints/wishlist/getWishlist'
 import type {
   StorefrontAPICall,
@@ -188,6 +187,7 @@ import {
 } from './endpoints/searchv2/resolve'
 import { parseHost } from './helpers/host'
 import type { ShopConfiguration } from './types/ShopConfiguration'
+import type { Wishlist } from './types/Wishlist'
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = Product, V = Variant> =
@@ -283,43 +283,14 @@ type AddWishlistItemResponse =
   | {
     type: 'success'
     statusCode: number
-    wishlist: WishlistResponseData
+    wishlist: Wishlist
   }
   | {
     type: 'failure'
     statusCode: number
-    kind: AddToWhistlistFailureKind
-    wishlist: WishlistResponseData
+    kind: AddToWishlistFailureKind
+    wishlist: Wishlist
   }
-
-export enum AddToWhistlistFailureKind {
-  OnlyOneParameterMustBeSet = 'OnlyOneParameterMustBeSet',
-  ItemUnvailable = 'ItemUnvailable',
-  MaximumItemCountReached = 'MaximumItemCountReached',
-  ItemAlreadyPresent = 'ItemAlreadyPresent',
-  Unknown = 'Unknown',
-}
-
-function addToWhistListFailureKindFromStatusCode(
-  statusCode: number,
-): AddToWhistlistFailureKind {
-  switch (statusCode) {
-    case 400:
-      return AddToWhistlistFailureKind.OnlyOneParameterMustBeSet
-
-    case 409:
-      return AddToWhistlistFailureKind.ItemAlreadyPresent
-
-    case 412:
-      return AddToWhistlistFailureKind.ItemUnvailable
-
-    case 413:
-      return AddToWhistlistFailureKind.MaximumItemCountReached
-
-    default:
-      return AddToWhistlistFailureKind.Unknown
-  }
-}
 
 export enum AddToBasketFailureKind {
   VariantAlreadyPresent = 'VariantAlreadyPresent',
@@ -863,7 +834,7 @@ export class StorefrontAPIClient {
         }),
       )
 
-      if (response.statusCode === 200 || response.statusCode === 201) {
+      if (response.statusCode === 201) {
         return {
           type: 'success',
           statusCode: response.statusCode,
@@ -873,7 +844,7 @@ export class StorefrontAPIClient {
         return {
           type: 'failure',
           statusCode: response.statusCode,
-          kind: addToWhistListFailureKindFromStatusCode(response.statusCode),
+          kind: addToWishlistFailureKindFromStatusCode(response.statusCode),
           wishlist: response.data,
         }
       }

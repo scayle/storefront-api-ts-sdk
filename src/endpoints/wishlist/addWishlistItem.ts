@@ -1,14 +1,12 @@
-import { basketWithQueryParameter } from '../../endpoints/basket/getBasket'
-import type {
-  WishlistResponseData,
-  WishlistWith,
-} from '../../endpoints/wishlist/getWishlist'
 import type { StorefrontAPICall } from '../../helpers/execute'
+import type {
+  Wishlist,
+  WishlistItemGroup,
+  WishlistWith,
+} from '../../types/Wishlist'
+import { wishlistWithQueryParameter } from './utils'
 
 export type WishlistItemCreationID =
-  | {
-    masterKey: string
-  }
   | {
     productId: number
   }
@@ -18,22 +16,26 @@ export type WishlistItemCreationID =
 
 export interface AddWishlistItemParameters {
   wishlistKey: string
-
   item: WishlistItemCreationID
 
   with?: WishlistWith
+
   campaignKey?: string
-
-  childShopId?: number
-
   pricePromotionKey?: string
 
-  skipAvailabilityCheck?: boolean
+  itemGroup?: WishlistItemGroup
+}
+
+export enum AddToWishlistFailureKind {
+  ItemUnavailable = 'ItemUnavailable',
+  MaximumItemCountReached = 'MaximumItemCountReached',
+  ItemAlreadyPresent = 'ItemAlreadyPresent',
+  Unknown = 'Unknown',
 }
 
 export function addWishlistItemEndpointRequest(
   params: AddWishlistItemParameters,
-): StorefrontAPICall<WishlistResponseData> {
+): StorefrontAPICall<Wishlist> {
   return {
     method: 'POST',
     endpoint: `/v1/wishlists/${params.wishlistKey}/items`,
@@ -41,20 +43,35 @@ export function addWishlistItemEndpointRequest(
     params: {
       ...(params.with
         ? {
-          with: basketWithQueryParameter(params.with).join(','),
+          with: wishlistWithQueryParameter(params.with).join(','),
         }
         : undefined),
       ...(params.campaignKey ? { campaignKey: params.campaignKey } : undefined),
       ...(params.pricePromotionKey
         ? { pricePromotionKey: params.pricePromotionKey }
         : undefined),
-      ...(params.skipAvailabilityCheck
-        ? { skipAvailabilityCheck: params.skipAvailabilityCheck }
-        : undefined),
     },
     data: {
       ...params.item,
-      ...(params.childShopId ? { shopId: params.childShopId } : undefined),
+      ...(params.itemGroup ? { itemGroup: params.itemGroup } : undefined),
     },
+  }
+}
+
+export function addToWishlistFailureKindFromStatusCode(
+  statusCode: number,
+): AddToWishlistFailureKind {
+  switch (statusCode) {
+    case 409:
+      return AddToWishlistFailureKind.ItemAlreadyPresent
+
+    case 412:
+      return AddToWishlistFailureKind.ItemUnavailable
+
+    case 413:
+      return AddToWishlistFailureKind.MaximumItemCountReached
+
+    default:
+      return AddToWishlistFailureKind.Unknown
   }
 }
