@@ -1,5 +1,16 @@
 # @scayle/storefront-api
 
+## 17.3.0
+
+### Minor Changes
+
+- Refactor Wishlist implementation
+  - `WishlistResponseData` export is now deprecated, please use the new `Wishlist` import
+  - Removed `masterKey` from `AddWishlistItemParameters` parameters
+  - Added `itemGroup` support to the wishlist
+  - Added separated `WishlistWith` type
+  - Added `WishlistItemCustomData` to allow for extension of custom data on wishlists
+
 ## 17.2.0
 
 ### Minor Changes

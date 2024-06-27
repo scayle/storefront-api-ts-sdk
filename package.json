@@ -1,6 +1,6 @@
 {
   "name": "@scayle/storefront-api",
-  "version": "17.2.0",
+  "version": "17.3.0",
   "description": "TypeScript and JavaScript SDK source for the SCAYLE Storefront API",
   "author": "SCAYLE Commerce Engine",
   "license": "MIT",
