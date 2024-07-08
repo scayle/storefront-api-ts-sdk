@@ -33,7 +33,7 @@
     "@types/nock": "9.3.1",
     "@types/node": "20.14.10",
     "@vitest/coverage-v8": "1.6.0",
-    "dprint": "0.47.0",
+    "dprint": "0.47.1",
     "eslint": "9.6.0",
     "eslint-formatter-gitlab": "5.1.0",
     "nock": "10.0.6",
