@@ -32,7 +32,7 @@
     "@scayle/eslint-config-storefront": "4.2.0",
     "@types/nock": "9.3.1",
     "@types/node": "20.14.10",
-    "@vitest/coverage-v8": "2.0.0",
+    "@vitest/coverage-v8": "2.0.1",
     "dprint": "0.47.1",
     "eslint": "9.6.0",
     "eslint-formatter-gitlab": "5.1.0",
@@ -41,7 +41,7 @@
     "rimraf": "5.0.8",
     "typescript": "5.5.3",
     "unbuild": "2.0.0",
-    "vitest": "2.0.0"
+    "vitest": "2.0.1"
   },
   "scripts": {
     "clean": "rimraf ./dist",
