@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.4.0
+
+### Minor Changes
+
+- Improve filter types to represent the behavior from the API accurately.
+
 ## 17.3.0
 
 ### Minor Changes
