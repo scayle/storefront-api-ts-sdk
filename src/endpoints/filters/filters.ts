@@ -42,34 +42,24 @@ export interface IdentifierFilterValue {
   productCount: number
 }
 
-export type BooleanFilterValue =
-  | []
-  | [
-    {
-      name: true | false
-      productCount: number
-    },
-  ]
-  | [
-    {
-      name: true
-      productCount: number
-    },
-    {
-      name: false
-      productCount: number
-    },
-  ]
+export type BooleanFilterValue = [
+  {
+    name: true | false
+    productCount: number
+  },
+  {
+    name: true | false
+    productCount: number
+  },
+]
 
-export type RangeFilterValue =
-  | [
-    {
-      min: CentAmount
-      max: CentAmount
-      productCount: number
-    },
-  ]
-  | []
+export type RangeFilterValue = [
+  {
+    min: CentAmount
+    max: CentAmount
+    productCount: number
+  },
+]
 
 export enum FilterTypes {
   BOOLEAN = 'boolean',
