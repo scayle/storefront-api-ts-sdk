@@ -18,7 +18,7 @@ it('builds correct query', () => {
   "endpoint": "/v1/products",
   "method": "GET",
   "params": {
-    "with": "images.attributes:legacy(false),categories:properties()",
+    "with": "images.attributes:legacy(false),categories,categories:properties()",
   },
 }
 `)
