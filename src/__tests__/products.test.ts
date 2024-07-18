@@ -132,7 +132,7 @@ it('product by ID with categories', () => {
   "endpoint": "/v1/products/123",
   "method": "GET",
   "params": {
-    "with": "images.attributes:legacy(false),categories:properties()",
+    "with": "images.attributes:legacy(false),categories,categories:properties()",
   },
 }
 `)

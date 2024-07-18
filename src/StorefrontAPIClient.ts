@@ -62,10 +62,12 @@ import {
   createProductsByIdsEndpointRequest,
 } from './endpoints/products/productsByIds'
 import type {
+  AddToWishlistFailureKind,
   AddWishlistItemParameters,
   WishlistItemCreationID,
 } from './endpoints/wishlist/addWishlistItem'
 import {
+  addToWishlistFailureKindFromStatusCode,
   addWishlistItemEndpointRequest,
 } from './endpoints/wishlist/addWishlistItem'
 import type {
@@ -74,10 +76,7 @@ import type {
 import {
   deleteWishlistEndpointRequest,
 } from './endpoints/wishlist/deleteWishlistItem'
-import type {
-  GetWishlistParameters,
-  WishlistResponseData,
-} from './endpoints/wishlist/getWishlist'
+import type { GetWishlistParameters } from './endpoints/wishlist/getWishlist'
 import { getWishlistEndpointRequest } from './endpoints/wishlist/getWishlist'
 import type {
   StorefrontAPICall,
@@ -121,12 +120,6 @@ import {
 } from './endpoints/typeahead/typeahead'
 import type { AttributeKey } from './types/AttributeOrAttributeValueFilter'
 import { createAttributeByKeyEndpointRequest } from './endpoints/attributes/attributeByKey'
-import type {
-  ShopConfigurationResponseData,
-} from './endpoints/shopconfiguration/shopconfiguration'
-import {
-  createShopConfigurationRequest,
-} from './endpoints/shopconfiguration/shopconfiguration'
 import type {
   ProductsByReferenceKeyRequestData as ProductsByReferenceKeyEndpointParameters,
 } from './endpoints/products/productByReferenceKey'
@@ -193,6 +186,8 @@ import {
   createSearchV2ResolveEndpointRequest,
 } from './endpoints/searchv2/resolve'
 import { parseHost } from './helpers/host'
+import type { ShopConfiguration } from './types/ShopConfiguration'
+import type { Wishlist } from './types/Wishlist'
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = Product, V = Variant> =
@@ -288,43 +283,14 @@ type AddWishlistItemResponse =
   | {
     type: 'success'
     statusCode: number
-    wishlist: WishlistResponseData
+    wishlist: Wishlist
   }
   | {
     type: 'failure'
     statusCode: number
-    kind: AddToWhistlistFailureKind
-    wishlist: WishlistResponseData
+    kind: AddToWishlistFailureKind
+    wishlist: Wishlist
   }
-
-export enum AddToWhistlistFailureKind {
-  OnlyOneParameterMustBeSet = 'OnlyOneParameterMustBeSet',
-  ItemUnvailable = 'ItemUnvailable',
-  MaximumItemCountReached = 'MaximumItemCountReached',
-  ItemAlreadyPresent = 'ItemAlreadyPresent',
-  Unknown = 'Unknown',
-}
-
-function addToWhistListFailureKindFromStatusCode(
-  statusCode: number,
-): AddToWhistlistFailureKind {
-  switch (statusCode) {
-    case 400:
-      return AddToWhistlistFailureKind.OnlyOneParameterMustBeSet
-
-    case 409:
-      return AddToWhistlistFailureKind.ItemAlreadyPresent
-
-    case 412:
-      return AddToWhistlistFailureKind.ItemUnvailable
-
-    case 413:
-      return AddToWhistlistFailureKind.MaximumItemCountReached
-
-    default:
-      return AddToWhistlistFailureKind.Unknown
-  }
-}
 
 export enum AddToBasketFailureKind {
   VariantAlreadyPresent = 'VariantAlreadyPresent',
@@ -495,8 +461,6 @@ export class StorefrontAPIClient {
      *
      * If an item with the same variant ID already exists the strategy defined in
      * `options.existingItemHandling` will be used to resolve the conflict.
-     * If considerItemGroupForUniqueness is set to true, then the variant ID as well
-     * as itemGroup ID need to match in order for variant to be considered the same
      * See `ExistingItemHandling` for more details on the individual approaches.
      *
      * If a quantity of 0 is provided, that'll delete any existing basket item for the same variant unless "keep existing" is set.
@@ -521,7 +485,6 @@ export class StorefrontAPIClient {
       basketParams: Omit<GetBasketParameters, 'basketKey'> = {},
       options: {
         existingItemHandling: ExistingItemHandling
-        considerItemGroupForUniqueness?: boolean
       } = {
         existingItemHandling:
           ExistingItemHandling.ReplaceExistingWithCombinedQuantity,
@@ -547,11 +510,12 @@ export class StorefrontAPIClient {
             return false
           }
 
-          if (!options.considerItemGroupForUniqueness) {
-            return true
+          // If we have an item group we also need to take it into consideration for the existing basket item
+          if (itemToAdd.params?.itemGroup) {
+            return item.itemGroup?.id === itemToAdd.params.itemGroup.id
           }
 
-          return item.itemGroup?.id === itemToAdd.params?.itemGroup?.id
+          return true
         })
         const { variantId, quantity = 1, params = {} } = itemToAdd
 
@@ -870,7 +834,7 @@ export class StorefrontAPIClient {
         }),
       )
 
-      if (response.statusCode === 200 || response.statusCode === 201) {
+      if (response.statusCode === 201) {
         return {
           type: 'success',
           statusCode: response.statusCode,
@@ -880,7 +844,7 @@ export class StorefrontAPIClient {
         return {
           type: 'failure',
           statusCode: response.statusCode,
-          kind: addToWhistListFailureKindFromStatusCode(response.statusCode),
+          kind: addToWishlistFailureKindFromStatusCode(response.statusCode),
           wishlist: response.data,
         }
       }
@@ -978,8 +942,11 @@ export class StorefrontAPIClient {
   }
 
   public readonly shopConfiguration = {
-    get: (): Promise<ShopConfigurationResponseData> => {
-      return this.execute(createShopConfigurationRequest())
+    get: () => {
+      return this.execute<ShopConfiguration>({
+        method: 'GET',
+        endpoint: '/v1/shop-configuration',
+      })
     },
   }
 

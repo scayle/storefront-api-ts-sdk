@@ -102,11 +102,11 @@ export function productWithQueryParameterValues(
   }
 
   if (productWith.categories) {
-    if (typeof productWith.categories === 'object') {
-      const categoryFlags: string[] = []
+    parameterValues.push('categories')
 
+    if (typeof productWith.categories === 'object') {
       if (productWith.categories.includeHidden) {
-        categoryFlags.push('hidden(true)')
+        parameterValues.push('categories:hidden(true)')
       }
 
       if (productWith.categories.countryLevelCustomData) {
@@ -120,18 +120,14 @@ export function productWithQueryParameterValues(
       if (productWith.categories.properties === 'all') {
         // do nothing, all properties are included by default for legacy reasons
       } else if (typeof productWith.categories.properties === 'object') {
-        categoryFlags.push(
-          `properties(${productWith.categories.properties.withName.join('|')})`,
+        parameterValues.push(
+          `categories:properties(${
+            productWith.categories.properties.withName.join('|')
+          })`,
         )
       } else {
         // don't include any properties by default
-        categoryFlags.push(`properties()`)
-      }
-
-      if (categoryFlags.length > 0) {
-        parameterValues.push(`categories:${categoryFlags.join(':')}`)
-      } else {
-        parameterValues.push('categories')
+        parameterValues.push(`categories:properties()`)
       }
     } else if (productWith.categories === 'all') {
       // include non-hidden categories, but without any properties

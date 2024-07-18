@@ -1,4 +1,84 @@
-# @aboutyou/backbone
+# @scayle/storefront-api
+
+## 17.4.1
+
+### Patch Changes
+
+- Fix a bug when including both hidden and specific category properties on the products endpoint
+
+## 17.4.0
+
+### Minor Changes
+
+- Improve filter types to represent the behavior from the API accurately.
+
+## 17.3.0
+
+### Minor Changes
+
+- Refactor Wishlist implementation
+  - `WishlistResponseData` export is now deprecated, please use the new `Wishlist` import
+  - Removed `masterKey` from `AddWishlistItemParameters` parameters
+  - Added `itemGroup` support to the wishlist
+  - Added separated `WishlistWith` type
+  - Added `WishlistItemCustomData` to allow for extension of custom data on wishlists
+
+## 17.2.0
+
+### Minor Changes
+
+- Adds support for boolean filters in the Search V2 endpoints
+
+  Example (shortened for readability):
+
+  ```json
+  {
+    "type": "category",
+    "categorySuggestion": {
+      "category": {
+        "id": 1,
+        "path": "/women/jackets",
+        "name": "Jacke"
+      },
+      "filters": [
+        {
+          "type": "boolean",
+          "booleanFilter": {
+            "slug": "sale",
+            "value": true,
+            "label": "sale"
+          }
+        }
+      ]
+    }
+  }
+  ```
+
+- Removes the `considerItemGroupForUniqueness` option from the `StorefrontAPIClient.addOrUpdateItems`.
+
+  This behavior is now enabled by default that we consider the item group when checking for existing basket items.
+
+## 17.1.0
+
+### Minor Changes
+
+- Improve ShopConfiguration endpoint and typings
+
+  We now also export a `ShopCustomData` and `ShopCountryCustomData` type that can be used to define your custom data by augmenting the TypeScript type definition of `@scayle/storefront-api` like follows:
+
+  ```ts
+  declare module '@scayle/storefront-api' {
+    interface ShopCountryCustomData {
+      isEnabled: boolean
+    }
+  }
+  ```
+
+## 17.0.1
+
+### Patch Changes
+
+- Add missing `BuyXGetYEffect` and `AutomaticDiscountEffect` exports
 
 ## 17.0.0
 

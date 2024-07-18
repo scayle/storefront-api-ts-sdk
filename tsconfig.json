@@ -1,22 +1,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "types": [ "node", "vitest/globals"],
-    "lib": ["ES2022", "dom", "dom.iterable", "scripthost"],
-    "module": "commonjs",
-    "target": "es2018",
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    "noEmitOnError": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "jsx": "react",
-    "noEmit": true,
+    "types": ["vitest/globals"],
     "strict": true
   },
   "include": ["src/**/*.ts", "@types/*.d.ts"],
-  "exclude": [ "dist", "node_modules", "src/**/*.test.ts", "dist", "./*.d.ts"]
+  "exclude": ["node_modules", "src/**/*.test.ts", "dist", "./*.d.ts"]
 }

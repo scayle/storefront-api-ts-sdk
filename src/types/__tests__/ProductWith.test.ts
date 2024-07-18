@@ -81,7 +81,7 @@ it('converts category filters', () => {
       categories: 'all',
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:properties()"`,
+    `"images.attributes:legacy(false),categories,categories:properties()"`,
   )
 
   expect(
@@ -89,7 +89,7 @@ it('converts category filters', () => {
       categories: {},
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:properties()"`,
+    `"images.attributes:legacy(false),categories,categories:properties()"`,
   )
 
   expect(
@@ -99,7 +99,7 @@ it('converts category filters', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true):properties()"`,
+    `"images.attributes:legacy(false),categories,categories:hidden(true),categories:properties()"`,
   )
 
   expect(
@@ -110,7 +110,7 @@ it('converts category filters', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true)"`,
+    `"images.attributes:legacy(false),categories,categories:hidden(true)"`,
   )
 
   expect(
@@ -121,7 +121,7 @@ it('converts category filters', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true):properties(foo|bar)"`,
+    `"images.attributes:legacy(false),categories,categories:hidden(true),categories:properties(foo|bar)"`,
   )
 
   expect(
@@ -132,7 +132,7 @@ it('converts category filters', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:properties(foo|bar)"`,
+    `"images.attributes:legacy(false),categories,categories:properties(foo|bar)"`,
   )
 
   expect(
@@ -143,7 +143,7 @@ it('converts category filters', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories.countryLevelCustomData,categories.shopLevelCustomData,categories:properties()"`,
+    `"images.attributes:legacy(false),categories,categories.countryLevelCustomData,categories.shopLevelCustomData,categories:properties()"`,
   )
 })
 
@@ -162,7 +162,7 @@ it('converts sibling filters', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),siblings,siblings.attributes,siblings.images.attributes:legacy(false),siblings.categories:properties()"`,
+    `"images.attributes:legacy(false),siblings,siblings.attributes,siblings.images.attributes:legacy(false),siblings.categories,siblings.categories:properties()"`,
   )
 })
 
@@ -216,7 +216,7 @@ it('images attributes', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"variants,variants.attributes,images.attributes:legacy(false),categories:properties(),siblings"`,
+    `"variants,variants.attributes,images.attributes:legacy(false),categories,categories:properties(),siblings"`,
   )
 
   expect(
@@ -306,7 +306,7 @@ it('can request stock and custom on variants', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true):properties()"`,
+    `"images.attributes:legacy(false),categories,categories:hidden(true),categories:properties()"`,
   )
 
   expect(
@@ -317,7 +317,7 @@ it('can request stock and custom on variants', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:hidden(true)"`,
+    `"images.attributes:legacy(false),categories,categories:hidden(true)"`,
   )
 
   expect(
@@ -327,7 +327,7 @@ it('can request stock and custom on variants', () => {
       },
     }).join(','),
   ).toMatchInlineSnapshot(
-    `"images.attributes:legacy(false),categories:properties(category_context|reference_id)"`,
+    `"images.attributes:legacy(false),categories,categories:properties(category_context|reference_id)"`,
   )
 
   expect(
