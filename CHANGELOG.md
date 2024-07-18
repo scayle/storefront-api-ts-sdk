@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.4.1
+
+### Patch Changes
+
+- Fix a bug when including both hidden and specific category properties on the products endpoint
+
 ## 17.4.0
 
 ### Minor Changes
