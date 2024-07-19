@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.4.2
+
+### Patch Changes
+
+- Fix links in the README
+
 ## 17.4.1
 
 ### Patch Changes
