@@ -31,7 +31,7 @@
   "devDependencies": {
     "@scayle/eslint-config-storefront": "4.2.0",
     "@types/nock": "9.3.1",
-    "@types/node": "20.14.12",
+    "@types/node": "20.14.13",
     "@vitest/coverage-v8": "2.0.4",
     "dprint": "0.47.2",
     "eslint": "9.8.0",
