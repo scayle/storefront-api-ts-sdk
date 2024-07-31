@@ -29,7 +29,7 @@
     "node": ">= 18.15.0"
   },
   "devDependencies": {
-    "@scayle/eslint-config-storefront": "4.2.0",
+    "@scayle/eslint-config-storefront": "4.3.0",
     "@types/nock": "9.3.1",
     "@types/node": "20.14.13",
     "@vitest/coverage-v8": "2.0.4",
