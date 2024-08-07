@@ -1,5 +1,15 @@
 # @scayle/storefront-api
 
+## 17.4.3
+
+### Patch Changes
+
+- Fix an issue related to basket item groups.
+
+  Previously when trying to add an item without an item group to the basket, and the same variant already is in the basket with an item group, we would increase the quantity for the existing item.
+
+  This is now fixed and a new basket item is created as expected.
+
 ## 17.4.2
 
 ### Patch Changes
