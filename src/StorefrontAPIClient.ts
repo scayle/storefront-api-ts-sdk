@@ -3,6 +3,7 @@ import { createBasketItemRequest } from './endpoints/basket/createItem'
 import type { DeleteItemParameters } from './endpoints/basket/deleteItem'
 import { deleteBasketItemRequest } from './endpoints/basket/deleteItem'
 import type {
+  BasketItem,
   BasketResponseData,
   GetBasketParameters,
 } from './endpoints/basket/getBasket'
@@ -350,6 +351,20 @@ function updateBasketItemFailureKindFromStatusCode(
   }
 }
 
+export const findBasketItem = (basket: BasketResponseData, itemToAdd: {
+  variantId: number
+  itemGroupId: string | undefined
+}): BasketItem<Product, Variant> | undefined => {
+  return basket.items.find(item => {
+    if (item.variant.id !== itemToAdd.variantId) {
+      return false
+    }
+
+    // Ensure that the items have the same attribute group
+    return item.itemGroup?.id === itemToAdd.itemGroupId
+  })
+}
+
 export interface StorefrontAPIAuth {
   type: 'token'
   token: string
@@ -505,17 +520,9 @@ export class StorefrontAPIClient {
       )
 
       for (const itemToAdd of items) {
-        const existingBasketItem = client.latestBasket.items.find(item => {
-          if (item.variant.id !== itemToAdd.variantId) {
-            return false
-          }
-
-          // If we have an item group we also need to take it into consideration for the existing basket item
-          if (itemToAdd.params?.itemGroup) {
-            return item.itemGroup?.id === itemToAdd.params.itemGroup.id
-          }
-
-          return true
+        const existingBasketItem = findBasketItem(client.latestBasket, {
+          variantId: itemToAdd.variantId,
+          itemGroupId: itemToAdd.params?.itemGroup?.id,
         })
         const { variantId, quantity = 1, params = {} } = itemToAdd
 
