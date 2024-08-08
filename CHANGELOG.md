@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.4.4
+
+### Patch Changes
+
+- Fix fallback to common basket params for `addOrUpdateItems`
+
 ## 17.4.3
 
 ### Patch Changes
