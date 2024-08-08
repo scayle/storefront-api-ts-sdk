@@ -524,7 +524,12 @@ export class StorefrontAPIClient {
           variantId: itemToAdd.variantId,
           itemGroupId: itemToAdd.params?.itemGroup?.id,
         })
-        const { variantId, quantity = 1, params = {} } = itemToAdd
+        const { variantId, quantity = 1 } = itemToAdd
+
+        const params = {
+          ...basketParams,
+          ...itemToAdd.params,
+        }
 
         if (existingBasketItem) {
           if (quantity === 0) {
@@ -563,15 +568,11 @@ export class StorefrontAPIClient {
                 continue // leave existing untouched
 
               case ExistingItemHandling.AddQuantityToExisting:
-                // eslint-disable-next-line no-case-declarations
-                const paramsWithoutDisplayData = { ...params }
-                delete paramsWithoutDisplayData.displayData
-
                 // update existing with combined quantity
                 await client.updateItem(
                   existingBasketItem.key,
                   existingBasketItem.quantity + quantity,
-                  paramsWithoutDisplayData,
+                  params,
                   variantId,
                 )
                 continue
