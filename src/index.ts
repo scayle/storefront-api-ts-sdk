@@ -87,15 +87,32 @@ export type {
 } from './endpoints/wishlist/addWishlistItem'
 
 // Campaigns
-export { CampaignSortOption } from './endpoints/campaigns/campaigns'
 export type {
   CampaignsEndpointResponseData,
   CampaignsSortConfig,
   CampaignsEndpointRequestParameters,
 } from './endpoints/campaigns/campaigns'
 
+// Sorting
+export {
+  SortOrder,
+  ProductStandardSorting,
+  CampaignStandardSorting,
+  /**
+   * @deprecated - will be removed in the next major version. Please switch to SortOrder.
+   */
+  SortOrder as APISortOrder,
+  /**
+   * @deprecated - will be removed in the next major version. Please switch to ProductStandardSorting.
+   */
+  ProductStandardSorting as APISortOption,
+  /**
+   * @deprecated - will be removed in the next major version. Please switch to CampaignStandardSorting.
+   */
+  CampaignStandardSorting as CampaignSortOption,
+} from './types/Sorting'
+
 // Products
-export { APISortOption, APISortOrder } from './endpoints/products/products'
 export type {
   ProductSortConfig,
   ProductsSearchEndpointResponseData,

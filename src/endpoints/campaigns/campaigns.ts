@@ -1,23 +1,16 @@
-import type { APISortOrder } from '../../endpoints/products/products'
 import type { Pagination } from '../../endpoints/products/productsByIds'
 import type { StorefrontAPICall } from '../../helpers/execute'
 import type { Campaign } from '../../types/campaign'
+import type { CampaignStandardSorting, SortOrder } from '../../types/Sorting'
 
 export interface CampaignsEndpointResponseData {
   pagination: Pagination
   entities: Campaign[]
 }
 
-export enum CampaignSortOption {
-  Id = 'id',
-  Reduction = 'reduction',
-  StartAt = 'start_at',
-  EndAt = 'end_at',
-}
-
 export interface CampaignsSortConfig {
-  by?: CampaignSortOption
-  direction?: APISortOrder
+  by?: CampaignStandardSorting
+  direction?: SortOrder
 }
 
 export interface CampaignsEndpointRequestParameters {

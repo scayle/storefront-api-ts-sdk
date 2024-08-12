@@ -8,24 +8,14 @@ import {
 import type { ProductWith } from '../../types/ProductWith'
 import { productWithQueryParameterValues } from '../../types/ProductWith'
 import type { StorefrontAPICall } from '../../helpers/execute'
-
-export enum APISortOption {
-  Price = 'price',
-  DateAdded = 'new',
-  Reduction = 'reduction',
-}
-
-export enum APISortOrder {
-  Ascending = 'asc',
-  Descending = 'desc',
-}
+import type { ProductStandardSorting, SortOrder } from '../../types/Sorting'
 
 export interface ProductSortConfig {
-  by?: APISortOption
-  direction?: APISortOrder
+  by?: ProductStandardSorting
+  direction?: SortOrder
   score?: 'category_scores' | 'brand_scores'
   channel?: string
-  sortingKey?: string
+  sortingKey?: string | string[]
 }
 
 export interface ProductsSearchEndpointParameters {
@@ -90,7 +80,11 @@ export function createProductsSearchEndpointRequest(
         ? { sortChannel: parameters.sort.channel }
         : undefined),
       ...(parameters.sort && parameters.sort.sortingKey
-        ? { sortingKey: parameters.sort.sortingKey }
+        ? {
+          sortingKey: Array.isArray(parameters.sort.sortingKey)
+            ? parameters.sort.sortingKey.join(',')
+            : parameters.sort.sortingKey,
+        }
         : undefined),
 
       ...(parameters.pagination && parameters.pagination.page

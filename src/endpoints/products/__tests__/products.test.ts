@@ -1,10 +1,7 @@
-import {
-  APISortOption,
-  APISortOrder,
-  createProductsSearchEndpointRequest,
-} from '../products'
+import { createProductsSearchEndpointRequest } from '../products'
 import type { AttributeKey } from '../../../types/AttributeOrAttributeValueFilter'
 import { queryParamsFromProductSearchQuery } from '../../../types/ProductSearchQuery'
+import { ProductStandardSorting, SortOrder } from '../../../types/Sorting'
 
 it('builds correct query', () => {
   expect(
@@ -44,9 +41,9 @@ it('builds correct query', () => {
   expect(
     createProductsSearchEndpointRequest({
       sort: {
-        by: APISortOption.DateAdded,
+        by: ProductStandardSorting.DateAdded,
         channel: 'size',
-        direction: APISortOrder.Descending,
+        direction: SortOrder.Descending,
         score: 'category_scores',
       },
       campaignKey: 'px',
@@ -107,6 +104,22 @@ it('builds correct query', () => {
   "method": "GET",
   "params": {
     "sortingKey": "custom_sort_order",
+  },
+}
+`)
+
+  expect(
+    createProductsSearchEndpointRequest({
+      sort: {
+        sortingKey: ['sortingKey1', 'sortingKey2'],
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/products",
+  "method": "GET",
+  "params": {
+    "sortingKey": "sortingKey1,sortingKey2",
   },
 }
 `)
