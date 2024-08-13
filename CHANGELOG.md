@@ -1,5 +1,29 @@
 # @scayle/storefront-api
 
+## 17.5.0
+
+### Minor Changes
+
+- Deprecated the following types in favor of new namings:
+
+  - `APISortOrder` is now `SortOrder`
+  - `APISortOption` is now `ProductStandardSorting`
+  - `CampaignSortOption` is now `CampaignStandardSorting`
+
+  They will be removed in the next major version.
+
+- Support multiple sorting keys at the same time for the products search endpoint.
+
+  ```ts
+  const client = new StorefrontAPIClient({})
+
+  const products = await client.products.query({
+    sort: {
+      sortingKey: ['sortingKey1', 'sortingKey2'],
+    },
+  })
+  ```
+
 ## 17.4.4
 
 ### Patch Changes
