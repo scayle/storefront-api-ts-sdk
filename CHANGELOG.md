@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.6.0
+
+### Minor Changes
+
+- Support `orderCustomData` on the basket endpoints
+
 ## 17.5.0
 
 ### Minor Changes
