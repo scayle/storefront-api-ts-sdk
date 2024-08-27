@@ -98,6 +98,7 @@ it('builds correct query', () => {
   ).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/baskets/basket1",
+  "headers": {},
   "method": "GET",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
@@ -117,6 +118,7 @@ it('builds correct query', () => {
   ).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/baskets/basket1",
+  "headers": {},
   "method": "GET",
   "params": {
     "with": "items.variant.stock,items.variant.stock.customData",
@@ -134,6 +136,7 @@ it('builds correct query with campaign key', () => {
   ).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/baskets/basket1",
+  "headers": {},
   "method": "GET",
   "params": {
     "campaignKey": "px",
@@ -151,10 +154,31 @@ it('builds correct query with checkoutShopId', () => {
   ).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/baskets/basket1",
+  "headers": {},
   "method": "GET",
   "params": {
     "checkoutShopId": 589,
   },
+}
+`)
+})
+
+it('builds correct query with orderCustomData', () => {
+  expect(
+    getBasketEndpointRequest({
+      basketKey: 'basket1',
+      orderCustomData: {
+        groups: ['isNew'],
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/baskets/basket1",
+  "headers": {
+    "X-Order-Custom-Data": "eyJncm91cHMiOlsiaXNOZXciXX0=",
+  },
+  "method": "GET",
+  "params": {},
 }
 `)
 })

@@ -34,6 +34,9 @@ export type StorefrontAPICall<Response> =
     // Status Codes which should be considered successful and parse and return the body data
     successfulResponseCodes?: number[]
 
+    // Additional headers to be sent
+    headers?: Record<string, string>
+
     // This is needed to infer the types properly but it will never be used/set
     __res?: Response
   }
@@ -44,6 +47,10 @@ export type StorefrontAPICall<Response> =
       [key: string]: string | boolean | number | undefined
     }
     data?: any
+
+    // Additional headers to be sent
+    headers?: Record<string, string>
+
     // Status Codes which should be considered successful and parse and return the body data
     successfulResponseCodes?: number[]
 
@@ -79,6 +86,7 @@ export async function execute<Response>(
       ...(auth && auth.type === 'token'
         ? { 'X-Access-Token': auth.token }
         : {}),
+      ...bapiCall.headers,
     },
     method: bapiCall.method,
     body: bapiCall.method === 'POST' || bapiCall.method === 'PATCH'

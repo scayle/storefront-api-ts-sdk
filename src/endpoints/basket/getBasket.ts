@@ -7,6 +7,7 @@ import {
   variantWithQueryParameterValues,
 } from '../../types/ProductWith'
 import type { StorefrontAPICall } from '../../helpers/execute'
+import { buildOrderCustomDataHeaders } from './utils'
 
 export type BasketItemPrice = Omit<VariantPrice, 'tax'>
 
@@ -156,6 +157,8 @@ export interface GetBasketParameters {
   skipAvailabilityCheck?: boolean
 
   includeItemsWithoutProductData?: boolean
+
+  orderCustomData?: Record<string, unknown>
 }
 
 export function getBasketEndpointRequest(
@@ -164,6 +167,9 @@ export function getBasketEndpointRequest(
   return {
     method: 'GET',
     endpoint: `/v1/baskets/${params.basketKey}`,
+    headers: {
+      ...buildOrderCustomDataHeaders(params.orderCustomData),
+    },
     params: {
       ...(params.with
         ? { with: basketWithQueryParameter(params.with).join(',') }

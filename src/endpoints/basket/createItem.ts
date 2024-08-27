@@ -6,6 +6,7 @@ import type {
 } from '../../endpoints/basket/getBasket'
 import { basketWithQueryParameter } from '../../endpoints/basket/getBasket'
 import type { StorefrontAPICall } from '../../helpers/execute'
+import { buildOrderCustomDataHeaders } from './utils'
 
 export interface CreateBasketItemParameters {
   basketKey: string
@@ -21,6 +22,8 @@ export interface CreateBasketItemParameters {
   includeItemsWithoutProductData?: boolean
   itemGroup?: ItemGroup
   promotionId?: string
+
+  orderCustomData?: Record<string, unknown>
 }
 
 export function createBasketItemRequest(
@@ -34,6 +37,9 @@ export function createBasketItemRequest(
     method: 'POST',
     endpoint: `/v1/baskets/${params.basketKey}/items`,
     successfulResponseCodes: [201, 206, 409, 412, 413],
+    headers: {
+      ...buildOrderCustomDataHeaders(params.orderCustomData),
+    },
     params: {
       ...(params.with
         ? { with: basketWithQueryParameter(params.with).join(',') }

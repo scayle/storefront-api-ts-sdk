@@ -13,6 +13,7 @@ it('builds corrects query', () => {
     "quantity": 10,
   },
   "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {},
   "method": "PATCH",
   "params": {},
 }
@@ -39,6 +40,7 @@ it('builds corrects query', () => {
     "quantity": 10,
   },
   "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {},
   "method": "PATCH",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
@@ -59,6 +61,7 @@ it('builds corrects query', () => {
     "quantity": 10,
   },
   "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {},
   "method": "PATCH",
   "params": {
     "campaignKey": "px",
@@ -80,6 +83,7 @@ it('builds corrects query', () => {
     "quantity": 10,
   },
   "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {},
   "method": "PATCH",
   "params": {},
 }
@@ -99,6 +103,30 @@ it('builds corrects query', () => {
     "quantity": 10,
   },
   "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {},
+  "method": "PATCH",
+  "params": {},
+}
+`)
+
+  expect(
+    updateBasketItemQuantityRequest({
+      basketKey: 'basket_1',
+      itemKey: 'item_5',
+      quantity: 10,
+      orderCustomData: {
+        groups: ['isNew'],
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "data": {
+    "quantity": 10,
+  },
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {
+    "X-Order-Custom-Data": "eyJncm91cHMiOlsiaXNOZXciXX0=",
+  },
   "method": "PATCH",
   "params": {},
 }

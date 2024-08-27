@@ -6,6 +6,7 @@ import type {
 } from '../../endpoints/basket/getBasket'
 import { basketWithQueryParameter } from '../../endpoints/basket/getBasket'
 import type { StorefrontAPICall } from '../../helpers/execute'
+import { buildOrderCustomDataHeaders } from './utils'
 
 export interface UpdateBasketItemQuantity {
   basketKey: string
@@ -21,6 +22,8 @@ export interface UpdateBasketItemQuantity {
   includeItemsWithoutProductData?: boolean
   itemGroup?: ItemGroup
   promotionId?: string | null
+
+  orderCustomData?: Record<string, unknown>
 }
 
 export function updateBasketItemQuantityRequest(
@@ -33,6 +36,9 @@ export function updateBasketItemQuantityRequest(
   return {
     method: 'PATCH',
     endpoint: `/v1/baskets/${params.basketKey}/items/${params.itemKey}`,
+    headers: {
+      ...buildOrderCustomDataHeaders(params.orderCustomData),
+    },
     params: {
       ...(params.with
         ? { with: basketWithQueryParameter(params.with).join(',') }

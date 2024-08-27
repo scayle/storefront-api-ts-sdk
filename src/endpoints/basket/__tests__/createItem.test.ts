@@ -33,6 +33,7 @@ it('builds correct query', () => {
     "variantId": 1235,
   },
   "endpoint": "/v1/baskets/basket1/items",
+  "headers": {},
   "method": "POST",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
@@ -68,6 +69,7 @@ it('builds correct query with custom data', () => {
     "variantId": 1235,
   },
   "endpoint": "/v1/baskets/basket1/items",
+  "headers": {},
   "method": "POST",
   "params": {},
   "successfulResponseCodes": [
@@ -97,6 +99,7 @@ it('support sending a child shop ID', () => {
     "variantId": 1235,
   },
   "endpoint": "/v1/baskets/basket1/items",
+  "headers": {},
   "method": "POST",
   "params": {},
   "successfulResponseCodes": [
@@ -128,6 +131,7 @@ it('builds correct query with price promotion key', () => {
     "variantId": 1235,
   },
   "endpoint": "/v1/baskets/basket1/items",
+  "headers": {},
   "method": "POST",
   "params": {},
   "successfulResponseCodes": [
@@ -162,6 +166,7 @@ it('builds correct query with price promotion key and custom data', () => {
     "variantId": 1235,
   },
   "endpoint": "/v1/baskets/basket1/items",
+  "headers": {},
   "method": "POST",
   "params": {},
   "successfulResponseCodes": [
@@ -190,6 +195,7 @@ it('builds correct query with campaign key', () => {
     "variantId": 1235,
   },
   "endpoint": "/v1/baskets/basket1/items",
+  "headers": {},
   "method": "POST",
   "params": {
     "campaignKey": "px",
@@ -233,6 +239,7 @@ it('builds correct query with display data', () => {
     "variantId": 1235,
   },
   "endpoint": "/v1/baskets/basket1/items",
+  "headers": {},
   "method": "POST",
   "params": {},
   "successfulResponseCodes": [
@@ -261,6 +268,7 @@ it('builds correct query with skip availability', () => {
     "variantId": 1235,
   },
   "endpoint": "/v1/baskets/basket1/items",
+  "headers": {},
   "method": "POST",
   "params": {
     "skipAvailabilityCheck": true,
@@ -292,6 +300,40 @@ it('builds correct payload with promotion id', () => {
     "variantId": 1235,
   },
   "endpoint": "/v1/baskets/basket1/items",
+  "headers": {},
+  "method": "POST",
+  "params": {},
+  "successfulResponseCodes": [
+    201,
+    206,
+    409,
+    412,
+    413,
+  ],
+}
+`)
+})
+
+it('builds correct payload with order custom data', () => {
+  expect(
+    createBasketItemRequest({
+      basketKey: 'basket1',
+      variantId: 1235,
+      quantity: 1,
+      orderCustomData: {
+        groups: ['isNew'],
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "data": {
+    "quantity": 1,
+    "variantId": 1235,
+  },
+  "endpoint": "/v1/baskets/basket1/items",
+  "headers": {
+    "X-Order-Custom-Data": "eyJncm91cHMiOlsiaXNOZXciXX0=",
+  },
   "method": "POST",
   "params": {},
   "successfulResponseCodes": [

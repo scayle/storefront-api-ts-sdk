@@ -9,6 +9,7 @@ it('builds corrects parameter', () => {
   ).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {},
   "method": "DELETE",
   "params": {},
 }
@@ -31,6 +32,7 @@ it('builds corrects parameter', () => {
   ).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {},
   "method": "DELETE",
   "params": {
     "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
@@ -47,10 +49,30 @@ it('builds corrects parameter', () => {
   ).toMatchInlineSnapshot(`
 {
   "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {},
   "method": "DELETE",
   "params": {
     "campaignKey": "px",
   },
+}
+`)
+
+  expect(
+    deleteBasketItemRequest({
+      basketKey: 'basket_1',
+      itemKey: 'item_5',
+      orderCustomData: {
+        groups: ['isNew'],
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/baskets/basket_1/items/item_5",
+  "headers": {
+    "X-Order-Custom-Data": "eyJncm91cHMiOlsiaXNOZXciXX0=",
+  },
+  "method": "DELETE",
+  "params": {},
 }
 `)
 })
