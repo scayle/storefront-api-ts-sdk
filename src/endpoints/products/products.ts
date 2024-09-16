@@ -41,6 +41,8 @@ export interface ProductsSearchEndpointParameters {
   minProductId?: number
 
   orFiltersOperator?: ArrayMinLength<string, 2>
+
+  trackSearchAnalyticsEvent?: boolean
 }
 
 export interface ProductsSearchEndpointResponseData {
@@ -114,6 +116,9 @@ export function createProductsSearchEndpointRequest(
           parameters.orFiltersOperator.length > 1
         ? { orFiltersOperator: parameters.orFiltersOperator.join(',') }
         : undefined),
+
+      ...(parameters.trackSearchAnalyticsEvent &&
+        { trackSearchAnalyticsEvent: 'true' }),
     },
   }
 }

@@ -299,4 +299,30 @@ it('builds correct query', () => {
   },
 }
 `)
+
+  expect(
+    createProductsSearchEndpointRequest({
+      trackSearchAnalyticsEvent: false,
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/products",
+  "method": "GET",
+  "params": {},
+}
+`)
+
+  expect(
+    createProductsSearchEndpointRequest({
+      trackSearchAnalyticsEvent: true,
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/products",
+  "method": "GET",
+  "params": {
+    "trackSearchAnalyticsEvent": "true",
+  },
+}
+`)
 })
