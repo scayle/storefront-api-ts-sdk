@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.7.0
+
+### Minor Changes
+
+- Support new `trackSearchAnalyticsEvent` parameter on product requests for the Search Analytics feature.
+
 ## 17.6.0
 
 ### Minor Changes
