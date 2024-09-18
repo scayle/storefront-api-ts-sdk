@@ -36,7 +36,7 @@ yarn add @scayle/storefront-api
 
 [SCAYLE](https://scayle.com) is a full-featured e-commerce software solution that comes with flexible APIs. Within SCAYLE, you can manage all aspects of your shop, such as products, stocks, customers, and transactions.
 
-Learn more about [Scayles’s architecture](https://scayle.dev/en/developer-guide) and [commerce modules](https://scayle.dev/en/developer-guide) in the Docs.
+Learn more about [SCAYLE’s architecture](https://scayle.dev/en/developer-guide) and [commerce modules](https://scayle.dev/en/developer-guide) in the docs.
 
 ## Community
 
@@ -47,7 +47,6 @@ The community and core teams are available in [GitHub Discussions](https://githu
 - [GitHub Issues](https://github.com/scayle/storefront-api-ts-sdk/issues)
 - [LinkedIn](https://www.linkedin.com/company/scaylecommerce/)
 - [Jobs](https://careers.smartrecruiters.com/ABOUTYOUGmbH/scayle)
-- [AboutYou Tech Blog](https://aboutyou.tech/)
 
 ## License
 
