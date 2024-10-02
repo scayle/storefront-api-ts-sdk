@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.8.0
+
+### Minor Changes
+
+- Add an `additionalHeaders` configuration to the `StorefrontAPIClient` which allows configuring headers to be sent on each request
+
 ## 17.7.0
 
 ### Minor Changes
