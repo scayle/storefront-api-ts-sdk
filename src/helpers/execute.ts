@@ -68,6 +68,7 @@ export async function execute<Response>(
   shopId: number,
   bapiCall: StorefrontAPICall<Response>,
   auth?: StorefrontAPIAuth,
+  additionalHeaders?: HeadersInit,
 ): Promise<StorefrontAPIResponse<Response>> {
   const url = `https://${host}${bapiCall.endpoint}${
     getParamsString({
@@ -86,6 +87,7 @@ export async function execute<Response>(
       ...(auth && auth.type === 'token'
         ? { 'X-Access-Token': auth.token }
         : {}),
+      ...additionalHeaders,
       ...bapiCall.headers,
     },
     method: bapiCall.method,

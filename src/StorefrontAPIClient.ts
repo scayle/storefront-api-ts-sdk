@@ -381,6 +381,9 @@ export interface StorefrontAPIConfig {
 
   // An optional authentication for basket & wishlist requests
   auth?: StorefrontAPIAuth
+
+  // Headers to add by default on all storefront API requests
+  additionalHeaders?: HeadersInit
 }
 
 /**
@@ -395,16 +398,25 @@ export class StorefrontAPIClient {
 
   private readonly auth: StorefrontAPIAuth | undefined
 
+  private readonly additionalHeaders: HeadersInit | undefined
+
   public constructor(config: StorefrontAPIConfig) {
     this.host = parseHost(config.host)
     this.shopId = config.shopId
     this.auth = config.auth
+    this.additionalHeaders = config.additionalHeaders
   }
 
   private async execute<Response>(
     request: StorefrontAPICall<Response>,
   ): Promise<Response> {
-    const response = await execute(this.host, this.shopId, request, this.auth)
+    const response = await execute(
+      this.host,
+      this.shopId,
+      request,
+      this.auth,
+      this.additionalHeaders,
+    )
 
     return response.data
   }
@@ -412,7 +424,13 @@ export class StorefrontAPIClient {
   private executeWithStatus<Response>(
     request: StorefrontAPICall<Response>,
   ): Promise<StorefrontAPIResponse<Response>> {
-    return execute(this.host, this.shopId, request, this.auth)
+    return execute(
+      this.host,
+      this.shopId,
+      request,
+      this.auth,
+      this.additionalHeaders,
+    )
   }
 
   public readonly attributes = {
