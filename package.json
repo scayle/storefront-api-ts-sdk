@@ -34,7 +34,7 @@
     "@types/node": "20.16.10",
     "@vitest/coverage-v8": "2.1.2",
     "dprint": "0.47.2",
-    "eslint": "9.11.1",
+    "eslint": "9.12.0",
     "eslint-formatter-gitlab": "5.1.0",
     "nock": "10.0.6",
     "publint": "0.2.11",
