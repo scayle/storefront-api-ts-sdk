@@ -106,6 +106,7 @@ export type {
   ProductByIdEndpointResponseData,
 } from './endpoints/products/productById'
 export type {
+  Pagination,
   ProductsByIdsEndpointParameters,
   ProductsByIdsEndpointResponseData,
 } from './endpoints/products/productsByIds'
@@ -118,6 +119,7 @@ export type {
   AttributeGroup,
   ImageAttributes,
   ProductCategory,
+  PriceRange,
   LowestPriorPrice,
   AppliedReduction,
   CentAmount,
@@ -165,6 +167,9 @@ export type {
   AttributesFilterValue,
   FilterItemWithValues,
   AttributesFilterItemWithValues,
+  BooleanFilterItemWithValues,
+  RangeFilterItemWithValues,
+  IdenfitierFilterItemWithValues,
 } from './endpoints/filters/filters'
 
 // Attributes
@@ -230,6 +235,20 @@ export type {
   ProductSearchSuggestion,
   CategorySearchSuggestion,
 } from './types/Search'
+
+export type {
+  SearchMappingsEndpointParameters,
+  SearchMappingsEndpointResponseData,
+} from './endpoints/search/mappings'
+export type {
+  SearchResolveEndpointParameters,
+  SearchResolveEndpointResponseData,
+} from './endpoints/search/resolve'
+export type {
+  SearchSuggestionsEndpointParameters,
+  SearchSuggestionsEndpointResponseData,
+} from './endpoints/search/suggestions'
+
 export type { SearchV2With } from './endpoints/searchv2/includes'
 export type {
   SearchV2ResolveEndpointParameters,
