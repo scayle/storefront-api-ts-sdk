@@ -1,6 +1,11 @@
 import type { Promotion } from '../../types/Promotion'
 import { prefixList } from '../../helpers/attributes'
-import type { Product, Variant, VariantPrice } from '../../types/Product'
+import type {
+  LowestPriorPrice,
+  Product,
+  Variant,
+  VariantPrice,
+} from '../../types/Product'
 import type { ProductWith, VariantWith } from '../../types/ProductWith'
 import {
   productWithQueryParameterValues,
@@ -50,6 +55,7 @@ export interface BasketItem<P = Product, V = Variant> {
     total: BasketItemPrice
     unit: BasketItemPrice
   }
+  lowestPriorPrice: LowestPriorPrice
   quantity: number
   availableQuantity?: number
   deliveryForecast?: {
