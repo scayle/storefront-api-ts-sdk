@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.8.1
+
+### Patch Changes
+
+- Add `lowestPriorPrice` to `BasketItem` type
+
 ## 17.8.0
 
 ### Minor Changes
