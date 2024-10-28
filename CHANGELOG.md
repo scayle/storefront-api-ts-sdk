@@ -1,5 +1,12 @@
 # @scayle/storefront-api
 
+## 17.9.0
+
+### Minor Changes
+
+- Add `NavigationItemSuggestion` type to `SearchEntity`
+- Deprecate wrong navigation item type (`external`) and added correct type (`individual-link`) on `NavigationItemExternal`.
+
 ## 17.8.1
 
 ### Patch Changes
