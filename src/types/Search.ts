@@ -1,11 +1,19 @@
 import type { Category } from './Category'
+import type { NavigationItem } from './navigation'
 import type { Product } from './Product'
 
 export type SearchEntity =
   | CategorySearchSuggestion
   | ProductSearchSuggestion
+  | NavigationItemSuggestion
   | { type: undefined }
 
+export interface NavigationItemSuggestion {
+  type: 'navigationItem'
+  navigationItemSuggestion: {
+    navigationItem: NavigationItem
+  }
+}
 export interface CategorySearchSuggestion {
   type: 'category'
   categorySuggestion: {
