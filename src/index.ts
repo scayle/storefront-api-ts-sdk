@@ -246,6 +246,7 @@ export type {
   SearchEntity,
   ProductSearchSuggestion,
   CategorySearchSuggestion,
+  NavigationItemSuggestion,
 } from './types/Search'
 export type { SearchV2With } from './endpoints/searchv2/includes'
 export type {
