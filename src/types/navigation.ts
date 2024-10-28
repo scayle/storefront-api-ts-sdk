@@ -11,8 +11,14 @@ export interface NavigationItem {
   children: NavigationItems
 }
 
+/**
+ * @deprecated The panel uses `individual-link` as type for external links. Therefore {@link IndividualLink} should be used from now on.
+ */
+type External = 'external'
+type IndividualLink = 'individual-link'
+
 export type NavigationItemExternal = NavigationItem & {
-  type: 'external'
+  type: External | IndividualLink
   options: {
     url: string
     isOpenInNewWindows: boolean

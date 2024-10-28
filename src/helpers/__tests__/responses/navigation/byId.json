@@ -9,7 +9,7 @@
       "languages": {
         "de": "Test navigation"
       },
-      "type": "external",
+      "type": "individual-link",
       "visibleFrom": null,
       "visibleTo": null,
       "options": {
@@ -24,7 +24,7 @@
       "languages": {
         "de": "Another point"
       },
-      "type": "external",
+      "type": "individual-link",
       "visibleFrom": null,
       "visibleTo": null,
       "options": {

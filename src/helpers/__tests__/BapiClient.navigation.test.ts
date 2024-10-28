@@ -24,7 +24,7 @@ it.skip('gets all navigation trees', async () => {
 
   expect(response.length).toBe(1)
   expect(response[0].items.length).toBe(3)
-  expect(response[0].items[0].type).toBe('external')
+  expect(response[0].items[0].type).toBe('individual-link')
 })
 
 it.skip('gets navigation tree by id', async () => {
@@ -44,5 +44,5 @@ it.skip('gets navigation tree by id', async () => {
   const response = await bapi.navigation.getById(1)
 
   expect(response.items.length).toBe(3)
-  expect(response.items[0].type).toBe('external')
+  expect(response.items[0].type).toBe('individual-link')
 })
