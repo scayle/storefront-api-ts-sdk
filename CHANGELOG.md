@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.9.1
+
+### Patch Changes
+
+- Export `NavigationItemSuggestion` type
+
 ## 17.9.0
 
 ### Minor Changes
