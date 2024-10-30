@@ -1,5 +1,9 @@
 import type { Category } from './Category'
-import type { NavigationItem } from './navigation'
+import type {
+  NavigationItemCategory,
+  NavigationItemExternal,
+  NavigationItemPage,
+} from './navigation'
 import type { Product } from './Product'
 
 export type SearchEntity =
@@ -11,7 +15,10 @@ export type SearchEntity =
 export interface NavigationItemSuggestion {
   type: 'navigationItem'
   navigationItemSuggestion: {
-    navigationItem: NavigationItem
+    navigationItem:
+      | NavigationItemExternal
+      | NavigationItemCategory
+      | NavigationItemPage
   }
 }
 export interface CategorySearchSuggestion {
