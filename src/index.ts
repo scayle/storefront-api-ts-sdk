@@ -125,6 +125,8 @@ export type {
 export type {
   ProductsByIdsEndpointParameters,
   ProductsByIdsEndpointResponseData,
+  // TODO: Move to it's own dedicated file
+  Pagination,
 } from './endpoints/products/productsByIds'
 export type {
   ProductsByReferenceKeyRequestData,
@@ -142,6 +144,7 @@ export type {
   VariantPrice,
   Product,
   ProductImage,
+  PriceRange,
   Value,
   Variant,
   AdvancedAttribute,
@@ -182,6 +185,9 @@ export type {
   AttributesFilterValue,
   FilterItemWithValues,
   AttributesFilterItemWithValues,
+  IdenfitierFilterItemWithValues,
+  RangeFilterItemWithValues,
+  BooleanFilterItemWithValues,
 } from './endpoints/filters/filters'
 
 // Attributes
@@ -257,3 +263,17 @@ export type {
   SearchV2SuggestionsEndpointParameters,
   SearchV2SuggestionsEndpointResponseData,
 } from './endpoints/searchv2/suggestions'
+
+// Legacy Search Exports
+export type {
+  SearchMappingsEndpointParameters,
+  SearchMappingsEndpointResponseData,
+} from './endpoints/search/mappings'
+export type {
+  SearchResolveEndpointParameters,
+  SearchResolveEndpointResponseData,
+} from './endpoints/search/resolve'
+export type {
+  SearchSuggestionsEndpointParameters,
+  SearchSuggestionsEndpointResponseData,
+} from './endpoints/search/suggestions'
