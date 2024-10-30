@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.9.2
+
+### Patch Changes
+
+- Fix type of `NavigationItemSuggestion.navigationItemSuggestion.navigationItem`
+
 ## 17.9.1
 
 ### Patch Changes
