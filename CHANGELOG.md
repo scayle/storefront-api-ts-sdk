@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.9.3
+
+### Patch Changes
+
+- Add missing exports of Pagination, PriceRange, BooleanFilterItemWithValues, RangeFilterItemWithValues, IdenfitierFilterItemWithValues and Search V1 types.
+
 ## 17.9.2
 
 ### Patch Changes
