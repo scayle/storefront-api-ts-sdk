@@ -2,6 +2,7 @@
 export {
   StorefrontAPIClient,
   ExistingItemHandling,
+  AddToBasketFailureKind,
 } from './StorefrontAPIClient'
 export type {
   StorefrontAPIAuth,
@@ -79,12 +80,11 @@ export type {
   Wishlist as WishlistResponseData,
 } from './types/Wishlist'
 export type { GetWishlistParameters } from './endpoints/wishlist/getWishlist'
-
 export type { DeleteWishlistParameters } from './endpoints/wishlist/deleteWishlistItem'
 export type {
   AddWishlistItemParameters,
-  AddToWishlistFailureKind,
 } from './endpoints/wishlist/addWishlistItem'
+export { AddToWishlistFailureKind } from './endpoints/wishlist/addWishlistItem'
 
 // Campaigns
 export type {
