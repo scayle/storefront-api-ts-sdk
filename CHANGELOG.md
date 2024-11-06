@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.9.4
+
+### Patch Changes
+
+- Add `AddToWishlistFailureKind` and `AddToBasketFailureKind` exports
+
 ## 17.9.3
 
 ### Patch Changes
