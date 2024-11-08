@@ -1,6 +1,7 @@
 import type { StorefrontAPICall } from '../../helpers/execute'
 import type {
   Wishlist,
+  WishlistItemCustomData,
   WishlistItemGroup,
   WishlistWith,
 } from '../../types/Wishlist'
@@ -24,6 +25,7 @@ export interface AddWishlistItemParameters {
   pricePromotionKey?: string
 
   itemGroup?: WishlistItemGroup
+  customData?: WishlistItemCustomData
 }
 
 export enum AddToWishlistFailureKind {
@@ -54,6 +56,7 @@ export function addWishlistItemEndpointRequest(
     data: {
       ...params.item,
       ...(params.itemGroup ? { itemGroup: params.itemGroup } : undefined),
+      ...(params.customData ? { customData: params.customData } : undefined),
     },
   }
 }
