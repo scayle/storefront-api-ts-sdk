@@ -1,5 +1,23 @@
 # @scayle/storefront-api
 
+## 17.9.5
+
+### Patch Changes
+
+- Add `customData` to ´AddWishlistItemParameters´. This can be used to attach additional data to a wishlist item.
+
+  ```ts
+  await client.wishlist.addItem(
+    'wishlistKey ',
+    { variantId: 100 },
+    {
+      customData: {
+        data: 'data',
+      },
+    },
+  )
+  ```
+
 ## 17.9.4
 
 ### Patch Changes
