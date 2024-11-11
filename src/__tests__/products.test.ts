@@ -3,7 +3,7 @@ import { execute } from '../helpers/execute'
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
-} from '../test-helpers/nock'
+} from '../test/helpers/nock'
 import { createProductByIdEndpointRequest } from '../endpoints/products/productById'
 
 disableNetAndAllowBapiCors()

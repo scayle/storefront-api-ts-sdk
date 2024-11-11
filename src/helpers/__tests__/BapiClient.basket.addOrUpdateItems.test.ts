@@ -6,7 +6,7 @@ import {
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
-} from '../../test-helpers/nock'
+} from '../../test/helpers/nock'
 
 disableNetAndAllowBapiCors({ shopIdHeader: true })
 

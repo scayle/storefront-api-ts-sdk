@@ -28,6 +28,14 @@
   "engines": {
     "node": ">= 18.15.0"
   },
+  "peerDependenciesMeta": {
+    "fishery": {
+      "optional": true
+    }
+  },
+  "peerDependencies": {
+    "fishery": "^2.2.2"
+  },
   "devDependencies": {
     "@scayle/eslint-config-storefront": "4.3.2",
     "@types/node": "22.9.0",
@@ -35,6 +43,7 @@
     "dprint": "0.47.5",
     "eslint": "9.14.0",
     "eslint-formatter-gitlab": "5.1.0",
+    "fishery": "2.2.2",
     "nock": "13.5.6",
     "publint": "0.2.12",
     "rimraf": "6.0.1",

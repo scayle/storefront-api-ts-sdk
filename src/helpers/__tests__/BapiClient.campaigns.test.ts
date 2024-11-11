@@ -5,7 +5,7 @@ import { StorefrontAPIClient } from '../../StorefrontAPIClient'
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
-} from '../../test-helpers/nock'
+} from '../../test/helpers/nock'
 import { CampaignSortOption } from '../../endpoints/campaigns/campaigns'
 import { APISortOrder } from '../../endpoints/products/products'
 

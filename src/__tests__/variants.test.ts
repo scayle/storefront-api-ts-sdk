@@ -1,4 +1,4 @@
-import { disableNetAndAllowBapiCors } from '../test-helpers/nock'
+import { disableNetAndAllowBapiCors } from '../test/helpers/nock'
 import { createVariantsByIdsEndpointRequest } from '../endpoints/variants/variantsByIds'
 
 disableNetAndAllowBapiCors()

@@ -3,7 +3,7 @@ import { StorefrontAPIClient } from '../../StorefrontAPIClient'
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
-} from '../../test-helpers/nock'
+} from '../../test/helpers/nock'
 
 disableNetAndAllowBapiCors()
 

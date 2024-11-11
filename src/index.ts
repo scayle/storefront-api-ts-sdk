@@ -277,3 +277,6 @@ export type {
   SearchSuggestionsEndpointParameters,
   SearchSuggestionsEndpointResponseData,
 } from './endpoints/search/suggestions'
+
+// Test factories
+export * from './test/factories'

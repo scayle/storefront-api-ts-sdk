@@ -2,7 +2,7 @@ import { StorefrontAPIClient } from '../../StorefrontAPIClient'
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
-} from '../../test-helpers/nock'
+} from '../../test/helpers/nock'
 import type { BaseCategory } from '../../types/Product'
 
 disableNetAndAllowBapiCors()
