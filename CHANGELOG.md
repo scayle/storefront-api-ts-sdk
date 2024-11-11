@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.10.0
+
+### Minor Changes
+
+- Add `attribute`, `category`, `price`, `product`, `variant` test factories and expose them externally.
+
 ## 17.9.5
 
 ### Patch Changes
