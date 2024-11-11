@@ -9,6 +9,7 @@ export interface NavigationItem {
   visibleFrom: RFC33339Date | null
   visibleTo: RFC33339Date | null
   children: NavigationItems
+  customData?: Record<string, unknown>
 }
 
 /**
