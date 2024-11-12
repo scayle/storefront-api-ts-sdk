@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.10.1
+
+### Patch Changes
+
+- Add missing `customData` record to `NavigationItem` type. The `customData` record can be used to add additional data to a `NavigationItem`.
+
 ## 17.10.0
 
 ### Minor Changes
