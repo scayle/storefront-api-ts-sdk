@@ -23,6 +23,18 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
       "default": "./dist/index.cjs"
+    },
+    "./test/factories": {
+      "types": "./dist/test/factories/index.d.ts",
+      "import": "./dist/test/factories/index.mjs",
+      "require": "./dist/test/factories/index.cjs",
+      "default": "./dist/test/factories/index.cjs"
+    },
+    "./dist/test/factories": {
+      "types": "./dist/test/factories/index.d.ts",
+      "import": "./dist/test/factories/index.mjs",
+      "require": "./dist/test/factories/index.cjs",
+      "default": "./dist/test/factories/index.cjs"
     }
   },
   "engines": {

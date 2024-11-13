@@ -12,5 +12,6 @@ export default defineBuildConfig({
 
   entries: [
     './src/index.ts',
+    './src/test/factories/index.ts',
   ],
 })
