@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.11.0
+
+### Minor Changes
+
+- Move test factories to separate entry point. They are now available via `@scayle/storefront-api/dist/test/factories` (or `@scayle/storefront-api/test/factories` when `moduleResolution` is set to `Bundler`.
+
 ## 17.10.1
 
 ### Patch Changes
