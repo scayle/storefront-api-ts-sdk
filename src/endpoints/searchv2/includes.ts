@@ -12,6 +12,12 @@ export interface SearchV2With {
     //
     // 0 means no children, 1 means 1 level of children, etc.
     children?: number
+    properties?: string[]
+  }
+  navigationItem?: {
+    category?: 'all' | {
+      properties?: string[]
+    }
   }
 }
 
@@ -28,12 +34,31 @@ export const searchV2WithParamsToQuery = (includes?: SearchV2With) => {
       depth = includes.categories.children + 1
       params.push('category.children')
     }
+    if (includes.categories.properties) {
+      params.push(
+        includes.categories.properties.map((propertyName) =>
+          `category.properties:name(${propertyName})`
+        ),
+      )
+    }
   }
 
   if (includes?.product) {
     params.push(
       prefixList('product.')(productWithQueryParameterValues(includes.product)),
     )
+  }
+
+  if (includes?.navigationItem) {
+    if (includes.navigationItem.category === 'all') {
+      params.push('navigationItem.category')
+    } else if (includes.navigationItem.category?.properties) {
+      params.push(
+        includes.navigationItem.category.properties.map((propertyName) =>
+          `navigationItem.category.properties:name(${propertyName})`
+        ),
+      )
+    }
   }
 
   if (params.length === 0) {
