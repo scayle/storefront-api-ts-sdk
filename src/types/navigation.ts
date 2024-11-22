@@ -22,7 +22,7 @@ export type NavigationItemExternal = NavigationItem & {
   type: External | IndividualLink
   options: {
     url: string
-    isOpenInNewWindows: boolean
+    isOpenInNewWindow: boolean
   }
 }
 
