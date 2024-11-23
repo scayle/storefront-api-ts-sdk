@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@scayle/eslint-config-storefront": "4.3.2",
-    "@types/node": "22.9.2",
+    "@types/node": "22.9.3",
     "@vitest/coverage-v8": "2.1.5",
     "dprint": "0.47.5",
     "eslint": "9.15.0",
