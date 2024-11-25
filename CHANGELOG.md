@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.12.0
+
+### Minor Changes
+
+- Fix typo on `NavigationItemExternal` option name. `isOpenInNewWindows` got renamed to `isOpenInNewWindow`.
+
 ## 17.11.0
 
 ### Minor Changes
