@@ -51,7 +51,7 @@
   "devDependencies": {
     "@scayle/eslint-config-storefront": "4.3.2",
     "@types/node": "22.9.4",
-    "@vitest/coverage-v8": "2.1.5",
+    "@vitest/coverage-v8": "2.1.6",
     "dprint": "0.47.5",
     "eslint": "9.15.0",
     "eslint-formatter-gitlab": "5.1.0",
@@ -61,7 +61,7 @@
     "rimraf": "6.0.1",
     "typescript": "5.6.3",
     "unbuild": "2.0.0",
-    "vitest": "2.1.5"
+    "vitest": "2.1.6"
   },
   "scripts": {
     "clean": "rimraf ./dist",
