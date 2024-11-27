@@ -1,5 +1,14 @@
 # @scayle/storefront-api
 
+## 17.13.0
+
+### Minor Changes
+
+- The `SearchV2With` interface now offers finer control over category information retrieval:
+
+  - A `categories.properties` option has been added, enabling you to request specific properties for categories returned in search results. This provides more flexibility in accessing and displaying relevant category data.
+  - A `navigationItem` option has been added, allowing you to retrieve category data for navigationItems with the type `category`.
+
 ## 17.12.0
 
 ### Minor Changes
