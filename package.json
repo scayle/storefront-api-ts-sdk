@@ -53,7 +53,7 @@
     "@types/node": "22.10.1",
     "@vitest/coverage-v8": "2.1.6",
     "dprint": "0.47.5",
-    "eslint": "9.15.0",
+    "eslint": "9.16.0",
     "eslint-formatter-gitlab": "5.1.0",
     "fishery": "2.2.2",
     "nock": "13.5.6",
