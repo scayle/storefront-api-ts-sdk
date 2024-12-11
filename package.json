@@ -16,25 +16,49 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "type": "module",
+  "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "default": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./test/factories": {
-      "types": "./dist/test/factories/index.d.ts",
-      "import": "./dist/test/factories/index.mjs",
-      "require": "./dist/test/factories/index.cjs",
-      "default": "./dist/test/factories/index.cjs"
+      "import": {
+        "types": "./dist/test/factories/index.d.mts",
+        "default": "./dist/test/factories/index.mjs"
+      },
+      "require": {
+        "types": "./dist/test/factories/index.d.cts",
+        "default": "./dist/test/factories/index.cjs"
+      },
+      "default": {
+        "types": "./dist/test/factories/index.d.cts",
+        "default": "./dist/test/factories/index.cjs"
+      }
     },
     "./dist/test/factories": {
-      "types": "./dist/test/factories/index.d.ts",
-      "import": "./dist/test/factories/index.mjs",
-      "require": "./dist/test/factories/index.cjs",
-      "default": "./dist/test/factories/index.cjs"
+      "import": {
+        "types": "./dist/test/factories/index.d.mts",
+        "default": "./dist/test/factories/index.mjs"
+      },
+      "require": {
+        "types": "./dist/test/factories/index.d.cts",
+        "default": "./dist/test/factories/index.cjs"
+      },
+      "default": {
+        "types": "./dist/test/factories/index.d.cts",
+        "default": "./dist/test/factories/index.cjs"
+      }
     }
   },
   "engines": {
@@ -49,6 +73,7 @@
     "fishery": "^2.2.2"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "0.17.1",
     "@scayle/eslint-config-storefront": "4.4.0",
     "@types/node": "22.10.2",
     "@vitest/coverage-v8": "2.1.8",
@@ -66,6 +91,7 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "unbuild",
+    "verify-packaging": "attw --exclude-entrypoints test/factories --pack . && attw --entrypoints test/factories --profile node16 --pack .",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "format": "dprint check",
     "format:fix": "dprint fmt",
