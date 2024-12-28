@@ -73,7 +73,7 @@
     "fishery": "^2.2.2"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "0.17.1",
+    "@arethetypeswrong/cli": "0.17.2",
     "@scayle/eslint-config-storefront": "4.4.0",
     "@types/node": "22.10.2",
     "@vitest/coverage-v8": "2.1.8",
