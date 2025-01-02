@@ -29,11 +29,11 @@ export interface CategorySearchSuggestion {
   }
 }
 
-type CategoryFilter = CategoryAttributeFilter | CategoryBooleanFilter | {
+export type CategoryFilter = CategoryAttributeFilter | CategoryBooleanFilter | {
   type: undefined
 }
 
-interface CategoryAttributeFilter {
+export interface CategoryAttributeFilter {
   type: 'attribute'
   attributeFilter: {
     group: {
@@ -51,7 +51,7 @@ interface CategoryAttributeFilter {
   }
 }
 
-interface CategoryBooleanFilter {
+export interface CategoryBooleanFilter {
   type: 'boolean'
   booleanFilter: {
     slug: string
