@@ -1,5 +1,12 @@
 # @scayle/storefront-api
 
+## 17.14.0
+
+### Minor Changes
+
+- Adds support for the new `filters` on the `NavigationItemCategory`
+  We also removed `languages` field from `NavigationItem` since it was never returned by the API.
+
 ## 17.13.0
 
 ### Minor Changes
