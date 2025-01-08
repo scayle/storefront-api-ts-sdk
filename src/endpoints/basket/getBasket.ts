@@ -83,7 +83,7 @@ export interface BasketItem<P = Product, V = Variant> {
   }
 }
 
-export interface BaskteItemDisplayDataItem {
+export interface BasketItemDisplayDataItem {
   value: string
   label: string
   key: string
@@ -98,7 +98,7 @@ export type BasketItemDisplayDataKey =
   | 'attribute-3'
 
 export type BasketItemDisplayData = Partial<
-  Record<BasketItemDisplayDataKey, BaskteItemDisplayDataItem>
+  Record<BasketItemDisplayDataKey, BasketItemDisplayDataItem>
 >
 
 export interface BasketPackageInformation {

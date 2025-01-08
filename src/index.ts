@@ -24,7 +24,7 @@ export type {
   GetBasketParameters,
   ApplicablePromotion,
   BasketItemDisplayDataKey,
-  BaskteItemDisplayDataItem,
+  BasketItemDisplayDataItem,
   ItemGroup,
 } from './endpoints/basket/getBasket'
 export type { BasketResponse } from './StorefrontAPIClient'
