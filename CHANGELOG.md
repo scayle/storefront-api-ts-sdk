@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.14.1
+
+### Patch Changes
+
+- Fixed misspelling of interface `BaskteItemDisplayDataItem` to `BasketItemDisplayDataItem`
+
 ## 17.14.0
 
 ### Minor Changes
