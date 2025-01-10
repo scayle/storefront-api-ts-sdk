@@ -5,7 +5,7 @@ export default defineConfig({
     globals: true,
     coverage: {
       provider: 'v8',
-      reporter: ['json', 'lcov', 'text', 'clover', 'cobertura'],
+      reporter: ['text', 'cobertura'],
       reportsDirectory: 'coverage',
     },
   },

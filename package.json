@@ -100,6 +100,6 @@
     "package:lint": "publint",
     "test:watch": "vitest --passWithNoTests",
     "test": "vitest --run --passWithNoTests",
-    "test:ci": "vitest --run --passWithNoTests --coverage --reporter=default --reporter=junit --outputFile=./junit.xml"
+    "test:ci": "vitest --run --passWithNoTests --coverage --reporter=default --reporter=junit --outputFile=./coverage/junit.xml"
   }
 }
