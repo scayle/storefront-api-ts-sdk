@@ -16,7 +16,7 @@ import { buildOrderCustomDataHeaders } from './utils'
 
 export type BasketItemPrice = Omit<VariantPrice, 'tax'>
 
-export type BasketTotalPrice = Omit<VariantPrice, 'tax' | 'reference'>
+export type BasketTotalPrice = Omit<VariantPrice, 'reference'>
 
 export type BasketKey = string & {
   readonly ____tagBasketKey: unique symbol
@@ -127,7 +127,7 @@ export function basketWithQueryParameter(basketWith: BasketWith): string[] {
   if (basketWith.items && basketWith.items.product) {
     withParams.push(
       ...productWithQueryParameterValues(basketWith.items.product).map(
-        value => `items.product.${value}`,
+        (value) => `items.product.${value}`,
       ),
     )
   }
