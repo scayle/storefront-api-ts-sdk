@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.15.0
+
+### Minor Changes
+
+- Add `tax` property to the `BasketTotalPrice` type
+
 ## 17.14.1
 
 ### Patch Changes
