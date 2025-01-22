@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.16.0
+
+### Minor Changes
+
+- [Testing] Added test factories for `basket`, `promotion`, `navigationTreeItem` and `searchSuggestion`.
+
 ## 17.15.0
 
 ### Minor Changes
