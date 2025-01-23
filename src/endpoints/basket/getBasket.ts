@@ -19,7 +19,7 @@ export type BasketItemPrice = Omit<VariantPrice, 'tax'>
 export type BasketTotalPrice = Omit<VariantPrice, 'reference'>
 
 export type BasketKey = string & {
-  readonly ____tagBasketKey: unique symbol
+  readonly ____tagBasketKey: symbol
 }
 
 export interface BasketResponseData<P = Product, V = Variant> {

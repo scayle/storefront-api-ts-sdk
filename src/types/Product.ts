@@ -83,7 +83,7 @@ export interface Stock {
  * e.g. `2018-06-01T14:56:08+02:00`
  */
 export type RFC33339Date = string & {
-  readonly ____tagRFC33339Date: unique symbol
+  readonly ____tagRFC33339Date: symbol
 }
 
 export interface Vat {
@@ -197,4 +197,4 @@ export interface AppliedReduction {
   }
 }
 
-export type CentAmount = number & { readonly ____tagCentAmount: unique symbol }
+export type CentAmount = number & { readonly ____tagCentAmount: symbol }
