@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.17.0
+
+### Minor Changes
+
+- [Types] Remove `unique` from branded types to avoid type mismatches when combining different versions of `storefront-api`.
+
 ## 17.16.0
 
 ### Minor Changes
