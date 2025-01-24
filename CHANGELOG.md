@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 17.18.0
+
+### Minor Changes
+
+- [Testing] Add `priceRange` to the product test data factory.
+
 ## 17.17.0
 
 ### Minor Changes
