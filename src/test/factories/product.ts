@@ -1,7 +1,6 @@
 import type { Attributes, Product } from '../../types/Product'
 import { Factory } from 'fishery'
-import { attributeGroupFactory } from './attribute'
-import { variantFactory } from './variant'
+import { attributeGroupFactory, priceFactory, variantFactory } from '.'
 
 export const productFactory = Factory.define<Product>((options) => {
   const attributes = {
@@ -59,5 +58,9 @@ export const productFactory = Factory.define<Product>((options) => {
       variantFactory.build({ id: 1 }),
       variantFactory.build({ id: 2 }),
     ],
+    priceRange: {
+      min: priceFactory.build(),
+      max: priceFactory.build(),
+    },
   }
 })
