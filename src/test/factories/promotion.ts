@@ -1,5 +1,6 @@
 import { Factory } from 'fishery'
-import { PromotionEffectType, type Promotion } from '../../types/Promotion'
+import { PromotionEffectType } from '../../types/Promotion'
+import type { Promotion } from '../../types/Promotion'
 import type { RFC33339Date } from '../../types/Product'
 import type { BasketItem } from '../../endpoints/basket/getBasket'
 
