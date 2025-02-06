@@ -18,7 +18,7 @@
 
 ## Getting Started
 
-Visit the [Quickstart Guide](https://scayle.dev/en/developer-guide/introduction/apis#sdk-setup) to set up the Storefront API TypeScript and JavaScript SDK
+Visit the [Quickstart Guide](https://scayle.dev/en/developer-guide/introduction/apis#sdk-setup) to set up the Storefront API TypeScript and JavaScript SDK.
 
 Visit the [Docs](https://scayle.dev) to learn more about our system requirements.
 
@@ -36,7 +36,7 @@ yarn add @scayle/storefront-api
 
 [SCAYLE](https://scayle.com) is a full-featured e-commerce software solution that comes with flexible APIs. Within SCAYLE, you can manage all aspects of your shop, such as products, stocks, customers, and transactions.
 
-Learn more about [SCAYLE’s architecture](https://scayle.dev/en/developer-guide) and [commerce modules](https://scayle.dev/en/developer-guide) in the docs.
+Learn more about [SCAYLE’s architecture](https://scayle.dev/en/developer-guide) and commerce modules in the docs.
 
 ## Community
 
