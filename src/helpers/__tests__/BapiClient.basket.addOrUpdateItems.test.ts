@@ -87,7 +87,7 @@ it.skip('bapiClient.addOrUpdateItems: Deletes existing variant variant with quan
     ],
     {},
     {
-      existingItemHandling: ExistingItemHandling.ReplaceExisting,
+      existingItemHandling: ExistingItemHandling.REPLACE_EXISTING,
     },
   )
 
@@ -319,7 +319,7 @@ it.skip('bapiClient.addOrUpdateItems: Replaces existing item (with origin quanti
     ],
     {},
     {
-      existingItemHandling: ExistingItemHandling.ReplaceExisting,
+      existingItemHandling: ExistingItemHandling.REPLACE_EXISTING,
     },
   )
 

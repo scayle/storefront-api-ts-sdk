@@ -189,6 +189,7 @@ import {
 import { parseHost } from './helpers/host'
 import type { ShopConfiguration } from './types/ShopConfiguration'
 import type { Wishlist } from './types/Wishlist'
+import type { ValuesType } from 'utility-types'
 
 // TODO: Also account for unexpected cases, where no basket is returned
 type CreateBasketItemResponse<P = Product, V = Variant> =
@@ -243,19 +244,17 @@ export type AddManyItemsBasketResponse<P = Product, V = Variant> =
 /**
  * Describes how to handle existing variants on basket item updates
  */
-export enum ExistingItemHandling {
-  // Keeps the existing variant untouched
-  KeepExisting,
 
-  // Updates the quantity of the existing item
-  AddQuantityToExisting,
+export const ExistingItemHandling = {
+  KEEP_EXISTING: 'KeepExisting',
+  ADD_QUANTITY_TO_EXISTING: 'AddQuantityToExisting',
+  REPLACE_EXISTING: 'ReplaceExisting',
+  REPLACE_EXISTING_WITH_COMBINED_QUANTITY:
+    'ReplaceExistingWithCombinedQuantity',
+} as const
 
-  // Deletes the existing item and adds the new one as it
-  ReplaceExisting,
-
-  // Deletes the existing item and adds the new one with its quantity increased by the existing value
-  ReplaceExistingWithCombinedQuantity,
-}
+// eslint-disable-next-line ts/no-redeclare -- intentionally naming the variable the same as the type
+export type ExistingItemHandling = ValuesType<typeof ExistingItemHandling>
 
 export type AddOrUpdateItemError =
   | {
@@ -293,61 +292,67 @@ type AddWishlistItemResponse =
     wishlist: Wishlist
   }
 
-export enum AddToBasketFailureKind {
-  VariantAlreadyPresent = 'VariantAlreadyPresent',
-  ItemUnvailable = 'ItemUnvailable',
-  MaximumItemCountReached = 'MaximumItemCountReached',
-  ItemDataNotFound = 'ItemDataNotFound',
-  ItemAddedWithReducedQuantity = 'ItemAddedWithReducedQuantity',
-  Unknown = 'Unknown',
-}
+export const AddToBasketFailureKind = {
+  VARIANT_ALREADY_PRESENT: 'VariantAlreadyPresent',
+  ITEM_UNAVAILABLE: 'ItemUnvailable',
+  MAXIMUM_ITEM_COUNT_REACHED: 'MaximumItemCountReached',
+  ITEM_DATA_NOT_FOUND: 'ItemDataNotFound',
+  ITEM_ADDED_WITH_REDUCED_QUANTITY: 'ItemAddedWithReducedQuantity',
+  UNKNOWN: 'Unknown',
+} as const
+// eslint-disable-next-line ts/no-redeclare -- intentionally naming the variable the same as the type
+export type AddToBasketFailureKind = ValuesType<typeof AddToBasketFailureKind>
 
 function addToBasketFailureKindFromStatusCode(
   statusCode: number,
 ): AddToBasketFailureKind {
   switch (statusCode) {
     case 409:
-      return AddToBasketFailureKind.VariantAlreadyPresent
+      return AddToBasketFailureKind.VARIANT_ALREADY_PRESENT
 
     case 412:
-      return AddToBasketFailureKind.ItemUnvailable
+      return AddToBasketFailureKind.ITEM_UNAVAILABLE
 
     case 413:
-      return AddToBasketFailureKind.MaximumItemCountReached
+      return AddToBasketFailureKind.MAXIMUM_ITEM_COUNT_REACHED
 
     case 424:
-      return AddToBasketFailureKind.ItemDataNotFound
+      return AddToBasketFailureKind.ITEM_DATA_NOT_FOUND
 
     case 206:
-      return AddToBasketFailureKind.ItemAddedWithReducedQuantity
+      return AddToBasketFailureKind.ITEM_ADDED_WITH_REDUCED_QUANTITY
 
     default:
-      return AddToBasketFailureKind.Unknown
+      return AddToBasketFailureKind.UNKNOWN
   }
 }
 
-export enum UpdateBasketItemFailureKind {
-  ItemUnvailable = 'ItemUnvailable',
-  BasketItemNotFound = 'BasketItemNotFound',
-  ItemAddedWithReducedQuantity = 'ItemAddedWithReducedQuantity',
-  Unknown = 'Unknown',
-}
+export const UpdateBasketItemFailureKind = {
+  ITEM_UNAVAILABLE: 'ItemUnavilable',
+  BASKET_ITEM_NOT_FOUND: 'BasketItemNotFound',
+  ITEM_ADDED_WITH_REDUCED_QUANTITY: 'ItemAddedWithReducedQuantity',
+  UNKNOWN: 'Unknown',
+} as const
+// eslint-disable-next-line ts/no-redeclare -- intentionally naming the variable the same as the type
+export type UpdateBasketItemFailureKind = ValuesType<
+  typeof UpdateBasketItemFailureKind
+>
 
 function updateBasketItemFailureKindFromStatusCode(
   statusCode: number,
 ): UpdateBasketItemFailureKind {
   switch (statusCode) {
     case 206:
-      return UpdateBasketItemFailureKind.ItemAddedWithReducedQuantity
+      return UpdateBasketItemFailureKind.ITEM_ADDED_WITH_REDUCED_QUANTITY
 
     case 404:
-      return UpdateBasketItemFailureKind.BasketItemNotFound
+      return UpdateBasketItemFailureKind.BASKET_ITEM_NOT_FOUND
 
     case 412:
-      return UpdateBasketItemFailureKind.ItemUnvailable
+      return UpdateBasketItemFailureKind.ITEM_UNAVAILABLE
 
     default:
-      return UpdateBasketItemFailureKind.Unknown
+      return UpdateBasketItemFailureKind.UNKNOWN
   }
 }
 
@@ -501,7 +506,7 @@ export class StorefrontAPIClient {
      * This method throws if the initial basket GET fails.
      *
      * If the caller specifies any of `customData`, `displayData`, or `pricePromotionKey` this will update the _entire_ `customData` for that specific basket item.
-     * There is one notable exception: If `ExistingItemHandling.AddQuantityToExisting` is specified, the previous display data will be preserved.
+     * There is one notable exception: If `ExistingItemHandling.ADD_QUANTITY_TO_EXISTING` is specified, the previous display data will be preserved.
      */
     addOrUpdateItems: async (
       basketKey: string,
@@ -520,7 +525,7 @@ export class StorefrontAPIClient {
         existingItemHandling: ExistingItemHandling
       } = {
         existingItemHandling:
-          ExistingItemHandling.ReplaceExistingWithCombinedQuantity,
+          ExistingItemHandling.REPLACE_EXISTING_WITH_COMBINED_QUANTITY,
       },
     ): Promise<AddManyItemsBasketResponse> => {
       const initialBasketResponse = await this.basket.get(
@@ -553,11 +558,11 @@ export class StorefrontAPIClient {
           if (quantity === 0) {
             // Delete item if existing should not be kept
             switch (options.existingItemHandling) {
-              case ExistingItemHandling.KeepExisting:
-              case ExistingItemHandling.AddQuantityToExisting:
+              case ExistingItemHandling.KEEP_EXISTING:
+              case ExistingItemHandling.ADD_QUANTITY_TO_EXISTING:
                 continue
 
-              case ExistingItemHandling.ReplaceExisting:
+              case ExistingItemHandling.REPLACE_EXISTING:
                 await client.deleteItem(
                   existingBasketItem.key,
                   params,
@@ -565,7 +570,7 @@ export class StorefrontAPIClient {
                 )
                 break
 
-              case ExistingItemHandling.ReplaceExistingWithCombinedQuantity:
+              case ExistingItemHandling.REPLACE_EXISTING_WITH_COMBINED_QUANTITY:
                 // Delete the existing item, and use the current parameters to create a new item with the existing quantity (as the quantity here was 0)
                 await client.deleteItem(
                   existingBasketItem.key,
@@ -582,10 +587,10 @@ export class StorefrontAPIClient {
           } else {
             // Quantity > 0
             switch (options.existingItemHandling) {
-              case ExistingItemHandling.KeepExisting:
+              case ExistingItemHandling.KEEP_EXISTING:
                 continue // leave existing untouched
 
-              case ExistingItemHandling.AddQuantityToExisting:
+              case ExistingItemHandling.ADD_QUANTITY_TO_EXISTING:
                 // update existing with combined quantity
                 await client.updateItem(
                   existingBasketItem.key,
@@ -595,7 +600,7 @@ export class StorefrontAPIClient {
                 )
                 continue
 
-              case ExistingItemHandling.ReplaceExisting:
+              case ExistingItemHandling.REPLACE_EXISTING:
                 // delete existing
                 await client.deleteItem(
                   existingBasketItem.key,
@@ -607,7 +612,7 @@ export class StorefrontAPIClient {
                 await client.addItem(variantId, quantity, params)
                 break
 
-              case ExistingItemHandling.ReplaceExistingWithCombinedQuantity:
+              case ExistingItemHandling.REPLACE_EXISTING_WITH_COMBINED_QUANTITY:
                 // delete existing
                 await client.deleteItem(
                   existingBasketItem.key,
@@ -1099,7 +1104,7 @@ class BasketMultiOperationsClient {
     } catch (e) {
       this.errors.push({
         operation: 'add',
-        kind: AddToBasketFailureKind.Unknown,
+        kind: AddToBasketFailureKind.UNKNOWN,
         statusCode: -1,
         variantId,
         message: `${e}`,
@@ -1140,7 +1145,7 @@ class BasketMultiOperationsClient {
         operation: 'update',
         basketItemKey: itemKey,
         statusCode: -1,
-        kind: UpdateBasketItemFailureKind.Unknown,
+        kind: UpdateBasketItemFailureKind.UNKNOWN,
         variantId: debugVariantId,
         message: `${e}`,
       })

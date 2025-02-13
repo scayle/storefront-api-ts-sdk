@@ -5,6 +5,7 @@ import {
 import type { CentAmount } from '../../types/Product'
 import type { ArrayMinLength } from '../../types/ArrayMinLength'
 import type { StorefrontAPICall } from '../../helpers/execute'
+import type { ValuesType } from 'utility-types'
 
 export interface FiltersEndpointParameters {
   where?: ProductSearchQuery
@@ -60,13 +61,14 @@ export type RangeFilterValue = [
     productCount: number
   },
 ]
-
-export enum FilterTypes {
-  BOOLEAN = 'boolean',
-  ATTRIBUTES = 'attributes',
-  IDENTIFIER = 'identifier',
-  RANGE = 'range',
-}
+export const FilterTypes = {
+  BOOLEAN: 'boolean',
+  ATTRIBUTES: 'attributes',
+  IDENTIFIER: 'identifier',
+  RANGE: 'range',
+} as const
+// eslint-disable-next-line ts/no-redeclare -- intentionally naming the variable the same as the type
+export type FilterTypes = ValuesType<typeof FilterTypes>
 
 export type FilterItemWithValues =
   | BooleanFilterItemWithValues
@@ -79,15 +81,14 @@ export interface BooleanFilterItemWithValues {
   slug: string
   name: string
   values: BooleanFilterValue
-  type: FilterTypes.BOOLEAN
+  type: typeof FilterTypes.BOOLEAN
 }
-
 export interface AttributesFilterItemWithValues {
   id: number | null
   slug: string
   name: string
   values: AttributesFilterValue[]
-  type: FilterTypes.ATTRIBUTES
+  type: typeof FilterTypes.ATTRIBUTES
   attributeGroupType: string
 }
 
@@ -96,14 +97,14 @@ export interface RangeFilterItemWithValues {
   slug: string
   name: string
   values: RangeFilterValue
-  type: FilterTypes.RANGE
+  type: typeof FilterTypes.RANGE
 }
 
 export interface IdenfitierFilterItemWithValues {
   slug: string
   name: string
   values: IdentifierFilterValue[]
-  type: FilterTypes.IDENTIFIER
+  type: typeof FilterTypes.IDENTIFIER
 }
 
 export type FiltersEndpointResponseData = FilterItemWithValues[]

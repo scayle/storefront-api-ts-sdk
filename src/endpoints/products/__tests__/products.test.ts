@@ -41,9 +41,9 @@ it('builds correct query', () => {
   expect(
     createProductsSearchEndpointRequest({
       sort: {
-        by: ProductStandardSorting.DateAdded,
+        by: ProductStandardSorting.DATE_ADDED,
         channel: 'size',
-        direction: SortOrder.Descending,
+        direction: SortOrder.DESCENDING,
         score: 'category_scores',
       },
       campaignKey: 'px',

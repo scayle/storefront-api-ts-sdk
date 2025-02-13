@@ -1,3 +1,4 @@
+import type { ValuesType } from 'utility-types'
 import type { StorefrontAPICall } from '../../helpers/execute'
 import type {
   Wishlist,
@@ -28,12 +29,16 @@ export interface AddWishlistItemParameters {
   customData?: WishlistItemCustomData
 }
 
-export enum AddToWishlistFailureKind {
-  ItemUnavailable = 'ItemUnavailable',
-  MaximumItemCountReached = 'MaximumItemCountReached',
-  ItemAlreadyPresent = 'ItemAlreadyPresent',
-  Unknown = 'Unknown',
-}
+export const AddToWishlistFailureKind = {
+  ITEM_UNAVAILABLE: 'ItemUnavailable',
+  MAXIMUM_ITEM_COUNT_REACHED: 'MaximumItemCountReached',
+  ITEM_ALREADY_PRESENT: 'ItemAlreadyPresent',
+  UNKNOWN: 'Unknown',
+} as const
+// eslint-disable-next-line ts/no-redeclare -- intentionally naming the variable the same as the type
+export type AddToWishlistFailureKind = ValuesType<
+  typeof AddToWishlistFailureKind
+>
 
 export function addWishlistItemEndpointRequest(
   params: AddWishlistItemParameters,
@@ -66,15 +71,15 @@ export function addToWishlistFailureKindFromStatusCode(
 ): AddToWishlistFailureKind {
   switch (statusCode) {
     case 409:
-      return AddToWishlistFailureKind.ItemAlreadyPresent
+      return AddToWishlistFailureKind.ITEM_ALREADY_PRESENT
 
     case 412:
-      return AddToWishlistFailureKind.ItemUnavailable
+      return AddToWishlistFailureKind.ITEM_UNAVAILABLE
 
     case 413:
-      return AddToWishlistFailureKind.MaximumItemCountReached
+      return AddToWishlistFailureKind.MAXIMUM_ITEM_COUNT_REACHED
 
     default:
-      return AddToWishlistFailureKind.Unknown
+      return AddToWishlistFailureKind.UNKNOWN
   }
 }

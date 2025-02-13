@@ -1,3 +1,4 @@
+import type { ValuesType } from 'utility-types'
 import type { RFC33339Date } from './Product'
 
 export interface PromotionCustomData {
@@ -10,13 +11,15 @@ export interface PromotionCondition {
   condition: string
 }
 
-export enum PromotionEffectType {
-  AutomaticDiscount = 'automatic_discount',
-  BuyXGetY = 'buy_x_get_y',
-}
+export const PromotionEffectType = {
+  AUTOMATIC_DISCOUNT: 'automatic_discount',
+  BUY_X_GET_Y: 'buy_x_get_y',
+} as const
+// eslint-disable-next-line ts/no-redeclare -- intentionally naming the variable the same as the type
+export type PromotionEffectType = ValuesType<typeof PromotionEffectType>
 
 export interface AutomaticDiscountEffect {
-  type: PromotionEffectType.AutomaticDiscount
+  type: typeof PromotionEffectType.AUTOMATIC_DISCOUNT
   additionalData: {
     type: 'absolute' | 'relative'
     value: number
@@ -24,7 +27,7 @@ export interface AutomaticDiscountEffect {
 }
 
 export interface BuyXGetYEffect {
-  type: PromotionEffectType.BuyXGetY
+  type: typeof PromotionEffectType.BUY_X_GET_Y
   additionalData: {
     maxCount: number
     variantIds: number[]

@@ -45,7 +45,7 @@ it.skip('gets multiple campaigns', async () => {
   const campaignsResponse = await bapi.campaigns.get({
     sort: {
       by: CampaignSortOption.Id,
-      direction: APISortOrder.Ascending,
+      direction: APISortOrder.ASCENDING,
     },
   })
 

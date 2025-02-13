@@ -11,7 +11,7 @@ export const automaticDiscountPromotionFactory = Factory.define<
     id: '66951014684cc17335766006',
     name: 'Automatic discount',
     effect: {
-      type: PromotionEffectType.AutomaticDiscount,
+      type: PromotionEffectType.AUTOMATIC_DISCOUNT,
       additionalData: {
         type: 'relative',
         value: 10,
@@ -65,7 +65,7 @@ export const buyXgetYPromotionFactory = Factory.define<
 >(() => ({
   id: '77962bd0684cc1733576601d',
   effect: {
-    type: PromotionEffectType.BuyXGetY,
+    type: PromotionEffectType.BUY_X_GET_Y,
     additionalData: {
       maxCount: 1,
       variantIds: [

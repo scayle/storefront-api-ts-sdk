@@ -15,7 +15,7 @@ it('builds correct endpoint request with single sort option', () => {
   expect(
     createCampaignsEndpointRequest({
       sort: {
-        by: CampaignStandardSorting.EndAt,
+        by: CampaignStandardSorting.END_AT,
       },
     }),
   ).toMatchInlineSnapshot(`
@@ -33,8 +33,8 @@ it('builds correct endpoint request with sort options', () => {
   expect(
     createCampaignsEndpointRequest({
       sort: {
-        by: CampaignStandardSorting.Id,
-        direction: SortOrder.Ascending,
+        by: CampaignStandardSorting.ID,
+        direction: SortOrder.ASCENDING,
       },
     }),
   ).toMatchInlineSnapshot(`
@@ -73,8 +73,8 @@ it('builds correct endpoint request with sort options and pagination', () => {
   expect(
     createCampaignsEndpointRequest({
       sort: {
-        by: CampaignStandardSorting.Id,
-        direction: SortOrder.Ascending,
+        by: CampaignStandardSorting.ID,
+        direction: SortOrder.ASCENDING,
       },
       pagination: {
         page: 6,

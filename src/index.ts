@@ -3,6 +3,7 @@ export {
   StorefrontAPIClient,
   ExistingItemHandling,
   AddToBasketFailureKind,
+  UpdateBasketItemFailureKind,
 } from './StorefrontAPIClient'
 export type {
   StorefrontAPIAuth,
