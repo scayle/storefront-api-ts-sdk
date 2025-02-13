@@ -1,5 +1,69 @@
 # @scayle/storefront-api
 
+## 18.0.0
+
+### Major Changes
+
+- Convert `FilterTypes`, `AddToWishlistFailureKind`, `PromotionEffectType`, `ProductStandardSorting`, `CampaignStandardSorting`, `CampaignStandardSorting`, `SortOrder`,`ExistingItemHandling`, `AddToBasketFailureKind` and `UpdateBasketItemFailureKind` enums to object literals. This allows not only importing the type, but also the value of member directly.
+
+  This results in the following changes:
+
+  - Enum names have been renamed to match the constant naming convention. For Example:
+
+    ```TypeScript
+    import { ExistingItemHandling } from '@scayle/storefront-api'
+    ExistingItemHandling.KeepExisting
+
+    // will become
+
+    import { ExistingItemHandling } from '@scayle/storefront-api'
+    ExistingItemHandling.KEEP_EXISTING
+    ```
+
+  - When an enum was imported and used as a type, the import must be adjusted to import the type from the module.
+
+    ```TypeScript
+    import { FilterTypes } from '@scayle/storefront-api'
+
+    interface Example1 {
+      type: FilterTypes
+    }
+
+    interface Example2 {
+      type: FilterTypes.BOOLEAN
+    }
+
+    // will become
+
+    import { FilterTypes } from '@scayle/storefront-api'
+    import type { FilterTypes as FilterTypesType } from '@scayle/storefront-api'
+
+    interface Example1 {
+      type: FilterTypesType
+    }
+
+    interface Example2 {
+      type: typeof FilterTypes.BOOLEAN
+    }
+    ```
+
+  - Reverse mapping from enum value to enum name will no longer work out of the box.
+
+    ```TypeScript
+    import { ExistingItemHandling } from '@scayle/storefront-api'
+    const name = ExistingItemHandling[ExistingItemHandling.KeepExisting]
+
+    // will become
+
+    import { ExistingItemHandling } from '@scayle/storefront-api'
+    const name = Object.entries(ExistingItemHandling)
+      .find(([key, value]) => value === ExistingItemHandling.KeepExisting)?.[0]
+    ```
+
+### Patch Changes
+
+- Added dependency `utility-types@3.11.0`
+
 ## 17.18.0
 
 ### Minor Changes
