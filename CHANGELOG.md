@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.1.0
+
+### Minor Changes
+
+- Expose `CategoryFilter` type from SAPI
+
 ## 18.0.0
 
 ### Major Changes
