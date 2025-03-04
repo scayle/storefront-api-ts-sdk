@@ -39,12 +39,8 @@ export type {
   BrandsEndpointRequestParameters,
   BrandsEndpointResponseData,
 } from './endpoints/brands/brands'
-export type {
-  BrandByIdEndpointResponseData,
-} from './endpoints/brands/brandById'
-export type {
-  BrandBySlugEndpointResponseData,
-} from './endpoints/brands/brandBySlug'
+export type { BrandByIdEndpointResponseData } from './endpoints/brands/brandById'
+export type { BrandBySlugEndpointResponseData } from './endpoints/brands/brandBySlug'
 
 // Shop Configuration
 export type {
@@ -82,9 +78,7 @@ export type {
 } from './types/Wishlist'
 export type { GetWishlistParameters } from './endpoints/wishlist/getWishlist'
 export type { DeleteWishlistParameters } from './endpoints/wishlist/deleteWishlistItem'
-export type {
-  AddWishlistItemParameters,
-} from './endpoints/wishlist/addWishlistItem'
+export type { AddWishlistItemParameters } from './endpoints/wishlist/addWishlistItem'
 export { AddToWishlistFailureKind } from './endpoints/wishlist/addWishlistItem'
 
 // Campaigns
@@ -203,15 +197,9 @@ export type {
 // Category
 export type { Category, CategoryProperty } from './types/Category'
 export type { RootCategoriesEndpointParameters } from './endpoints/categories/categories'
-export type {
-  CategoriesByIdsEndpointParameters,
-} from './endpoints/categories/categoriesByIds'
-export type {
-  CategoryByIdEndpointParameters,
-} from './endpoints/categories/categoryById'
-export type {
-  CategoryBySlugEndpointParameters,
-} from './endpoints/categories/categoryBySlug'
+export type { CategoriesByIdsEndpointParameters } from './endpoints/categories/categoriesByIds'
+export type { CategoryByIdEndpointParameters } from './endpoints/categories/categoryById'
+export type { CategoryBySlugEndpointParameters } from './endpoints/categories/categoryBySlug'
 
 export type { AttributeInclude } from './helpers/attributes'
 
@@ -251,6 +239,7 @@ export { FetchError } from './helpers/FetchError'
 // Search
 export type {
   SearchEntity,
+  CategoryFilter,
   ProductSearchSuggestion,
   CategorySearchSuggestion,
   NavigationItemSuggestion,
