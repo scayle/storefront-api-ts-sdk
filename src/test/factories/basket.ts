@@ -11,14 +11,18 @@ import type {
 } from '../../endpoints/basket/getBasket'
 import type { CentAmount } from '../../types/Product'
 
-export const basketItemPriceFactory = Factory.define<BasketItemPrice>(() => ({
+export const basketItemPriceFactory: Factory<BasketItemPrice> = Factory.define<
+  BasketItemPrice
+>(() => ({
   currencyCode: 'USD',
   withoutTax: 2 as CentAmount,
   withTax: 100 as CentAmount,
   appliedReductions: [],
 }))
 
-export const basketItemFactory = Factory.define<BasketItem>(() => ({
+export const basketItemFactory: Factory<BasketItem> = Factory.define<
+  BasketItem
+>(() => ({
   key: 'baket-item-base-key',
   packageId: 1,
   quantity: 1,
@@ -42,7 +46,9 @@ export const basketItemFactory = Factory.define<BasketItem>(() => ({
   promotion: undefined,
 }))
 
-export const basketItemsFactory = Factory.define<BasketItem[]>(() => [
+export const basketItemsFactory: Factory<BasketItem[]> = Factory.define<
+  BasketItem[]
+>(() => [
   basketItemFactory.build({
     key: 'baket-item-test-1',
     price: {
@@ -203,7 +209,9 @@ export const basketItemsFactory = Factory.define<BasketItem[]>(() => [
   }),
 ])
 
-export const costFactory = Factory.define<BasketTotalPrice>(() => ({
+export const costFactory: Factory<BasketTotalPrice> = Factory.define<
+  BasketTotalPrice
+>(() => ({
   currencyCode: 'EUR',
   withTax: 20082 as CentAmount,
   withoutTax: 10041 as CentAmount,

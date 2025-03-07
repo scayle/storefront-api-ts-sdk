@@ -21,7 +21,9 @@ export interface SearchV2With {
   }
 }
 
-export const searchV2WithParamsToQuery = (includes?: SearchV2With) => {
+export const searchV2WithParamsToQuery = (
+  includes?: SearchV2With,
+): { with?: string; 'category.depth'?: number } => {
   const params = []
   let depth = 0
 

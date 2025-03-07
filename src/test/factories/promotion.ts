@@ -4,7 +4,9 @@ import type { Promotion } from '../../types/Promotion'
 import type { RFC33339Date } from '../../types/Product'
 import type { BasketItem } from '../../endpoints/basket/getBasket'
 
-export const automaticDiscountPromotionFactory = Factory.define<
+export const automaticDiscountPromotionFactory: Factory<
+  Promotion | Required<BasketItem>['promotion']
+> = Factory.define<
   Promotion | Required<BasketItem>['promotion']
 >(
   () => ({
@@ -60,7 +62,9 @@ export const automaticDiscountPromotionFactory = Factory.define<
   }),
 )
 
-export const buyXgetYPromotionFactory = Factory.define<
+export const buyXgetYPromotionFactory: Factory<
+  Promotion | Required<BasketItem>['promotion']
+> = Factory.define<
   Promotion | Required<BasketItem>['promotion']
 >(() => ({
   id: '77962bd0684cc1733576601d',

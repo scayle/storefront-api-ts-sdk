@@ -1,4 +1,4 @@
-export const encodeBase64 = (string: string) => {
+export const encodeBase64: (string: string) => string = (string: string) => {
   // node
   // eslint-disable-next-line node/prefer-global/buffer
   if (typeof Buffer === 'function') {

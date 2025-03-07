@@ -1,10 +1,11 @@
+import type { Scope } from 'nock'
 import nock from 'nock'
 
 interface Config {
   shopIdHeader?: true
 }
 
-export function disableNetAndAllowBapiCors(config?: Config) {
+export function disableNetAndAllowBapiCors(config?: Config): void {
   nock.disableNetConnect()
 
   if (config && config.shopIdHeader) {
@@ -22,7 +23,7 @@ export function disableNetAndAllowBapiCors(config?: Config) {
   }
 }
 
-export function nockWithBapiScope(config?: Config) {
+export function nockWithBapiScope(config?: Config): Scope {
   return nock('https://api-cloud.example.com/', {
     reqheaders: config && config.shopIdHeader
       ? {

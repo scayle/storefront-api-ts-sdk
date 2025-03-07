@@ -23,9 +23,15 @@ export interface CategoryEndpointsParameters {
   includeHidden?: true
 }
 
+interface CategoryQueryParameters {
+  with?: string
+  depth?: number
+  showHidden?: 'true'
+}
+
 export function parametersForCategoryEndpoint(
   parameters: CategoryEndpointsParameters,
-) {
+): CategoryQueryParameters {
   return {
     ...categoryWithQueryParameters(parameters.with),
 
@@ -35,7 +41,7 @@ export function parametersForCategoryEndpoint(
 
 export function categoryWithQueryParameters(
   categoryWith?: CategoryEndpointsParameters['with'],
-): { with?: string; depth?: number; showHidden?: 'true' } {
+): CategoryQueryParameters {
   if (!categoryWith) {
     return {
       depth: 1,

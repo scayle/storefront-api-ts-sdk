@@ -1,8 +1,10 @@
 import type { StorefrontAPIAuth } from '../StorefrontAPIClient'
 import { FetchError } from './FetchError'
 
-export const getParamsString = (
+export const getParamsString: (
   params: Partial<Record<string, string | number | boolean>>,
+) => string = (
+  params,
 ) => {
   let query = ''
   for (const [key, value] of Object.entries(params)) {

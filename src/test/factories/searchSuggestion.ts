@@ -10,7 +10,9 @@ import {
   categoryFactory,
 } from '.'
 
-export const categorySearchSuggestionFactory = Factory.define<
+export const categorySearchSuggestionFactory: Factory<
+  CategorySearchSuggestion
+> = Factory.define<
   CategorySearchSuggestion
 >(() => ({
   type: 'category',
@@ -19,16 +21,19 @@ export const categorySearchSuggestionFactory = Factory.define<
     filters: [],
   },
 }))
-export const productSearchSuggestionFactory = Factory.define<
-  ProductSearchSuggestion
->(() => ({
-  type: 'product',
-  productSuggestion: {
-    product: productFactory.build(),
-  },
-}))
+export const productSearchSuggestionFactory: Factory<ProductSearchSuggestion> =
+  Factory.define<
+    ProductSearchSuggestion
+  >(() => ({
+    type: 'product',
+    productSuggestion: {
+      product: productFactory.build(),
+    },
+  }))
 
-export const navigationItemSuggestionFactory = Factory.define<
+export const navigationItemSuggestionFactory: Factory<
+  NavigationItemSuggestion
+> = Factory.define<
   NavigationItemSuggestion
 >(() => ({
   type: 'navigationItem',

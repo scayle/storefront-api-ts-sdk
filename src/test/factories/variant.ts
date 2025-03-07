@@ -2,7 +2,7 @@ import type { Variant, RFC33339Date } from '../../types/Product'
 import { Factory } from 'fishery'
 import { priceFactory } from './price'
 
-export const variantFactory = Factory.define<Variant>(() => ({
+export const variantFactory: Factory<Variant> = Factory.define<Variant>(() => ({
   id: 1,
   lowestPriorPrice: {
     withTax: 23,

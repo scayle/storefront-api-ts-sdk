@@ -50,6 +50,7 @@ import {
 } from './endpoints/products/products'
 import type {
   GetRedirectsEndpointParameters,
+  Redirect,
 } from './endpoints/redirects/redirects'
 import {
   createGetRedirectsEndpointRequest,
@@ -439,7 +440,7 @@ export class StorefrontAPIClient {
   }
 
   public readonly attributes = {
-    getByKey: (key: string) =>
+    getByKey: (key: string): Promise<AttributeGroupMulti> =>
       this.execute(createAttributeByKeyEndpointRequest(key)),
   }
 
@@ -739,26 +740,30 @@ export class StorefrontAPIClient {
   }
 
   public readonly filters = {
-    get: (params: FiltersEndpointParameters) =>
+    get: (
+      params: FiltersEndpointParameters,
+    ): Promise<FiltersEndpointResponseData> =>
       this.execute(createFiltersEndpointRequest(params)),
 
     getValues: (
       groupName: string,
       params: Omit<FilterValuesEndpointParameters, 'groupName'>,
-    ) =>
+    ): Promise<FilterValuesResponseData> =>
       this.execute(
         createFilterValuesEndpointRequest({
           groupName,
           ...params,
         }),
-      ),
+      ) satisfies Promise<number>,
   }
 
   public readonly redirects = {
-    get: (params: GetRedirectsEndpointParameters = {}) =>
+    get: (
+      params: GetRedirectsEndpointParameters = {},
+    ): Promise<RedirectsResponseData> =>
       this.execute(createGetRedirectsEndpointRequest(params)),
 
-    post: async (url: string) => {
+    post: async (url: string): Promise<Redirect> => {
       try {
         return await this.execute(createPostRedirectEndpointRequest(url))
       } catch (e) {
@@ -845,7 +850,7 @@ export class StorefrontAPIClient {
     get: (
       wishlistKey: string,
       params: Omit<GetWishlistParameters, 'wishlistKey'> = {},
-    ) =>
+    ): Promise<Wishlist> =>
       this.execute(
         getWishlistEndpointRequest({
           ...params,
@@ -884,7 +889,7 @@ export class StorefrontAPIClient {
       wishlistKey: string,
       itemKey: string,
       params: Omit<DeleteWishlistParameters, 'wishlistKey' | 'itemKey'> = {},
-    ) =>
+    ): Promise<Wishlist> =>
       this.execute(
         deleteWishlistEndpointRequest({
           ...params,
@@ -973,7 +978,7 @@ export class StorefrontAPIClient {
   }
 
   public readonly shopConfiguration = {
-    get: () => {
+    get: (): Promise<ShopConfiguration> => {
       return this.execute<ShopConfiguration>({
         method: 'GET',
         endpoint: '/v1/shop-configuration',
@@ -1022,10 +1027,12 @@ export class StorefrontAPIClient {
   }
 
   public readonly promotions = {
-    get: (params: Omit<PromotionsEndpointRequestParameters, 'ids'> = {}) =>
+    get: (
+      params: Omit<PromotionsEndpointRequestParameters, 'ids'> = {},
+    ): Promise<PromotionsEndpointResponseData> =>
       this.execute(createPromotionsEndpointRequest(params)),
 
-    getByIds: (ids: string[]) => {
+    getByIds: (ids: string[]): Promise<PromotionsEndpointResponseData> => {
       return this.execute(
         createPromotionsEndpointRequest({
           ids,

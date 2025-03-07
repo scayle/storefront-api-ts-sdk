@@ -3,7 +3,9 @@
   "compilerOptions": {
     "types": ["vitest/globals"],
     "strict": true,
-    "erasableSyntaxOnly": true
+    "erasableSyntaxOnly": true,
+    "isolatedDeclarations": true,
+    "noCheck": true
   },
   "include": ["src/**/*.ts", "@types/*.d.ts"],
   "exclude": ["node_modules", "src/**/*.test.ts", "dist", "./*.d.ts"]

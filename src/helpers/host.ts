@@ -6,7 +6,7 @@
  *
  * @param host
  */
-export const parseHost = (host: string) => {
+export const parseHost = (host: string): string => {
   if (host.startsWith('https://')) {
     return new URL(host).host
   }
