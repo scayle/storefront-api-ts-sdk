@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "types": ["vitest/globals"],
-    "strict": true
+    "strict": true,
+    "erasableSyntaxOnly": true
   },
   "include": ["src/**/*.ts", "@types/*.d.ts"],
   "exclude": ["node_modules", "src/**/*.test.ts", "dist", "./*.d.ts"]
