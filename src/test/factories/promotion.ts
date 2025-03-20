@@ -5,7 +5,7 @@ import type { RFC33339Date } from '../../types/Product'
 import type { BasketItem } from '../../endpoints/basket/getBasket'
 
 export const automaticDiscountPromotionFactory = Factory.define<
-  Promotion | BasketItem['promotion']
+  Promotion | Required<BasketItem>['promotion']
 >(
   () => ({
     id: '66951014684cc17335766006',
@@ -61,7 +61,7 @@ export const automaticDiscountPromotionFactory = Factory.define<
 )
 
 export const buyXgetYPromotionFactory = Factory.define<
-  Promotion | BasketItem['promotion']
+  Promotion | Required<BasketItem>['promotion']
 >(() => ({
   id: '77962bd0684cc1733576601d',
   effect: {
