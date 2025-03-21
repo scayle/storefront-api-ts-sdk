@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.1.1
+
+### Patch Changes
+
+- Use correct return type for promotion test factories (`automaticDiscountPromotionFactory` and `buyXgetYPromotionFactory`).
+
 ## 18.1.0
 
 ### Minor Changes
