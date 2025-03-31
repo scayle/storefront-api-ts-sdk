@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.2.0
+
+### Minor Changes
+
+- Add `attributeGroupSingleFactory` and `attributeGroupMultiFactory` test factories.
+
 ## 18.1.1
 
 ### Patch Changes
@@ -154,14 +160,14 @@
 
   ```ts
   await client.wishlist.addItem(
-    'wishlistKey ',
+    "wishlistKey ",
     { variantId: 100 },
     {
       customData: {
-        data: 'data',
+        data: "data",
       },
-    },
-  )
+    }
+  );
   ```
 
 ## 17.9.4
@@ -234,13 +240,13 @@
 - Support multiple sorting keys at the same time for the products search endpoint.
 
   ```ts
-  const client = new StorefrontAPIClient({})
+  const client = new StorefrontAPIClient({});
 
   const products = await client.products.query({
     sort: {
-      sortingKey: ['sortingKey1', 'sortingKey2'],
+      sortingKey: ["sortingKey1", "sortingKey2"],
     },
-  })
+  });
   ```
 
 ## 17.4.4
@@ -332,9 +338,9 @@
   We now also export a `ShopCustomData` and `ShopCountryCustomData` type that can be used to define your custom data by augmenting the TypeScript type definition of `@scayle/storefront-api` like follows:
 
   ```ts
-  declare module '@scayle/storefront-api' {
+  declare module "@scayle/storefront-api" {
     interface ShopCountryCustomData {
-      isEnabled: boolean
+      isEnabled: boolean;
     }
   }
   ```
@@ -349,8 +355,7 @@
 
 ### Major Changes
 
--
-  - Rename `BapiClient` to `StorefrontAPIClient`
+- - Rename `BapiClient` to `StorefrontAPIClient`
   - Rename `BapiAuthentication` to `StorefrontAPIAuth`
   - Drop support for basic authentication
   - Drop support for header shop id placement
