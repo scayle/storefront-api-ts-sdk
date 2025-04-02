@@ -1,4 +1,4 @@
-import type { Promotion } from '../../types/Promotion'
+import type { Promotion, PromotionEffect } from '../../types/Promotion'
 import { prefixList } from '../../helpers/attributes'
 import type {
   LowestPriorPrice,
@@ -47,7 +47,7 @@ export interface ItemGroup {
   isRequired: boolean
 }
 
-export interface BasketItem<P = Product, V = Variant> {
+export interface BasketItem<P = Product, V = Variant, PE = PromotionEffect> {
   key: string
   customData: unknown
   packageId: number
@@ -74,7 +74,7 @@ export interface BasketItem<P = Product, V = Variant> {
   displayData: BasketItemDisplayData
   itemGroup?: ItemGroup
   promotionId?: string
-  promotion?: Promotion & {
+  promotion?: Promotion<PE> & {
     isValid: boolean
     failedConditions: Array<{
       key: string

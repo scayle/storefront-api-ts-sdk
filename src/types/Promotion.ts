@@ -36,7 +36,7 @@ export interface BuyXGetYEffect {
 
 export type PromotionEffect = AutomaticDiscountEffect | BuyXGetYEffect
 
-export interface Promotion {
+export interface Promotion<Effect = PromotionEffect> {
   id: string
   name: string
   schedule: {
@@ -44,7 +44,7 @@ export interface Promotion {
     to: RFC33339Date
   }
   isActive: boolean
-  effect: PromotionEffect
+  effect: Effect
   conditions: PromotionCondition[]
   customData: PromotionCustomData
   priority: number
