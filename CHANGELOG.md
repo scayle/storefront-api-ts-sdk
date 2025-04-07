@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.2.2
+
+### Patch Changes
+
+- Update `ProductCategory` interface with the missing `categoryHidden` and `categorySlug` properties.
+
 ## 18.2.1
 
 ### Patch Changes
