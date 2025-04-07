@@ -45,6 +45,8 @@ export interface ProductCategory {
   categoryName: string
   categoryUrl: string
   categoryProperties?: CategoryProperty[]
+  categoryHidden: boolean
+  categorySlug: string
 }
 
 export interface ProductImage {
