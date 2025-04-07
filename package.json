@@ -81,7 +81,7 @@
     "eslint": "9.24.0",
     "eslint-formatter-gitlab": "5.1.0",
     "fishery": "2.2.3",
-    "nock": "14.0.2",
+    "nock": "14.0.3",
     "publint": "0.2.12",
     "rimraf": "6.0.1",
     "typescript": "5.8.3",
