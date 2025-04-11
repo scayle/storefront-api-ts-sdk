@@ -1,5 +1,16 @@
 # @scayle/storefront-api
 
+## 18.3.0
+
+### Minor Changes
+
+- Added missing attributes `masterCategories`, `definingAttributes`, `firstLiveAt` and `indexedAt` to the `Product` interface.
+- Added missing attribute `merchant` to the `Variant` interface.
+
+### Patch Changes
+
+- Renamed test factory `buyXGetYPromotionFactory` to `buyXGetYPromotionFactory` to use proper casing.
+
 ## 18.2.2
 
 ### Patch Changes
