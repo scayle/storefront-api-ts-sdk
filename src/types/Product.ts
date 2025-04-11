@@ -1,6 +1,13 @@
 import type { CategoryProperty } from '../types/Category'
 import type { ObjectMap } from './ObjectMap'
 
+export interface MasterCategory {
+  categoryId: number
+  categoryName: string
+  categoryParentId: number
+  categoryPath: string
+}
+
 export interface Product {
   id: number
   isActive: boolean
@@ -21,6 +28,13 @@ export interface Product {
   baseCategories?: BaseCategory[]
   lowestPriorPrice?: LowestPriorPrice
   searchCategoryIds?: number[]
+  masterCategories?: MasterCategory[]
+  definingAttributes?: {
+    id: number
+    label: string
+  }
+  firstLiveAt?: Date
+  indexedAt?: Date
 }
 
 export interface LowestPriorPrice {
