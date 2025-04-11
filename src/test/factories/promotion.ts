@@ -72,7 +72,7 @@ export const automaticDiscountPromotionFactory: Factory<
   },
 }))
 
-export const buyXgetYPromotionFactory: Factory<
+export const buyXGetYPromotionFactory: Factory<
   | Promotion<BuyXGetYEffect>
   | (Promotion<BuyXGetYEffect> & {
     isValid: boolean
