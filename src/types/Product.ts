@@ -111,6 +111,32 @@ export interface Tax {
   vat: Vat
 }
 
+export interface Merchant {
+  id: number
+  key: string
+  name: string
+  legal?: {
+    legalName?: string
+    parentCompanyLegalName?: string
+    streetWithNumber?: string
+    zip?: string
+    city?: string
+    country?: string
+    telephone?: string
+    email?: string
+    registryCourtCity?: string
+    registerNumber?: string
+    parentCompanyRegistryCourtCity?: string
+    parentCompanyRegisterNumber?: string
+    managingDirectors?: string
+    representative?: string
+    shippingMerchantName?: string
+    registryCourtType?: string
+    parentCompanyRegistryCourtType?: string
+    vatId?: string
+  }
+}
+
 export interface Variant {
   id: number
   referenceKey?: string
@@ -122,6 +148,7 @@ export interface Variant {
   attributes?: Attributes
   advancedAttributes?: AdvancedAttributes
   lowestPriorPrice?: LowestPriorPrice
+  merchant?: Merchant
 }
 
 interface AttributeGroupBasic {
