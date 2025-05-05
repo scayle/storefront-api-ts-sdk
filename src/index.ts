@@ -172,6 +172,7 @@ export type {
 } from './types/navigation'
 
 // Filters
+export type { FilterValuesEndpointParameters } from './endpoints/filters/filterValues'
 export { FilterTypes } from './endpoints/filters/filters'
 export type {
   FiltersEndpointResponseData,
@@ -212,7 +213,10 @@ export {
   getFirstAttributeValue,
 } from './helpers/bapiProduct'
 
-export type { Redirect } from './endpoints/redirects/redirects'
+export type {
+  Redirect,
+  GetRedirectsEndpointParameters,
+} from './endpoints/redirects/redirects'
 
 export type {
   VariantDetail,
