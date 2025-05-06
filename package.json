@@ -1,6 +1,6 @@
 {
   "name": "@scayle/storefront-api",
-  "version": "18.3.0",
+  "version": "18.3.1",
   "description": "TypeScript and JavaScript SDK source for the SCAYLE Storefront API",
   "author": "SCAYLE Commerce Engine",
   "license": "MIT",
@@ -74,7 +74,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.17.4",
-    "@scayle/eslint-config-storefront": "4.5.0",
+    "@scayle/eslint-config-storefront": "4.5.1",
     "@types/node": "22.15.12",
     "@vitest/coverage-v8": "3.1.3",
     "dprint": "0.49.1",

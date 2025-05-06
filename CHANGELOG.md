@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.3.1
+
+### Patch Changes
+
+- Expose `FilterValuesEndpointParameters` and `GetRedirectsEndpointParameters` type
+
 ## 18.3.0
 
 ### Minor Changes
