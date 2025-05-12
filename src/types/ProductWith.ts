@@ -28,6 +28,7 @@ export interface ProductWith {
   baseCategories?: boolean
   lowestPriorPrice?: boolean
   searchCategoryIds?: boolean
+  sellableTimeframe?: boolean
 }
 
 export interface ProductCategoryWith {
@@ -167,6 +168,9 @@ export function productWithQueryParameterValues(
     parameterValues.push('searchCategoryIds')
   }
 
+  if (productWith.sellableTimeframe === true) {
+    parameterValues.push('sellableTimeframe')
+  }
   return parameterValues
 }
 

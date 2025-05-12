@@ -35,6 +35,10 @@ export interface Product {
   }
   firstLiveAt?: Date
   indexedAt?: Date
+  sellableTimeframe?: {
+    sellableFrom?: RFC33339Date
+    sellableTo?: RFC33339Date
+  }
 }
 
 export interface LowestPriorPrice {

@@ -3,6 +3,7 @@ import type {
   AttributeWithValuesFilter,
 } from '../types/AttributeOrAttributeValueFilter'
 import type { ObjectMap } from './ObjectMap'
+import type { RFC33339Date } from './Product'
 
 export interface ProductSearchQuery {
   categoryId?: number
@@ -17,6 +18,7 @@ export interface ProductSearchQuery {
   containsSearch?: boolean
   disableFuzziness?: boolean
   hasCampaignReduction?: boolean
+  sellableAt?: RFC33339Date
 }
 
 export function queryParamsFromProductSearchQuery(
@@ -61,6 +63,7 @@ export function queryParamsFromProductSearchQuery(
         : productSearchQuery.hasCampaignReduction.toString(),
     containsSearch: productSearchQuery.containsSearch ? 'true' : undefined,
     disableFuzziness: productSearchQuery.disableFuzziness ? 'true' : undefined,
+    'filters[sellableAt]': productSearchQuery.sellableAt,
   }
 
   const definedFilters: ObjectMap<string | number> = {}
