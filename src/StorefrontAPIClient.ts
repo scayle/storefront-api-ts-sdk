@@ -413,6 +413,16 @@ export class StorefrontAPIClient {
     this.additionalHeaders = config.additionalHeaders
   }
 
+  public clone(config: Partial<StorefrontAPIConfig>): StorefrontAPIClient {
+    return new StorefrontAPIClient({
+      host: this.host,
+      shopId: this.shopId,
+      auth: this.auth,
+      additionalHeaders: this.additionalHeaders,
+      ...config,
+    })
+  }
+
   private async execute<Response>(
     request: StorefrontAPICall<Response>,
   ): Promise<Response> {
