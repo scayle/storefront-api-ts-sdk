@@ -32,6 +32,7 @@ export type { BasketResponse } from './StorefrontAPIClient'
 export type { DeleteItemParameters } from './endpoints/basket/deleteItem'
 export type { CreateBasketItemParameters } from './endpoints/basket/createItem'
 export type { UpdateBasketItemQuantity } from './endpoints/basket/updateItem'
+export type { GetApplicablePromotionsByCodeParameters } from './endpoints/basket/getApplicablePromotionsByCode'
 
 // Brand
 export type { Brand, BrandCustomData } from './types/Brand'

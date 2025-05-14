@@ -2,6 +2,8 @@ import type { CreateBasketItemParameters } from './endpoints/basket/createItem'
 import { createBasketItemRequest } from './endpoints/basket/createItem'
 import type { DeleteItemParameters } from './endpoints/basket/deleteItem'
 import { deleteBasketItemRequest } from './endpoints/basket/deleteItem'
+import type { GetApplicablePromotionsByCodeParameters } from './endpoints/basket/getApplicablePromotionsByCode'
+import { getApplicablePromotionsByCodeRequest } from './endpoints/basket/getApplicablePromotionsByCode'
 import type {
   BasketItem,
   BasketResponseData,
@@ -706,6 +708,36 @@ export class StorefrontAPIClient {
           itemKey,
         }),
       ),
+    getApplicablePromotionsByCode: async (
+      basketKey: string,
+      promotionCode: string,
+      params: Omit<
+        GetApplicablePromotionsByCodeParameters,
+        'basketKey' | 'promotionCode'
+      > = {},
+    ): Promise<BasketResponse> => {
+      const response = await this.executeWithStatus(
+        getApplicablePromotionsByCodeRequest({
+          ...params,
+          basketKey,
+          promotionCode,
+        }),
+      )
+
+      if (response.statusCode === 200) {
+        return {
+          type: 'success',
+          statusCode: response.statusCode,
+          basket: response.data,
+        }
+      } else {
+        return {
+          type: 'failure',
+          statusCode: response.statusCode,
+          basket: response.data,
+        }
+      }
+    },
   }
 
   public readonly categories = {
