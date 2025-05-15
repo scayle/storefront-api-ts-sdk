@@ -126,3 +126,52 @@ export const buyXGetYPromotionFactory: Factory<
       "By buying one of the sneakers tagged with the badge 'Get a Cap', you can get a free cap. The promotion lasts till the end of March 2025.",
   },
 }))
+
+export const promotionWithCodeFactory: Factory<
+  Promotion<AutomaticDiscountEffect>
+> = Factory.define<Promotion<AutomaticDiscountEffect>>(() => ({
+  id: '66951014684cc17335766007',
+  name: 'Summer Sale',
+  code: 'SUMMER2024',
+  effect: {
+    type: PromotionEffectType.AUTOMATIC_DISCOUNT,
+    additionalData: {
+      type: 'relative',
+      value: 15,
+    },
+  },
+  conditions: [
+    {
+      level: 'global',
+      key: 'minimum_order_amount',
+      condition: 'payload.totals.withTax >= 5000',
+    },
+  ],
+  schedule: {
+    from: '2024-06-01T00:00:00Z' as RFC33339Date,
+    to: '2024-08-31T23:59:59Z' as RFC33339Date,
+  },
+  isActive: true,
+  priority: 2,
+  customData: {
+    colorHex: '#ff6b6b',
+    product: {
+      badgeLabel: '15% Off',
+      promotionId: 2478,
+    },
+    terms:
+      'Use code SUMMER2024 to get 15% off your order when you spend €50 or more. Valid until August 31st, 2024.',
+    category: {
+      ctaLabel: 'Summer Deals',
+      id: 50354,
+    },
+    corePanel: {
+      viewType: 'automatic-discount',
+    },
+    headlineParts: [
+      'Summer Sale',
+      'Get 15% off with code SUMMER2024',
+    ],
+    minOrderValue: 5000,
+  },
+}))

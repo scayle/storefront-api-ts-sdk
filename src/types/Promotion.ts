@@ -38,6 +38,7 @@ export type PromotionEffect = AutomaticDiscountEffect | BuyXGetYEffect
 
 export interface Promotion<Effect = PromotionEffect> {
   id: string
+  code?: string
   name: string
   schedule: {
     from: RFC33339Date

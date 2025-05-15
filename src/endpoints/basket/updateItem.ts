@@ -22,7 +22,7 @@ export interface UpdateBasketItemQuantity {
   includeItemsWithoutProductData?: boolean
   itemGroup?: ItemGroup
   promotionId?: string | null
-
+  promotionCode?: string | null
   orderCustomData?: Record<string, unknown>
 }
 
@@ -60,6 +60,9 @@ export function updateBasketItemQuantityRequest(
       ...(params.itemGroup ? { itemGroup: params.itemGroup } : undefined),
       ...(params.promotionId !== undefined
         ? { promotionId: params.promotionId }
+        : undefined),
+      ...(params.promotionCode !== undefined
+        ? { promotionCode: params.promotionCode }
         : undefined),
     },
   }
