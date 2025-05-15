@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.4.0
+
+### Minor Changes
+
+- Added a `clone` method to the `StorefrontAPIClient` to allow for easy configuration and re-use of the client.
+
 ## 18.3.1
 
 ### Patch Changes
