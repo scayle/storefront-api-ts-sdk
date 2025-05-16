@@ -1,5 +1,13 @@
 # @scayle/storefront-api
 
+## 18.5.0
+
+### Minor Changes
+
+- `updateItem` should include the `promotionCode` property if it is provided.
+- Introduced the `sellableAt` filter option for `products.query`, alongside the addition of `sellableTimeframe` to the `ProductWith` and `Product` types.
+- Extended the `Promotion` type to include an optional `code` property.
+
 ## 18.4.0
 
 ### Minor Changes
