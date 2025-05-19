@@ -1,5 +1,5 @@
 import type { ValuesType } from 'utility-types'
-import type { RFC33339Date } from './Product'
+import type { CentAmount, RFC33339Date } from './Product'
 
 export interface PromotionCustomData {
   [key: string]: unknown | undefined
@@ -36,9 +36,17 @@ export interface BuyXGetYEffect {
 
 export type PromotionEffect = AutomaticDiscountEffect | BuyXGetYEffect
 
+export interface PromotionTier {
+  effect: PromotionEffect
+  id: number
+  name: string
+  mov: CentAmount
+}
+
 export interface Promotion<Effect = PromotionEffect> {
   id: string
   code?: string
+  tiers?: PromotionTier[]
   name: string
   schedule: {
     from: RFC33339Date
