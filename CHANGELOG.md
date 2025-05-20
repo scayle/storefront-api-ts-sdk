@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.6.1
+
+### Patch Changes
+
+- Correct the typing of `PromotionTier.effect`.
+
 ## 18.6.0
 
 ### Minor Changes
