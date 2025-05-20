@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.6.0
+
+### Minor Changes
+
+- Updated the `Promotion` interface to include promotion tiers.
+
 ## 18.5.0
 
 ### Minor Changes
