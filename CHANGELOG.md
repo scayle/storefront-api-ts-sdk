@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.7.0
+
+### Minor Changes
+
+- Added the `getApplicablePromotionsByCode` method to support the API for fetching applicable promotions for a basket.
+
 ## 18.6.1
 
 ### Patch Changes
