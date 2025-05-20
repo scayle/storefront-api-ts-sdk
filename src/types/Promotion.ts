@@ -37,7 +37,7 @@ export interface BuyXGetYEffect {
 export type PromotionEffect = AutomaticDiscountEffect | BuyXGetYEffect
 
 export interface PromotionTier {
-  effect: PromotionEffect
+  effect: Omit<AutomaticDiscountEffect, 'type'>
   id: number
   name: string
   mov: CentAmount
