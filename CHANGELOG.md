@@ -1,5 +1,16 @@
 # @scayle/storefront-api
 
+## 18.8.0
+
+### Minor Changes
+
+- Added a new test factory `tieredPromotionFactory`. This factory generates a `Promotion` which includes promotion tiers.
+
+### Patch Changes
+
+- Added the type `RFC3339Date` which represents a date string formatted according to RFC 3339. It replaces the misspelled and now deprecated `RFC33339Date`.
+- Updated the typing of `PromotionTier.effect` to also allow for a `PromotionEffect`. This can be useful when manually creating `Promotion` objects.
+
 ## 18.7.0
 
 ### Minor Changes
