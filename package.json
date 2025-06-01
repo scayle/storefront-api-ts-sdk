@@ -78,7 +78,7 @@
     "@types/node": "22.15.29",
     "@vitest/coverage-v8": "3.1.4",
     "dprint": "0.50.0",
-    "eslint": "9.27.0",
+    "eslint": "9.28.0",
     "eslint-formatter-gitlab": "6.0.0",
     "fishery": "2.3.1",
     "nock": "14.0.4",
