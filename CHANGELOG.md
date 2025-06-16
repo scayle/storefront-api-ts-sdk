@@ -1,5 +1,25 @@
 # @scayle/storefront-api
 
+## 18.9.0
+
+### Minor Changes
+
+- Added a `includeProductSorting` boolean parameter to all category endpoints (`categoryById`, `rootCategories`, `categoriesByIds`, `categoryBySlug`)
+  and updated the parameter types for each endpoint accordingly.
+  Furthermore, `Category` interface has been updated with the optional `productSorting` data:
+
+  ```ts
+  interface Category {
+    // ...
+    productSorting?: {
+      customSortingKey: string
+      smartSortingKey: string
+    }
+  }
+  ```
+
+  Developers can leverage this data to seamlessly apply smart sorting keys on the product listing page by passing those parameters when fetching products.
+
 ## 18.8.0
 
 ### Minor Changes
