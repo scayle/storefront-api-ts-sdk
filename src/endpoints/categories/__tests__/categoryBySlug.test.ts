@@ -38,4 +38,40 @@ it('builds correct query', () => {
   },
 }
 `)
+
+  expect(
+    createCategoryBySlugEndpointRequest({
+      slugPath: ['frauen', 'bekleidung'],
+      with: {
+        includeProductSorting: true,
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/categories/frauen/bekleidung",
+  "method": "GET",
+  "params": {
+    "depth": 1,
+    "with": "productSorting,properties:name()",
+  },
+}
+`)
+
+  expect(
+    createCategoryBySlugEndpointRequest({
+      slugPath: ['frauen', 'bekleidung'],
+      with: {
+        includeProductSorting: false,
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/categories/frauen/bekleidung",
+  "method": "GET",
+  "params": {
+    "depth": 1,
+    "with": "properties:name()",
+  },
+}
+`)
 })

@@ -15,6 +15,11 @@ export interface CategoryEndpointsParameters {
     //
     // By default no properties will be included
     properties?: CategoryPropertiesWith
+
+    // If `true` product sorting data will be returned otherwise it will not
+    //
+    // By default no data will be returned
+    includeProductSorting?: boolean
   }
 
   // If `true`, hidden categories will be returned
@@ -54,6 +59,10 @@ export function categoryWithQueryParameters(
 
   if (categoryWith.parents) {
     withParams.push('parents')
+  }
+
+  if (categoryWith.includeProductSorting) {
+    withParams.push('productSorting')
   }
 
   if (categoryWith.properties) {

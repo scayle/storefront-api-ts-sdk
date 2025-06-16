@@ -50,4 +50,38 @@ it('builds correct query', () => {
   },
 }
 `)
+
+  expect(
+    createCategoriesByIdsEndpointRequest({
+      categoryIds: [1, 2],
+      with: { includeProductSorting: true },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/categories",
+  "method": "GET",
+  "params": {
+    "depth": 1,
+    "ids": "1,2",
+    "with": "productSorting,properties:name()",
+  },
+}
+`)
+
+  expect(
+    createCategoriesByIdsEndpointRequest({
+      categoryIds: [1, 2],
+      with: { includeProductSorting: false },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/categories",
+  "method": "GET",
+  "params": {
+    "depth": 1,
+    "ids": "1,2",
+    "with": "properties:name()",
+  },
+}
+`)
 })

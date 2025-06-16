@@ -47,4 +47,38 @@ it('builds correct query for root categories', () => {
   },
 }
 `)
+
+  expect(
+    createCategoriesEndpointRequest({
+      with: {
+        includeProductSorting: true,
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/categories",
+  "method": "GET",
+  "params": {
+    "depth": 1,
+    "with": "productSorting,properties:name()",
+  },
+}
+`)
+
+  expect(
+    createCategoriesEndpointRequest({
+      with: {
+        includeProductSorting: false,
+      },
+    }),
+  ).toMatchInlineSnapshot(`
+{
+  "endpoint": "/v1/categories",
+  "method": "GET",
+  "params": {
+    "depth": 1,
+    "with": "properties:name()",
+  },
+}
+`)
 })

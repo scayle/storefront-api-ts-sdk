@@ -25,7 +25,10 @@ export interface Category {
   parent?: Category
   depth: number
   supportedFilter: string[]
-
   shopLevelCustomData: CategoryShopCustomData
   countryLevelCustomData: CategoryCountryCustomData
+  productSorting?: {
+    customSortingKey: string
+    smartSortingKey: string
+  }
 }

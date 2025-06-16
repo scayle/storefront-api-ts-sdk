@@ -22,6 +22,11 @@ export interface CategoriesByIdsEndpointParameters
     //
     // By default no properties will be included
     properties?: CategoryPropertiesWith
+
+    // If `true` product sorting data will be returned otherwise it will not
+    //
+    // By default no data will be returned
+    includeProductSorting?: boolean
   }
 
   // `includeHidden` is currently not working on this endpoint
