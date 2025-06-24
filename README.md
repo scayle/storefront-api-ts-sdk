@@ -24,12 +24,15 @@ Visit the [Docs](https://scayle.dev) to learn more about our system requirements
 
 ## Installation
 
-```php
-# Install the SDK with NPM
-npm i @scayle/storefront-api
+```sh
+# Install the SDK via PNPM
+pnpm add @scayle/storefront-api
 
 # Install the SDK  with YARN
 yarn add @scayle/storefront-api
+
+# Install the SDK with NPM
+npm i @scayle/storefront-api
 ```
 
 ## What is Scayle?
