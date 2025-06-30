@@ -75,7 +75,7 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
     "@scayle/eslint-config-storefront": "4.5.11",
-    "@types/node": "22.15.33",
+    "@types/node": "22.15.34",
     "@vitest/coverage-v8": "3.2.4",
     "dprint": "0.50.0",
     "eslint": "9.30.0",
