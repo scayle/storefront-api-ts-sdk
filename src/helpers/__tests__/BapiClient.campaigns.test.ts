@@ -1,13 +1,12 @@
 /**
  * @jest-environment node
  */
+import { CampaignStandardSorting, SortOrder } from '../..'
 import { StorefrontAPIClient } from '../../StorefrontAPIClient'
 import {
   disableNetAndAllowBapiCors,
   nockWithBapiScope,
 } from '../../test/helpers/nock'
-import { CampaignSortOption } from '../../endpoints/campaigns/campaigns'
-import { APISortOrder } from '../../endpoints/products/products'
 
 disableNetAndAllowBapiCors()
 
@@ -44,8 +43,8 @@ it.skip('gets multiple campaigns', async () => {
 
   const campaignsResponse = await bapi.campaigns.get({
     sort: {
-      by: CampaignSortOption.Id,
-      direction: APISortOrder.ASCENDING,
+      by: CampaignStandardSorting.ID,
+      direction: SortOrder.ASCENDING,
     },
   })
 
