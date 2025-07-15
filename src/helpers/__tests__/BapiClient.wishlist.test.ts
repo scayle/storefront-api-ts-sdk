@@ -50,7 +50,7 @@ it.skip('adds an item to the wishlist', async () => {
   expect(response.statusCode).toBe(200)
 })
 
-it.skip('additem failure', async () => {
+it.skip('addItem failure', async () => {
   nockWithBapiScope()
     .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
     .post('/v1/wishlists/wishlist_1/items', {

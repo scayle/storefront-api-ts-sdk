@@ -209,7 +209,7 @@
 
 ### Patch Changes
 
-- Fixed misspelling of interface `BaskteItemDisplayDataItem` to `BasketItemDisplayDataItem`
+- Fixed misspelling of interface `BasketItemDisplayDataItem` to `BasketItemDisplayDataItem`
 
 ## 17.14.0
 
@@ -279,7 +279,7 @@
 
 ### Patch Changes
 
-- Add missing exports of Pagination, PriceRange, BooleanFilterItemWithValues, RangeFilterItemWithValues, IdenfitierFilterItemWithValues and Search V1 types.
+- Add missing exports of Pagination, PriceRange, BooleanFilterItemWithValues, RangeFilterItemWithValues, IdentifierFilterItemWithValues and Search V1 types.
 
 ## 17.9.2
 
@@ -500,7 +500,7 @@
 
 ### Patch Changes
 
-- remove inline sourcemaps
+- remove inline source maps
 
 ### 16.1.0
 
@@ -725,7 +725,7 @@
 
 ### 10.0.0
 
-- Update `BapiClient.addOrUpdateItems` to return more detailled errors if any occured during the operations
+- Update `BapiClient.addOrUpdateItems` to return more detailed errors if any occurred during the operations
 - Make `AddToBasketFailureKind` enum string-based, so it's suitable for logging
 - Expose `skipAvailabilityCheck` on "add to wishlist" operation
 
@@ -766,7 +766,7 @@
 
 ### 5.0.0
 
-- Remove support for `/masters` endpoisrc/endpoints/typeahead/typeahead.tsnt
+- Remove support for masters endpoint `src/endpoints/typeahead/typeahead.ts`
 
 ### 4.1.1
 
@@ -955,7 +955,7 @@ The `key` property is now exposed on basket responses.
 A `childShopId` parameter can now be passed to "add to basket" calls, which will be forward as `appId` in the payload of the checkout call.
 
 The shop ID can now be set via the header or via an URL query parameter.
-Since it the URL parameter doesn't infere with CORS it's now mandatory in the SDK (and also in upcoming versions of the BAPI itself).
+Since it the URL parameter doesn't infer with CORS it's now mandatory in the SDK (and also in upcoming versions of the BAPI itself).
 The `execute` function by default will place the shop ID in the URL, while the `BapiClient` will place the shop ID in the header to support existing BAPI installations. This might change in the future.
 
 ## 0.19.0

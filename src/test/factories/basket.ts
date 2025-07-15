@@ -23,7 +23,7 @@ export const basketItemPriceFactory: Factory<BasketItemPrice> = Factory.define<
 export const basketItemFactory: Factory<BasketItem> = Factory.define<
   BasketItem
 >(() => ({
-  key: 'baket-item-base-key',
+  key: 'basket-item-base-key',
   packageId: 1,
   quantity: 1,
   status: 'available',
@@ -50,7 +50,7 @@ export const basketItemsFactory: Factory<BasketItem[]> = Factory.define<
   BasketItem[]
 >(() => [
   basketItemFactory.build({
-    key: 'baket-item-test-1',
+    key: 'basket-item-test-1',
     price: {
       total: basketItemPriceFactory.build({
         currencyCode: 'EUR',
@@ -85,7 +85,7 @@ export const basketItemsFactory: Factory<BasketItem[]> = Factory.define<
     },
   }),
   basketItemFactory.build({
-    key: 'baket-item-test-2',
+    key: 'basket-item-test-2',
     price: {
       total: basketItemPriceFactory.build({
         currencyCode: 'EUR',
@@ -120,7 +120,7 @@ export const basketItemsFactory: Factory<BasketItem[]> = Factory.define<
     },
   }),
   basketItemFactory.build({
-    key: 'baket-item-test-3',
+    key: 'basket-item-test-3',
     price: {
       total: basketItemPriceFactory.build({
         currencyCode: 'EUR',
@@ -155,7 +155,7 @@ export const basketItemsFactory: Factory<BasketItem[]> = Factory.define<
     },
   }),
   basketItemFactory.build({
-    key: 'baket-item-test-4',
+    key: 'basket-item-test-4',
     price: {
       total: basketItemPriceFactory.build({
         currencyCode: 'EUR',
