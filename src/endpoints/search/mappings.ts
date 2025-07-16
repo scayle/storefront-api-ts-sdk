@@ -15,7 +15,7 @@ export interface SearchMappingsEndpointResponseData {
   >
 }
 
-export function createrSearchMappingsEndpointRequest(
+export function createSearchMappingsEndpointRequest(
   parameters: SearchMappingsEndpointParameters,
 ): StorefrontAPICall<SearchMappingsEndpointResponseData> {
   return {

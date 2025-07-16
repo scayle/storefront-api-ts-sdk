@@ -99,9 +99,7 @@ import {
 import type {
   SearchMappingsEndpointResponseData,
 } from './endpoints/search/mappings'
-import {
-  createrSearchMappingsEndpointRequest,
-} from './endpoints/search/mappings'
+
 import type {
   VariantDetail,
   VariantsByIdsEndpointParameters,
@@ -297,7 +295,7 @@ type AddWishlistItemResponse =
 
 export const AddToBasketFailureKind = {
   VARIANT_ALREADY_PRESENT: 'VariantAlreadyPresent',
-  ITEM_UNAVAILABLE: 'ItemUnvailable',
+  ITEM_UNAVAILABLE: 'ItemUnavailable',
   MAXIMUM_ITEM_COUNT_REACHED: 'MaximumItemCountReached',
   ITEM_DATA_NOT_FOUND: 'ItemDataNotFound',
   ITEM_ADDED_WITH_REDUCED_QUANTITY: 'ItemAddedWithReducedQuantity',
@@ -331,7 +329,7 @@ function addToBasketFailureKindFromStatusCode(
 }
 
 export const UpdateBasketItemFailureKind = {
-  ITEM_UNAVAILABLE: 'ItemUnavilable',
+  ITEM_UNAVAILABLE: 'ItemUnavailable',
   BASKET_ITEM_NOT_FOUND: 'BasketItemNotFound',
   ITEM_ADDED_WITH_REDUCED_QUANTITY: 'ItemAddedWithReducedQuantity',
   UNKNOWN: 'Unknown',
@@ -951,7 +949,7 @@ export class StorefrontAPIClient {
       )
     },
     mappings: (term: string): Promise<SearchMappingsEndpointResponseData> => {
-      return this.execute(createrSearchMappingsEndpointRequest({ term }))
+      return this.execute(createSearchMappingsEndpointRequest({ term }))
     },
     resolve: (
       term: string,

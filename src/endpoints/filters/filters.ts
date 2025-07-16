@@ -74,7 +74,7 @@ export type FilterItemWithValues =
   | BooleanFilterItemWithValues
   | AttributesFilterItemWithValues
   | RangeFilterItemWithValues
-  | IdenfitierFilterItemWithValues
+  | IdentifierFilterItemWithValues
 
 export interface BooleanFilterItemWithValues {
   id: null
@@ -100,7 +100,7 @@ export interface RangeFilterItemWithValues {
   type: typeof FilterTypes.RANGE
 }
 
-export interface IdenfitierFilterItemWithValues {
+export interface IdentifierFilterItemWithValues {
   slug: string
   name: string
   values: IdentifierFilterValue[]

@@ -33,7 +33,7 @@ export interface SearchSuggestionsEndpointResponseData {
   products: Array<Product>
 }
 
-function suggetionsWithQueryParameter(
+function suggestionsWithQueryParameter(
   suggestionsWith: Exclude<
     SearchSuggestionsEndpointParameters['with'],
     undefined
@@ -87,7 +87,7 @@ export function createSearchSuggestionsEndpointRequest(
       with: [
         topLevelIncludes,
         ...(parameters.with
-          ? suggetionsWithQueryParameter(parameters.with)
+          ? suggestionsWithQueryParameter(parameters.with)
           : []),
       ].join(`,`),
     },

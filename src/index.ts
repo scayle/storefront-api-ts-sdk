@@ -182,7 +182,7 @@ export type {
   AttributesFilterValue,
   FilterItemWithValues,
   AttributesFilterItemWithValues,
-  IdenfitierFilterItemWithValues,
+  IdentifierFilterItemWithValues,
   RangeFilterItemWithValues,
   BooleanFilterItemWithValues,
 } from './endpoints/filters/filters'
