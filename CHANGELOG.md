@@ -1,5 +1,14 @@
 # @scayle/storefront-api
 
+## 18.10.0
+
+### Minor Changes
+
+- Renamed incorrect partial type of `ShippingStatusCode` from `shipping_not_deliveable` to `shipping_not_deliverable`
+- Renamed incorrectly named function `createrSearchMappingsEndpointRequest` to `createSearchMappingsEndpointRequest`
+- Renamed interface incorrectly named `IdenfitierFilterItemWithValues` to `IdentifierFilterItemWithValues`
+- Renamed incorrect partial types of `AddToBasketFailureKind` and `UpdateBasketItemFailureKind` from `ITEM_UNAVAILABLE: 'ItemUnvailable',` to `ITEM_UNAVAILABLE: 'ItemUnavailable',`
+
 ## 18.9.0
 
 ### Minor Changes
