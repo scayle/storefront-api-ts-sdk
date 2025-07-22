@@ -1,5 +1,26 @@
 # @scayle/storefront-api
 
+## 18.11.0
+
+### Minor Changes
+
+- Added a `visibleAt` parameter to navigation tree endpoints (`getAll`, `getById`) to support time-based visibility filtering.
+
+  The parameter is passed as `filters[visibleAt]` query parameter to the backend and allows filtering navigation items based on their `visibleFrom` and `visibleTo` timeframes.
+  These timeframes can be set in the Panel.
+
+  See: [Time schedule visibility of navigation items](https://scayle.dev/en/developer-guide/shops/shop-navigation#time-schedule-visibility-of-navigation-items)
+
+  ```ts
+  interface GetNavigationParameters {
+    with?: NavigationWith
+    locale?: string
+    visibleAt?: string
+  }
+  ```
+
+  Developers can use this parameter to show only navigation items that are visible at a specific point in time by passing an ISO 8601 timestamp when fetching navigation trees.
+
 ## 18.10.0
 
 ### Minor Changes
