@@ -1,5 +1,40 @@
 # @scayle/storefront-api
 
+## 18.12.0
+
+### Minor Changes
+
+- Updated the `Campaign` and `Promotion` types with new fields.
+
+  The type `Campaign` now supports additional customization fields:
+
+  ```ts
+  export interface Campaign {
+    // ...
+    startsAt: RFC33339Date | null // replaces deprecated `start_at`
+    endsAt: RFC33339Date | null // replaces deprecated `end_at`
+    customData: CampaignCustomData
+    headline: string
+    subline: string
+    link: string
+    colorStyle: string
+    hideCountdown: boolean
+    color: {
+      background: string
+      text: string
+    }
+    product: {
+      attributeId: number
+      badgeLabel: string
+    }
+    condition: string
+  }
+  ```
+
+  The type `Promotion` now supports a `displayName` field.
+
+  The fields can be configured in the SCAYLE Panel.
+
 ## 18.11.0
 
 ### Minor Changes
