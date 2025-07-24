@@ -205,7 +205,7 @@ export type { CategoryBySlugEndpointParameters } from './endpoints/categories/ca
 
 export type { AttributeInclude } from './helpers/attributes'
 
-export type { Campaign } from './types/campaign'
+export type { Campaign, CampaignCustomData } from './types/campaign'
 
 export type { ProductSearchQuery } from './types/ProductSearchQuery'
 

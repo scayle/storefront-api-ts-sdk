@@ -48,6 +48,7 @@ export interface Promotion<Effect = PromotionEffect> {
   code?: string
   tiers?: PromotionTier[]
   name: string
+  displayName?: string | null
   schedule: {
     from: RFC33339Date
     to: RFC33339Date
