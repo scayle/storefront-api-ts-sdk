@@ -33,6 +33,7 @@ export type { DeleteItemParameters } from './endpoints/basket/deleteItem'
 export type { CreateBasketItemParameters } from './endpoints/basket/createItem'
 export type { UpdateBasketItemQuantity } from './endpoints/basket/updateItem'
 export type { GetApplicablePromotionsByCodeParameters } from './endpoints/basket/getApplicablePromotionsByCode'
+export type { BulkUpdatePromotionsParameters } from './endpoints/basket/bulkUpdatePromotions'
 
 // Brand
 export type { Brand, BrandCustomData } from './types/Brand'

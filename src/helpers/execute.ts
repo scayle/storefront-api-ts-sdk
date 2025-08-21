@@ -93,7 +93,7 @@ export async function execute<Response>(
       ...bapiCall.headers,
     },
     method: bapiCall.method,
-    body: bapiCall.method === 'POST' || bapiCall.method === 'PATCH'
+    body: ['POST', 'PATCH', 'PUT'].includes(bapiCall.method)
       ? JSON.stringify(bapiCall.data)
       : undefined,
   })
