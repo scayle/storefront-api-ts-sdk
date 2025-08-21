@@ -8,6 +8,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "repository": {
+    "url": "git+https://github.com/scayle/storefront-api-ts-sdk.git"
+  },
   "files": [
     "CHANGELOG.md",
     "dist"
