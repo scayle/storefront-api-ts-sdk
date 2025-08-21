@@ -47,6 +47,14 @@ export interface ItemGroup {
   isRequired: boolean
 }
 
+export type BasketItemPromotion<PE = PromotionEffect> = Promotion<PE> & {
+  isValid: boolean
+  failedConditions: Array<{
+    key: string
+    level: 'item' | 'global'
+  }>
+}
+
 export interface BasketItem<P = Product, V = Variant, PE = PromotionEffect> {
   key: string
   customData: unknown
@@ -74,13 +82,12 @@ export interface BasketItem<P = Product, V = Variant, PE = PromotionEffect> {
   displayData: BasketItemDisplayData
   itemGroup?: ItemGroup
   promotionId?: string
-  promotion?: Promotion<PE> & {
-    isValid: boolean
-    failedConditions: Array<{
-      key: string
-      level: 'item' | 'global'
-    }>
-  }
+  /**
+   * @deprecated This attribute will be removed with the next major version.
+   * Use the {@link promotions} attribute, supporting multiple promotions, for all related promotion functionality instead.
+   */
+  promotion?: BasketItemPromotion<PE>
+  promotions?: BasketItemPromotion<PE>[]
 }
 
 export interface BasketItemDisplayDataItem {

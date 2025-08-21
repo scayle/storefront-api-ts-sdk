@@ -251,6 +251,7 @@ export interface AppliedReduction {
     // The absolute amount of money the user is saving by this reduction
     absoluteWithTax: CentAmount
   }
+  promotionId?: string
 }
 
 export type CentAmount = number & { readonly ____tagCentAmount: symbol }
