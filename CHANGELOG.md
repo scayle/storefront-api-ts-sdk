@@ -1,5 +1,50 @@
 # @scayle/storefront-api
 
+## 18.13.0
+
+### Minor Changes
+
+- Extended `AppliedReduction` type to include the optional attribute `promotionId`.
+
+  The `promotionId` is used to identify the promotion that applied the reduction to the basket item.
+  This is useful for handling varying logic across promotion reductions.
+
+  For more details, see the [Storefront API documentation](https://scayle.dev/en/api-guides/storefront-api/resources/baskets/get-a-basket).
+
+- Added `promotions` field to `BasketItem` type to support multiple promotions per basket item.
+
+  The `promotions` field is an array of `BasketItemPromotion` objects.
+  With the introduction of the new `promotions` array field, the `promotion` field is now deprecated.
+
+  Before:
+
+  ```json
+  "promotion": {
+    "id": "123",
+    "name": "Promotion 1",
+    "isActive": true,
+  }
+  ```
+
+  After:
+
+  ```json
+  "promotions": [
+      {
+        "id": "123",
+        "name": "Promotion 1",
+        "isActive": true,
+      }
+  ]
+  ```
+
+  For more details, see the [Storefront API documentation](https://scayle.dev/en/api-guides/storefront-api/resources/baskets/get-a-basket).
+
+- A new `bulkUpdatePromotion` endpoint is now available.
+  This allows to update all promotions applied to basket's items in a single API call.
+  Please note that the submitted list is treated as the complete set of promotions; any currently applied promotions not included in the request will be removed.
+  For more details, see the [Storefront API documentation](https://scayle.dev/en/api-guides/storefront-api/resources/baskets/bulk-update-promotions).
+
 ## 18.12.0
 
 ### Minor Changes
