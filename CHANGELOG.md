@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.13.1
+
+### Patch Changes
+
+- Added repository link to package.json.
+
 ## 18.13.0
 
 ### Minor Changes
