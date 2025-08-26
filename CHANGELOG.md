@@ -1,5 +1,49 @@
 # @scayle/storefront-api
 
+## 18.14.0
+
+### Minor Changes
+
+- Updated the parameters of the `addOrUpdateItems` function of the `StorefrontAPIClient` class with the new `promotions` attribute.
+
+  This attribute is used to support multiple promotions on basket items.
+
+  Before:
+
+  ```ts
+  await sapiClient.basket.addOrUpdateItems(basketKey, [
+    {
+      // ...
+      params: {
+        // ...
+        promotionId: promotionId ?? undefined,
+        promotionCode: promotionCode ?? undefined,
+      },
+    },
+  ])
+  ```
+
+  After:
+
+  ```ts
+  await sapiClient.basket.addOrUpdateItems(basketKey, [
+    {
+      // ...
+      params: {
+        // ...
+        promotions: [
+          { id: 'promotionId', code: 'promotionCode' },
+          {
+            id: 'promotionId2',
+          },
+        ],
+      },
+    },
+  ])
+  ```
+
+  For more details, see the [Add a variant](https://scayle.dev/en/api-guides/storefront-api/resources/baskets/add-a-variant) and [Update an item](https://scayle.dev/en/api-guides/storefront-api/resources/baskets/update-an-item) guides.
+
 ## 18.13.1
 
 ### Patch Changes
