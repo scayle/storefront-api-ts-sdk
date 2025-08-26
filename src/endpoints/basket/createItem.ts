@@ -21,8 +21,14 @@ export interface CreateBasketItemParameters {
   skipAvailabilityCheck?: boolean
   includeItemsWithoutProductData?: boolean
   itemGroup?: ItemGroup
+  /**
+   * @deprecated - will be removed in the next major version as this does not support multiple promotions. Please switch to {@link promotions}.
+   */
   promotionId?: string
-
+  promotions?: {
+    id: string
+    code?: string | null
+  }[]
   orderCustomData?: Record<string, unknown>
 }
 
@@ -62,6 +68,7 @@ export function createBasketItemRequest(
       ...(params.displayData ? { displayData: params.displayData } : undefined),
       ...(params.itemGroup ? { itemGroup: params.itemGroup } : undefined),
       ...(params.promotionId ? { promotionId: params.promotionId } : undefined),
+      ...(params.promotions ? { promotions: params.promotions } : undefined),
     },
   }
 }

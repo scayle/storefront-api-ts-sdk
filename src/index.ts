@@ -27,6 +27,7 @@ export type {
   BasketItemDisplayDataKey,
   BasketItemDisplayDataItem,
   ItemGroup,
+  BasketItemPromotion,
 } from './endpoints/basket/getBasket'
 export type { BasketResponse } from './StorefrontAPIClient'
 export type { DeleteItemParameters } from './endpoints/basket/deleteItem'

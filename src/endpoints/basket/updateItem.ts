@@ -21,8 +21,18 @@ export interface UpdateBasketItemQuantity {
   pricePromotionKey?: string
   includeItemsWithoutProductData?: boolean
   itemGroup?: ItemGroup
+  /**
+   * @deprecated - will be removed in the next major version as this does not support multiple promotions. Please switch to {@link promotions}.
+   */
   promotionId?: string | null
+  /**
+   * @deprecated - will be removed in the next major version as this does not support multiple promotions. Please switch to {@link promotions}.
+   */
   promotionCode?: string | null
+  promotions?: {
+    id: string
+    code?: string | null
+  }[]
   orderCustomData?: Record<string, unknown>
 }
 
@@ -63,6 +73,9 @@ export function updateBasketItemQuantityRequest(
         : undefined),
       ...(params.promotionCode !== undefined
         ? { promotionCode: params.promotionCode }
+        : undefined),
+      ...(params.promotions !== undefined
+        ? { promotions: params.promotions }
         : undefined),
     },
   }
