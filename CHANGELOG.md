@@ -1,5 +1,23 @@
 # @scayle/storefront-api
 
+## 18.15.0
+
+### Minor Changes
+
+- Created the new promotion type `ComboDealEffect` and included it in the `PromotionEffectType`
+
+  This type can be used to check if the promotion is of type `ComboDealEffect`.
+
+  Example:
+
+  ```ts
+  const isComboDealType = (
+    promotion?: Promotion | null,
+  ): promotion is Promotion<ComboDealEffect> => {
+    return promotion?.effect?.type === PromotionEffectType.COMBO_DEAL
+  }
+  ```
+
 ## 18.14.0
 
 ### Minor Changes
