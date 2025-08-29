@@ -14,7 +14,9 @@ export interface PromotionCondition {
 export const PromotionEffectType = {
   AUTOMATIC_DISCOUNT: 'automatic_discount',
   BUY_X_GET_Y: 'buy_x_get_y',
+  COMBO_DEAL: 'combo_deal',
 } as const
+
 // eslint-disable-next-line ts/no-redeclare -- intentionally naming the variable the same as the type
 export type PromotionEffectType = ValuesType<typeof PromotionEffectType>
 
@@ -34,7 +36,19 @@ export interface BuyXGetYEffect {
   }
 }
 
-export type PromotionEffect = AutomaticDiscountEffect | BuyXGetYEffect
+export interface ComboDealEffect {
+  type: typeof PromotionEffectType.COMBO_DEAL
+  additionalData: {
+    price: number
+    eligibleItemsQuantity: number
+    maxCountType: 'per_eligible_items_quantity' | 'per_item_set' | 'single_item'
+  }
+}
+
+export type PromotionEffect =
+  | AutomaticDiscountEffect
+  | BuyXGetYEffect
+  | ComboDealEffect
 
 export interface PromotionTier {
   effect: Omit<AutomaticDiscountEffect, 'type'> | PromotionEffect

@@ -235,6 +235,7 @@ export type {
   PromotionEffect,
   BuyXGetYEffect,
   AutomaticDiscountEffect,
+  ComboDealEffect,
 } from './types/Promotion'
 export type {
   PromotionsEndpointResponseData,
