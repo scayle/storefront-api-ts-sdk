@@ -23,7 +23,9 @@ export type PromotionEffectType = ValuesType<typeof PromotionEffectType>
 export interface AutomaticDiscountEffect {
   type: typeof PromotionEffectType.AUTOMATIC_DISCOUNT
   additionalData: {
+    /** The discount type to apply, which can be either a specific amount (e.g. 10€) or a percentage (e.g. 10%). */
     type: 'absolute' | 'relative'
+    /** The discount amount, expressed as a percentage or as a value in cents. */
     value: number
   }
 }
@@ -31,7 +33,25 @@ export interface AutomaticDiscountEffect {
 export interface BuyXGetYEffect {
   type: typeof PromotionEffectType.BUY_X_GET_Y
   additionalData: {
+    /** The quantity of items that need to be considered for the count logic. */
+    eligibleItemsQuantity: number
+    /** The type of discount to apply, which can be either a specific amount (e.g. 10€) or a percentage (e.g. 10%). */
+    discountType: 'absolute' | 'relative'
+    /** The discount amount, expressed as cents or as a percentage. */
+    discountValue: number
+    /** The distribution method for the discount. */
+    discountDistribution: 'none' | 'pro_rata'
+    /** The method for identifying which items qualify for the discount. */
+    applicableItemSelectionType: 'variant_ids' | 'cheapest' | 'random'
+    /** The maximum number of items the customer can redeem. */
     maxCount: number
+    /** How often the promotion can be used per order. */
+    maxCountType:
+      | 'per_eligible_items_quantity'
+      | 'per_item_set'
+      | 'single_item'
+      | 'per_eligible_uniq_items'
+    /** An optional list of variant IDs that can be redeemed when promotional requirements are fulfilled. */
     variantIds: number[]
   }
 }
@@ -39,8 +59,11 @@ export interface BuyXGetYEffect {
 export interface ComboDealEffect {
   type: typeof PromotionEffectType.COMBO_DEAL
   additionalData: {
+    /** The final price that will be applied to the eligible items in the basket. */
     price: number
+    /** The quantity of items that need to be considered for the count logic. */
     eligibleItemsQuantity: number
+    /** The frequency with which the promotion can be applied within a single order. */
     maxCountType: 'per_eligible_items_quantity' | 'per_item_set' | 'single_item'
   }
 }
