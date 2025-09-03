@@ -1,5 +1,17 @@
 # @scayle/storefront-api
 
+## 18.16.0
+
+### Minor Changes
+
+- Extended the `BuyXGetYEffect` type with the new `discountType`, `discountValue`, `discountDistribution`, `eligibleItemsQuantity` and `applicableItemSelectionType` fields.
+
+  `discountType` - The discount type to apply, which can be either a specific amount (e.g. 10€) or a percentage (e.g. 10%).
+  `discountValue` - The discount amount, expressed as cents or as a percentage.
+  `discountDistribution` - The distribution method for the discount.
+  `applicableItemSelectionType` - The method for identifying which items qualify for the discount.
+  `eligibleItemsQuantity` - The quantity of items that need to be considered for the count logic.
+
 ## 18.15.0
 
 ### Minor Changes
