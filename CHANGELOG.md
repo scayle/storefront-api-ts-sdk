@@ -169,7 +169,7 @@
   The parameter is passed as `filters[visibleAt]` query parameter to the backend and allows filtering navigation items based on their `visibleFrom` and `visibleTo` timeframes.
   These timeframes can be set in the Panel.
 
-  See: [Time schedule visibility of navigation items](https://scayle.dev/en/developer-guide/shops/shop-navigation#time-schedule-visibility-of-navigation-items)
+  See: [Time schedule visibility of navigation items](https://scayle.dev/en/core-documentation/the-basics/shops/shop-navigation#time-schedule-visibility-of-navigation-items)
 
   ```ts
   interface GetNavigationParameters {

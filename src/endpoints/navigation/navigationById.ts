@@ -15,7 +15,7 @@ export type NavigationByIdEndpointResponseData = NavigationTree
  * @param parameters.visibleAt - ISO timestamp to filter navigation items that should be visible at the specified date and time
  * @returns StorefrontAPICall configuration object for the navigation tree by ID endpoint
  *
- * @see https://scayle.dev/en/api-guides/storefront-api/resources/navigation/list-navigations RECE Navigation API Documentation
+ * @see https://scayle.dev/en/api-guides/storefront-api/resources/navigation/list-navigations
  */
 export function createNavigationByIdEndpointRequest(
   navigationTreeId: number,
