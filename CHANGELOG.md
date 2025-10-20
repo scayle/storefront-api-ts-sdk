@@ -1,5 +1,11 @@
 # @scayle/storefront-api
 
+## 18.16.1
+
+### Patch Changes
+
+- Updated SCAYLE Resource Center references
+
 ## 18.16.0
 
 ### Minor Changes
