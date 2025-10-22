@@ -1,6 +1,8 @@
 import type { Attributes, Value } from '../types/Product'
 
 /**
+ * @deprecated Will be removed in the next major version. Use `getFirstAttributeValue` from `@scayle/storefront-core` instead.
+ *
  * Returns the first value of an attribute.
  *
  * This returns undefined, if the attribute doesn't exist or if it doesn't have any values.
@@ -25,7 +27,9 @@ export const getFirstAttributeValue = (
 }
 
 /**
- * This function always returns a list.
+ * @deprecated Will be removed in the next major version. Use `getAttributeValuesByName` from `@scayle/storefront-core` instead.
+ *
+ * Always returns a list.
  *
  * In case this attribute doesn't have any values or doesn't exist at all, it will return an empty list.
  * Otherwise this returns a list with the values.

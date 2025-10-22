@@ -63,10 +63,12 @@ describe('bapiProduct', () => {
       sampleValues.red,
       sampleValues.blue,
       sampleValues.green,
-    ]),
-    size: createSingleSelectAttribute('size', sampleValues.large),
-    material: createSingleSelectAttribute('material', sampleValues.cotton),
-    brand: createSingleSelectAttribute('brand', sampleValues.nike),
+    ], { id: 1 }),
+    size: createSingleSelectAttribute('size', sampleValues.large, { id: 2 }),
+    material: createSingleSelectAttribute('material', sampleValues.cotton, {
+      id: 3,
+    }),
+    brand: createSingleSelectAttribute('brand', sampleValues.nike, { id: 4 }),
   }
 
   describe('getFirstAttributeValue', () => {
@@ -358,7 +360,7 @@ describe('bapiProduct', () => {
         createValue('New Arrival', { id: 4, value: 'new-arrival' }),
       )
 
-      // Test getAttributeValues for all attributes
+      // Test getAttributeValuesByAttributeName for all attributes
       expect(getAttributeValues(productAttributes, 'color')).toEqual([
         sampleValues.red,
         sampleValues.blue,
@@ -385,16 +387,19 @@ describe('bapiProduct', () => {
         .toBeUndefined()
       expect(getFirstAttributeValue(partialProductAttributes, 'brand'))
         .toBeUndefined()
-      expect(getAttributeValues(partialProductAttributes, 'color')).toEqual([])
-      expect(getAttributeValues(partialProductAttributes, 'brand')).toEqual([])
+      expect(getAttributeValues(partialProductAttributes, 'color'))
+        .toEqual([])
+      expect(getAttributeValues(partialProductAttributes, 'brand'))
+        .toEqual([])
 
       // Test existing attributes work correctly
       expect(getFirstAttributeValue(partialProductAttributes, 'size')).toEqual(
         sampleValues.large,
       )
-      expect(getAttributeValues(partialProductAttributes, 'size')).toEqual([
-        sampleValues.large,
-      ])
+      expect(getAttributeValues(partialProductAttributes, 'size'))
+        .toEqual([
+          sampleValues.large,
+        ])
     })
 
     it('should handle edge cases in production data', () => {
@@ -422,9 +427,10 @@ describe('bapiProduct', () => {
         label: 'Generic Brand',
       }])
       expect(getAttributeValues(edgeCaseAttributes, 'tags')).toEqual([])
-      expect(getAttributeValues(edgeCaseAttributes, 'categories')).toEqual([
-        createValue('Electronics'),
-      ])
+      expect(getAttributeValues(edgeCaseAttributes, 'categories'))
+        .toEqual([
+          createValue('Electronics'),
+        ])
     })
   })
 })
