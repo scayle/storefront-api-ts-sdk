@@ -1,5 +1,47 @@
 # @scayle/storefront-api
 
+## 18.17.0
+
+### Minor Changes
+
+- Deprecated `getAttributeValueTuples` and `getFirstAttributeValue` functions in `@scayle/storefront-api`, which will be removed in the next major version.
+
+  These functions have been moved to `@scayle/storefront-core` for better package organization. Update your imports to use `@scayle/storefront-core` instead, or add the provided utility functions directly to your project:
+
+  ```typescript
+  export const getFirstAttributeValue = (
+    attributes: Attributes | undefined,
+    attributeName: string,
+  ): Value | undefined => {
+    const attribute = attributes && attributes[attributeName]
+    if (!attribute || !attribute.values) {
+      return
+    }
+
+    if (attribute.multiSelect) {
+      return attribute.values.length > 0 ? attribute.values[0] : undefined
+    }
+
+    return attribute.values
+  }
+
+  export const getAttributeValues = (
+    attributes: Attributes | undefined,
+    attributeName: string,
+  ): Value[] => {
+    const attribute = attributes && attributes[attributeName]
+    if (!attribute || !attribute.values) {
+      return []
+    }
+
+    if (attribute.multiSelect) {
+      return attribute.values
+    }
+
+    return [attribute.values]
+  }
+  ```
+
 ## 18.16.1
 
 ### Patch Changes
