@@ -12,7 +12,7 @@ import {
   variantWithQueryParameterValues,
 } from '../../types/ProductWith'
 import type { StorefrontAPICall } from '../../helpers/execute'
-import { buildOrderCustomDataHeaders } from './utils'
+import { buildCustomerTokenHeader, buildOrderCustomDataHeaders } from './utils'
 
 export type BasketItemPrice = Omit<VariantPrice, 'tax'>
 
@@ -172,6 +172,8 @@ export interface GetBasketParameters {
   includeItemsWithoutProductData?: boolean
 
   orderCustomData?: Record<string, unknown>
+  /** Optional customer token to be used for the request and will be sent as `X-Customer-Token` header */
+  customerToken?: string
 }
 
 export function getBasketEndpointRequest(
@@ -182,6 +184,7 @@ export function getBasketEndpointRequest(
     endpoint: `/v1/baskets/${params.basketKey}`,
     headers: {
       ...buildOrderCustomDataHeaders(params.orderCustomData),
+      ...buildCustomerTokenHeader(params.customerToken),
     },
     params: {
       ...(params.with

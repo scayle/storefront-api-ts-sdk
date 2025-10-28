@@ -1,7 +1,7 @@
 import type { BasketResponseData, BasketWith } from './getBasket'
 import { basketWithQueryParameter } from './getBasket'
 import type { StorefrontAPICall } from '../../helpers/execute'
-import { buildOrderCustomDataHeaders } from './utils'
+import { buildCustomerTokenHeader, buildOrderCustomDataHeaders } from './utils'
 
 /**
  * Parameters for bulk updating promotions on basket items.
@@ -40,6 +40,8 @@ export interface BulkUpdatePromotionsParameters {
   skipAvailabilityCheck?: boolean
   /** Custom data to be associated with the order */
   orderCustomData?: Record<string, unknown>
+  /** Optional customer token to be used for the request and will be sent as `X-Customer-Token` header */
+  customerToken?: string
 }
 
 /**
@@ -61,6 +63,7 @@ export function bulkUpdatePromotionsRequest(
     endpoint: `/v1/baskets/${params.basketKey}/promotions`,
     headers: {
       ...buildOrderCustomDataHeaders(params.orderCustomData),
+      ...buildCustomerTokenHeader(params.customerToken),
     },
     params: {
       ...(params.with

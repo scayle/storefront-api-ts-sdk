@@ -25,3 +25,13 @@ export const buildOrderCustomDataHeaders = (
     'X-Order-Custom-Data': encodeBase64(JSON.stringify(orderCustomData)),
   }
 }
+
+export const buildCustomerTokenHeader = (
+  accessToken?: string,
+): Record<string, string> => {
+  if (!accessToken) {
+    return {}
+  }
+
+  return { 'X-Customer-Token': accessToken }
+}

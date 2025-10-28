@@ -6,7 +6,7 @@ import type {
 } from '../../endpoints/basket/getBasket'
 import { basketWithQueryParameter } from '../../endpoints/basket/getBasket'
 import type { StorefrontAPICall } from '../../helpers/execute'
-import { buildOrderCustomDataHeaders } from './utils'
+import { buildCustomerTokenHeader, buildOrderCustomDataHeaders } from './utils'
 
 export interface CreateBasketItemParameters {
   basketKey: string
@@ -30,6 +30,8 @@ export interface CreateBasketItemParameters {
     code?: string | null
   }[]
   orderCustomData?: Record<string, unknown>
+  /** Optional customer token to be used for the request and will be sent as `X-Customer-Token` header */
+  customerToken?: string
 }
 
 export function createBasketItemRequest(
@@ -45,6 +47,7 @@ export function createBasketItemRequest(
     successfulResponseCodes: [201, 206, 409, 412, 413],
     headers: {
       ...buildOrderCustomDataHeaders(params.orderCustomData),
+      ...buildCustomerTokenHeader(params.customerToken),
     },
     params: {
       ...(params.with

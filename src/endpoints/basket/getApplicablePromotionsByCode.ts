@@ -1,7 +1,7 @@
 import type { BasketResponseData, BasketWith } from './getBasket'
 import { basketWithQueryParameter } from './getBasket'
 import type { StorefrontAPICall } from '../../helpers/execute'
-import { buildOrderCustomDataHeaders } from './utils'
+import { buildCustomerTokenHeader, buildOrderCustomDataHeaders } from './utils'
 
 export interface GetApplicablePromotionsByCodeParameters {
   basketKey: string
@@ -11,6 +11,8 @@ export interface GetApplicablePromotionsByCodeParameters {
   pricePromotionKey?: string
   includeItemsWithoutProductData?: boolean
   orderCustomData?: Record<string, unknown>
+  /** Optional customer token to be used for the request and will be sent as `X-Customer-Token` header */
+  customerToken?: string
 }
 
 /**
@@ -29,6 +31,7 @@ export function getApplicablePromotionsByCodeRequest(
     endpoint: `/v1/baskets/${params.basketKey}/promotion-code`,
     headers: {
       ...buildOrderCustomDataHeaders(params.orderCustomData),
+      ...buildCustomerTokenHeader(params.customerToken),
     },
     params: {
       ...(params.with

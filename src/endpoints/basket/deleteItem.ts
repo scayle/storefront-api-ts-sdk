@@ -4,7 +4,7 @@ import type {
 } from '../../endpoints/basket/getBasket'
 import { basketWithQueryParameter } from '../../endpoints/basket/getBasket'
 import type { StorefrontAPICall } from '../../helpers/execute'
-import { buildOrderCustomDataHeaders } from './utils'
+import { buildCustomerTokenHeader, buildOrderCustomDataHeaders } from './utils'
 
 export interface DeleteItemParameters {
   basketKey: string
@@ -17,6 +17,8 @@ export interface DeleteItemParameters {
   includeItemsWithoutProductData?: boolean
 
   orderCustomData?: Record<string, unknown>
+  /** Optional customer token to be used for the request and will be sent as `X-Customer-Token` header */
+  customerToken?: string
 }
 
 export function deleteBasketItemRequest(
@@ -27,6 +29,7 @@ export function deleteBasketItemRequest(
     endpoint: `/v1/baskets/${params.basketKey}/items/${params.itemKey}`,
     headers: {
       ...buildOrderCustomDataHeaders(params.orderCustomData),
+      ...buildCustomerTokenHeader(params.customerToken),
     },
     params: {
       ...(params.with
