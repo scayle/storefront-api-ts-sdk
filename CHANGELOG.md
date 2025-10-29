@@ -1,5 +1,15 @@
 # @scayle/storefront-api
 
+## 18.18.0
+
+### Minor Changes
+
+- Extended all basket endpoint method signatures to include an `customerToken` parameter, which is forwarded to the SAPI client as the `X-Customer-Token` header for promotion validation purposes.
+
+### Patch Changes
+
+- Cleaned up README.md and added CONTRIBUTING.md. No functional changes.
+
 ## 18.17.0
 
 ### Minor Changes
