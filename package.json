@@ -90,7 +90,7 @@
     "rimraf": "6.0.1",
     "typescript": "5.9.3",
     "unbuild": "3.6.1",
-    "vitest": "3.2.4"
+    "vitest": "catalog:"
   },
   "scripts": {
     "clean": "rimraf ./dist",
