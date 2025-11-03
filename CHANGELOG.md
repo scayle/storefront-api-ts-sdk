@@ -1,5 +1,27 @@
 # @scayle/storefront-api
 
+## 18.18.1
+
+### Patch Changes
+
+- Export `SmartSortingKey` constant containing all predefined smart sorting keys for intelligent product sorting. Smart sorting keys provide advanced sorting algorithms that consider multiple factors like discounts, inventory levels, sales performance, and recency to optimize product listings.
+
+  Available keys:
+
+  - `SmartSortingKey.SALES_PUSH` - Promotes items with highest discounts and oldest inventory
+  - `SmartSortingKey.NEW_ARRIVALS` - Prioritizes recently added products with good availability
+  - `SmartSortingKey.BALANCED_OFFERINGS` - Balances recency, availability, discounts, and sales data
+  - `SmartSortingKey.INVENTORY_OPTIMIZATION` - Optimizes inventory turnover for high stock products
+  - `SmartSortingKey.LUXURY_PROMOTION` - Highlights high-value luxury items with discounts
+  - `SmartSortingKey.STOCK_COVERAGE` - Ensures broad variant availability across products
+  - `SmartSortingKey.TOPSELLER` - Prioritizes products with strong sales performance
+  - `SmartSortingKey.REVENUE_MAX` - Maximizes revenue by prioritizing high revenue products
+  - `SmartSortingKey.RECENTLY_POPULAR` - Favors products with high recent sales performance
+
+  These keys can be used with the `sortingKey` parameter in product queries and are intended to be used with descending sort order to return most relevant results first.
+
+  For further information on smart product sorting and how to use smart sorting keys, visit: https://scayle.dev/en/core-documentation/the-basics/products/product-sorting
+
 ## 18.18.0
 
 ### Minor Changes
