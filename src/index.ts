@@ -108,6 +108,12 @@ export {
    * @deprecated - will be removed in the next major version. Please switch to CampaignStandardSorting.
    */
   CampaignStandardSorting as CampaignSortOption,
+  /**
+   * A set of predefined sorting keys based on frequently needed features of many SCAYLE customers.
+   *
+   * @see https://scayle.dev/en/core-documentation/the-basics/products/product-sorting#smart-sorting
+   */
+  SmartSortingKey,
 } from './types/Sorting'
 
 // Products
