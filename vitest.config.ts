@@ -6,6 +6,7 @@ export default defineConfig({
     globals: true,
     coverage: {
       provider: 'v8',
+      include: ['src/**/*.{ts,js,mjs}'],
       exclude: [...(configDefaults.coverage.exclude || []), './src/test/**'],
       reporter: ['text', 'cobertura'],
       reportsDirectory: 'coverage',
