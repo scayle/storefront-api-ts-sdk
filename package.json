@@ -87,7 +87,7 @@
     "fishery": "2.3.1",
     "nock": "14.0.10",
     "publint": "0.3.15",
-    "rimraf": "6.1.0",
+    "rimraf": "6.1.2",
     "typescript": "5.9.3",
     "unbuild": "3.6.1",
     "vitest": "catalog:"
