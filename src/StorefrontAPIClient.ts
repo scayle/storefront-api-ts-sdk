@@ -221,6 +221,17 @@ type UpdateBasketItemResponse<P = Product, V = Variant> =
     basket: BasketResponseData<P, V>
   }
 
+type RemoveBasketItemResponse<P = Product, V = Variant> =
+  | BasketResponseData<P, V>
+  | {
+    code: number
+    message: string
+    details?: Array<{
+      field: string
+      description: string
+    }>
+  }
+
 export type BasketResponse<P = Product, V = Variant> =
   | {
     type: 'success'
@@ -700,7 +711,7 @@ export class StorefrontAPIClient {
       basketKey: string,
       itemKey: string,
       params: Omit<DeleteItemParameters, 'basketKey' | 'itemKey'> = {},
-    ): Promise<BasketResponseData> =>
+    ): Promise<RemoveBasketItemResponse> =>
       this.execute(
         deleteBasketItemRequest({
           ...params,
