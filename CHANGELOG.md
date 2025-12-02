@@ -1,5 +1,23 @@
 # @scayle/storefront-api
 
+## 18.19.0
+
+### Minor Changes
+
+- Changed the type of `StorefrontAPIClient.basket.deleteItem` to accurately reflect that error responses can be returned (these error responses were already being returned before; only the type was updated).
+
+  ```ts
+  const result = await client.basket.deleteItem(basketKey, itemKey)
+  // After the update, working with the result is now type safe
+  if ('code' in result) {
+    // Handle error case
+    console.error('Failed to remove item:', result.message)
+  } else {
+    // Handle successful basket update
+    console.log('Updated basket:', result)
+  }
+  ```
+
 ## 18.18.1
 
 ### Patch Changes
