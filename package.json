@@ -86,7 +86,7 @@
     "eslint-formatter-gitlab": "7.0.1",
     "fishery": "2.4.0",
     "nock": "14.0.10",
-    "publint": "0.3.15",
+    "publint": "0.3.16",
     "rimraf": "6.1.2",
     "typescript": "5.9.3",
     "unbuild": "3.6.1",
