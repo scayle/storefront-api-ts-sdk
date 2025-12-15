@@ -1,5 +1,38 @@
 # @scayle/storefront-api
 
+## 18.20.0
+
+### Minor Changes
+
+- **\[Navigation\]** Added Navigation V2 API client methods and types to support the new reference key-based navigation system.
+
+  The `StorefrontAPIClient` now includes a `navigationv2` property with two methods:
+
+  - `navigationv2.getAll()` - Fetches all navigation trees from the `/v2/navigations` endpoint:
+    ```ts
+    const { data: navigationTree } = await sapiClient.navigationv2.getAll({
+      with: { category: true },
+    })
+    ```
+  - `navigationv2.getByReferenceKey(referenceKey)` - Fetches a specific navigation tree by its reference key from the `/v2/navigations/{referenceKey}` endpoint:
+    ```ts
+    const { data: navigationTree } = await sapiClient.navigationv2
+      .getByReferenceKey({
+        referenceKey: 'header',
+        with: { category: true },
+      })
+    ```
+
+  Both methods support optional parameters for filtering by visibility date and including category information. The Navigation V2 API uses reference keys instead of numeric IDs, making it easier to reference navigation trees by meaningful identifiers.
+
+  New TypeScript types have been added and exported:
+
+  - `NavigationV2Tree` - The navigation tree structure with reference key
+  - `NavigationV2Items` - Union type for navigation items supporting three target types: `individual-link`, `category`, and `page`
+  - `NavigationV2ItemExternal`, `NavigationV2ItemCategory`, `NavigationV2ItemPage` - Specific item types
+  - `GetNavigationV2Parameters` - Parameters for navigation requests
+  - `NavigationV2AllEndpointResponseData` and `NavigationV2ByReferenceEndpointResponseData` - Response types
+
 ## 18.19.0
 
 ### Minor Changes
