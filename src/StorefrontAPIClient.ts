@@ -161,6 +161,16 @@ import type {
 import {
   createNavigationByIdEndpointRequest,
 } from './endpoints/navigation/navigationById'
+import {
+  createNavigationV2AllEndpointRequest,
+} from './endpoints/navigationv2/navigation'
+import type { NavigationV2AllEndpointResponseData } from './endpoints/navigationv2/navigation'
+import type {
+  NavigationV2ByReferenceEndpointResponseData,
+} from './endpoints/navigationv2/navigationByReference'
+import {
+  createNavigationV2ByReferenceEndpointRequest,
+} from './endpoints/navigationv2/navigationByReference'
 import type {
   GetNavigationParameters,
   NavigationAllEndpointResponseData,
@@ -1100,6 +1110,21 @@ export class StorefrontAPIClient {
       parameters: GetNavigationParameters = {},
     ): Promise<NavigationAllEndpointResponseData> => {
       return this.execute(createNavigationAllEndpointRequest(parameters))
+    },
+  }
+
+  public readonly navigationv2 = {
+    getAll: (
+      parameters: GetNavigationV2Parameters = {},
+    ): Promise<NavigationV2AllEndpointResponseData> => {
+      return this.execute(createNavigationV2AllEndpointRequest(parameters))
+    },
+    getByReferenceKey: (
+      parameters: GetNavigationV2ByReferenceKeyParams,
+    ): Promise<NavigationV2ByReferenceEndpointResponseData> => {
+      return this.execute(
+        createNavigationV2ByReferenceEndpointRequest(parameters),
+      )
     },
   }
 

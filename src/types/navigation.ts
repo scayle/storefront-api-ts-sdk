@@ -2,13 +2,13 @@ import type { RFC33339Date } from '../types/Product'
 import type { Category } from './Category'
 import type { CategoryFilter } from './Search'
 
-export interface NavigationItem {
+export interface NavigationItem<Items = NavigationItems | NavigationV2Items> {
   id: number
   name: string
   assets: { [key: string]: string }
   visibleFrom: RFC33339Date | null
   visibleTo: RFC33339Date | null
-  children: NavigationItems
+  children: Items
   customData?: Record<string, unknown>
 }
 
@@ -18,7 +18,7 @@ export interface NavigationItem {
 type External = 'external'
 type IndividualLink = 'individual-link'
 
-export type NavigationItemExternal = NavigationItem & {
+export type NavigationItemExternal = NavigationItem<NavigationItems> & {
   type: External | IndividualLink
   options: {
     url: string
@@ -40,7 +40,7 @@ export type NavigationItemAttributeExtraFilter = NavigationItemExtraFilter & {
   }
 }
 
-export type NavigationItemCategory = NavigationItem & {
+export type NavigationItemCategory = NavigationItem<NavigationItems> & {
   type: 'category'
   /**
    * @deprecated the extra filters are replaced by the new `filters` property which is aligned with the Search V2 filter representation.
@@ -55,7 +55,7 @@ export type NavigationItemCategory = NavigationItem & {
   filters: CategoryFilter[]
 }
 
-export type NavigationItemPage = NavigationItem & {
+export type NavigationItemPage = NavigationItem<NavigationItems> & {
   type: 'page'
   page: string
 }
@@ -71,4 +71,41 @@ export interface NavigationTree {
   key: string
   name: string
   items: NavigationItems
+}
+
+export type NavigationV2ItemExternal = NavigationItem<NavigationV2Items> & {
+  target: 'individual-link'
+  linkTarget: {
+    url: string
+    openInNewWindow: boolean
+  }
+}
+
+export type NavigationV2ItemCategory = NavigationItem<NavigationV2Items> & {
+  target: 'category'
+  categoryTarget?: {
+    categoryId: number
+    filters: CategoryFilter[]
+    category?: Category | null
+  }
+}
+
+export type NavigationV2ItemPage = NavigationItem<NavigationV2Items> & {
+  target: 'page'
+  pageTarget: {
+    page: string
+  }
+}
+
+export type NavigationV2Items = (
+  | NavigationV2ItemExternal
+  | NavigationV2ItemCategory
+  | NavigationV2ItemPage
+)[]
+
+export interface NavigationV2Tree {
+  id: number
+  referenceKey: string
+  name: string
+  items: NavigationV2Items
 }

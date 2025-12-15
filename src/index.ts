@@ -170,6 +170,14 @@ export type {
   NavigationAllEndpointResponseData,
   GetNavigationParameters,
 } from './endpoints/navigation/navigation'
+export type {
+  NavigationV2AllEndpointResponseData,
+  GetNavigationV2Parameters,
+} from './endpoints/navigationv2/navigation'
+export type {
+  NavigationV2ByReferenceEndpointResponseData,
+  GetNavigationV2ByReferenceKeyParams,
+} from './endpoints/navigationv2/navigationByReference'
 export type { NavigationByIdEndpointResponseData } from './endpoints/navigation/navigationById'
 export type {
   NavigationTree,
@@ -178,6 +186,11 @@ export type {
   NavigationItems,
   NavigationItemPage,
   NavigationItemExternal,
+  NavigationV2Tree,
+  NavigationV2ItemCategory,
+  NavigationV2Items,
+  NavigationV2ItemPage,
+  NavigationV2ItemExternal,
 } from './types/navigation'
 
 // Filters
