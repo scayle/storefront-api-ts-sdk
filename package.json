@@ -82,7 +82,7 @@
     "@types/node": "22.19.3",
     "@vitest/coverage-v8": "catalog:",
     "dprint": "0.50.2",
-    "eslint": "9.39.1",
+    "eslint": "9.39.2",
     "eslint-formatter-gitlab": "7.0.1",
     "fishery": "2.4.0",
     "nock": "14.0.10",
