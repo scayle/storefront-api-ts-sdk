@@ -79,7 +79,7 @@
     "@arethetypeswrong/cli": "0.18.2",
     "@scayle/eslint-config-storefront": "workspace:*",
     "@scayle/vitest-config-storefront": "workspace:*",
-    "@types/node": "22.19.2",
+    "@types/node": "22.19.3",
     "@vitest/coverage-v8": "catalog:",
     "dprint": "0.50.2",
     "eslint": "9.39.1",
