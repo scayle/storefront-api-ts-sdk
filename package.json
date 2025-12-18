@@ -76,20 +76,20 @@
     "fishery": "^2.2.3"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "0.18.2",
+    "@arethetypeswrong/cli": "catalog:",
     "@scayle/eslint-config-storefront": "workspace:*",
     "@scayle/vitest-config-storefront": "workspace:*",
-    "@types/node": "22.19.3",
+    "@types/node": "catalog:",
     "@vitest/coverage-v8": "catalog:",
-    "dprint": "0.50.2",
-    "eslint": "9.39.2",
-    "eslint-formatter-gitlab": "7.0.1",
-    "fishery": "2.4.0",
+    "dprint": "catalog:",
+    "eslint": "catalog:",
+    "eslint-formatter-gitlab": "catalog:",
+    "fishery": "catalog:",
     "nock": "14.0.10",
-    "publint": "0.3.16",
-    "rimraf": "6.1.2",
-    "typescript": "5.9.3",
-    "unbuild": "3.6.1",
+    "publint": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:",
     "vitest": "catalog:"
   },
   "scripts": {
@@ -108,6 +108,6 @@
     "test:ci": "vitest --run --coverage --reporter=default --reporter=junit --outputFile=./coverage/junit.xml"
   },
   "dependencies": {
-    "utility-types": "3.11.0"
+    "utility-types": "catalog:"
   }
 }
