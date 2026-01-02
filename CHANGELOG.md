@@ -1,5 +1,12 @@
 # @scayle/storefront-api
 
+## 18.20.1
+
+### Patch Changes
+
+- Updated dependency `utility-types@3.11.0` to `utility-types@catalog:`
+- This is an internal change only. The packages now use the PNPM catalog feature to ensure dependencies use the identical version across packages.
+
 ## 18.20.0
 
 ### Minor Changes
