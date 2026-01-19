@@ -13,8 +13,8 @@ export interface GetNavigationV2ByReferenceKeyParams
 /**
  * Creates a request configuration for fetching a specific navigation tree by reference key.
  *
- * @param referenceKey - The reference key of the navigation tree to fetch
  * @param parameters - The parameters for the navigation request
+ * @param parameters.referenceKey - The reference key of the navigation tree to fetch
  * @param parameters.with - Additional data to include in the response
  * @param parameters.with.category - Whether to include category information in the navigation tree response
  * @param parameters.visibleAt - ISO timestamp to filter navigation items that should be visible at the specified date and time
