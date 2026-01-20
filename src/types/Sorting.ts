@@ -79,6 +79,12 @@ export const SmartSortingKey = {
    * @see https://scayle.dev/en/core-documentation/the-basics/products/product-sorting?sourceText=Recently%2520Popular#recently-popular
    */
   RECENTLY_POPULAR: 'scayle:v1:recently-popular',
+  /**
+   * Favors products that are currently trending
+   *
+   * @see https://scayle.dev/en/core-documentation/the-basics/products/product-sorting?sourceText=Trending#trending
+   */
+  TRENDING: 'scayle:v1:trending',
 } as const
 // eslint-disable-next-line ts/no-redeclare -- intentionally naming the variable the same as the type
 export type SmartSortingKey = ValuesType<typeof SmartSortingKey>
