@@ -1,5 +1,55 @@
 # @scayle/storefront-api
 
+## 18.21.0
+
+### Minor Changes
+
+- Added `SmartSortingKey.TRENDING` constant to support trending product sorting.
+
+  The new `TRENDING` smart sorting key (`scayle:v1:trending`) favors products that are currently trending, enabling storefronts to highlight products with high recent engagement or popularity. This key can be used with the `sortingKey` parameter in product queries and is intended to be used with descending sort order to return most relevant results first.
+
+  For further information on smart product sorting and how to use smart sorting keys, visit: https://scayle.dev/documentation/the-basics/products/sorting?sourceText=Trending#trending
+
+- Added recommendations API client method to fetch similar products for a given product.
+
+  The `StorefrontAPIClient` now includes a `recommendations` property with a `getSimilarProducts` method:
+
+  ```ts
+  const similarProducts = await sapiClient.recommendations.getSimilarProducts(
+    123,
+    {
+      with: { attributes: 'all', images: { attributes: 'all' } },
+      limit: 10,
+      where: {
+        attributes: [
+          {
+            type: 'attributes',
+            key: 'brand',
+            values: [456],
+          },
+        ],
+      },
+      campaignKey: 'summer-sale',
+      pricePromotionKey: 'member-discount',
+      ignoreSameMasterKey: true,
+    },
+  )
+  ```
+
+  The method accepts a `productId` as the first parameter and returns products similar to the product of the specified `productId`, along with optional configuration parameters including:
+
+  - `with` - Product data to include (attributes, images, etc.)
+  - `limit` - Maximum number of recommendations to return
+  - `where` - Product search filters to apply
+  - `campaignKey` - Campaign key for promotion validation
+  - `pricePromotionKey` - Price promotion key for pricing
+  - `ignoreSameMasterKey` - Whether to exclude products with the same master key
+
+  New TypeScript types have been added and exported:
+
+  - `SimilarProductsEndpointParameters` - Parameters for similar products requests
+  - `SimilarProductsEndpointResponseData` - Response type containing recommendations with products and image confidence scores
+
 ## 18.20.1
 
 ### Patch Changes
