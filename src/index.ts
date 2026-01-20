@@ -241,6 +241,11 @@ export type {
 } from './endpoints/redirects/redirects'
 
 export type {
+  SimilarProductsEndpointParameters,
+  SimilarProductsEndpointResponseData,
+} from './endpoints/recommendations/similar'
+
+export type {
   VariantDetail,
   VariantsByIdsEndpointParameters,
   VariantsByIdsEndpointResponseData,

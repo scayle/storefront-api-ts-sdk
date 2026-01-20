@@ -199,6 +199,13 @@ import type {
 import {
   createSearchV2ResolveEndpointRequest,
 } from './endpoints/searchv2/resolve'
+import type {
+  SimilarProductsEndpointParameters,
+} from './endpoints/recommendations/similar'
+import {
+  createSimilarProductsEndpointRequest,
+} from './endpoints/recommendations/similar'
+
 import { parseHost } from './helpers/host'
 import type { ShopConfiguration } from './types/ShopConfiguration'
 import type { Wishlist } from './types/Wishlist'
@@ -1140,6 +1147,18 @@ export class StorefrontAPIClient {
           ids,
         }),
       )
+    },
+  }
+
+  public readonly recommendations = {
+    getSimilarProducts: async (
+      productId: number,
+      params: Omit<SimilarProductsEndpointParameters, 'productId'> = {},
+    ): Promise<Product[]> => {
+      const response = await this.execute(
+        createSimilarProductsEndpointRequest({ ...params, productId }),
+      )
+      return (response.recommendations || []).map(({ product }) => product)
     },
   }
 }
