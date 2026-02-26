@@ -1,5 +1,27 @@
 # @scayle/storefront-api
 
+## 18.22.0
+
+### Minor Changes
+
+- Mapped basket item update status codes to a typed failure result instead of throwing `FetchError`. Non-200 responses now return an object with `type: 'failure'`, `statusCode`, `kind`, and `basket` so callers can handle known cases (e.g. item unavailable, max count) without try/catch.
+
+  Example: checking the return value for a failure with a specific kind:
+
+  ```ts
+  const result = await client.basket.updateItem(basketKey, itemKey, quantity)
+  console.log(result)
+  // On failure (e.g. 412 item unavailable):
+  // {
+  //   type: 'failure',
+  //   statusCode: 412,
+  //   kind: 'ItemUnavailable',
+  //   basket: { ... }
+  // }
+  ```
+
+  > Note: You still need to use try/catch for cases like network failures or unknown HTTP status codes.
+
 ## 18.21.0
 
 ### Minor Changes
