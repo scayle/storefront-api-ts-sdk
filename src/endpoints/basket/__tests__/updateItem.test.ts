@@ -1,3 +1,4 @@
+import { expect, it } from 'vitest'
 import { updateBasketItemQuantityRequest } from '../updateItem'
 
 it('builds corrects query', () => {
@@ -7,17 +8,24 @@ it('builds corrects query', () => {
       itemKey: 'item_5',
       quantity: 10,
     }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "quantity": 10,
-  },
-  "endpoint": "/v1/baskets/basket_1/items/item_5",
-  "headers": {},
-  "method": "PATCH",
-  "params": {},
-}
-`)
+  ).toEqual(
+    {
+      'data': {
+        'quantity': 10,
+      },
+      'endpoint': '/v1/baskets/basket_1/items/item_5',
+      'headers': {},
+      'method': 'PATCH',
+      'params': {},
+      'successfulResponseCodes': [
+        200,
+        206,
+        404,
+        412,
+        413,
+      ],
+    },
+  )
 
   expect(
     updateBasketItemQuantityRequest({
@@ -34,19 +42,27 @@ it('builds corrects query', () => {
         },
       },
     }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "quantity": 10,
-  },
-  "endpoint": "/v1/baskets/basket_1/items/item_5",
-  "headers": {},
-  "method": "PATCH",
-  "params": {
-    "with": "items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes",
-  },
-}
-`)
+  ).toEqual(
+    {
+      'data': {
+        'quantity': 10,
+      },
+      'endpoint': '/v1/baskets/basket_1/items/item_5',
+      'headers': {},
+      'method': 'PATCH',
+      'params': {
+        'with':
+          'items.product.attributes,items.product.advancedAttributes,items.product.images.attributes:legacy(false),items.variant.attributes,items.variant.advancedAttributes',
+      },
+      'successfulResponseCodes': [
+        200,
+        206,
+        404,
+        412,
+        413,
+      ],
+    },
+  )
 
   expect(
     updateBasketItemQuantityRequest({
@@ -55,19 +71,26 @@ it('builds corrects query', () => {
       quantity: 10,
       campaignKey: 'px',
     }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "quantity": 10,
-  },
-  "endpoint": "/v1/baskets/basket_1/items/item_5",
-  "headers": {},
-  "method": "PATCH",
-  "params": {
-    "campaignKey": "px",
-  },
-}
-`)
+  ).toEqual(
+    {
+      'data': {
+        'quantity': 10,
+      },
+      'endpoint': '/v1/baskets/basket_1/items/item_5',
+      'headers': {},
+      'method': 'PATCH',
+      'params': {
+        'campaignKey': 'px',
+      },
+      'successfulResponseCodes': [
+        200,
+        206,
+        404,
+        412,
+        413,
+      ],
+    },
+  )
 
   expect(
     updateBasketItemQuantityRequest({
@@ -76,18 +99,25 @@ it('builds corrects query', () => {
       quantity: 10,
       promotionId: null,
     }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "promotionId": null,
-    "quantity": 10,
-  },
-  "endpoint": "/v1/baskets/basket_1/items/item_5",
-  "headers": {},
-  "method": "PATCH",
-  "params": {},
-}
-`)
+  ).toEqual(
+    {
+      'data': {
+        'promotionId': null,
+        'quantity': 10,
+      },
+      'endpoint': '/v1/baskets/basket_1/items/item_5',
+      'headers': {},
+      'method': 'PATCH',
+      'params': {},
+      'successfulResponseCodes': [
+        200,
+        206,
+        404,
+        412,
+        413,
+      ],
+    },
+  )
 
   expect(
     updateBasketItemQuantityRequest({
@@ -96,18 +126,25 @@ it('builds corrects query', () => {
       quantity: 10,
       promotionId: 'abc',
     }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "promotionId": "abc",
-    "quantity": 10,
-  },
-  "endpoint": "/v1/baskets/basket_1/items/item_5",
-  "headers": {},
-  "method": "PATCH",
-  "params": {},
-}
-`)
+  ).toEqual(
+    {
+      'data': {
+        'promotionId': 'abc',
+        'quantity': 10,
+      },
+      'endpoint': '/v1/baskets/basket_1/items/item_5',
+      'headers': {},
+      'method': 'PATCH',
+      'params': {},
+      'successfulResponseCodes': [
+        200,
+        206,
+        404,
+        412,
+        413,
+      ],
+    },
+  )
 
   expect(
     updateBasketItemQuantityRequest({
@@ -118,17 +155,24 @@ it('builds corrects query', () => {
         groups: ['isNew'],
       },
     }),
-  ).toMatchInlineSnapshot(`
-{
-  "data": {
-    "quantity": 10,
-  },
-  "endpoint": "/v1/baskets/basket_1/items/item_5",
-  "headers": {
-    "X-Order-Custom-Data": "eyJncm91cHMiOlsiaXNOZXciXX0=",
-  },
-  "method": "PATCH",
-  "params": {},
-}
-`)
+  ).toEqual(
+    {
+      'data': {
+        'quantity': 10,
+      },
+      'endpoint': '/v1/baskets/basket_1/items/item_5',
+      'headers': {
+        'X-Order-Custom-Data': 'eyJncm91cHMiOlsiaXNOZXciXX0=',
+      },
+      'method': 'PATCH',
+      'params': {},
+      'successfulResponseCodes': [
+        200,
+        206,
+        404,
+        412,
+        413,
+      ],
+    },
+  )
 })

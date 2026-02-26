@@ -362,6 +362,7 @@ export const UpdateBasketItemFailureKind = {
   ITEM_UNAVAILABLE: 'ItemUnavailable',
   BASKET_ITEM_NOT_FOUND: 'BasketItemNotFound',
   ITEM_ADDED_WITH_REDUCED_QUANTITY: 'ItemAddedWithReducedQuantity',
+  MAXIMUM_ITEM_COUNT_REACHED: 'MaximumItemCountReached',
   UNKNOWN: 'Unknown',
 } as const
 // eslint-disable-next-line ts/no-redeclare -- intentionally naming the variable the same as the type
@@ -381,6 +382,9 @@ function updateBasketItemFailureKindFromStatusCode(
 
     case 412:
       return UpdateBasketItemFailureKind.ITEM_UNAVAILABLE
+
+    case 413:
+      return UpdateBasketItemFailureKind.MAXIMUM_ITEM_COUNT_REACHED
 
     default:
       return UpdateBasketItemFailureKind.UNKNOWN

@@ -48,6 +48,7 @@ export function updateBasketItemQuantityRequest(
   return {
     method: 'PATCH',
     endpoint: `/v1/baskets/${params.basketKey}/items/${params.itemKey}`,
+    successfulResponseCodes: [200, 206, 404, 412, 413],
     headers: {
       ...buildOrderCustomDataHeaders(params.orderCustomData),
       ...buildCustomerTokenHeader(params.customerToken),
