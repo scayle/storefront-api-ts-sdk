@@ -85,7 +85,7 @@
     "eslint": "catalog:",
     "eslint-formatter-gitlab": "catalog:",
     "fishery": "catalog:",
-    "nock": "14.0.11",
+    "nock": "14.0.12",
     "publint": "catalog:",
     "rimraf": "catalog:",
     "typescript": "catalog:",
