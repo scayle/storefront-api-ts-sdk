@@ -1,5 +1,13 @@
 # @scayle/storefront-api
 
+## 19.0.0
+
+### Major Changes
+
+- All packages now require Node.js 22 or later, in line with the current Node.js LTS release schedule. See the [Node.js release schedule](https://nodejs.org/en/about/previous-releases#release-schedule) for details.
+
+  If your project is still running an older Node.js version, now is a good time to upgrade to Node.js 22 at minimum, or ideally Node.js 24, for the latest security patches and stability improvements.
+
 ## 18.22.0
 
 ### Minor Changes
